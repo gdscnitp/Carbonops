@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 import { isEmail,isStrongPassword,isURL} from 'validator';
+import bcrypt from 'bcryptjs'
+const SALT_WORK_FACTOR = 10;
 
 const individualSchema = new Schema({
     name:{
@@ -85,6 +87,18 @@ const individualSchema = new Schema({
 },{
     timestamps:true
 })
+
+individualSchema.pre('save', async function save(next) {
+    if (!this.isModified('password')) return next();
+    try {
+      const salt = await bcrypt.genSalt(SALT_WORK_FACTOR);
+      this.password = await bcrypt.hash(this.password, salt);
+      return next();
+    } catch (err) {
+      return next(err);
+    }
+});
+
 
 
 export default mongoose.models.inidividual || mongoose.model('individual',individualSchema)

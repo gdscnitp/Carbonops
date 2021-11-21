@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "mongoose": "^6.0.13",
     "next": "12.0.3",
     "react": "17.0.2",

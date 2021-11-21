@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 import { isEmail,isStrongPassword,isURL} from 'validator';
+import bcrypt from 'bcryptjs'
+const SALT_WORK_FACTOR = 10;
 
 const organisationSchema = new Schema({
     organisationId:{
@@ -90,5 +92,19 @@ const organisationSchema = new Schema({
 },{
     timestamps:true
 })
+
+organisationSchema.pre('save', async function save(next) {
+    if (!this.isModified('password')) return next();
+    try {
+      const salt = await bcrypt.genSalt(SALT_WORK_FACTOR);
+      this.password = await bcrypt.hash(this.password, salt);
+      return next();
+    } catch (err) {
+      return next(err);
+    }
+});
+
+
+
 
 export default mongoose.models.organisation || mongoose.model('organisation',organisationSchema)
