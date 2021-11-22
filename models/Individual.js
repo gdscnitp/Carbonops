@@ -70,11 +70,17 @@ const individualSchema = new Schema({
         required: true,
         trim: true,
     },
-    socialMedia:{
+    linkedin:{
         type: String,
         required: true,
         trim: true,
-        validate: [ isURL, 'Invalid Url' ]
+        validate: [ isURL, 'Invalid Linkedin Url' ]
+    },
+    facebook:{
+        type: String,
+        required: true,
+        trim: true,
+        validate: [ isURL, 'Invalid Facebook Url' ]
     },
     
     profileImage:{

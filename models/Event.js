@@ -69,8 +69,13 @@ const eventSchema = new Schema({
     },
     organiserId:{
         type: ObjectId,
-        ref: 'organisation'
+        refPath: 'onOrgModel'
     },
+    onOrgModel:{
+        type: String,
+        required: true,
+        enum: ['individual','organisation']
+    }
 
 },{
     timestamps:true

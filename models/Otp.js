@@ -13,7 +13,7 @@ const otpSchema = new Schema({
         type:Number,
         required:true,
     },
-    isOffline:{
+    isUsed:{
         type:Boolean,
         required:true,
         default:false
