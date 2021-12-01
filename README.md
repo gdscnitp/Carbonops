@@ -48,6 +48,8 @@ All
 
 **Client && Server**: Next.JS
 
+**Database**: MongoDB
+
 **Future needs**: Cloud to deploy the website.
 
 
