@@ -9,7 +9,7 @@ function initDB(){
     }
     mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/envappDB",{
         useNewUrlParser:true
-    })
+    })//add initial connection error handling code.
 
     mongoose.connection.on('connected', ()=>console.log('connected to Mongo DB'))
     mongoose.connection.on('error', (err)=>console.log(err))
