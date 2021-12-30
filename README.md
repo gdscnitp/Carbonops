@@ -20,6 +20,7 @@ The site will have two portals:
 - Giving users the ability to monitor their carbon footprint progress. Questionnaires to determine a user’s personal and unique carbon score to understand how much CO2 they are producing.
 - A social media sharing option can allow users to post their carbon scores.
 - People can participate in/ host Monthly/ Weekly go green challenges and see who can go most sustainable. They can also win awards and badges.
+
 **2.) Eco-friendly startups**
 - An interface where people/organisations can buy raw materials or products directly from the startups.
 - People can donate/sell the waste products directly to eco-friendly startups utilizing those specific materials.
