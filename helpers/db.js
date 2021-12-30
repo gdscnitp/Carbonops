@@ -7,12 +7,53 @@ function initDB(){
         console.log('Already connceted')
         return
     }
-    mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/envappDB",{
-        useNewUrlParser:true
-    })//add initial connection error handling code.
+  
+    //initial connection error handling
+    mongoose.connection.on('error', function (err){
+        console.trace("Mongodb connection failed❌",err);
 
-    mongoose.connection.on('connected', ()=>console.log('connected to Mongo DB'))
-    mongoose.connection.on('error', (err)=>console.log(err))
+        if (connectionAttempt == config.DB_CONNECTION_RETTEMPT_LIMIT_NODE){
+            console.log("REATTEMPT LIMIT REACHED/!");             
+        }else{
+            connectionAttempt++;
+            connectMongoDb();
+        }
+    });
+
+    mongoose.connection.on("connected",function(success){
+        console.log("Successfully opened mongodb connection👍");
+        connectionAttempt=0;
+    });
+
+    function connectMongoDb(){
+        console.log(config.MONGO_URL)
+        mongoose.connect(config.MONGO_URL,{
+            useUnifiedTopology: true,
+            useNewUrlParser: true,
+            useCreateIndex:true,
+            useFindAndModify:false,
+        },
+        (err)=> {
+            if (err){
+                logger.error({
+                    r: "mongodb",
+                    msg: "mongodb_connection_error",
+                    body:err,
+                });
+                console.log(err);
+                return;
+            }
+
+            logger.info({
+                r:"mongodb",
+                msg:"Database_successfully_connected",
+                body:"success",
+            });
+            console.log("Database successfully connected✅");
+            }
+        );
+
+    }
 
 }
 
