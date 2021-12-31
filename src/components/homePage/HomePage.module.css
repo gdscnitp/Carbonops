@@ -1,0 +1,334 @@
+.appMain {
+  margin: 0;
+  padding: 0;
+}
+
+.homePage {
+  background-color: #142424;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  height: 60vh;
+  /* margin: 2rem 0; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  grid-template-areas: "gridItemLeft gridItemRight";
+}
+.gridItemLeft {
+  padding: auto;
+  width: auto;
+  height: auto;
+  grid-area: gridItemLeft;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.gridItemRight {
+  width: auto;
+  height: auto;
+  grid-area: gridItemRight;
+  padding: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.homeLeft .topText {
+  color: aqua;
+}
+.homeLeft strong {
+  color: aqua;
+}
+
+.homeLeft .topText {
+  color: #fff;
+  font-size: 40px;
+}
+
+.homeLeft .topText strong {
+  color: aqua;
+}
+
+.homeLeft .bottomText {
+  color: #00bd57;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.button {
+  font-size: 15px;
+  color: white;
+  background-color: #00bd57;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 20px;
+  letter-spacing: 1px;
+  box-shadow: 2px 10px 50px 0px rgba(0, 255, 10, 0.25) inset;
+  box-shadow: 0px 4px 50px 0px rgba(0, 255, 240, 0.19);
+}
+
+.button:hover {
+  color: white;
+  box-shadow: inset 5px 3px 11px 10px rgba(7, 255, 0, 0.42);
+}
+
+/* CSS FOR OUR SERVICES PART */
+.ourServices {
+  margin-top: 0rem;
+  margin-bottom: 2rem;
+  width: 80%;
+  height: auto;
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+}
+.ourServices .container {
+  place-items: center;
+}
+.ourServices .gridItemLeft {
+  width: auto;
+}
+
+.ourServices .textHeading {
+  font-size: 35px;
+  text-align: center;
+}
+
+.ourServices .textHeading strong {
+  color: #00bd57;
+}
+
+.ourServices p {
+  width: 50%;
+  text-align: center;
+}
+
+/* CSS FOR THE CARBON GRAPH PART */
+.graphPart {
+  width: 80%;
+  margin: 2.5rem 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+}
+
+.graphPart .container .gridItemRight a {
+  font-size: 35px;
+}
+
+.graphPart .container .gridItemRight a strong {
+  color: #00bd57;
+}
+
+/* CSS FOR THE TOP 2 ORGANISATIONS PART */
+.topOrgs {
+  margin-top: 0rem;
+  margin-bottom: 2rem;
+  width: 80%;
+  height: auto;
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+}
+.topOrgs .container {
+  place-items: center;
+}
+.topOrgs .gridItemLeft {
+  width: auto;
+}
+
+.topOrgs .textHeading {
+  font-size: 35px;
+  text-align: center;
+}
+
+.topOrgs .textHeading strong {
+  color: #00bd57;
+}
+
+.topOrgs p {
+  width: 50%;
+  text-align: center;
+}
+
+/* MEDIA QUERIES FOR TABLETS */
+@media only screen and (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "gridItemLeft"
+      "gridItemRight";
+  }
+  .gridItemLeft {
+    width: 90%;
+  }
+  .gridItemRight {
+    width: 90%;
+  }
+
+  .ourServices {
+    margin-top: 15rem;
+  }
+  .ourServices .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "gridItemLeft gridItemRight";
+    height: auto;
+    flex-direction: row;
+  }
+  .ourServices .container .gridItemLeft,
+  .gridItemRight {
+    width: 80%;
+    height: 90%;
+  }
+  .ourServices p {
+    width: 100%;
+    text-align: center;
+  }
+
+  .graphPart {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+  .graphPart .container {
+    height: auto;
+  }
+
+  .graphPart .container .gridItemLeft {
+    width: 90%;
+  }
+
+  .topOrgs {
+    margin-top: 3rem;
+  }
+  .topOrgs .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "gridItemLeft gridItemRight";
+    height: auto;
+    flex-direction: row;
+  }
+  .topOrgs .container .gridItemLeft,
+  .gridItemRight {
+    width: 80%;
+    height: 90%;
+  }
+  .topOrgs p {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* MEDIA QUERIES FOR NOBILES */
+@media only screen and (max-width: 550px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "gridItemLeft"
+      "gridItemRight";
+    place-items: center;
+  }
+  .gridItemLeft {
+    width: 90%;
+  }
+  .gridItemRight {
+    width: 90%;
+  }
+
+  .homeLeft .topText {
+    font-size: 30px;
+  }
+
+  .homeLeft .bottomText {
+    font-size: 30px;
+  }
+  .ourServices {
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+  }
+  .ourServices .textHeading {
+    font-size: 25px;
+  }
+  .ourServices .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "gridItemLeft"
+      "gridItemRight";
+    height: 600px;
+    flex-direction: row;
+  }
+  .ourServices p {
+    width: 90%;
+    text-align: center;
+  }
+
+  .graphPart .container .gridItemRight a {
+    font-size: 25px;
+  }
+
+  .topOrgs {
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+  }
+  .topOrgs .textHeading {
+    font-size: 25px;
+  }
+  .topOrgs .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "gridItemLeft"
+      "gridItemRight";
+    height: 600px;
+    flex-direction: row;
+  }
+  .topOrgs p {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+/* ________ANIMATIONS__________ */
+
+.slideLeft {
+  animation-name: moveLeft;
+  animation-duration: 1s;
+}
+.slideRight {
+  animation-name: moveRight;
+  animation-duration: 1.3s;
+}
+
+@keyframes moveLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
