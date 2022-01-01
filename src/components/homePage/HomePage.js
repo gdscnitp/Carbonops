@@ -13,7 +13,7 @@ export default function Navbar() {
       <div className={styles.homePage}>
         <div className={styles.container}>
           <div className={`${styles.gridItemLeft} ${styles.homeLeft}`}>
-            <a className={styles.topText}>
+            <div className={styles.topText}>
               <div className={styles.slideLeft}>
                 A place to <strong> calculate </strong> <br />
               </div>
@@ -21,11 +21,12 @@ export default function Navbar() {
               <div className={styles.slideRight}>
                 and <strong> maintain </strong> your
               </div>
-            </a>
-            <a className={styles.bottomText}>Carbon Footprints</a>
+            </div>
+
+            <p className={styles.bottomText}>Carbon Footprints</p>
 
             <Link href="/">
-              <a className={styles.button}>Calculate now &rarr;</a>
+              <span className={styles.button}>Calculate now &rarr;</span>
             </Link>
           </div>
 
@@ -43,10 +44,10 @@ export default function Navbar() {
 
         {/* OUR SERVICES PART */}
         <div className={styles.ourServices}>
-          <a className={styles.textHeading}>
-            The awesome <strong> services </strong> we provide for the
-            individuals and <br /> for the startups to excel in their business.
-          </a>
+          <p className={styles.textHeading}>
+            The awesome <strong> services </strong> we provide for the individuals
+              <br /> and for the startups to excel in their business.
+          </p>
           <div className={styles.container}>
             <div className={styles.gridItemLeft}>
               <Image
@@ -57,7 +58,7 @@ export default function Navbar() {
                 height={150}
               />
               <br />
-              <p>
+              <p className={styles.serviceDescription}>
                 Lorem Ipsum and something that can look good here. Lorem Ipsum
                 and something that can look good here.
               </p>
@@ -72,7 +73,7 @@ export default function Navbar() {
                 height={150}
               />
               <br />
-              <p>
+              <p className={styles.serviceDescription}>
                 Lorem Ipsum and something that can look good here. Lorem Ipsum
                 and something that can look good here.
               </p>
@@ -82,7 +83,6 @@ export default function Navbar() {
         {/* ******************************************/}
 
         {/* THE GRAPH PART  */}
-
         <div className={styles.graphPart}>
           <div className={styles.container}>
             <div className={styles.gridItemLeft}>
@@ -91,22 +91,22 @@ export default function Navbar() {
                 placeholder="blur"
                 alt="Home Image"
                 width={500}
-                height={400}
+                height={350}
               />
             </div>
 
             <div className={styles.gridItemRight}>
-              <a href="/">
+              <p className={styles.graphHeading}>
                 The carbon <strong>graph</strong>
-              </a>{" "}
+              </p>
               <br />
-              <p>
+              <p className={styles.graphDescription}>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Similique rerum dolores quo tempore aliquid velit blanditiis
                 architecto, natus quae autem, voluptatum iure sapiente. Lorem
                 ipsum dolor sit amet consectetur adipisicing elit. Autem dolores
                 reiciendis odit impedit voluptatum deserunt officiis quod
-                molestiae porro! Esse?{" "}
+                molestiae porro! Esse?
               </p>
             </div>
           </div>
@@ -115,11 +115,11 @@ export default function Navbar() {
 
         {/* THE TOP ORGANISATIONS PART  */}
         <div className={styles.topOrgs}>
-          <a className={styles.textHeading}>
-            These are the featured top two <strong> organisations </strong>{" "}
+          <p className={styles.textHeading}>
+            These are the featured top two <strong> organisations </strong>
             <br />
             which performed best in the last contest.
-          </a>
+          </p>
           <div className={styles.container}>
             <div className={styles.gridItemLeft}>
               <Image

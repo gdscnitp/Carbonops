@@ -1,7 +1,3 @@
-.appMain {
-  margin: 0;
-  padding: 0;
-}
 
 .homePage {
   background-color: #142424;
@@ -50,6 +46,7 @@
 
 .homeLeft .topText {
   color: #fff;
+  margin: 0;
   font-size: 40px;
 }
 
@@ -58,6 +55,7 @@
 }
 
 .homeLeft .bottomText {
+  margin: 0;
   color: #00bd57;
   font-size: 40px;
   font-weight: bold;
@@ -76,6 +74,7 @@
 }
 
 .button:hover {
+  cursor: pointer;
   color: white;
   box-shadow: inset 5px 3px 11px 10px rgba(7, 255, 0, 0.42);
 }
@@ -106,8 +105,8 @@
   color: #00bd57;
 }
 
-.ourServices p {
-  width: 50%;
+.ourServices .serviceDescription {
+  width: 60%;
   text-align: center;
 }
 
@@ -121,11 +120,12 @@
   height: auto;
 }
 
-.graphPart .container .gridItemRight a {
+.graphPart .container .gridItemRight .graphHeading{
+  margin: 0;
   font-size: 35px;
 }
 
-.graphPart .container .gridItemRight a strong {
+.graphPart .container .gridItemRight .graphHeading strong {
   color: #00bd57;
 }
 
@@ -155,6 +155,10 @@
   color: #00bd57;
 }
 
+.topOrgs .textHeading {
+  width: 100%;
+  text-align: center;
+}
 .topOrgs p {
   width: 50%;
   text-align: center;
@@ -191,13 +195,14 @@
     width: 80%;
     height: 90%;
   }
-  .ourServices p {
+
+  .ourServices .serviceDescription {
     width: 100%;
     text-align: center;
   }
-
+  
   .graphPart {
-    margin-top: 1rem;
+    margin-top: 0rem;
     margin-bottom: 2rem;
   }
   .graphPart .container {
@@ -269,17 +274,18 @@
     height: 600px;
     flex-direction: row;
   }
-  .ourServices p {
-    width: 90%;
+
+  .ourServices .serviceDescription {
+    width: 100%;
     text-align: center;
   }
-
-  .graphPart .container .gridItemRight a {
+  
+  .graphPart .container .gridItemRight .graphHeading{
+    margin: 0;
     font-size: 25px;
   }
-
   .topOrgs {
-    margin-top: 5rem;
+    margin-top: 3rem;
     margin-bottom: 10rem;
   }
   .topOrgs .textHeading {
@@ -295,7 +301,7 @@
     flex-direction: row;
   }
   .topOrgs p {
-    width: 90%;
+    width: 100%;
     text-align: center;
   }
 }
