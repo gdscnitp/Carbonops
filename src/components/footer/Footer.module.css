@@ -1,0 +1,100 @@
+
+.container{
+    background-color: #173033;
+    color: white;
+    width: 100%;
+    height: 20vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    place-items: center;
+    grid-template-areas: 
+    "footerLogo footerAbout footerContact"
+    "TandC copyRights socialMedia"
+    ;
+  }
+
+  .footerLogo{
+    font-size: 40px;
+  grid-area: footerLogo;
+  }
+  
+  .footerAbout{
+    font-size: 20px;
+    font-weight: 500;
+    color: #00BD57;
+    grid-area: footerAbout;
+  }
+  
+  .footerContact{
+    font-size: 20px;
+    font-weight: 500;
+    color: #00BD57;
+    grid-area: footerContact;
+  }
+  
+  .TandC{
+    width: auto;
+    grid-area: TandC;
+  }
+  
+  .copyRights{
+    width: auto;
+    grid-area: copyRights;
+  }
+  
+  .socialMedia{
+    width: auto;
+    grid-area: socialMedia;
+    display: flex;
+  }
+  .socialIcons:hover{
+    cursor: pointer;
+  }
+
+
+/* MEDIA QUERIES FOR NOBILES */
+@media only screen and (max-width:550px) {
+    .container{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr; 
+    grid-template-areas: "footerLogo footerAbout"
+      "footerLogo footerContact"
+      "footerLogo socialMedia"
+      " TandC copyRights";
+      place-items: center;
+    }
+    .footerLogo{
+      grid-area: footerLogo;
+    font-size: 30px;
+      width: auto;
+    }
+    .footerAbout{
+      grid-area: footerAbout;
+      width: auto;
+    font-size: 15px;
+    }
+   .footerContact{
+    grid-area: footerContact;
+      width: auto;
+    font-size: 15px;
+    }
+
+    .TandC{
+    grid-area: TandC;
+      font-size: 12px;
+    }
+    
+    .copyRights{
+      grid-area: copyRights;
+      font-size: 12px;
+    }
+    .socialMedia{
+    grid-area: socialMedia;
+    
+    }
+    .socialIcons{
+      width: 25px;
+    }
+  }
+  
