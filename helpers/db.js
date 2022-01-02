@@ -35,20 +35,20 @@ function initDB(){
         },
         (err)=> {
             if (err){
-                logger.error({
-                    r: "mongodb",
-                    msg: "mongodb_connection_error",
-                    body:err,
-                });
+                // logger.error({
+                //     r: "mongodb",
+                //     msg: "mongodb_connection_error",
+                //     body:err,
+                // });
                 console.log(err);
                 return;
             }
 
-            logger.info({
-                r:"mongodb",
-                msg:"Database_successfully_connected",
-                body:"success",
-            });
+            // logger.info({
+            //     r:"mongodb",
+            //     msg:"Database_successfully_connected",
+            //     body:"success",
+            // });
             console.log("Database successfully connected✅");
             }
         );
