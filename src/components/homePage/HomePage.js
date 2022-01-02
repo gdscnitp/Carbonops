@@ -25,7 +25,7 @@ export default function Navbar() {
 
             <p className={styles.bottomText}>Carbon Footprints</p>
 
-            <Link href="/">
+            <Link href="/" passHref>
               <span className={styles.button}>Calculate now &rarr;</span>
             </Link>
           </div>
