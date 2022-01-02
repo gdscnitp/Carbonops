@@ -8,7 +8,7 @@ export default function Dashboard() {
                 <div className={styles.profile_image_container}>
                     <div>
                         <img src="/picture.png" />
-                        <img src="/Ellipse 13.png" />
+                        {/* <img src="/Ellipse 13.png" /> */}
                     </div>
                 </div>
                 <div className={styles.profile_description}>
@@ -16,22 +16,25 @@ export default function Dashboard() {
                     <p>EMail</p>
                 </div>
                 <div className={styles.profile_stats}>
-                    <div>
+                    <div className={styles.profile_stat}>
                         <p>Location</p>
                         <p>Roorkee</p>
                     </div>
-                    <div>
+                    <div className={styles.profile_stat}>
                         <p>Your Score</p>
                         <p>8</p>
                     </div>
-                    <div>
+                    <div className={styles.profile_stat}>
                         <p>Phone Number</p>
                         <p>343-34-432</p>
                     </div>
-                    <div>
+                    <div className={styles.profile_stat}>
                         <p>Date of Last Report </p>
                         <p>3-4-12</p>
                     </div>
+
+                    <button className={styles.calculate}>CALCULATE</button>
+
                 </div>
             </div>
             <div className={styles.statistics}>

@@ -1,8 +1,37 @@
-.container{
-    background-color:#152B2C;
+.container {
+    background-color: #152B2C;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
 }
-.profile_card_container{
-    background-color:#141A1F;
+
+.profile_stats {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 15px;
+    row-gap: 15px;
+
+}
+
+.profile_stat {
+    background-color: #202934;
+    border-radius: 8px;
+    padding: 10px;
+
+
+}
+
+.calculate {
+    height: 30px;
+    width: 190%;
+    background-color: #00BD57;
+    margin: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.profile_card_container {
+    background-color: #141A1F;
     color: white;
     padding-left: 50px;
 }
