@@ -1,0 +1,185 @@
+.container {
+  background-color: #142424;
+  margin-top: 5%;
+  height: 80%;
+  width: 100%;
+  display: flex;
+}
+
+.signu {
+  background-color: #142424;
+  height: 60%;
+  width: 80%;
+  padding: 0% 0% 0% 0%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+.pics {
+  background-image: url("envsign.jpg");
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 444px;
+  width: 480px;
+  padding: 0 0 0 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 40px;
+  margin-bottom: 0px;
+  border: 0px;
+  object-fit: fill;
+  position: relative;
+}
+
+.section {
+  top: 0vh;
+  left: 0vw;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: rgba(23, 48, 51, 1);
+  border: 1px solid #0d551f;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 4px 6px rgba(100, 214, 55, 0.15);
+  border-radius: 20px;
+}
+
+.section .imgBx {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.section .imgBx .img {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.left {
+  width: 50%;
+  height: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-right: 1px solid #fff;
+}
+.section .imgBx .inputBx {
+  margin-left: 15%;
+  margin-top: 70px;
+  margin-bottom: 20px;
+}
+.section .imgBx .inputBx p {
+  font-size: 25px;
+  color: #fff;
+}
+.section .imgBx .inputBx p a {
+  color: #00c44f;
+  font-size: 25px;
+  margin-left: 5px;
+}
+
+.formss {
+  width: 50%;
+  height: 100%;
+  margin-top: 35px;
+  margin-bottom: 10px;
+}
+.section .contentBx {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.section .contentBx .formBx {
+  width: 70%;
+}
+.section .contentBx .formBx h2 {
+  color: #54ccfa;
+  font-weight: 600;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: inline-block;
+  letter-spacing: 1px;
+  margin-left: 35%;
+}
+
+.section .contentBx .formBx .bx {
+  margin-left: 15%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.section .contentBx .formBx .bx p {
+  font-size: 20px;
+  color: #fff;
+}
+.section .contentBx .formBx .bx p a {
+  color: #00c44f;
+  font-size: 20px;
+  margin-left: 8px;
+}
+
+.section .contentBx .formBx .inputBx {
+  margin-bottom: 20px;
+}
+
+.section .contentBx .formBx .inputBx input {
+  width: 100%;
+  padding: 10px 20px;
+  outline: none;
+  font-weight: 400;
+  border: 1px solid #0d551f;
+  border-bottom: 1px solid #ffffff;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #cecece;
+  background: #142424;
+  border-radius: 5px;
+}
+
+.section .contentBx .formBx .inputBx .email {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+}
+
+.section .contentBx .formBx .inputBx input[type="submit"] {
+  background: #00bd57;
+  color: #fff;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  width: 40%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 30%;
+  margin-bottom: 0px;
+}
+
+.option {
+  border-radius: 50%;
+}
+.section .contentBx .formBx .inputBx input[type="submit"]:hover {
+  opacity: 80%;
+}
+.section .contentBx .formBx .remember {
+  margin-bottom: 20px;
+  margin-top: 15px;
+  color: #f2f8f3;
+  font-weight: 400;
+  font-size: 14px;
+}
+.section .contentBx .formBx h3 {
+  font-weight: 500;
+  color: #ecf6ed;
+}
