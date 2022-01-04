@@ -107,4 +107,4 @@ individualSchema.pre('save', async function save(next) {
 
 
 
-module.exports =mongoose.models.Inidividual || mongoose.model('Individual',individualSchema)
+export default mongoose.models.Inidividual || mongoose.model('Individual',individualSchema)

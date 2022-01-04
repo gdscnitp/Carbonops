@@ -1,6 +1,6 @@
 import initDB from "../../helpers/db"
 import { sendSuccess,sendError } from "../../utilities/response-helpers"
-var Individual=require("../../models/Individual.js");
+import Individual from "../../models/Individual";
 
 
 
@@ -15,7 +15,7 @@ export default function handler(req, res) {
          
          item.save()
          console.log(item);
-         return sendSuccess(res,item)
+         sendSuccess(res,item);
     } 
     else {
         sendSuccess(res,{"message": "This works"});
