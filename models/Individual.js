@@ -1,10 +1,10 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
-import { isEmail,isStrongPassword,isURL} from 'validator';
-import bcrypt from 'bcryptjs'
+
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
+const {isEmail,isStrongPassword,isURL} = require("validator");
 const SALT_WORK_FACTOR = 10;
 
-const individualSchema = new Schema({
+const individualSchema = new mongoose.Schema({
     name:{
         type:String,
         required:true,
@@ -48,8 +48,9 @@ const individualSchema = new Schema({
             required: true,
             
             validate: {
-                validator: function(v) {
-                    return /d{6}/.test(v);
+                validator: function(val) {
+                    // not working --- return /d{6}/.test(val);
+                    return val.toString().length === 6
                 },
                 message: 'not a valid 6 digit pincode'
             }
@@ -107,4 +108,14 @@ individualSchema.pre('save', async function save(next) {
 
 
 
-export default mongoose.models.inidividual || mongoose.model('individual',individualSchema)
+function getDemo () {
+    
+    const iSchema = individualSchema;
+    
+    if (mongoose.models && mongoose.models.Individual) return mongoose.models.Individual
+   
+    return mongoose.model('Individual', iSchema)
+  }
+  const Indiv= getDemo()
+  module.exports= Indiv;
+  console.log(Indiv)
