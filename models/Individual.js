@@ -1,10 +1,14 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
-import { isEmail,isStrongPassword,isURL} from 'validator';
-import bcrypt from 'bcryptjs'
+//import mongoose from 'mongoose';
+//const { Schema } = mongoose;
+//import { isEmail,isStrongPassword,isURL} from 'validator';
+//import bcrypt from 'bcryptjs'
+
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
+const {isEmail,isStrongPassword,isURL} = require("validator");
 const SALT_WORK_FACTOR = 10;
 
-const individualSchema = new Schema({
+const individualSchema = new mongoose.Schema({
     name:{
         type:String,
         required:true,
@@ -107,4 +111,32 @@ individualSchema.pre('save', async function save(next) {
 
 
 
-export default mongoose.models.Inidividual || mongoose.model('Individual',individualSchema)
+function getDemo () {
+    // Create your Schema
+    const iSchema = individualSchema;
+    // Check to see if the model has been registered with mongoose
+    // if it exists return that model
+    if (mongoose.models && mongoose.models.Individual) return mongoose.models.Individual
+    // if no current model exists register and return new model
+    return mongoose.model('Individual', iSchema)
+  }
+  const Indiv= getDemo()
+  module.exports= Indiv;
+  console.log(Indiv)
+//var Individual;
+// function modelAlreadyDeclared() {
+//     try {
+//       mongoose.model('Individual',individualSchema)  // it throws an error if the model is still not defined
+//       return true
+//     } catch (e) {
+//       return false
+//     }
+//   }
+// if (! modelAlreadyDeclared()) {
+//      mongoose.model('Individual', individualSchema)
+//   }
+  
+  
+//export const User = mongoose.models.User || mongoose.model('User', user);
+//export default mongoose.models.Inidividual //|| mongoose.model('Individual',individualSchema)
+//module.exports=mongoose.models.Inidividual || mongoose.model("Individual",individualSchema)
