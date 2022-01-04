@@ -199,7 +199,7 @@
 
 @media only screen and (max-width: 500px) {
   .input {
-    width: 15em;
+    width: 17em;
     height: 3em;
   }
 .top{
@@ -214,13 +214,22 @@
 .img{
   padding: 1em;
 }
+.input {
+  width: 16em;
+  height: 3em;
+  padding: 7px;
+  font-size: smaller;
+}
 }
 
-@media only screen and (max-width: 280px){
+@media only screen and (max-width: 320px){
   .input {
     width: 11em;
     height: 3em;
     padding: 7px;
     font-size: smaller;
+  }
+  .topic{
+    font-size: 0.8em;
   }
 }
