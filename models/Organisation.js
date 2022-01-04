@@ -1,10 +1,10 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
-import { isEmail,isStrongPassword,isURL} from 'validator';
-import bcrypt from 'bcryptjs'
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
+const {isEmail,isStrongPassword,isURL} = require("validator");
+
 const SALT_WORK_FACTOR = 10;
 
-const organisationSchema = new Schema({
+const organisationSchema = new mongoose.Schema({
     organisationId:{
         type:String,
         required:true,
@@ -53,8 +53,8 @@ const organisationSchema = new Schema({
             required: true,
             
             validate: {
-                validator: function(v) {
-                    return /d{6}/.test(v);
+                validator: function(val) {
+                    return val.toString().length === 6
                 },
                 message: 'not a valid 6 digit pincode'
             }
@@ -65,7 +65,7 @@ const organisationSchema = new Schema({
         }        
     }],
     wasteRequirements:{
-        type:Mixed,
+        type:mongoose.Schema.Types.Mixed,
         trim: true,
     },
     dealsProducts:{
@@ -105,6 +105,15 @@ organisationSchema.pre('save', async function save(next) {
 });
 
 
+function getDemo () {
+    
+    const iSchema = organisationSchema;
+   
+    if (mongoose.models && mongoose.models.organisation) return mongoose.models.organisation
+   
+    return mongoose.model('organisation', iSchema)
+  }
+  const Org= getDemo()
+  module.exports= Org;
+  console.log(Org)
 
-
-export default mongoose.models.organisation || mongoose.model('organisation',organisationSchema)
