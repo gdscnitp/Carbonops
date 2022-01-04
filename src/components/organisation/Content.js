@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Company from '/public/images/organisationDash/Logo.png';
 import Product from '/public/images/organisationDash/Product.png';
-import styles from './content.module.css';
+import styles from './Content.module.css';
 
-function content() {
+function Content() {
   return (
     <>
       <div className={styles.dashPage}>
@@ -22,7 +22,6 @@ function content() {
               />
               <div className={styles.name}>companyName</div>
             </div>
-            
           </div>
           <div className={styles.RightPosition}>
             <div className={styles.organisation}>
@@ -54,10 +53,12 @@ function content() {
               </form>
             </div>
           </div>
-          
+
           <div className={styles.LeftItem}>
-            <div className={styles.organDetails}>   
-            <strong className={styles.top}>Organisation Details</strong><br /><br />
+            <div className={styles.organDetails}>
+              <strong className={styles.top}>Organisation Details</strong>
+              <br />
+              <br />
               <p className={styles.topic}>Update Details</p>
               <div>
                 <input
@@ -111,21 +112,23 @@ function content() {
               </div>
             </div>
           </div>
-          
+
           <div className={styles.RightItem}>
-          
             <div className={styles.organProducts}>
-            <strong className={styles.top}>Product Details</strong><br /><br />
-            <div className={styles.img}>
-              <Image
-                src={Product}
-                placeholder="blur"
-                alt="company logo"
-                width={200}
-                height={300}
-              />
+              <strong className={styles.top}>Product Details</strong>
+              <br />
+              <br />
+              <div className={styles.img}>
+                <Image
+                  src={Product}
+                  placeholder="blur"
+                  alt="company logo"
+                  width={200}
+                  height={300}
+                />
               </div>
-              <br /><br />
+              <br />
+              <br />
               <div className={styles.topic}>Product Name</div>
               <input
                 type="name"
@@ -163,4 +166,4 @@ function content() {
   );
 }
 
-export default content;
+export default Content;
