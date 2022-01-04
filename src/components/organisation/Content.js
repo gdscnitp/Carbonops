@@ -4,37 +4,35 @@ import Image from 'next/image';
 import Company from '/public/images/organisationDash/Logo.png';
 import Product from '/public/images/organisationDash/Product.png';
 import styles from './content.module.css';
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
-import { useState } from 'react';
 
-function content() {
-  const [profile, setProfile] = useState('');
-  const [description, setDescription] = useState('');
-  const [website, setWebsite] = useState('');
+function content(props) {
   return (
     <>
       <div className={styles.dashPage}>
+        <strong className={styles.top}>Organisation</strong>
         <div className={styles.container}>
-          <div className={styles.ItemPosition}>
-            <Image
-              src={Company}
-              placeholder="blur"
-              alt="company logo"
-              width={450}
-              height={400}
-            />
+          <div className={styles.LeftPosition}>
+            <div className={styles.img}>
+              <Image
+                src={Company}
+                placeholder="blur"
+                alt="company logo"
+                width={350}
+                height={300}
+              />
+              <div className={styles.name}>companyName</div>
+            </div>
+            
           </div>
-          <div className={styles.ItemPosition}>
+          <div className={styles.RightPosition}>
             <div className={styles.organisation}>
               <form action="">
-                <div className={styles.content}>
+                <div>
                   <div className={styles.topic}>Your Profile Text here</div>
                   <input
                     type="profile"
                     placeholder="Your Profile Text here"
                     className={styles.input}
-                    value={profile}
-                    onChange={(e) => setName(e.target.value)}
                   />
                 </div>
                 <div>
@@ -43,8 +41,6 @@ function content() {
                     type="description"
                     placeholder="Your Description"
                     className={styles.input}
-                    value={description}
-                    onChange={(e) => setName(e.target.value)}
                   />
                 </div>
                 <div>
@@ -53,18 +49,15 @@ function content() {
                     type="website"
                     placeholder="Your Website Link"
                     className={styles.input}
-                    value={website}
-                    onChange={(e) => setName(e.target.value)}
                   />
                 </div>
               </form>
             </div>
           </div>
-        </div>
-
-        <div className={styles.container}>
-          <div className={styles.organDetails}>
-            <div className={styles.ItemPosition}>
+          
+          <div className={styles.LeftItem}>
+            <div className={styles.organDetails}>   
+            <strong className={styles.top}>Organisation Details</strong><br /><br />
               <p className={styles.topic}>Update Details</p>
               <div>
                 <input
@@ -118,19 +111,21 @@ function content() {
               </div>
             </div>
           </div>
-        </div>
-        <div className={styles.container}>
-          <div className={styles.organProducts}>
-            <div className={styles.ItemPosition}>
+          
+          <div className={styles.RightItem}>
+          
+            <div className={styles.organProducts}>
+            <strong className={styles.top}>Product Details</strong><br /><br />
+            <div className={styles.img}>
               <Image
                 src={Product}
                 placeholder="blur"
                 alt="company logo"
-                width={250}
+                width={200}
                 height={300}
               />
-            </div>
-            <div className={styles.ItemPosition}>
+              </div>
+              <br /><br />
               <div className={styles.topic}>Product Name</div>
               <input
                 type="name"

@@ -1,0 +1,226 @@
+.dashPage {
+  background-color: #142424;
+  height: 300vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Convergence', sans-serif;
+  font-size: 1rem;
+}
+
+.container {
+  margin: 5em;
+  width: 90%;
+  height: 60vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 10fr 20fr;
+  justify-content: center;
+  grid-template-areas:
+    'LeftPosition RightPosition'
+    'LeftItem RightItem';
+    grid-gap: 10em;
+    transition: all 0.2 linear;
+}
+
+.LeftPosition {
+  padding: auto;
+  width: auto;
+  height: auto;
+  grid-area: LeftPosition;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.RightPosition {
+  padding: auto;
+  width: auto;
+  height: auto;
+  grid-area: RightPosition;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.LeftItem {
+  padding: auto;
+  width: auto;
+  height: auto;
+  grid-area: LeftItem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.RightItem {
+  padding: auto;
+  width: auto;
+  height: auto;
+  grid-area:RightItem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.alignCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.organisation {
+  padding: 3em;
+  background-color: #173033;
+  box-shadow: 2px 10px 50px 0px rgba(0, 255, 10, 0.25) inset;
+  box-shadow: 0px 4px 50px 0px rgba(0, 255, 240, 0.19);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  place-items: center;
+  flex-direction: column;
+  border: 2px solid #fff;
+}
+
+.img{
+  padding: 3em;
+  background-color: #173033;
+  box-shadow: 0 4px 8px 0 rgba(25, 121, 165, 0.726), 0 6px 20px 0 #00000030;
+}
+
+.organDetails {
+  padding: 3em;
+  background-color: #173033;
+  box-shadow: 2px 10px 50px 0px rgba(0, 255, 10, 0.25) inset;
+  box-shadow: 0px 4px 50px 0px rgba(0, 255, 240, 0.19);
+  border-radius: 1rem;
+  border: 2px solid #fff;
+}
+
+.organProducts {
+  padding: 3em;
+  background-color: #173033;
+  box-shadow: 2px 10px 50px 0px rgba(0, 255, 10, 0.25) inset;
+  box-shadow: 0px 4px 50px 0px rgba(0, 255, 240, 0.19);
+  border-radius: 1rem;
+  border: 2px solid #fff;
+}
+
+.input {
+  margin: 1rem 0;
+  background-color: aquamarine;
+  height: 3.5rem;
+  width: 20em;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  padding: 15px;
+  border: 3px solid #a9bcc9;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: text;
+}
+
+.input:hover {
+  border: 3px solid #fff5b7;
+}
+.input:focus {
+  border: 3px solid #1597e5;
+}
+
+.topic {
+  color: #fff;
+  font-weight: bolder;
+}
+
+.top{
+  color: aqua;
+  font-weight: bolder;
+  font-size: 40px;
+}
+
+.RightItem .top,.LeftItem .top{
+  color: #00bd57;
+  font-size: 1.5em;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.name{
+  color: #fff;
+  font-size: 25px;
+  font-weight: bolder;
+  text-align: center;
+  padding: 30px 20px 0 0;
+}
+.button {
+  border-radius: 0.5rem;
+  font-size: 15px;
+  color: white;
+  background-color: #00bd57;
+  text-decoration: none;
+  padding: 10px 40px;
+  margin: 20px;
+  letter-spacing: 1px;
+  box-shadow: 2px 10px 50px 0px rgba(0, 255, 10, 0.25) inset;
+  box-shadow: 0px 4px 50px 0px rgba(0, 255, 240, 0.19);
+}
+
+.button:hover {
+  color: white;
+  box-shadow: inset 5px 3px 11px 10px rgba(7, 255, 0, 0.42);
+}
+
+@media only screen and (max-width: 1100px) {
+  .dashPage{
+    height: auto;
+  }
+  .container {
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1.5fr 1.75fr;
+    grid-template-areas:
+      'LeftPosition'
+      'RightPosition'
+      'LeftItem'
+      'RightItem'
+      ;
+    grid-gap: 4em;
+  }
+
+  .input {
+    width: 20em;
+    height: 3em;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .input {
+    width: 15em;
+    height: 3em;
+  }
+.top{
+  font-size: 30px;
+}
+}
+
+@media only screen and (max-width: 400px){
+  .name{
+    font-size: 20px;
+  }
+.img{
+  padding: 1em;
+}
+}
+
+@media only screen and (max-width: 280px){
+  .input {
+    width: 11em;
+    height: 3em;
+    padding: 7px;
+    font-size: smaller;
+  }
+}
