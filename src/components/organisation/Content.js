@@ -5,7 +5,7 @@ import Company from '/public/images/organisationDash/Logo.png';
 import Product from '/public/images/organisationDash/Product.png';
 import styles from './content.module.css';
 
-function content(props) {
+function content() {
   return (
     <>
       <div className={styles.dashPage}>
