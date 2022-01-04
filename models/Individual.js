@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 import { isEmail,isStrongPassword,isURL} from 'validator';
 import bcrypt from 'bcryptjs'
-// const SALT_WORK_FACTOR = 10;
+const SALT_WORK_FACTOR = 10;
 
 const individualSchema = new Schema({
     name:{
