@@ -145,7 +145,33 @@
   background: #142424;
   border-radius: 5px;
 }
-
+.section .contentBx .formBx .inputBxx input {
+  width: 100%;
+  padding: 10px 20px;
+  outline: none;
+  font-weight: 400;
+  border: 1px solid #0d551f;
+  border-bottom: 1px solid #ffffff;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #cecece;
+  background: #142424;
+  border-radius: 5px;
+}
+.section .contentBx .formBx .inputBx input[type="number"] {
+  -webkit-appearance: none;
+   width: 100%;
+  padding: 10px 20px;
+  outline: none;
+  font-weight: 400;
+  border: 1px solid #0d551f;
+  border-bottom: 1px solid #ffffff;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #cecece;
+  background: #142424;
+  border-radius: 5px;
+}
 .section .contentBx .formBx .inputBx .email {
   background-position: 10px 10px;
   background-repeat: no-repeat;
