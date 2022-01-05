@@ -36,11 +36,11 @@ export default function Sign(props) {
                       placeholder="Email"
                     />
                   </div>
-                  <div className={styles.inputBx}>
+                  <div className={styles.inputBxx}>
                     <input type="number" name="" placeholder="Contact" />
                   </div>
                   <div className={styles.inputBx}>
-                    <input type="text" name="" placeholder={props.text2} />
+                    <input type={props.text3} name="" placeholder={props.text2} />
                   </div>
                   <div className={styles.inputBx}>
                     <input type="password" name="" placeholder="Password" />
