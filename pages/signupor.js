@@ -13,7 +13,7 @@ export default function SignUpOr() {
       </Head>
 
       <Navbar action1="" action2="Home" buttonText="" />
-      <Sign text1="Registered" text2="Organisation ID" />
+      <Sign text1="Registered" text2="Organisation ID" text3="number" />
     </div>
   );
 }
