@@ -1,9 +1,8 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
-const {ObjectId} = mongoose.Schema.Types;
-import {isURL} from 'validator';
+const mongoose = require("mongoose");
 
-const eventSchema = new Schema({
+const {isURL} = require("validator");
+
+const eventSchema = new mongoose.Schema({
     eventName:{
         type:String,
         required:true,
@@ -64,11 +63,11 @@ const eventSchema = new Schema({
         
     },
     enquiryDetails:{
-        type:Mixed,
+        type:mongoose.Schema.Types.Mixed,
         required:true,
     },
     organiserId:{
-        type: ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         refPath: 'onOrgModel'
     },
     onOrgModel:{
@@ -81,4 +80,14 @@ const eventSchema = new Schema({
     timestamps:true
 })
 
-export default mongoose.models.event || mongoose.model('event',eventSchema)
+function getDemo () {
+    
+    const iSchema = eventSchema;
+    
+    if (mongoose.models && mongoose.models.event) return mongoose.models.event
+    
+    return mongoose.model('event', iSchema)
+  }
+  const EventSc= getDemo()
+  module.exports= EventSc;
+  console.log(EventSc)
