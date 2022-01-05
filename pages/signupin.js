@@ -13,7 +13,7 @@ export default function SignUpIn() {
       </Head>
 
       <Navbar action1="" action2="Home" buttonText="" />
-      <Sign text1="an User" text2="Date of Birth" />
+      <Sign text1="an User" text2="Date of Birth" text3="date" />
     </div>
   );
 }
