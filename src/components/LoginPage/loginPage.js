@@ -9,7 +9,7 @@ function Login(){
       <>
 
       <div className={styles.page}>
-        <nav className={styles.nav}>
+        {/* <nav className={styles.nav}>
           <div className={styles.navbar}>
            <Link href="/" passHref>
               <span className={styles.navbar}>Logo</span>
@@ -22,7 +22,7 @@ function Login(){
           <div className={styles.signup}>
             <button className={styles.btn} type="submit">SignUp</button>
           </div>
-        </nav>
+        </nav> */}
       <div className={styles.section}>
           <div className={styles.imgBx}>
             <div className={styles.img}>
@@ -63,7 +63,7 @@ function Login(){
                   <input className={styles.input} type="submit" value="Log in" name=""/>
                   </div>
 
-                <h3>Or Login with your Google account</h3>
+                <h3>Or Login With</h3>
               </form>
               <ul className={styles.sci}>
                 <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-google" viewBox="0 0 16 16">
