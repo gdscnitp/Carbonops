@@ -1,8 +1,8 @@
-import Head from 'next/head'
-import Navbar from '../src/components/navbar/Navbar'
-import HomePage from '../src/components/homePage/HomePage'
-import Footer from '../src/components/footer/Footer'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Navbar from "../src/components/navbar/Navbar";
+import HomePage from "../src/components/homePage/HomePage";
+import Footer from "../src/components/footer/Footer";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
@@ -21,7 +21,6 @@ export default function Home() {
       <footer>
         <Footer />
       </footer>
-
     </div>
-  )
+  );
 }
