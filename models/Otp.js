@@ -1,8 +1,6 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+const mongoose = require("mongoose");
 
-
-const otpSchema = new Schema({
+const otpSchema = new mongoose.Schema({
     userId:{
         type: String,
         required: true,
@@ -22,4 +20,13 @@ const otpSchema = new Schema({
     timestamps:true
 })
 
-export default mongoose.models.otp || mongoose.model('otp',otpSchema)
+function getDemo () {
+   
+    const iSchema = otpSchema;
+    
+    if (mongoose.models && mongoose.models.otp) return mongoose.models.otp
+    
+    return mongoose.model('otp', iSchema)
+  }
+  const Otpwd= getDemo()
+  module.exports= Otpwd;
