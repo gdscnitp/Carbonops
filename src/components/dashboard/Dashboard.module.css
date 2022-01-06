@@ -6,7 +6,7 @@
 
 /*------------Profile portion ----------------*/
 .profile_card_container {
-  margin: 50px 0px 0px 50px;
+  margin: 0px 0px 0px 50px;
   background-color: #141a1f;
   color: white;
 }
@@ -39,7 +39,9 @@
 
 /* --------------Statistics portion----------- */
 .statistics {
-  margin-left: 80px;
+  /* display: flex;
+  padding-top: 8vh;
+  justify-content: center; */
 }
 
 .button {
@@ -59,4 +61,59 @@
   cursor: pointer;
   color: white;
   box-shadow: inset 5px 3px 11px 10px rgba(7, 255, 0, 0.42);
+}
+
+/* <----------responsive-480------------> */
+@media only screen and (max-width: 480px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile_card_container {
+    width: 100%;
+    align-self: flex-end;
+    padding: 2rem;
+  }
+  .profile_stats {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* .statistics {
+    flex-direction: column;
+    justify-content: space-between;
+  } */
+}
+
+/* <--------------Animation from Homepage--------------> */
+.slideLeft {
+  animation-name: moveLeft;
+  animation-duration: 1s;
+}
+.slideRight {
+  animation-name: moveRight;
+  animation-duration: 1.3s;
+}
+
+@keyframes moveLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
