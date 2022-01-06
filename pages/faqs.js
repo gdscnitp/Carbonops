@@ -16,6 +16,12 @@ export default function Home() {
       <div className="main">
         <Block text="HOW CAN WE HELP YOU?" class="main__question" />
           <Block class="main__options" />
+          <Block class="main__options" />
+          <Block class="main__options" />
+          <Block class="main__options" />
+          <Block class="main__options" />
+          {/* <Block class="main__options" />
+          <Block class="main__options" /> */}
       </div>
     </div>
 
