@@ -91,7 +91,9 @@ eventSchema.pre('save', function(next)
             console.log("Reqiuired field violation");
             return Promise.reject("Location is required for Offline event");
             // return res.status(500).json({msg:"Location field is mandatory for offline events"});
-        } 
+        }else{
+            next()
+        }
 
     }else
     {

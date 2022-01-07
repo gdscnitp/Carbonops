@@ -19,7 +19,7 @@ export default async function handler(req, res) {
         console.log(req.body)
 
         //for event
-         var {eventName,eventType,eventDetails,targetAudience,eventDescription,participantsLimit,isOffline,enquiryDetails,organiserId,onOrgModel}=req.body;
+         var {eventName,eventType,eventDetails,location,targetAudience,eventDescription,participantsLimit,isOffline,enquiryDetails,organiserId,onOrgModel}=req.body;
         //var {name,email,contact}=req.body;
         //for registered event
         // var {individualId,eventId,name,mailId,phoneNumber}=req.body;
@@ -35,6 +35,7 @@ export default async function handler(req, res) {
           eventName,eventType,eventDetails,targetAudience,eventDescription,participantsLimit,isOffline,enquiryDetails,organiserId,onOrgModel
          //name,email,contact
         })
+        location ? item['location'] = location : ""
          console.log(item)
           await item.save();
         //  console.log(item);
