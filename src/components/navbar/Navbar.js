@@ -16,12 +16,19 @@ export default function Navbar(props) {
           <li>
             <Link href="/">{props.action2}</Link>
           </li>
-          <Link href="/">
-          {
-            props.buttonText.length>0 ?
-            <a className={styles.button}> {props.buttonText} </a>
-             : ""
-          }
+          <Link href="">
+            {props.buttonText1.length > 0 ? (
+              <a className={styles.button}> {props.buttonText1} </a>
+            ) : (
+              ""
+            )}
+          </Link>
+          <Link href="">
+            {props.buttonText2.length > 0 ? (
+              <a className={styles.button}> {props.buttonText2} </a>
+            ) : (
+              ""
+            )}
           </Link>
         </ul>
       </nav>

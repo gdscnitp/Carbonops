@@ -1,11 +1,10 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
-const {ObjectId} = mongoose.Schema.Types;
-import {isURL} from 'validator';
+const mongoose = require("mongoose");
 
-const productSchema = new Schema({
+const {isURL} = require("validator");
+
+const productSchema = new mongoose.Schema({
     organisationId:{
-        type: ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'organisation'
     },
     productName:{
@@ -27,6 +26,7 @@ const productSchema = new Schema({
         type:String,
         required:true,
         trim: true,
+        validate: [ isURL, 'Please provide a valid Url' ]
     },
     rating:{
         type:Number,
@@ -50,4 +50,14 @@ const productSchema = new Schema({
     timestamps:true
 })
 
-export default mongoose.models.product || mongoose.model('product',productSchema)
+function getDemo () {
+  
+    const iSchema = productSchema;
+  
+    if (mongoose.models && mongoose.models.product) return mongoose.models.product
+   
+    return mongoose.model('product', iSchema)
+  }
+  const proSc= getDemo()
+  module.exports= proSc;
+  console.log(proSc)

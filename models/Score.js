@@ -1,14 +1,22 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
-const {ObjectId} = mongoose.Schema.Types;
+const mongoose = require("mongoose");
 
-const scoreSchema = new Schema({
+const scoreSchema = new mongoose.Schema({
     individualId:{
-        type: ObjectId,
-        ref: 'inidividual'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Individual'
     },
 },{
     timestamps:true
 })
 
-export default mongoose.models.score || mongoose.model('score',scoreSchema)
+function getDemo () {
+   
+    const iSchema = scoreSchema;
+   
+    if (mongoose.models && mongoose.models.score) return mongoose.models.score
+   
+    return mongoose.model('score', iSchema)
+  }
+  const scoresc= getDemo()
+  module.exports= scoresc;
+  console.log(scoresc)
