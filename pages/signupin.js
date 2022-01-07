@@ -12,7 +12,7 @@ export default function SignUpIn() {
         <meta name="description" content="" />
       </Head>
 
-      <Navbar action1="" action2="Home" buttonText="" />
+      <Navbar action1="" action2="Home" buttonText1="" buttonText2=""/>
       <Sign text1="an User" text2="Date of Birth" text3="date" />
     </div>
   );
