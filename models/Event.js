@@ -50,17 +50,16 @@ const eventSchema = new mongoose.Schema({
     isOffline:{
         type:Boolean,
         required:true,
-        validator: function(v){
-            if (v != true) {
-                return "Online event"
-            }
-        },
-        location:{
-            type:String,
-            required:true,
-            trim: true,
-        }
-        
+        // validator: function(v){
+        //     if (v != true) {
+        //         return "Online event"
+        //     }
+        // }, 
+    },
+    location:{
+        type:String,
+        required: true,//isOffline.type?true:false,
+        trim: true,
     },
     enquiryDetails:{
         type:mongoose.Schema.Types.Mixed,
@@ -78,6 +77,20 @@ const eventSchema = new mongoose.Schema({
 
 },{
     timestamps:true
+})
+
+//console.log(eventSchema)
+
+
+eventSchema.pre('save', function(next)
+{
+    if(this.isOffline===true)
+    {
+        this.location.required=true;
+    }else
+    {
+        this.location.required=false;
+    }
 })
 
 function getDemo () {
