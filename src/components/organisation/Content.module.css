@@ -1,6 +1,6 @@
 .dashPage {
   background-color: #142424;
-  height: 300vh;
+  height: 400vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,19 +8,16 @@
   font-size: 1rem;
 }
 
-.container {
-  margin: 5em;
-  width: 90%;
+.container1 {
+  margin: 5rem;
+  width: auto;
   height: 60vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 10fr 20fr;
+  grid-template-rows: 1fr;
   justify-content: center;
-  grid-template-areas:
-    'LeftPosition RightPosition'
-    'LeftItem RightItem';
-    grid-gap: 10em;
-    transition: all 0.2 linear;
+  grid-template-areas: 'LeftPosition RightPosition';
+  grid-gap: 5em;
 }
 
 .LeftPosition {
@@ -34,7 +31,6 @@
   flex-direction: column;
 }
 
-
 .RightPosition {
   padding: auto;
   width: auto;
@@ -45,26 +41,16 @@
   justify-content: center;
   flex-direction: column;
 }
-.LeftItem {
-  padding: auto;
+
+.container2 {
+  margin: 5em;
   width: auto;
   height: auto;
-  grid-area: LeftItem;
-  display: flex;
-  align-items: center;
   justify-content: center;
+  display: flex;
   flex-direction: column;
 }
-.RightItem {
-  padding: auto;
-  width: auto;
-  height: auto;
-  grid-area:RightItem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
+
 .alignCenter {
   display: flex;
   align-items: center;
@@ -72,7 +58,7 @@
 }
 
 .organisation {
-  padding: 3em;
+  padding: 2em;
   background-color: #173033;
   box-shadow: 2px 10px 50px 0px rgba(0, 255, 10, 0.25) inset;
   box-shadow: 0px 4px 50px 0px rgba(0, 255, 240, 0.19);
@@ -83,52 +69,60 @@
   place-items: center;
   flex-direction: column;
   border: 2px solid #fff;
+  
 }
 
-.img{
+.img {
   padding: 3em;
   background-color: #173033;
   box-shadow: 0 4px 8px 0 rgba(25, 121, 165, 0.726), 0 6px 20px 0 #00000030;
 }
 
 .organDetails {
-  padding: 3em;
+  padding: 4em;
   background-color: #173033;
-  box-shadow: 2px 10px 50px 0px rgba(0, 255, 10, 0.25) inset;
   box-shadow: 0px 4px 50px 0px rgba(0, 255, 240, 0.19);
   border-radius: 1rem;
   border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .organProducts {
   padding: 3em;
   background-color: #173033;
-  box-shadow: 2px 10px 50px 0px rgba(0, 255, 10, 0.25) inset;
   box-shadow: 0px 4px 50px 0px rgba(0, 255, 240, 0.19);
   border-radius: 1rem;
   border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .input {
   margin: 1rem 0;
-  background-color: aquamarine;
-  height: 3.5rem;
-  width: 20em;
+  background-color: #142424;
+  height: 3rem;
+  width: 19em;
   border-radius: 0.5rem;
   outline: none;
   border: none;
   padding: 15px;
-  border: 3px solid #a9bcc9;
+  border: 2px solid #a9bcc9;
   font-family: inherit;
   font-size: inherit;
   cursor: text;
+  color: #fff;
 }
 
 .input:hover {
-  border: 3px solid #fff5b7;
+  border: 2px solid #fff5b7;
 }
 .input:focus {
-  border: 3px solid #1597e5;
+  border: 2px solid #1597e5;
 }
 
 .topic {
@@ -136,26 +130,22 @@
   font-weight: bolder;
 }
 
-.top{
-  color: aqua;
-  font-weight: bolder;
-  font-size: 40px;
+.text{
+  background-color: #142424;
+  color: #f1f1f1;
+  padding: 1em;
+  border: 2px solid #a9bcc9;
+  border-radius: 0.5rem;
+  font-size: 0.95em;
 }
 
-.RightItem .top,.LeftItem .top{
-  color: #00bd57;
-  font-size: 1.5em;
-  text-align: center;
-  text-decoration: underline;
+.text:hover {
+  border: 2px solid #fff5b7;
+}
+.text:focus {
+  border: 2px solid #1597e5;
 }
 
-.name{
-  color: #fff;
-  font-size: 25px;
-  font-weight: bolder;
-  text-align: center;
-  padding: 30px 20px 0 0;
-}
 .button {
   border-radius: 0.5rem;
   font-size: 15px;
@@ -174,62 +164,77 @@
   box-shadow: inset 5px 3px 11px 10px rgba(7, 255, 0, 0.42);
 }
 
-@media only screen and (max-width: 1100px) {
-  .dashPage{
+@media only screen and (max-width: 1024px) {
+  .dashPage {
     height: auto;
   }
-  .container {
+}
+@media only screen and (max-width: 1000px) {
+  .dashPage {
+    height: auto;
+  }
+  .container1 {
     height: auto;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1.5fr 1.75fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-areas:
       'LeftPosition'
-      'RightPosition'
-      'LeftItem'
-      'RightItem'
-      ;
+      'RightPosition';
     grid-gap: 4em;
+    transition: all 0.2 linear;
   }
-
   .input {
     width: 20em;
     height: 3em;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 565px) {
+  .organisation,.organDetails,.organProducts {
+    padding: 1.5em;
+  }
   .input {
     width: 17em;
     height: 3em;
   }
-.top{
-  font-size: 30px;
 }
+@media only screen and (max-width: 500px) {
+
+  .top {
+    font-size: 30px;
+  }
 }
 
-@media only screen and (max-width: 400px){
-  .name{
+@media only screen and (max-width: 400px) {
+  .name {
     font-size: 20px;
   }
-.img{
-  padding: 1em;
-}
-.input {
-  width: 16em;
-  height: 3em;
-  padding: 7px;
-  font-size: smaller;
-}
+  .img {
+    padding: 1em;
+  }
+  .input {
+    width: 16em;
+    height: 3em;
+    padding: 7px;
+    font-size: smaller;
+  }
+  .container1{
+    grid-gap: 0.1em ;
+  }
+  .organisation{
+    padding: 3em;
+  }
 }
 
-@media only screen and (max-width: 320px){
+@media only screen and (max-width: 320px) {
   .input {
     width: 11em;
     height: 3em;
     padding: 7px;
     font-size: smaller;
   }
-  .topic{
+  .topic,.text{
     font-size: 0.8em;
   }
+
 }
