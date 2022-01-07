@@ -1,8 +1,119 @@
-.container{
-    background-color:#152B2C;
+.container {
+  background-color: #152b2c;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
-.profile_card_container{
-    background-color:#141A1F;
-    color: white;
-    padding-left: 50px;
+
+/*------------Profile portion ----------------*/
+.profile_card_container {
+  margin: 0px 0px 0px 50px;
+  background-color: #141a1f;
+  color: white;
+}
+.profile_image_container {
+  position: relative;
+}
+.profile_description {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+.profile_stats {
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 15px;
+  row-gap: 15px;
+}
+
+.profile_stat {
+  background-color: #202934;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* --------------Statistics portion----------- */
+.statistics {
+  /* display: flex;
+  padding-top: 8vh;
+  justify-content: center; */
+}
+
+.button {
+  width: 100%;
+  font-size: 15px;
+  color: white;
+  background-color: #00bd57;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 20px;
+  letter-spacing: 1px;
+  box-shadow: 2px 10px 50px 0px rgba(0, 255, 10, 0.25) inset;
+  box-shadow: 0px 4px 50px 0px rgba(0, 255, 240, 0.19);
+}
+
+.button:hover {
+  cursor: pointer;
+  color: white;
+  box-shadow: inset 5px 3px 11px 10px rgba(7, 255, 0, 0.42);
+}
+
+/* <----------responsive-480------------> */
+@media only screen and (max-width: 480px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile_card_container {
+    width: 100%;
+    align-self: flex-end;
+    padding: 2rem;
+  }
+  .profile_stats {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* .statistics {
+    flex-direction: column;
+    justify-content: space-between;
+  } */
+}
+
+/* <--------------Animation from Homepage--------------> */
+.slideLeft {
+  animation-name: moveLeft;
+  animation-duration: 1s;
+}
+.slideRight {
+  animation-name: moveRight;
+  animation-duration: 1.3s;
+}
+
+@keyframes moveLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
