@@ -6,7 +6,7 @@ import Navbar from "../src/components/navbar/Navbar";
 export default function Home() {
   return (
     <div>
-      <Navbar action1="" action2="Login" buttonText="SignUp" />
+      <Navbar action1="" action2="Login" buttonText1="SignUp" buttonText2="" />
 
       {/* <div className="head">
         <h5>LOGO ENV_APP</h5>

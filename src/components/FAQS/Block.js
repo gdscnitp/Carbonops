@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
-var Questions = ["Question 1"];
-var Ans = ["Answer 1"];
+var Questions = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget maximus neque. Praesent congue congue sollicitudin. Suspendisse et ex "];
+var Ans = ["Cras sed est eget libero facilisis elementum ut pulvinar metus. In nec ligula purus. Proin auctor, erat ut porta convallis, velit diam consectetur lacus, ac bibendum duiveDonec ac ante sed erat ultrices venenatis. I leo vitae ante. Aliquam sollicitudin lorem vitae augue posuere blandit. Nam lacinia tortor vel nunc condimentum,"];
 function Block(props) {
     const [clicked, setClicked] = useState(false);
   function showAns(e) {
