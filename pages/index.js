@@ -13,7 +13,7 @@ export default function Home() {
         <meta name="description" content="" />
       </Head>
 
-      <Navbar action1="" action2="Login" buttonText="SignUp" />
+      <Navbar action1="" action2="Login" buttonText1="SignUp" buttonText2=""/>
       {/* <div className={styles.circle}></div> */}
       <main className={styles.main}>
         <HomePage />

@@ -12,7 +12,7 @@ export default function SignUpOr() {
         <meta name="description" content="" />
       </Head>
 
-      <Navbar action1="" action2="Home" buttonText="" />
+      <Navbar action1="" action2="Home" buttonText1="" buttonText2="" />
       <Sign text1="Registered" text2="Organisation ID" text3="number" />
     </div>
   );
