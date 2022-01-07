@@ -42,6 +42,7 @@ export default async function handler(req, res) {
          return sendSuccess(res,item);
     } 
     else {
-        sendSuccess(res,{"message": "This works"});
+      
+        return sendSuccess(res,{"message": "This works"});
     }
   }

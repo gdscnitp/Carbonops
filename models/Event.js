@@ -58,7 +58,7 @@ const eventSchema = new mongoose.Schema({
     },
     location:{
         type:String,
-        required: true,//isOffline.type?true:false,
+        required: false,
         trim: true,
     },
     enquiryDetails:{
@@ -86,10 +86,16 @@ eventSchema.pre('save', function(next)
 {
     if(this.isOffline===true)
     {
-        this.location.required=true;
+        //if this code block is true then the location should not be empty
+        if(!this.location){
+            console.log("Reqiuired field violation");
+            return Promise.reject("Location is required for Offline event");
+            // return res.status(500).json({msg:"Location field is mandatory for offline events"});
+        } 
+
     }else
     {
-        this.location.required=false;
+        next();
     }
 })
 
