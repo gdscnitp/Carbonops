@@ -22,7 +22,7 @@ function initDB(){
     connectMongoDb();
     if (mongoose.connections[0].readyState)
     {
-        console.log('Already connceted')
+        console.log('Already connected')
         return
     }
   
