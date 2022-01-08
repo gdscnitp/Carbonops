@@ -6,7 +6,7 @@ import Navbar from "../navbar/Navbar";
 export default function Dashboard(props) {
   return (
     <>
-      <Navbar action1="" action2="Create+" buttonText="LOGOUT" />
+      <Navbar action1="" action2="Create+" buttonText1="LOGOUT" buttonText2=""/>
       <div className={styles.container}>
         <div className={styles.profile_card_container}>
           <div className={styles.profile_image_container}>
