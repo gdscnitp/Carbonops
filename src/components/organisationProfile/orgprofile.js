@@ -1,17 +1,15 @@
-import Head from "next/head";
 import styles from "./orgprofile.module.css"
 import Image from "next/image";
-import Navbar from "../components/navbar/Navbar";
+import undraw from "/public/images/organisationProfilee/undraw.png"
+import group from "/public/images/organisationProfilee/Group.png"
+import Hack from "/public/images/organisationProfilee/Hack.png"
+
 
 const orgprofile = () => {
   return (
     <>
-      <Head>
-        <title>
-          OrgProfile
-        </title>
-      </Head>
-      <Navbar />
+    
+    
 
 
       <div className={styles.orgo}>
@@ -27,7 +25,7 @@ const orgprofile = () => {
 
         <div className={styles.cont3}>
           <Image
-            src="/undraw.png"
+              src={undraw}
             alt="Home Image"
             width={250}
             height={190}
@@ -62,7 +60,7 @@ const orgprofile = () => {
 
             <div className={styles.cont4}>
               <Image
-                src="/group.png"
+                src={group}
                 alt="Home Image"
                 width={150}
                 height={30}
@@ -86,7 +84,7 @@ const orgprofile = () => {
           <div className={styles.services}>
             <div className={styles.box}>
               <Image
-                src="/Hack.png"
+                src={Hack}
                 alt="Hack Image"
                 width={320}
                 height={130}
@@ -112,7 +110,7 @@ const orgprofile = () => {
 
             <div className={styles.box}>
               <Image
-                src="/Hack.png"
+                 src={Hack}
                 alt="Hack Image"
                 width={320}
                 height={130}
@@ -138,7 +136,7 @@ const orgprofile = () => {
 
             <div className={styles.box}>
               <Image
-                src="/Hack.png"
+                src={Hack}
                 alt="Hack Image"
                 width={320}
                 height={130}
@@ -163,7 +161,7 @@ const orgprofile = () => {
 
             <div className={styles.box}>
               <Image
-                src="/Hack.png"
+                src={Hack}
                 alt="Hack Image"
                 width={320}
                 height={130}
@@ -198,7 +196,7 @@ const orgprofile = () => {
           <div className={styles.services}>
             <div className={styles.box}>
               <Image
-                src="/Hack.png"
+                 src={Hack}
                 alt="Hack Image"
                 width={320}
                 height={130}
@@ -223,7 +221,7 @@ const orgprofile = () => {
 
             <div className={styles.box}>
               <Image
-                src="/Hack.png"
+                src={Hack}
                 alt="Hack Image"
                 width={320}
                 height={130}
@@ -248,7 +246,7 @@ const orgprofile = () => {
 
             <div className={styles.box}>
               <Image
-                src="/Hack.png"
+                src={Hack}
                 alt="Hack Image"
                 width={320}
                 height={130}
@@ -272,7 +270,7 @@ const orgprofile = () => {
 
             <div className={styles.box}>
               <Image
-                src="/Hack.png"
+               src={Hack}
                 alt="Hack Image"
                 width={320}
                 height={130}

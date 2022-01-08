@@ -39,12 +39,13 @@
     position: absolute;
     width: 120px;
     height: 40px;
-   left: 48%;
+   left: 50%;
    top: 50%; 
    border-radius: 16px 8px 10px 5px;
     align-items: center;
     justify-content: center;
     background-color: rgb(105, 221, 105);
+    cursor: pointer;
 }
 .ordet{
     /* border: 2px solid red; */
@@ -58,7 +59,7 @@
 }
 .bcc{
     /* border: 2px solid red; */
-    background-color: rgb(5, 37, 35);
+   background-color: #193B3E;
    width: 80%;
    height: 80%;
    top: 60%;
