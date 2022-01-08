@@ -111,4 +111,4 @@ function getDemo () {
   }
   const EventSc= getDemo()
   module.exports= EventSc;
-  console.log(EventSc)
+  //console.log(EventSc)
