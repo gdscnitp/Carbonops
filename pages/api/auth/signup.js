@@ -1,7 +1,7 @@
 
-import initDB from "../../helpers/db"
-import { sendSuccess,sendError } from "../../utilities/response-helpers"
-const {sendConfirmationMail} = require("./mailer")
+import initDB from "../../../helpers/db"
+import { sendSuccess,sendError } from "../../../utilities/response-helpers"
+const {sendConfirmationMail} = require("../../../lib/mailer")
 
 initDB() 
 
