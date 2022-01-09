@@ -13,3 +13,11 @@
   align-items: center;
   background-color: #142424;
 }
+.header {
+  color: #53c6f2;
+  font-size: 40px;
+  padding-top: 5%;
+  margin-left: 40%;
+  font-weight: 400;
+  background-color: #142424;
+}
