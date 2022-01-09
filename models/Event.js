@@ -50,17 +50,16 @@ const eventSchema = new mongoose.Schema({
     isOffline:{
         type:Boolean,
         required:true,
-        validator: function(v){
-            if (v != true) {
-                return "Online event"
-            }
-        },
-        location:{
-            type:String,
-            required:true,
-            trim: true,
-        }
-        
+        // validator: function(v){
+        //     if (v != true) {
+        //         return "Online event"
+        //     }
+        // }, 
+    },
+    location:{
+        type:String,
+        required: false,
+        trim: true,
     },
     enquiryDetails:{
         type:mongoose.Schema.Types.Mixed,
@@ -80,6 +79,28 @@ const eventSchema = new mongoose.Schema({
     timestamps:true
 })
 
+//console.log(eventSchema)
+
+
+eventSchema.pre('save', function(next)
+{
+    if(this.isOffline===true)
+    {
+        //if this code block is true then the location should not be empty
+        if(!this.location){
+            console.log("Reqiuired field violation");
+            return Promise.reject("Location is required for Offline event");
+            // return res.status(500).json({msg:"Location field is mandatory for offline events"});
+        }else{
+            next()
+        }
+
+    }else
+    {
+        next();
+    }
+})
+
 function getDemo () {
     
     const iSchema = eventSchema;
@@ -90,4 +111,4 @@ function getDemo () {
   }
   const EventSc= getDemo()
   module.exports= EventSc;
-  console.log(EventSc)
+  //console.log(EventSc)
