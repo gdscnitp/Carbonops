@@ -280,6 +280,9 @@
     text-align: center;
   }
   
+  .graphPart{
+    width: auto;
+  }
   .graphPart .container .gridItemRight .graphHeading{
     margin: 0;
     font-size: 25px;
