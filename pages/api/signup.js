@@ -20,8 +20,10 @@ export default async (req, res) => {
         }
 
         const newAccount = await PendAcc({email,password,contact,dob,organisationId})
+        const user = await newAccount.save()
+        sendSuccess(res,"Please check email for confirmation")
     } catch (err) {
-        
+        sendError(res,"Sorry",_,422)
     }
 
 }
