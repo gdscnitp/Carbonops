@@ -12,7 +12,7 @@ export default function Signpop() {
                 <pic className={styles.pics1}></pic>
                 <div className={styles.txt}>
                   Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
+                  typesetting industry. Lorem Ipsum has been the industry
                   standard dummy text ever since the
                 </div>
               </div>
@@ -27,7 +27,7 @@ export default function Signpop() {
                 <pic className={styles.pics2}></pic>
                 <div className={styles.txt}>
                   Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
+                  typesetting industry. Lorem Ipsum has been the industry
                   standard dummy text ever since the
                 </div>
               </div>
