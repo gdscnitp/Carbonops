@@ -5,15 +5,15 @@ export default NextAuth({
     providers: [CredentialsProvider({
         name: 'Credentials',
 
-        credentials:{
-            mailId: {  type: "email", placeholder: "Email" },
-            password: {  type: "password", placeholder: "Password" },
-            contact: {  type: "password", placeholder: "Password" },
+        // credentials:{
+        //     mailId: {  type: "email", placeholder: "Email" },
+        //     password: {  type: "password", placeholder: "Password" },
+        //     contact: {  type: "password", placeholder: "Password" },
 
-        },
+        // },
 
         async authorize(credentials, req) {
-            const res = await fetch("/api/signup", {
+            const res = await fetch(`${process.env.DOMAIN}/api/signup`, {
                 method: 'POST',
                 body: JSON.stringify(credentials),
                 headers: { "Content-Type": "application/json" }

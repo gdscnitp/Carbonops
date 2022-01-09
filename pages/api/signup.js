@@ -1,6 +1,7 @@
-import mongoose from 'mongoose'
+
 import initDB from "../../helpers/db"
 import { sendSuccess,sendError } from "../../utilities/response-helpers"
+const {sendConfirmationMail} = require("./mailer")
 
 initDB() 
 
@@ -8,7 +9,7 @@ export default async (req, res) => {
     const {email,password,contact,dob,organisationId} = req.body
 
     try {
-        if ((!email || !password || !contact) && (!dob && !organisationId)) {
+        if ((!email || !password || !contact) || (!dob && !organisationId)) {
             sendError(res,"Please fill all fields",_,422)
         }
 
@@ -20,7 +21,8 @@ export default async (req, res) => {
         }
 
         const newAccount = await PendAcc({email,password,contact,dob,organisationId})
-        const user = await newAccount.save()
+        await newAccount.save()
+        await sendConfirmationMail({toUser : newAccount.data, hash: newAccount.data._id})
         sendSuccess(res,"Please check email for confirmation")
     } catch (err) {
         sendError(res,"Sorry",_,422)
