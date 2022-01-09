@@ -1,7 +1,7 @@
 import styles from "./Signpop.module.css";
 import React from "react";
 
-export default function Sign(props) {
+export default function Signpop() {
   return (
     <div className={styles.container}>
       <signup className={styles.signu}>
