@@ -1,4 +1,4 @@
-//A file to check all APIS
+//A file to check all models
 
 import initDB from "../../helpers/db"
 import { sendSuccess,sendError } from "../../utilities/response-helpers"
@@ -9,10 +9,10 @@ import { sendSuccess,sendError } from "../../utilities/response-helpers"
 // var Indiv =require("../../models/Individual")
 // var Org =require("../../models/Organisation")
 // var EventSc =require("../../models/Event")
-// var EventRegSc =require("../../models/EventRegistered")
-var proSc =require("../../models/Product")
+var EventRegSc =require("../../models/EventRegistered")
+// var proSc =require("../../models/Product")
 // var scoresc =require("../../models/Score")
-console.log(proSc)
+console.log(EventRegSc)
 initDB();
 export default async function handler(req, res) {
     if (req.method === 'POST') {
@@ -22,17 +22,17 @@ export default async function handler(req, res) {
         // var {eventName,eventType,eventDetails,targetAudience,eventDescription,participantsLimit,isOffline,enquiryDetails,organiserId,onOrgModel}=req.body;
 
         //for registered event
-        // var {individualId,eventId,name,mailId,phoneNumber}=req.body;
+        var {individualId,eventId,name,mailId,phoneNumber}=req.body;
 
         //for products
-        var {organisationId,productName,price,description,productImage,rating,stockUnits,isRecyclable,productUrl} = req.body;
+        // var {organisationId,productName,price,description,productImage,rating,stockUnits,isRecyclable,productUrl} = req.body;
 
         //for score
         // var {individualId} = req.body;
         
         
-         var item=new proSc({
-            organisationId,productName,price,description,productImage,rating,stockUnits,isRecyclable,productUrl
+         var item=new EventRegSc({
+          individualId,eventId,name,mailId,phoneNumber
          })
          console.log(item)
           await item.save();
