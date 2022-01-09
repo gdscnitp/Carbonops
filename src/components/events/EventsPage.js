@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../navbar/Navbar'
 import EventSidebar from './EventSidebar'
 import EventCard from './EventCard'
 import styles from './EventsPage.module.css'
@@ -8,7 +7,6 @@ import EventsList from './EventsList'
 export default function EventsPage() {
     return (
         <>
-            <Navbar action1="" action2="Dashboard" buttonText1="Create Events" buttonText2=""/>
             <div className={styles.eventBody}>
             <div className={` ${styles.container}`}>
             <div className={`${styles.eventLeft}`}>
