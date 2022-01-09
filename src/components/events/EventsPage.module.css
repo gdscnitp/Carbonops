@@ -1,0 +1,212 @@
+.eventBody {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  grid-template-areas: "eventLeft eventMid eventRight";
+}
+
+.eventLeft {
+  border: 1px solid grey;
+  grid-column-start: 0;
+  grid-column-end: 1;
+  color: white;
+  background: rgba(25, 59, 62, 0.6);
+  width: 100%;
+  height: 100%;
+  grid-area: eventLeft;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 3px 0px 50px 4px rgba(0, 0, 0, 0.25);
+  padding: 0 15px;
+}
+.eventMid {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  border: 1px solid grey;
+  color: white;
+  width: 45vw;
+  grid-area: eventMid;
+  height: 95vh;
+  overflow-y: scroll;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.eventRight {
+  width: 100%;
+  height: auto;
+  grid-area: eventRight;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  border: 1px solid grey;
+}
+
+.cardBody {
+  width: 100%;
+  background: rgba(25, 59, 62, 0.6);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  box-shadow: 2px -2px 38px 4px rgba(0, 0, 0, 0.2);
+  margin: 1rem 0;
+}
+
+.cardImage {
+  width: 200px;
+}
+
+.cardDetails {
+  width: 70%;
+}
+.cardHeading {
+  font-size: 25px;
+  color: aqua;
+}
+.cardbtn {
+  display: flex;
+  flex-direction: row;
+}
+.rsvp {
+  color: #00bd57;
+  margin: 0.5rem 1rem;
+}
+.viewDetails {
+  padding: 1px 10px;
+  background-color: #00bd57;
+  margin: 0.5rem 1rem;
+  color: white;
+  text-align: center;
+}
+.viewDetails:hover {
+  cursor: pointer;
+}
+
+.rsvp:hover {
+  cursor: pointer;
+}
+
+
+/* event list rightgrid */
+.eventList {
+  background: rgba(25, 59, 62, 0.6);
+  width: 95%;
+  height: 45%;
+  margin: auto 0;
+  box-shadow: 2px -2px 38px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+
+}
+
+.eventList .eventHead {
+  width: 100%;
+  background-color: #00bd57;
+  height: 40px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.eventList .eachEvent {
+  margin-top: 1rem;
+  width: 90%;
+  background: rgba(77, 194, 208, 0.23);
+  padding: 5px 10px;
+} 
+
+.eventList .eachEvent .eachEventTitle{
+  color:#54CCFA ;
+  font-size: 20px;
+} 
+
+
+
+/*___________ tab view_____________  */
+@media only screen and (max-width: 900px) and (min-width: 555px) {
+  .container {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas:
+      "eventLeft eventMid"
+      "eventRight eventRight";
+  }
+
+  .eventLeft {
+    grid-area: eventLeft;
+  }
+  .eventMid {
+    width: auto;
+    grid-area: eventMid;
+  }
+
+  .eventRight {
+    grid-area: eventRight;
+    flex-direction: row;
+  }
+
+  .eventList {
+    width: 45%;
+    height: 95%;
+    margin: 0 auto;
+  }
+}
+
+
+
+/*_____________MOBILE VIEW__________________ */
+@media only screen and (max-width: 550px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 1fr 0.5fr;
+    grid-template-areas:
+      "eventLeft"
+      "eventMid"
+      "eventRight";
+  }
+
+  .eventLeft {
+    width: 100%;
+    height: 300px;
+    grid-area: eventLeft;
+  }
+  .eventMid {
+    width: auto;
+    grid-area: eventMid;
+  }
+
+  .cardImage {
+    width: 180px;
+  }
+
+  .cardHeading {
+    font-size: 20px;
+  }
+  .rsvp {
+    color: #00bd57;
+    margin: 0.5rem 0.5rem;
+  }
+  .eventRight {
+    grid-area: eventRight;
+    flex-direction: column;
+  }
+  .eventList{
+    height: auto;
+    margin-top: 1rem;
+  }
+}
