@@ -13,7 +13,7 @@ export default async function SignupIn (req, res) {
     console.log(req.body)
    try{
     if ((!email || !password || !contact) || !dob ) {
-        sendError(res,"Please fill all fields",11,422)
+        return sendError(res,"Please fill all fields",11,422)
     }
     initDB() 
     //add server side input validation
@@ -22,19 +22,22 @@ export default async function SignupIn (req, res) {
     console.log(regUser)
     console.log(pUserAcc)
     if (regUser || pUserAcc) {
-        sendError(res,"User already exists",11,422)
+        return sendError(res,"User already exists",11,422)
+    }else
+    {
+        const newAccount = await PendAcc({email,password,contact,dob})
+        await newAccount.save()
+        console.log("Saved to database.")
+        //res.status(201).json({ message: 'Created user!' });
+        // await sendConfirmationMail({toUser : newAccount.data, hash: newAccount.data._id})
+         return sendSuccess(res,newAccount)
     }
-
-    const newAccount = await PendAcc({email,password,contact,dob})
-    await newAccount.save()
-    console.log("Saved to database.")
-    //res.status(201).json({ message: 'Created user!' });
-    // await sendConfirmationMail({toUser : newAccount.data, hash: newAccount.data._id})
-     sendSuccess(res,newAccount)
-   }catch{
-       (err)=>{
-           console.log(err)
-       }
+ 
+   }catch(err){
+       
+           console.log(err.message)
+           return sendError(res, err.message,err.message,422);
+       
    }
         
     

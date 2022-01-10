@@ -14,7 +14,7 @@ const pendingAccountSchema = new mongoose.Schema({
     password:{
         type: String,
         required: true,
-        validate: [ isStrongPassword, 'Please provide a strong password' ]
+        // validate: [ isStrongPassword, 'Please provide a strong password' ]
     },
     contact:{
         type: Number,
