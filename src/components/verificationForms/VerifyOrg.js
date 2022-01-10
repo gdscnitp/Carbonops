@@ -117,6 +117,40 @@ export default function VerifyOrg() {
             />
             <br />
 
+            <div className={styles.dealsCheckbox}>
+              <label htmlFor="deals">
+                Deals in waste products?
+                <input
+                  id="deals"
+                  type="checkbox"
+                  value={dealsBool}
+                  onClick={() => {
+                    setDealsBool(!dealsBool);
+                  }}
+                />
+              </label>
+              <br />
+            </div>
+
+            {dealsBool ? (
+              <>
+                <input
+                  className={`${styles.input} `}
+                  type="text"
+                  placeholder="Waste Requirements *"
+                  id="wasteRequirements"
+                  name="wasteRequirements"
+                  value={orgProfValues.wasteRequirements}
+                  onChange={handleChange}
+                  required
+                  autoComplete="off"
+                />
+                <br />
+              </>
+            ) : (
+              ""
+            )}
+
             <input
               className={`${styles.input} `}
               type="url"
@@ -142,62 +176,25 @@ export default function VerifyOrg() {
             />
             <br />
 
-            <div className={styles.typesDeals}>
-              <label className={styles.eventType} htmlFor="eventType">
-                Type of Organisation <br />
-                <select
-                  className={styles.select}
-                  id="typeOfOrganisation"
-                  name="typeOfOrganisation"
-                  value={orgProfValues.typeOfOrganisation}
-                  onChange={handleChange}
-                  required
-                  autoComplete="off"
-                >
-                  <option value=""> Your Organisation type</option>
-                  <option value="Cooperatives">Cooperatives</option>
-                  <option value="Self help groups">Self help groups</option>
-                  <option value="Private">Private </option>
-                </select>
-                <br />
-              </label>
-              <br />
-
-              <label htmlFor="deals">
-                Deals in waste products?
-                <input
-                  id="deals"
-                  type="checkbox"
-                  value={dealsBool}
-                  onClick={() => {
-                    setDealsBool(!dealsBool);
-                  }}
-                />
-              </label>
-              <br />
-              <br />
-            </div>
-
+            <select
+              className={styles.select}
+              id="typeOfOrganisation"
+              name="typeOfOrganisation"
+              value={orgProfValues.typeOfOrganisation}
+              onChange={handleChange}
+              required
+              autoComplete="off"
+            >
+              <option value="" disabled>
+                Select your Organisation type
+              </option>
+              <option  className={styles.option} value="Cooperatives">Cooperatives</option>
+              <option className={styles.option} value="Self help groups">Self help groups</option>
+              <option className={styles.option} value="Private">Private </option>
+            </select>
             <br />
 
-            {dealsBool ? (
-              <>
-                <input
-                  className={`${styles.input} `}
-                  type="text"
-                  placeholder="Waste Requirements"
-                  id="wasteRequirements"
-                  name="wasteRequirements"
-                  value={orgProfValues.wasteRequirements}
-                  onChange={handleChange}
-                  required
-                  autoComplete="off"
-                />
-                <br />
-              </>
-            ) : (
-              ""
-            )}
+            <br />
 
             <div className={styles.button}>
               <a onClick={handleSubmit}> Save Details</a>
