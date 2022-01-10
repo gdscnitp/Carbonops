@@ -119,4 +119,4 @@ function getDemo () {
   }
   const Indiv= getDemo()
   module.exports= Indiv;
-  console.log(Indiv)
+  

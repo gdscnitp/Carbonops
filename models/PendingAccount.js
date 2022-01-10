@@ -54,5 +54,5 @@ function getPendingAccs () {
   }
   const PendAcc= getPendingAccs()
   module.exports= PendAcc;
-  console.log(PendAcc)
+  
 

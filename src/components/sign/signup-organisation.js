@@ -46,7 +46,7 @@ export default function Sign(props) {
               </div>
               <div className={styles.inputBx}>
                 <p>
-                  Already {props.text1}?<a href="#">Login Now!</a>
+                  Already Registered?<a href="#">Login Now!</a>
                 </p>
               </div>
             </div>
@@ -75,7 +75,7 @@ export default function Sign(props) {
                     <input type="number" name="" placeholder="Contact" required ref={contactInputRef}/>  
                   </div>
                   <div className={styles.inputBx}>
-                    <input type={props.text3} name="" placeholder={props.text2} required ref={dependentInputRef}/>
+                    <input type="number" name="" placeholder="Organisation ID" required ref={dependentInputRef}/>
                   </div>
                   <div className={styles.inputBx}>
                     <input type="password" name="" placeholder="Password" required ref={passwordInputRef}/>
