@@ -1,18 +1,19 @@
 import styles from "./Signup.module.css";
 import React, { useRef } from "react";
 
-async function createUser(email,password,contact,inputCustomSignup)
+async function createUser(email,password,contact,organisationId)
 {
-  const response = await fetch('/api/auth/signup', {
+  const response = await fetch('/api/auth/signuporg', {
     method: 'POST',
-    body: JSON.stringify({ email, password,contact,inputCustomSignup }),
+    body: JSON.stringify({ email, password,contact,organisationId }),
     headers: {
       'Content-Type': 'application/json',
     }})
     const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || 'Something went wrong!');
+    // throw new Error(data.message || 'Something went wrong!');
+    console.log("something went wrong")
   }
 
   return data;
@@ -21,7 +22,7 @@ export default function Sign(props) {
   
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
-  const dependentInputRef=useRef();
+  const organisationIdInputRef=useRef();
   const contactInputRef=useRef();
 
   async function SubmitHandler(event)
@@ -29,10 +30,10 @@ export default function Sign(props) {
     event.preventDefault();
     const email=emailInputRef.current.value;
     const password=passwordInputRef.current.value;
-    const inputCustomSignup=dependentInputRef.current.value;
+    const organisationId=organisationIdInputRef.current.value;
     const contact=contactInputRef.current.value;
 
-    const result=await createUser(email,password,contact,inputCustomSignup)
+    const result=await createUser(email,password,contact,organisationId)
     console.log(result);
   }
   return (
@@ -51,7 +52,7 @@ export default function Sign(props) {
               </div>
             </div>
           </div>
-          <forms className={styles.formss} onSubmit={SubmitHandler}>
+          <forms className={styles.formss} >
             <div className={styles.contentBx}>
               <div className={styles.formBx}>
                 <h2>SIGNUP</h2>
@@ -60,7 +61,7 @@ export default function Sign(props) {
                     Join us in our<a href="#">Green Journey!</a>
                   </p>
                 </div>
-                <form>
+                <form onSubmit={SubmitHandler}>
                   <div className={styles.inputBx}>
                     <input
                       className={styles.email}
@@ -75,7 +76,7 @@ export default function Sign(props) {
                     <input type="number" name="" placeholder="Contact" required ref={contactInputRef}/>  
                   </div>
                   <div className={styles.inputBx}>
-                    <input type="number" name="" placeholder="Organisation ID" required ref={dependentInputRef}/>
+                    <input type="number" name="" placeholder="Organisation ID" required ref={organisationIdInputRef}/>
                   </div>
                   <div className={styles.inputBx}>
                     <input type="password" name="" placeholder="Password" required ref={passwordInputRef}/>

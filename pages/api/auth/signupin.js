@@ -4,6 +4,7 @@ import { sendSuccess,sendError } from "../../../utilities/response-helpers"
 //const {sendConfirmationMail} = require("../../../lib/mailer")
 const Individual=require('../../../models/Individual')
 const PendAcc=require('../../../models/PendingAccount')
+import { Mongoose } from "mongoose"
 
 
 
@@ -28,7 +29,6 @@ export default async function SignupIn (req, res) {
         const newAccount = await PendAcc({email,password,contact,dob})
         await newAccount.save()
         console.log("Saved to database.")
-        //res.status(201).json({ message: 'Created user!' });
         // await sendConfirmationMail({toUser : newAccount.data, hash: newAccount.data._id})
          return sendSuccess(res,newAccount)
     }
@@ -39,7 +39,4 @@ export default async function SignupIn (req, res) {
            return sendError(res, err.message,err.message,422);
        
    }
-        
-    
-        //sendError(res,"Sorry",11,422)
 }
