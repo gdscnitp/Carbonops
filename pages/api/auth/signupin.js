@@ -5,7 +5,7 @@ const {sendConfirmationMail} = require("../../../lib/mailer")
 
 initDB() 
 
-export default async (req, res) => {
+export default async function SignupIn (req, res) {
     const {email,password,contact,dob} = req.body
 
     try {
@@ -22,8 +22,8 @@ export default async (req, res) => {
 
         const newAccount = await PendAcc({email,password,contact,dob})
         await newAccount.save()
-        await sendConfirmationMail({toUser : newAccount.data, hash: newAccount.data._id})
-        sendSuccess(res,"Please check email for confirmation")
+        // await sendConfirmationMail({toUser : newAccount.data, hash: newAccount.data._id})
+        // sendSuccess(res,"Please check email for confirmation")
     } catch (err) {
         sendError(res,"Sorry",_,422)
     }

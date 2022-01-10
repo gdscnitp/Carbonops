@@ -79,14 +79,14 @@ const individualSchema = new mongoose.Schema({
     },
     facebook:{
         type: String,
-        required: true,
+       // required: true,
         trim: true,
         validate: [ isURL, 'Invalid Facebook Url' ]
     },
     
     profileImage:{
         type: String,
-        required: true,
+        //required: true,
         trim: true,
         validate: [ isURL, 'Invalid Url' ]
     

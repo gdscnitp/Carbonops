@@ -1,7 +1,40 @@
 import styles from "./Signup.module.css";
-import React from "react";
+import React, { useRef } from "react";
 
+async function createUser(email,password,contact,inputCustomSignup)
+{
+  const response = await fetch('/api/auth/signup', {
+    method: 'POST',
+    body: JSON.stringify({ email, password,contact,inputCustomSignup }),
+    headers: {
+      'Content-Type': 'application/json',
+    }})
+    const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Something went wrong!');
+  }
+
+  return data;
+}
 export default function Sign(props) {
+  
+  const emailInputRef = useRef();
+  const passwordInputRef = useRef();
+  const dependentInputRef=useRef();
+  const contactInputRef=useRef();
+
+  async function SubmitHandler(event)
+  {
+    event.preventDefault();
+    const email=emailInputRef.current.value;
+    const password=passwordInputRef.current.value;
+    const inputCustomSignup=dependentInputRef.current.value;
+    const contact=contactInputRef.current.value;
+
+    const result=await createUser(email,password,contact,inputCustomSignup)
+    console.log(result);
+  }
   return (
     <div className={styles.container}>
       <signup className={styles.signu}>
@@ -18,7 +51,7 @@ export default function Sign(props) {
               </div>
             </div>
           </div>
-          <forms className={styles.formss}>
+          <forms className={styles.formss} onSubmit={SubmitHandler}>
             <div className={styles.contentBx}>
               <div className={styles.formBx}>
                 <h2>SIGNUP</h2>
@@ -34,16 +67,18 @@ export default function Sign(props) {
                       type="email"
                       name=""
                       placeholder="Email"
+                      required
+                      ref={emailInputRef}//email id
                     />
                   </div>
                   <div className={styles.inputBxx}>
-                    <input type="number" name="" placeholder="Contact" />
+                    <input type="number" name="" placeholder="Contact" required ref={contactInputRef}/>  
                   </div>
                   <div className={styles.inputBx}>
-                    <input type={props.text3} name="" placeholder={props.text2} />
+                    <input type={props.text3} name="" placeholder={props.text2} required ref={dependentInputRef}/>
                   </div>
                   <div className={styles.inputBx}>
-                    <input type="password" name="" placeholder="Password" />
+                    <input type="password" name="" placeholder="Password" required ref={passwordInputRef}/>
                   </div>
                   <div className={styles.inputBx}>
                     <input

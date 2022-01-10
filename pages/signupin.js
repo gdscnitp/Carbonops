@@ -4,7 +4,12 @@ import React from "react";
 import Head from "next/head";
 import styles from "../styles/Signu.module.css";
 
+//redirect to a complete profile form.
+// save the data in respective schema.
+//ask to login.
+
 export default function SignUpIn() {
+  
   return (
     <div className={styles.container}>
       <Head>

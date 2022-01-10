@@ -27,6 +27,8 @@ export default function Mycomponent(){
     const router=useRouter();
     console.log(router.query)
     console.log(router.pathname)
+    //verified users.
+    //after profile completion, save in respective schema.
     //create a function in lib to change send user from pending to respective collection, import it and use here
     return <div><h1>THis is a sample text </h1></div>
 }

@@ -1,11 +1,11 @@
 
-import initDB from "../../helpers/db"
-import { sendSuccess,sendError } from "../../utilities/response-helpers"
+import initDB from "../../../helpers/db"
+import { sendSuccess,sendError } from "../../../utilities/response-helpers"
 const {sendConfirmationMail} = require("./mailer")
 
 initDB() 
 
-export default async (req, res) => {
+export default async function SignupOrg(req, res){
     const {email,password,contact,organisationId} = req.body
 
     try {
