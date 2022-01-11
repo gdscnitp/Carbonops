@@ -1,0 +1,19 @@
+.sidebar{
+    margin-top: 1rem;
+    width: auto;
+}
+.sidebar input{
+    margin: 1rem 0;
+    list-style: none;
+}
+.sidebar input:hover{
+    cursor: pointer;
+}
+.ul input[type=checkbox]{
+    color: #000;
+}
+
+.sidebar .filters{
+    color: #54CCFA;
+    font-size: 25px;
+}
