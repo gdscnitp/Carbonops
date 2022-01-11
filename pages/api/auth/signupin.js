@@ -10,19 +10,22 @@ import { Mongoose } from "mongoose"
 
 export default async function SignupIn (req, res) {
     const {email,password,contact,dob} = req.body
-    console.log("fetched api")
+    //console.log("fetched api")
     console.log(req.body)
    try{
     if ((!email || !password || !contact) || !dob ) {
         return sendError(res,"Please fill all fields",11,422)
     }
-    initDB() 
+
     //add server side input validation
+    initDB() 
+    
     const regUser =  await Individual.findOne({email})
     const pUserAcc = await PendAcc.findOne({email})
     console.log(regUser)
     console.log(pUserAcc)
-    if (regUser || pUserAcc) {
+    if (regUser || pUserAcc) {//check if the user is existing also in the organisation collection and verified 
+        //accounts collection.
         return sendError(res,"User already exists",11,422)
     }else
     {
@@ -36,7 +39,6 @@ export default async function SignupIn (req, res) {
    }catch(err){
        
            console.log(err.message)
-           return sendError(res, err.message,err.message,422);
-       
+           return sendError(res, err.message,err.message,422);  
    }
 }

@@ -22,7 +22,7 @@ export default async function handler(req, res) {
          var {eventName,eventType,eventDetails,location,targetAudience,eventDescription,participantsLimit,isOffline,enquiryDetails,organiserId,onOrgModel}=req.body;
         //var {name,email,contact}=req.body;
         //for registered event
-        var {individualId,eventId,name,mailId,phoneNumber}=req.body;
+        //var {individualId,eventId,name,mailId,phoneNumber}=req.body;
 
         //for products
         //var {organisationId,productName,price,description,productImage,rating,stockUnits,isRecyclable,productUrl} = req.body;

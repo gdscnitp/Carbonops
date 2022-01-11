@@ -18,7 +18,8 @@ export default async function SignupOrg(req, res){
             //add server side input validation
             initDB() 
             const regUser =  await Org.findOne({email})
-            const pUserAcc = await PendAcc.findOne({email})
+            const pUserAcc = await PendAcc.findOne({email})//check if the user is existing also in the individual
+            //collection and verified accounts collection
     
             if (regUser || pUserAcc) {
                 return sendError(res,"User already exists",11,422)

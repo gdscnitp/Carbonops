@@ -10,7 +10,7 @@ export default NextAuth({
         {
           initDB()
           //connect to database
-          //find the user in a specific database,
+          //find the user in a specific collection,
           //if the user exits, check password
           //if password matched
           //log the user in, 
