@@ -167,4 +167,7 @@
         text-align: justify;
         text-justify: inter-word;
     }
+    .item{
+        width: 100%;
+    }
 }
