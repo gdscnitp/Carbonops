@@ -1,16 +1,18 @@
 
 import initDB from "../../../helpers/db"
 import { sendSuccess,sendError } from "../../../utilities/response-helpers"
-const {sendConfirmationMail} = require("../../../lib/mailer")
-const Individual=require('../../../models/Individual')
-const PendAcc=require('../../../models/PendingAccount')
-import { Mongoose } from "mongoose"
+const sendConfirmationMail = require("../../../lib/mailer")
+var Individual=require('../../../models/Individual')
+var PendAcc=require('../../../models/PendingAccount')
+var Org = require('../../../models/Organisation')
+var VerAcc = require('../../../models/VerifiedAcc')
+// import { Mongoose } from "mongoose"
 
 
 
 export default async function SignupIn (req, res) {
     const {email,password,contact,dob} = req.body
-    //console.log("fetched api")
+   
     console.log(req.body)
    try{
     if ((!email || !password || !contact) || !dob ) {
@@ -22,17 +24,23 @@ export default async function SignupIn (req, res) {
     
     const regUser =  await Individual.findOne({email})
     const pUserAcc = await PendAcc.findOne({email})
+    const orgAcc = await Org.findOne({email})
+    const verifAcc = await VerAcc.findOne({email})
     console.log(regUser)
     console.log(pUserAcc)
-    if (regUser || pUserAcc) {//check if the user is existing also in the organisation collection and verified 
-        //accounts collection.
-        return sendError(res,"User already exists",11,422)
+    console.log(orgAcc)
+    console.log(verifAcc)
+    if (regUser || pUserAcc || orgAcc || verifAcc) {
+        /*checking if the user is existing also in the organisation collection and verified accounts collection*/
+        return sendError(res,"Account already exists",11,422)
     }else
     {
         const newAccount = await PendAcc({email,password,contact,dob})
         await newAccount.save()
-        console.log("Saved to database.")
-        // await sendConfirmationMail({toUser : newAccount.data, hash: newAccount.data._id})
+        console.log("Saved a pending acc to database")
+        // console.log(newAccount);
+        
+        await sendConfirmationMail({toUser : newAccount.email, hash: newAccount._id})
          return sendSuccess(res,newAccount)
     }
  
