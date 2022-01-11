@@ -1,5 +1,6 @@
 import styles from "./Signup.module.css";
 import React from "react";
+import Link from 'next/link';
 
 export default function Sign(props) {
   return (
@@ -13,7 +14,7 @@ export default function Sign(props) {
               </div>
               <div className={styles.inputBx}>
                 <p>
-                  Already {props.text1}?<a href="/">Login Now!</a>
+                  Already {props.text1}?<Link href="/"><a>Login Now!</a></Link>
                 </p>
               </div>
             </div>
@@ -24,7 +25,7 @@ export default function Sign(props) {
                 <h2>SIGNUP</h2>
                 <div className={styles.bx}>
                   <p>
-                    Join us in our<a href="/">Green Journey!</a>
+                    Join us in our<Link href="/"><a>Green Journey!</a></Link>
                   </p>
                 </div>
                 <form>
