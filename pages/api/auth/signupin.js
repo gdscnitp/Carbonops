@@ -4,13 +4,14 @@ import { sendSuccess,sendError } from "../../../utilities/response-helpers"
 import sendConfirmationMail from "../../../lib/mailer"
 const Individual=require('../../../models/Individual')
 const PendAcc=require('../../../models/PendingAccount')
+const VerAcc=require('../../../models/VerifiedAcc')
 
 
 
 
 export default async function SignupIn (req, res) {
     const {email,password,contact,dob} = req.body
-    //console.log("fetched api")
+   
     console.log(req.body)
    try{
     if ((!email || !password || !contact) || !dob ) {
@@ -22,10 +23,12 @@ export default async function SignupIn (req, res) {
     
     const regUser =  await Individual.findOne({email})
     const pUserAcc = await PendAcc.findOne({email})
-  
-    if (regUser || pUserAcc) {//check if the user is existing also in the organisation collection and verified 
-        //accounts collection.
-        return sendError(res,"User already exists",11,422)
+    const orgAcc = await Org.findOne({email})
+    const verifAcc = await VerAcc.findOne({email})
+    
+    if (regUser || pUserAcc || orgAcc || verifAcc) {
+        /*checking if the user is existing also in the organisation collection and verified accounts collection*/
+        return sendError(res,"Account already exists",11,422)
     }else
     {
         const newAccount = await PendAcc({email,password,contact,dob})

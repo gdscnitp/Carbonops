@@ -31,6 +31,14 @@ const pendingAccountSchema = new mongoose.Schema({
     },
 
 })
+function getPendingAccs () {
+    
+    const iSchema = pendingAccountSchema;
+    
+    if (mongoose.models && mongoose.models.Pendinguser) return mongoose.models.Pendinguser
+   
+    return mongoose.model('Pendinguser', iSchema)
+  }
 
 pendingAccountSchema.pre('save', async function save(next) {
     if (!this.isModified('password')) return next();
@@ -44,14 +52,6 @@ pendingAccountSchema.pre('save', async function save(next) {
     
 });
 
-function getPendingAccs () {
-    
-    const iSchema = pendingAccountSchema;
-    
-    if (mongoose.models && mongoose.models.Pendinguser) return mongoose.models.Pendinguser
-   
-    return mongoose.model('Pendinguser', iSchema)
-  }
   const PendAcc= getPendingAccs()
   module.exports= PendAcc;
   

@@ -4,6 +4,8 @@ import { sendSuccess,sendError } from "../../../utilities/response-helpers"
 //const {sendConfirmationMail} = require("./mailer")
 var Org= require('../../../models/Organisation');
 var PendAcc=require('../../../models/PendingAccount');
+var VerAcc = require('../../../models/VerifiedAcc')
+var Individual=require('../../../models/Individual')
 
 
 
@@ -11,25 +13,34 @@ export default async function SignupOrg(req, res){
     const {email,password,contact,organisationId} = req.body
 
     try {
-        if ((!email || !password || !contact) ||  !organisationId){
+        if (!email || !password || !contact ||  !organisationId){
             return sendError(res,"Please fill all fields",11,422)
         }else
         {
             //add server side input validation
             initDB() 
             const regUser =  await Org.findOne({email})
-            const pUserAcc = await PendAcc.findOne({email})//check if the user is existing also in the individual
+            const pUserAcc = await PendAcc.findOne({email})
+            const IndiAcc = await Individual.findOne({email})
+            const verifAcc = await VerAcc.findOne({email})
+            console.log(regUser)
+            console.log(pUserAcc)
+            console.log(IndiAcc)
+            console.log(verifAcc)
+            //check if the user is existing also in the individual
             //collection and verified accounts collection
     
-            if (regUser || pUserAcc) {
-                return sendError(res,"User already exists",11,422)
+            if (regUser || pUserAcc || IndiAcc || verifAcc) {
+                /*checking if the user is existing also in the organisation collection and verified accounts collection*/
+                return sendError(res,"Account already exists",11,422)
+            }else
+            {
+                const newAccount = await PendAcc({email,password,contact,dob})
+                await newAccount.save()
+                console.log("Saved a pending acc to database")
+                // await sendConfirmationMail({toUser : newAccount.data, hash: newAccount.data._id})
+                 return sendSuccess(res,newAccount)
             }
-    
-            const newAccount = await PendAcc({email,password,contact,organisationId})
-            await newAccount.save()
-            console.log("Saved to database.")
-            //await sendConfirmationMail({toUser : newAccount.data, hash: newAccount.data._id})
-            return sendSuccess(res,"Please check email for confirmation")
         }
        
     } catch (err) {
