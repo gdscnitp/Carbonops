@@ -40,7 +40,7 @@ export default async function SignupIn (req, res) {
         console.log("Saved a pending acc to database")
         // console.log(newAccount);
         
-         sendConfirmationMail(email,  newAccount._id)
+        await sendConfirmationMail(newAccount.email,  newAccount._id)
          return sendSuccess(res,newAccount)
     }
  
