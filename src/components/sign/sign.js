@@ -13,7 +13,7 @@ export default function Sign(props) {
               </div>
               <div className={styles.inputBx}>
                 <p>
-                  Already {props.text1}?<a href="#">Login Now!</a>
+                  Already {props.text1}?<a href="/">Login Now!</a>
                 </p>
               </div>
             </div>
@@ -24,7 +24,7 @@ export default function Sign(props) {
                 <h2>SIGNUP</h2>
                 <div className={styles.bx}>
                   <p>
-                    Join us in our<a href="#">Green Journey!</a>
+                    Join us in our<a href="/">Green Journey!</a>
                   </p>
                 </div>
                 <form>
@@ -40,7 +40,11 @@ export default function Sign(props) {
                     <input type="number" name="" placeholder="Contact" />
                   </div>
                   <div className={styles.inputBx}>
-                    <input type={props.text3} name="" placeholder={props.text2} />
+                    <input
+                      type={props.text3}
+                      name=""
+                      placeholder={props.text2}
+                    />
                   </div>
                   <div className={styles.inputBx}>
                     <input type="password" name="" placeholder="Password" />
