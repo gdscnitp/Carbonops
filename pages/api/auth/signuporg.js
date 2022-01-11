@@ -1,7 +1,7 @@
 
 import initDB from "../../../helpers/db"
 import { sendSuccess,sendError } from "../../../utilities/response-helpers"
-const sendConfirmationMail = require("../../../lib/mailer")
+import sendConfirmationMail from "../../../lib/mailer"
 var Org= require('../../../models/Organisation');
 var PendAcc=require('../../../models/PendingAccount');
 var VerAcc = require('../../../models/VerifiedAcc')
@@ -38,7 +38,7 @@ export default async function SignupOrg(req, res){
                 const newAccount = await PendAcc({email,password,contact,organisationId})
                 await newAccount.save()
                 console.log("Saved a pending acc to database")
-                await sendConfirmationMail({toUser : newAccount, hash: newAccount._id})
+                await sendConfirmationMail(email,  newAccount._id)
                  return sendSuccess(res,newAccount)
             }
         }
