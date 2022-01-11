@@ -36,7 +36,7 @@ export default async function SignupIn (req, res) {
         await newAccount.save()
         console.log("Saved to database.")
       //  console.log(newAccount)
-        await sendConfirmationMail(email,  newAccount._id)
+        var result = await sendConfirmationMail(email,  newAccount._id)
          return sendSuccess(res,newAccount)
     }
    }catch(err){
