@@ -1,10 +1,10 @@
 
 import initDB from "../../../helpers/db"
 import { sendSuccess,sendError } from "../../../utilities/response-helpers"
-const {sendConfirmationMail} = require("../../../lib/mailer")
+import sendConfirmationMail from "../../../lib/mailer"
 const Individual=require('../../../models/Individual')
 const PendAcc=require('../../../models/PendingAccount')
-import { Mongoose } from "mongoose"
+
 
 
 
@@ -22,8 +22,7 @@ export default async function SignupIn (req, res) {
     
     const regUser =  await Individual.findOne({email})
     const pUserAcc = await PendAcc.findOne({email})
-    console.log(regUser)
-    console.log(pUserAcc)
+  
     if (regUser || pUserAcc) {//check if the user is existing also in the organisation collection and verified 
         //accounts collection.
         return sendError(res,"User already exists",11,422)
@@ -32,12 +31,11 @@ export default async function SignupIn (req, res) {
         const newAccount = await PendAcc({email,password,contact,dob})
         await newAccount.save()
         console.log("Saved to database.")
-        // await sendConfirmationMail({toUser : newAccount.data, hash: newAccount.data._id})
+      //  console.log(newAccount)
+        await sendConfirmationMail(email,  newAccount._id)
          return sendSuccess(res,newAccount)
     }
- 
    }catch(err){
-       
            console.log(err.message)
            return sendError(res, err.message,err.message,422);  
    }
