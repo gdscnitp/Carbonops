@@ -26,10 +26,10 @@ export default async function SignupIn (req, res) {
     const pUserAcc = await PendAcc.findOne({email})
     const orgAcc = await Org.findOne({email})
     const verifAcc = await VerAcc.findOne({email})
-    console.log(regUser)
-    console.log(pUserAcc)
-    console.log(orgAcc)
-    console.log(verifAcc)
+    // console.log(regUser)
+    // console.log(pUserAcc)
+    // console.log(orgAcc)
+    // console.log(verifAcc)
     if (regUser || pUserAcc || orgAcc || verifAcc) {
         /*checking if the user is existing also in the organisation collection and verified accounts collection*/
         return sendError(res,"Account already exists",11,422)
@@ -40,7 +40,7 @@ export default async function SignupIn (req, res) {
         console.log("Saved a pending acc to database")
         // console.log(newAccount);
         
-        await sendConfirmationMail(newAccount.email,  newAccount._id)
+         sendConfirmationMail(email,  newAccount._id)
          return sendSuccess(res,newAccount)
     }
  
