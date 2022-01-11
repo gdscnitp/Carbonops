@@ -2,6 +2,7 @@ import { sendSuccess,sendError } from "../../../utilities/response-helpers"
 import { useRouter } from "next/router"
 
 const PendAcc=require('../../../models/PendingAccount')
+const VerifiedAcc = require('../../../models/VerifiedAcc')
 //import { route } from "next/dist/server/router";
 //import { route } from "next/dist/server/router"
 
@@ -24,29 +25,40 @@ const PendAcc=require('../../../models/PendingAccount')
 //     // }
 // }
 
-const updateRecords = async (id) => {
+const updateRecords = async () => {
+    const router = useRouter()
+    var id = router.query.hash
+    console.log(id);
+    var account =  await PendAcc.findById( id).exec();
+    console.log(account)
 
-    // var account =  await PendAcc.findById( id, "dob").exec();
-    // console.log(account)
-    // let accType = (account === undefined) ? "Organisation" : "Individual"
-    // console.log(accType)
+    let accType = (account.dob === undefined) ? "Organisation" : "Individual"
+    console.log(accType)
+
+    let isOrganisation = (accType === "Individual") ? false : true
+    //adding to verified
+    const verifiedAccount = await VerifiedAcc({...account,isOrganisation})
+    await verifiedAccount.save()
+
+    
+    
     //Remove from pending accounts
-    await PendAcc.deleteOne({ _id: id });
+    await PendAcc.deleteOne({_id : id},err=>{
+       if (err) {console.log(err)}
+       console.log("Deleted successfully");
+    })
 
-    //save to verified accounts
-    // const newVerifiedAccount = await VerAcc({email,password,contact,dob})
-    // await newAccount.save()
+   
 
 }
 
 //async removed from here to fix Objects not valid as react child issue
 export default function Mycomponent(){
-    const router = useRouter()
-    var id = router.query.hash
+    
     
     // console.log(router.pathname)
 
-    updateRecords(id)
+    updateRecords()
     //when the user is directed to this page, you have to remove user from pending collection
 
     //and save in verified accounts collection.
