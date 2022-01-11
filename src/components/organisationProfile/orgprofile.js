@@ -8,11 +8,6 @@ import Hack from "/public/images/organisationProfilee/Hack.png"
 const orgprofile = () => {
   return (
     <>
-    
-    
-
-
-      <div className={styles.orgo}>
 
 
 
@@ -49,21 +44,22 @@ const orgprofile = () => {
           <div className={styles.torg}>
 
             <h3 className={styles.torgg}>Type Of Org </h3>
-            <h3 className={styles.bol}> Based on Location</h3>
+            <h3 className={styles.bol}> Based in *Location*</h3>
+            <br />
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste maiores alias quas esse assumenda odit velit facilis laboriosam, similique ipsa rem labore iure blanditiis illum ullam aliquam ipsam dolore temporibus quaerat exercitationem suscipit, veritatis quis tempore delectus! Autem, amet in. Doloribus modi odit maxime ab sit debitis, neque iste numquam!</p>
-
+             <br />
             <hr className={styles.hr} />
-
+           <br />
             <p className={styles.bol}>
               Contact Us
             </p>
-
+            <br />
             <div className={styles.cont4}>
               <Image
                 src={group}
                 alt="Home Image"
                 width={150}
-                height={30}
+                height={39}
               />
             </div>
           </div>
@@ -89,6 +85,7 @@ const orgprofile = () => {
                 width={320}
                 height={130}
               />
+              
               <h2 className={styles.hsecondary}>Product Name</h2>
               <p className={styles.center}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, eaque. Aliquam dolor
                 . Quas auem fugiat dolore quae.</p>
@@ -299,11 +296,6 @@ const orgprofile = () => {
 
 
 
-
-
-
-
-      </div>
     </>
   )
 }

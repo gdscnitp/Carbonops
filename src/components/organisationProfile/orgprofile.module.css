@@ -1,24 +1,17 @@
 
-.orgo{
-    /* background-color: rgb(31, 40, 46); */
-    z-index: -1;
-}
 .cont1{
     position: absolute;
     left: 50%;
 }
 .cont2{
   
-/* border: 2px solid red; */
-    color: rgb(247, 242, 242);
- 
-    
+    color: rgb(247, 242, 242);   
 }
 .cont3{
-    position: relative;
+    position: absolute;
  
     left: 15%;
-    top: 50px;
+    top: 16%;
     
 }
 .newbody{
@@ -34,13 +27,12 @@
     color: rgb(91, 91, 216);
 }
 .buton{
-    /* border: 2px solid red; */
     display: flex;
     position: absolute;
     width: 120px;
     height: 40px;
    left: 50%;
-   top: 50%; 
+   top: 40%; 
    border-radius: 16px 8px 10px 5px;
     align-items: center;
     justify-content: center;
@@ -48,34 +40,31 @@
     cursor: pointer;
 }
 .ordet{
-    /* border: 2px solid red; */
     display: flex;
     align-items: center;
     justify-content: center;
     color: rgb(245, 240, 240);
     position: absolute;
-    top: 60%;
+    top: 56%;
     left: 40%;
 }
 .bcc{
-    /* border: 2px solid red; */
    background-color: #193B3E;
    width: 80%;
-   height: 80%;
-   top: 60%;
+   height: 65%;
+   top: 67%;
    left: 10%;
    position: absolute;
    z-index: -1;
 
 }
 .torg{
-   
-    width: 40%;
-    left: 30%;
+ 
+    width: 56%;
+    left: 22%;
     position: absolute;
-    top: 20%;
+    top: 10%;
     color: white;
-/* background-color: rgb(25, 18, 61); */
 }
 .torgg{
    display: flex;
@@ -94,28 +83,24 @@
 }
 .cont4{
     position: absolute;
-    left: 34%;
+    left: 37%;
 }
 .products{
   
     color: rgb(252, 249, 249);
-    top: 141%;
+    top: 142%;
     left: 45%;
     position: absolute;
 }
 /* ------------------------------------------------------------------------------ */
 .servicescontainer{
-    /* content: ""; */
-   /* background-color: #bad3de; */
    position: absolute;
    width: 100%;
    height: 569px;
    top: 150%;
-   background-color: rgb(19, 13, 13);
    z-index: -1;
 }
 .servicescontainer2{
-    background-color: rgb(19, 13, 13);
    position: absolute;
    width: 100%;
    height: 569px;
@@ -133,11 +118,10 @@
     padding: 14px;
     margin: 3px 28px;
     border-radius: 8px;
-    /* background: #e3d8c8; */
     width: 23%;
     height: 10%;
     color: white;
-    background-color: rgb(3, 27, 25);
+    background-color: #173033;
 }
     .center{
         text-align: center;
