@@ -1,7 +1,7 @@
 
 import initDB from "../../../helpers/db"
 import { sendSuccess,sendError } from "../../../utilities/response-helpers"
-//const {sendConfirmationMail} = require("../../../lib/mailer")
+const {sendConfirmationMail} = require("../../../lib/mailer")
 const Individual=require('../../../models/Individual')
 const PendAcc=require('../../../models/PendingAccount')
 
@@ -21,8 +21,16 @@ export default async function SignupIn (req, res) {
     const pUserAcc = await PendAcc.findOne({email})
     console.log(regUser)
     console.log(pUserAcc)
-    if (regUser || pUserAcc) {
-        sendError(res,"User already exists",11,422)
+    if (regUser || pUserAcc) {//check if the user is existing also in the organisation collection and verified 
+        //accounts collection.
+        return sendError(res,"User already exists",11,422)
+    }else
+    {
+        const newAccount = await PendAcc({email,password,contact,dob})
+        await newAccount.save()
+        console.log("Saved to database.")
+        await sendConfirmationMail({toUser : newAccount.data, hash: newAccount.data._id})
+         return sendSuccess(res,newAccount)
     }
 
     const newAccount = await PendAcc({email,password,contact,dob})
