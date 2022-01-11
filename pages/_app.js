@@ -1,9 +1,16 @@
-import '../styles/globals.css'
-import "../src/components/FAQS/faqs.css"
-
+import "../styles/globals.css";
+import logger from "../helpers/logger";
+import "../src/components/FAQS/faqs.css";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  logger.error("My App");
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+MyApp.getInitialProps = async (ctx) => {
+  const areLogsEnabled = ctx?.router?.query?.debug || "";
+  global.areLogsEnabled = areLogsEnabled === "true";
+  return {};
+};
+
+export default MyApp;
