@@ -1,4 +1,20 @@
-
+.dashb{
+color: white;
+position: absolute;
+top: 32px;
+left: 76%;
+cursor: pointer;
+}
+.event{
+    position: relative;
+    right: 88px;
+    bottom: 50px;
+    height: 25px;
+    border-radius: 7px 2px 7px 2px;
+    cursor: pointer;
+    background-color: #00BD57;
+    color: white;
+}
 .cont1{
     position: absolute;
     left: 50%;
@@ -29,10 +45,11 @@
 .buton{
     display: flex;
     position: absolute;
-    width: 120px;
-    height: 40px;
+    /* width: 120px; */
+    height: 35px;
    left: 50%;
    top: 40%; 
+   color: white;
    border-radius: 16px 8px 10px 5px;
     align-items: center;
     justify-content: center;
@@ -83,7 +100,18 @@
 }
 .cont4{
     position: absolute;
-    left: 37%;
+    left: 34%;
+    cursor: pointer;
+}
+.cont5{
+    position: absolute;
+    left: 46%;
+    cursor: pointer;
+}
+.cont6{
+    position: absolute;
+    left: 58%;
+    cursor: pointer;
 }
 .products{
   
@@ -93,33 +121,47 @@
     position: absolute;
 }
 /* ------------------------------------------------------------------------------ */
-.servicescontainer{
-   position: absolute;
-   width: 100%;
-   height: 569px;
-   top: 150%;
-   z-index: -1;
-}
-.servicescontainer2{
-   position: absolute;
-   width: 100%;
-   height: 569px;
-   top: 220%;
-   z-index: -1;
-}
 
-.services{
+
+.services1{
     margin: 14px;
     padding: 18px;
     display: flex;
+    position: absolute;
+    width: 100%;
+    height: 569px;
+    top: 150%;
 }
-.box{
-    border: 2px solid rgb(37, 33, 33);
+.services2{
+    margin: 14px;
+    padding: 18px;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 469px;
+    top: 210%;
+   
+}
+
+.box1{ 
     padding: 14px;
     margin: 3px 28px;
     border-radius: 8px;
     width: 23%;
-    height: 10%;
+  height: 54%;
+    color: white;
+    background-color: #173033;
+}
+.descr{
+    color: rgb(187, 173, 177);
+    cursor: pointer;
+}
+.box2{ 
+    padding: 14px;
+    margin: 3px 28px;
+    border-radius: 8px;
+    width: 23%;
+  height: 67%;
     color: white;
     background-color: #173033;
 }
@@ -135,5 +177,15 @@
 }
 .btn2{
     color: rgb(83, 16, 238);
+    cursor: pointer;
+}
+.viewmore{
+    position: relative;
+    top: 1450px;
+    height: 27px;
+    border-radius: 8px 4px 8px 5px;
+    cursor: pointer;
+    color: white;
+    background-color: yellowgreen;
 }
    
