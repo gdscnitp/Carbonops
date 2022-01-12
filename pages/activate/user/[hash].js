@@ -1,27 +1,7 @@
-import { sendSuccess,sendError } from "../../../utilities/response-helpers"
 import { useRouter } from "next/router"
+import Link from 'next/link'
 
-//import { route } from "next/dist/server/router";
-//import { route } from "next/dist/server/router"
 
-// export default function ThisFunctiomn(req, res) {
-//     const router = useRouter()
-//   const { hash } = router.query
-//   console.log(hash)
-
-//     // if (!hash) {
-//     //     sendError(res,"Please fill all fields",_,422)
-//     // }
-
-//     //const response = await fetch(`${process.env.DOMAIN}/api/activate/user/${hash}`)
-
-//     // if (response.status >= 400){
-//     //     sendError(res,"Invalid user")
-//     // }else {
-//     //     sendSuccess(res)
-       
-//     // }
-// }
 async function verifyUser(id)
 {
   const response =await  fetch('/api/update', {
@@ -35,26 +15,26 @@ async function verifyUser(id)
     //console.log(data)
   if (!response.ok) {
     console.log("Error occured")
-    //throw new Error(data.message || 'Something went wrong!');
   }
 
-  // return data;
   return data;
 }
  
 
-//async removed from here to fix Objects not valid as react child issue
 export default  function Mycomponent(){
     const router = useRouter()
     var id = router.query.hash;
     console.log(id);
-    
     // console.log(router.pathname)
-    //updateRecords(id)
-   
-    
-      verifyUser(id)
-      //   ,(err)=>{
+  
+      verifyUser(id).then((result)=>{
+        console.log(result);
+      })
+      
+    return <div><h1 style={{color:"#fff"}}>Your account is verified. Please login here: <Link href='../../login'><a>Login</a></Link></h1></div>
+}
+
+//   ,(err)=>{
       //   if(err)
       //   {
       //     console.log(err)
@@ -80,5 +60,3 @@ export default  function Mycomponent(){
     //verified users collection
     //after profile completion, save in respective schema.
     //create a function in lib to change send user from pending to respective collection, import it and use here
-    return <div><h1>THis is a sample text </h1></div>
-}
