@@ -29,10 +29,14 @@ const verifiedAccountSchema = new mongoose.Schema({
         type:String,
         trim: true,
     },
+    isOrganisation:{
+        type:Boolean,
+        required: true
+    }
 
 })
 
-pendingAccountSchema.pre('save', async function save(next) {
+verifiedAccountSchema.pre('save', async function save(next) {
     if (!this.isModified('password')) return next();
     try {
       const salt = await bcrypt.genSalt(SALT_WORK_FACTOR);
@@ -48,11 +52,11 @@ function getVerAccs () {
     
     const iSchema = verifiedAccountSchema;
     
-    if (mongoose.models && mongoose.models.VerifiedAcc) return mongoose.models.VerifiedAcc
+    if (mongoose.models && mongoose.models.VerifiedAccount) return mongoose.models.VerifiedAccount
    
-    return mongoose.model('VerifiedAcc', iSchema)
+    return mongoose.model('VerifiedAccount', iSchema)
   }
   const VerAcc= getVerAccs()
   module.exports= VerAcc;
-  console.log(VerAcc)
+  //console.log(VerAcc)
 
