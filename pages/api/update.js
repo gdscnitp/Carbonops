@@ -10,6 +10,10 @@ export default async function updateRecords(req,res) {
     initDB()
     var account = await  PendAcc.findById(id);
     console.log(account)
+    {
+        if(!account)
+        return sendError(res,"User already verified or does not exists",11,422)
+    }
 
     let accType = (account.dob === undefined) ? "Organisation" : "Individual"
     console.log(accType)
@@ -24,8 +28,9 @@ export default async function updateRecords(req,res) {
     // console.log(dob)
     const verifiedAccount = await VerifiedAcc({email,password,contact,dob,organisationId,isOrganisation});
      await verifiedAccount.save();
-    return sendSuccess(res,"Successfully saved in verified acoounts")
+    
     // //Remove from pending accounts
-    // let info=await PendAcc.deleteOne({_id : id});
-    // console.log(info);
+    let info=await PendAcc.deleteOne({_id : id});
+    console.log(info);
+    return sendSuccess(res,"Successfully saved in verified acoounts")
 }

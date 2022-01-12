@@ -51,7 +51,20 @@ export default  function Mycomponent(){
     
     // console.log(router.pathname)
     //updateRecords(id)
-     verifyUser(id);//how to await the promise here?
+   
+    
+      verifyUser(id)
+      //   ,(err)=>{
+      //   if(err)
+      //   {
+      //     console.log(err)
+      //   }
+      //   else
+      //   {
+      //     console.log("verified")
+      //   }
+      // });//how to await the promise here?
+   
     
     //when the user is directed to this page, you have to remove user from pending collection
     
