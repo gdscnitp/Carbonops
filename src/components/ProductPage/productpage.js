@@ -43,6 +43,7 @@ const productpage = () => {
                 </div>
 
 
+
                 <div className={styles.container1}>
                     <h3 className={styles.product}>Product Name</h3>
                     <br />
