@@ -23,10 +23,10 @@ export default async function SignupOrg(req, res){
             const pUserAcc = await PendAcc.findOne({email})
             const IndiAcc = await Individual.findOne({email})
             const verifAcc = await VerAcc.findOne({email})
-            console.log(regUser)
-            console.log(pUserAcc)
-            console.log(IndiAcc)
-            console.log(verifAcc)
+            // console.log(regUser)
+            // console.log(pUserAcc)
+            // console.log(IndiAcc)
+            // console.log(verifAcc)
             //check if the user is existing also in the individual
             //collection and verified accounts collection
     

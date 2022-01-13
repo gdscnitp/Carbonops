@@ -26,7 +26,8 @@ export default async function updateRecords(req,res) {
     
     // //Remove from pending accounts
     let info=await PendAcc.deleteOne({_id : id});
-    console.log("-----------------"+info);
-    return (isOrganisation===true) ? sendSuccess(res,"Successfully saved organisation in verified acoounts") : sendSuccess(res,"Successfully saved individual in verified acoounts")
+    //info is delete info in form of delete count
+    console.log(info);
+    return  sendSuccess(res,isOrganisation) 
 
 }

@@ -11,21 +11,16 @@ async function verifyUser(id)
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     }})
-    console.log("=============="+response)
-    let data = response.json()
-    // const data = JSON.stringify(response);
-    console.log(data)
-    // let dataresp = JSON.parse(data)
-    // console.log(dataresp)
-    if (response.data){ isOrganization = response.data.split(" ").includes("organisation") 
-
+    let resdata = response.json()
     
-    console.log(isOrganization)}
+    console.log(resdata)
+    
+    
   if (!response.ok) {
     console.log("Error occured")
   }
 
-  return data;
+  return resdata;
 }
  
 
@@ -33,13 +28,17 @@ export default  function Mycomponent(){
     const router = useRouter()
     var id = router.query.hash;
     console.log(id);
+    var url;
     // console.log(router.pathname)
   
       verifyUser(id).then((result)=>{
+        console.log("result");
         console.log(result);
+        url = result.data
       })
+      //Now result.data has false meaning not organisation or true meaning organisation
       
-    return <div><h1 style={{color:"#fff"}}>Your account is verified. Please login here: <Link href='../../login'><a>Login</a></Link></h1></div>
+    return <div><h1 style={{color: "#fff"}}>Your account is verified.{url} Please complete profile here: <Link href='../../login'><a>Login {url}</a></Link></h1></div>
 }
 
 //   ,(err)=>{
