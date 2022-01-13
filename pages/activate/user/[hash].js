@@ -1,68 +1,61 @@
-import { sendSuccess,sendError } from "../../../utilities/response-helpers"
 import { useRouter } from "next/router"
+import Link from 'next/link'
 
-const PendAcc=require('../../../models/PendingAccount')
-const VerifiedAcc = require('../../../models/VerifiedAcc')
-//import { route } from "next/dist/server/router";
-//import { route } from "next/dist/server/router"
 
-// export default function ThisFunctiomn(req, res) {
-//     const router = useRouter()
-//   const { hash } = router.query
-//   console.log(hash)
-
-//     // if (!hash) {
-//     //     sendError(res,"Please fill all fields",_,422)
-//     // }
-
-//     //const response = await fetch(`${process.env.DOMAIN}/api/activate/user/${hash}`)
-
-//     // if (response.status >= 400){
-//     //     sendError(res,"Invalid user")
-//     // }else {
-//     //     sendSuccess(res)
-       
-//     // }
-// }
-
-const updateRecords = async () => {
-    // console.log(id);
-
-    initDB()
-    var account =  await PendAcc.findById( id).exec();
-    console.log(account)
-
-    let accType = (account.dob === undefined) ? "Organisation" : "Individual"
-    console.log(accType)
-
-    let isOrganisation = (accType === "Individual") ? false : true
-    //adding to verified
-    const verifiedAccount = await VerifiedAcc({...account,isOrganisation})
-    await verifiedAccount.save()
+async function verifyUser(id)
+{
+  const response =await  fetch(`http://localhost:3000/api/update`, {
+    method: 'POST',
+    body: JSON.stringify({ id}),
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }})
+    console.log("=============="+response)
+    let data = response.json()
+    // const data = JSON.stringify(response);
+    console.log(data)
+    // let dataresp = JSON.parse(data)
+    // console.log(dataresp)
+    if (response.data){ isOrganization = response.data.split(" ").includes("organisation") 
 
     
-    
-    //Remove from pending accounts
-    await PendAcc.deleteOne({_id : id},err=>{
-        if (err) {console.log(err)}
-        console.log("Deleted successfully");
-    })
-    
-    
-    
+    console.log(isOrganization)}
+  if (!response.ok) {
+    console.log("Error occured")
+  }
+
+  return data;
+}
+ 
+
+export default  function Mycomponent(){
+    const router = useRouter()
+    var id = router.query.hash;
+    console.log(id);
+    // console.log(router.pathname)
+  
+      verifyUser(id).then((result)=>{
+        console.log(result);
+      })
+      
+    return <div><h1 style={{color:"#fff"}}>Your account is verified. Please login here: <Link href='../../login'><a>Login</a></Link></h1></div>
 }
 
-//async removed from here to fix Objects not valid as react child issue
-export default function Mycomponent(){
+//   ,(err)=>{
+      //   if(err)
+      //   {
+      //     console.log(err)
+      //   }
+      //   else
+      //   {
+      //     console.log("verified")
+      //   }
+      // });//how to await the promise here?
+   
     
-    const router = useRouter()
-    var id = router.query.hash
-    
-    // console.log(router.pathname)
-
-    updateRecords()
     //when the user is directed to this page, you have to remove user from pending collection
-
+    
     //and save in verified accounts collection.
     //now check if the user is individual or organisation 
     //isOrg ?{si}: {}
@@ -71,8 +64,7 @@ export default function Mycomponent(){
     //when you get all the data from the form
     //save in the respective final collection.(individual/organisation)
     
+    // console.log(router.pathname)
     //verified users collection
     //after profile completion, save in respective schema.
     //create a function in lib to change send user from pending to respective collection, import it and use here
-    return <div><h1>THis is a sample text </h1></div>
-}

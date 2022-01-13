@@ -29,6 +29,10 @@ const verifiedAccountSchema = new mongoose.Schema({
         type:String,
         trim: true,
     },
+    isOrganisation:{
+        type:Boolean,
+        required: true
+    }
 
 })
 
@@ -54,5 +58,5 @@ function getVerAccs () {
   }
   const VerAcc= getVerAccs()
   module.exports= VerAcc;
-//   console.log(VerAcc)
+  //console.log(VerAcc)
 

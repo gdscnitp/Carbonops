@@ -2,10 +2,9 @@ import Image from "next/image";
 import EnvImg from "/public/environment.png"
 import React from "react";
 import styles from "./login.module.css"
-import {signIn} from 'next-auth/client'
 import Link from "next/link";
+
 function Login(){
-  //signIn('Credentials',{email:, passwoed:})
     return(
       <>
 
