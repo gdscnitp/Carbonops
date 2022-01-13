@@ -26,9 +26,9 @@ const VerifiedAcc = require('../../../models/VerifiedAcc')
 // }
 
 const updateRecords = async () => {
-    const router = useRouter()
-    var id = router.query.hash
-    console.log(id);
+    // console.log(id);
+
+    initDB()
     var account =  await PendAcc.findById( id).exec();
     console.log(account)
 
@@ -44,17 +44,19 @@ const updateRecords = async () => {
     
     //Remove from pending accounts
     await PendAcc.deleteOne({_id : id},err=>{
-       if (err) {console.log(err)}
-       console.log("Deleted successfully");
+        if (err) {console.log(err)}
+        console.log("Deleted successfully");
     })
-
-   
-
+    
+    
+    
 }
 
 //async removed from here to fix Objects not valid as react child issue
 export default function Mycomponent(){
     
+    const router = useRouter()
+    var id = router.query.hash
     
     // console.log(router.pathname)
 
