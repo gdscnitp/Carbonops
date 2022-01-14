@@ -4,7 +4,7 @@ import { sendSuccess,sendError } from "../../../utilities/response-helpers"
 //const {sendConfirmationMail} = require("../../../lib/mailer")
 const Individual=require('../../../models/Individual')
 const PendAcc=require('../../../models/PendingAccount')
-import { Mongoose } from "mongoose"
+//import { Mongoose } from "mongoose"
 
 
 

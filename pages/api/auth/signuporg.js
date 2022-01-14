@@ -1,4 +1,3 @@
-
 import initDB from "../../../helpers/db"
 import { sendSuccess,sendError } from "../../../utilities/response-helpers"
 //const {sendConfirmationMail} = require("./mailer")
@@ -8,7 +7,9 @@ var PendAcc=require('../../../models/PendingAccount');
 
 
 export default async function SignupOrg(req, res){
-    const {email,password,contact,organisationId} = req.body
+    if(req.method==='POST')
+    {
+        const {email,password,contact,organisationId} = req.body
 
     try {
         if ((!email || !password || !contact) ||  !organisationId){
@@ -29,12 +30,18 @@ export default async function SignupOrg(req, res){
             await newAccount.save()
             console.log("Saved to database.")
             //await sendConfirmationMail({toUser : newAccount.data, hash: newAccount.data._id})
-            return sendSuccess(res,"Please check email for confirmation")
+            return sendSuccess(res,"Please check email for confirmation");
         }
        
-    } catch (err) {
-        console.log(err.message)
-           return sendError(res, err.message,err.message,422);
+        } catch (err) {
+            console.log(err.message)
+            return sendError(res, err.message,err.message,422);
+        }
     }
+    else
+    {
+        return;
+    }
+    
 
 }

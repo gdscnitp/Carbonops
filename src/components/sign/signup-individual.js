@@ -34,10 +34,7 @@ export default function Sign(props) {
     const password=passwordInputRef.current.value;
     const dob=dobInputRef.current.value;
     const contact=contactInputRef.current.value;
-    // console.log(email)
-    // console.log(password)
-    // console.log(dob)
-    // console.log(contact)
+  
     const result=await createUser(email,password,contact,dob)
     console.log(result);
   }

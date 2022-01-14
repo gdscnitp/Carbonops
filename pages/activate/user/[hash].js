@@ -5,7 +5,7 @@ import Link from 'next/link'
 async function verifyUser(id)
 {
   const response =await  fetch('/api/update', {
-    method: 'POST',
+    method: 'PUT',
     body: JSON.stringify({ id}),
     headers: {
       'Content-Type': 'application/json',
@@ -30,8 +30,7 @@ export default  function Mycomponent(){
       verifyUser(id).then((result)=>{
         console.log(result);
       })
-      
-    return <div><h1 style={{color:"#fff"}}>Your account is verified. Please login here: <Link href='../../login'><a>Login</a></Link></h1></div>
+    return <div><h1 style={{color:"#fff"}}> Your account is verified. Please login here: <Link href='../../login'><a>Login</a></Link></h1></div>
 }
 
 //   ,(err)=>{

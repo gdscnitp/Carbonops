@@ -94,7 +94,7 @@ export default function Sign(props) {
                     </label>
                   </div>
                   <div className={styles.inputBx}>
-                    <input type="submit" value="SignUp" name="" />
+                    <button type="submit"  name="">SignUp</button>
                   </div>
                 </form>
               </div>
