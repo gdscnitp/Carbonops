@@ -1,0 +1,100 @@
+.formBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #142424;
+}
+
+.formOrg {
+  width: 50%;
+  margin-bottom: 3rem;
+  background: rgba(25, 59, 62, 0.6);
+  padding: 2rem 0;
+  box-shadow: -100px 1px 50px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.formOrg form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.formOrg form .dealsCheckbox {
+  width: 90%;
+  color: white;
+  display: flex;
+  align-items: flex-start;
+}
+
+.formOrg form .dealsCheckbox input {
+  margin-left: 0.5rem;
+}
+
+.formOrg form .eventType {
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.formOrg form .select {
+  height: 35px;
+  color: white;
+  background: rgba(25, 59, 62, 0.6);
+  border: 1px solid white;
+}
+
+.formOrg form .select::option {
+  height: 35px;
+  color: white;
+  background: rgba(25, 59, 62, 0.6);
+}
+
+.formOrg form .select .option {
+  height: 35px;
+  background-color: #142424;
+  color: white;
+}
+.formOrg .input {
+  padding: 0 10px;
+  width: 90%;
+  height: 35px;
+  margin-top: 0.5rem;
+  color: white;
+  background: rgba(25, 59, 62, 0.6);
+  border: none;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.formOrg .input::placeholder {
+  font-size: 15px;
+  color: rgb(187, 187, 187);
+}
+
+.button a {
+  background-color: #00bd57;
+  color: white;
+  margin: 1rem;
+  padding: 5px 10px;
+  box-shadow: 0px 4px 50px 0px rgba(0, 255, 240, 0.19);
+}
+.button a:hover {
+  cursor: pointer;
+  box-shadow: inset 5px 3px 11px 10px rgba(7, 255, 0, 0.42);
+}
+
+@media only screen and (max-width: 900px) {
+  .formOrg {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .formOrg {
+    width: 90%;
+  }
+  .formOrg form .typesDeals {
+    width: 90%;
+  }
+}
