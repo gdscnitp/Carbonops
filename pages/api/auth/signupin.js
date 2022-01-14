@@ -6,12 +6,13 @@ const Individual=require('../../../models/Individual')
 const PendAcc=require('../../../models/PendingAccount')
 const VerAcc=require('../../../models/VerifiedAcc')
 const Org=require('../../../models/Organisation')
-
+export var potentialIndividual;
 
 
 
 export default async function SignupIn (req, res) {
     const {email,password,contact,dob} = req.body
+    potentialIndividual = req.body
    
     console.log(req.body)
    try{
