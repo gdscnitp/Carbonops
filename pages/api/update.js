@@ -1,4 +1,3 @@
-import mongoose from 'mongoose';
 import initDB from "../../helpers/db";
 const PendAcc=require('../../models/PendingAccount')
 const VerifiedAcc = require('../../models/VerifiedAcc')

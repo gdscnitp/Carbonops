@@ -1,14 +1,64 @@
 import NextAuth from "next-auth"
-//import CredentialsProvider from `next-auth/providers/credentials`;
-import Providers from 'next-auth/providers';
+//import Providers from 'next-auth/providers';
 import initDB from "../../../helpers/db"
+var Individual =require('../../../models/Individual')
+var Organisation=require("../../../models/Organisation")
+//import { sendError,sendSuccess } from "../../../utilities/response-helpers";
+let isValid
+let user
+import verifyPassword from "../../../lib/verifyPassword"
+import CredentialsProvider from "next-auth/providers/credentials";
+
 
 export default NextAuth({
+  session: {
+    jwt: true,
+  },
     providers: [
-      Providers.credentials({
+      CredentialsProvider({
+        id: "credentials",
+     // name: "Credentials",
+      type: "credentials",
         async authorize(credentials)
         {
           initDB()
+          //validate email on client side
+          const userInd= await Individual.findOne({email: credentials.email})
+          console.log(userInd)
+          const userOrg=await Organisation.findOne({email: credentials.email})
+          console.log(userOrg)
+          if(!userOrg && !userInd)
+          {
+            throw new Error('No user found!');
+          }
+          else
+          {
+            
+             if(userInd)
+             {
+               user=userInd
+                isValid = await verifyPassword(
+                credentials.password,
+                userInd.password
+              );
+             }
+             else {
+               user=userOrg
+              isValid = await verifyPassword(
+                credentials.password,
+                userOrg.password
+              );
+             }
+             if(!isValid)
+             {
+               throw new Error("Wrong Password");
+             }
+             else
+             {
+               console.log("successfully logged in");
+                return { email: user.email };
+             }
+          }
           //connect to database
           //find the user in a specific collection,
           //if the user exits, check password
@@ -18,7 +68,19 @@ export default NextAuth({
           //else return error
         }
       })
-    ]
+    ],
+    secret: process.env.SECRET,
+    pages: {
+      signIn: '/login',
+    },
+    jwt: {
+      secret: process.env.JWT_SECRET,
+    }
+  })
+
+
+
+
     //[CredentialsProvider({
     //     name: 'Credentials',
 
@@ -46,4 +108,4 @@ export default NextAuth({
     //           // return null
     //     }
     // })],
-})
+

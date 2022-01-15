@@ -1,4 +1,3 @@
-
 import initDB from "../../../helpers/db"
 import { sendSuccess,sendError } from "../../../utilities/response-helpers"
 import sendConfirmationMail from "../../../lib/mailer"
@@ -10,7 +9,9 @@ var Individual=require('../../../models/Individual')
 
 
 export default async function SignupOrg(req, res){
-    const {email,password,contact,organisationId} = req.body
+    if(req.method==='POST')
+    {
+        const {email,password,contact,organisationId} = req.body
 
     try {
         if (!email || !password || !contact ||  !organisationId){
@@ -43,9 +44,15 @@ export default async function SignupOrg(req, res){
             }
         }
        
-    } catch (err) {
-        console.log(err.message)
-           return sendError(res, err.message,err.message,422);
+        } catch (err) {
+            console.log(err.message)
+            return sendError(res, err.message,err.message,422);
+        }
     }
+    else
+    {
+        return;
+    }
+    
 
 }
