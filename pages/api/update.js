@@ -7,7 +7,7 @@ export default async function updateRecords(req,res) {
     if (req.method === 'PUT') {
 
        var userId={
-           id: req.body.id
+           id: {$eq:req.body.id}
        }
         initDB()
         //check if the user is already in verified accounts then send error.
