@@ -10,8 +10,7 @@ function Aboutus(){
    return(
        <>
           <div className={styles.page}>
-           
-            {/* <nav className={styles.nav}>
+            <nav className={styles.nav}>
                 <div className={styles.navbar}>
                 <Link href="/" passHref>
                 <span className={styles.navbar}>Logo</span>
@@ -24,7 +23,7 @@ function Aboutus(){
                 <div className={styles.signup}>
                     <button className={styles.btn} type="submit">SignUp</button>
                 </div>
-            </nav> */}
+            </nav>
             <div className={styles.container}>
               <div className={styles.grid1}>
                 <div className={styles.content1}>
@@ -55,28 +54,29 @@ function Aboutus(){
                         <Image width={350} className={styles.img1} alt="" src={pic} />
                         <div className={styles.about}>
                         <h3>NAME</h3>
-                        < FaLinkedin className={styles.icon} onClick=""/>
+                        < FaLinkedin className={styles.icon} />
                         </div>
                     </div>
                     <div className={styles.col1}>
                         <Image width={350}className={styles.img1} alt="" src={pic} />
                         <div className={styles.about}>
                         <h3>NAME</h3>
-                        < FaLinkedin className={styles.icon}  onClick=""/>
+                        < FaLinkedin className={styles.icon} />
                         </div>
                     </div>
                     <div className={styles.col1}>
                         <Image width={350} className={styles.img1} alt="" src={pic} />
                         <div className={styles.about}>
                         <h3>NAME</h3>
-                        < FaLinkedin className={styles.icon}  onClick=""/>
+                        < FaLinkedin className={styles.icon} />
                         </div>
                     </div>
                     <div className={styles.col1}>
                         <Image width={350} className={styles.img1} alt="" src={pic} />
                         <div className={styles.about}>
                             <h3>NAME</h3>
-                            < FaLinkedin className={styles.icon}  onClick=""/>
+                            < FaLinkedin className={styles.icon} />
+
                         </div>
                     </div>
                 </div>
@@ -92,21 +92,21 @@ function Aboutus(){
                         <Image width={350} className={styles.img1} alt="" src={pic} />
                         <div className={styles.about}>
                         <h3>NAME</h3>
-                        < FaLinkedin className={styles.icon}  onClick=""/>
+                        < FaLinkedin className={styles.icon} />
                         </div>
                     </div>
                     <div className={styles.col1}>
                         <Image width={350} className={styles.img1} alt="" src={pic} />
                         <div className={styles.about}>
                         <h3>NAME </h3>
-                        < FaLinkedin className={styles.icon} onClick="" />
+                        < FaLinkedin className={styles.icon} />
                         </div>
                     </div>
                     <div className={styles.col1}>
                         <Image width={350} className={styles.img1} alt="" src={pic} />
                         <div className={styles.about}>
                         <h3>NAME </h3>
-                        < FaLinkedin className={styles.icon} onClick="" />
+                        < FaLinkedin className={styles.icon} />
                         </div>
                     </div>
                 </div>
