@@ -20,10 +20,10 @@ export default async function SignupOrg(req, res){
         {
             //add server side input validation
             initDB() 
-            const regUser =  await Org.findOne({email})
-            const pUserAcc = await PendAcc.findOne({email})
-            const IndiAcc = await Individual.findOne({email})
-            const verifAcc = await VerAcc.findOne({email})
+            const regUser =  await Org.findOne({email:{$eq:email}})
+            const pUserAcc = await PendAcc.findOne({email:{$eq:email}})
+            const IndiAcc = await Individual.findOne({email:{$eq:email}})
+            const verifAcc = await VerAcc.findOne({email:{$eq:email}})
             // console.log(regUser)
             // console.log(pUserAcc)
             // console.log(IndiAcc)
@@ -36,7 +36,7 @@ export default async function SignupOrg(req, res){
                 return sendError(res,"Account already exists",11,422)
             }else
             {
-                const newAccount = await PendAcc({email,password,contact,organisationId})
+                const newAccount = await PendAcc({email:{$eq:email},password:{$eq:password},contact:{$eq:contact},organisationId:{$eq:organisationId}})
                 await newAccount.save()
                 console.log("Saved a pending acc to database")
                 await sendConfirmationMail(email,  newAccount._id)

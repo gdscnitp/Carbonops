@@ -20,7 +20,7 @@ export default async (req, res)=>{
             console.log(inProfValues)
             console.log(potentialIndividual)
             const {email,password,contact,dob} = potentialIndividual
-            console.log(email,password,contact,dob)
+            console.log(email,contact,dob)
             
             try {
                 if (!individualName || !areaName || !cityName || !stateName || !pincode || !countryName || !occupation || !facebook || !linkedin) {
