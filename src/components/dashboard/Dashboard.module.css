@@ -23,6 +23,17 @@
   padding: 20px;
 }
 
+.editButton .button {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 13px;
+  margin: 12px;
+  width: 12%;
+  height: 12%;
+}
+
 .profile_stats {
   margin: 10px;
   display: grid;
@@ -38,12 +49,55 @@
 }
 
 /* --------------Statistics portion----------- */
-.statistics {
-  /* display: flex;
-  padding-top: 8vh;
-  justify-content: center; */
+.topText {
+  margin: 3rem;
+  margin-bottom: 1rem;
+  color: white;
+  font-size: 20px;
 }
+.topText strong {
+  color: #00bd57;
+}
+.stats_data {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'stats_image1,stats_image2,stats_image3';
+  grid-gap: 1rem;
+  margin-top: 5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.stats_image1,.stats_image2,.stats_image3{
+  border-radius: 15px;
+}
+.stats_graph {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.box {
+  background-color: #173033;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 7rem;
+  right: 5rem;
+  border-radius: 8px;
+  color: #f1f1f1;
+  box-shadow: 2px 10px 50px 0px rgba(0, 255, 10, 0.25) inset;
+  box-shadow: 0px 4px 50px 0px rgba(0, 255, 240, 0.19);
+}
+.box .options{
+  padding: 0.5rem 3rem;
+  text-align: center;
+}
+.box .options:hover {
+  cursor: pointer;
+  background-color: #00bd57;
+  border-radius: 8px;
 
+}
 .button {
   width: 100%;
   font-size: 15px;
@@ -51,7 +105,7 @@
   background-color: #00bd57;
   text-decoration: none;
   padding: 10px 20px;
-  margin: 20px;
+  margin-left: 3rem;
   letter-spacing: 1px;
   box-shadow: 2px 10px 50px 0px rgba(0, 255, 10, 0.25) inset;
   box-shadow: 0px 4px 50px 0px rgba(0, 255, 240, 0.19);
@@ -80,14 +134,14 @@
     flex-direction: column;
   }
 
-  /* .statistics {
+  .statistics {
     flex-direction: column;
     justify-content: space-between;
-  } */
+  }
 }
 
 /* <--------------Animation from Homepage--------------> */
-.slideLeft {
+/* .slideLeft {
   animation-name: moveLeft;
   animation-duration: 1s;
 }
@@ -116,4 +170,4 @@
     opacity: 1;
     transform: translate(0);
   }
-}
+} */
