@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 var connectionAttempt = 0;
 function connectMongoDb(){
-    console.log(process.env.MONGO_URL)
+   // console.log(process.env.MONGO_URL)
     mongoose.connect(process.env.MONGO_URL || "mongodb://localhost:27017/environmental-aawareness-app",
    
     (err)=> {
@@ -22,7 +22,7 @@ function initDB(){
     connectMongoDb();
     if (mongoose.connections[0].readyState)
     {
-        console.log('Already connceted')
+        console.log('Already connected')
         return
     }
   

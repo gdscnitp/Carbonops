@@ -129,6 +129,10 @@
   color: #00bd57;
 }
 
+.graphPart .container .gridItemRight .graphDescription {
+  margin-left: 25px;
+}
+
 /* CSS FOR THE TOP 2 ORGANISATIONS PART */
 .topOrgs {
   margin-top: 0rem;
@@ -280,6 +284,9 @@
     text-align: center;
   }
   
+  .graphPart{
+    width: auto;
+  }
   .graphPart .container .gridItemRight .graphHeading{
     margin: 0;
     font-size: 25px;

@@ -1,10 +1,15 @@
 import Navbar from "../src/components/navbar/Navbar";
-import Sign from "../src/components/sign/sign";
+import SignupIndividual from "../src/components/sign/signup-individual";
 import React from "react";
 import Head from "next/head";
 import styles from "../styles/Signu.module.css";
 
+//redirect to a complete profile form.
+// save the data in respective schema.
+//ask to login.
+
 export default function SignUpIn() {
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -12,8 +17,8 @@ export default function SignUpIn() {
         <meta name="description" content="" />
       </Head>
 
-      <Navbar action1="" action2="Home" buttonText="" />
-      <Sign text1="an User" text2="Date of Birth" text3="date" />
+      <Navbar action1="" action2="Home" buttonText1="" buttonText2=""/>
+     <SignupIndividual />
     </div>
   );
 }

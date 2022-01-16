@@ -74,7 +74,8 @@ const organisationSchema = new mongoose.Schema({
     linkedin:{
         type:String,
         trim: true,
-        validate: [ isURL, 'Please provide a valid linkedin Url' ]
+        validate: [ isURL, 'Please provide a valid linkedin Url' ],
+        required: true
     },
     website:{
         type:String,
@@ -115,5 +116,5 @@ function getDemo () {
   }
   const Org= getDemo()
   module.exports= Org;
-  console.log(Org)
+  
 
