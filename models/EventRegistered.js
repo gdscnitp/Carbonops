@@ -1,30 +1,44 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+const mongoose = require("mongoose");
+// var {Indiv} = require("./Individual")
+const {isEmail} = require("validator");
 
-
-const regEventSchema = new Schema({
+const regEventSchema = new mongoose.Schema({
     individualId:{
-        type: ObjectId,
-        ref: 'individual'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Individual'
     },
     eventId:{
-        type: ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'event'
     },
     name:{
-        
-        ref: individualSchema.name,
-        
+        type:String,
+        required:true,
+        trim:true,
     },
     mailId:{
-        ref:individualSchema.email
-
+        type: String,
+        required: true,
+        unique:true,
+        trim:true,
+        validate: [ isEmail, 'Please provide a valid email ID' ]
     },
     phoneNumber:{
-        ref:individualSchema.contact
-    }
+        type: Number,
+        required: true,        
+    },
 },{
     timestamps:true
 })
 
-export default mongoose.models.registeredevent || mongoose.model('registeredevent',regEventSchema)
+function getDemo () {
+    
+    const iSchema = regEventSchema;
+    
+    if (mongoose.models && mongoose.models.eventreg) return mongoose.models.eventreg
+    
+    return mongoose.model('eventreg', iSchema)
+  }
+  const EventRegSc= getDemo()
+  module.exports= EventRegSc;
+  console.log(EventRegSc)

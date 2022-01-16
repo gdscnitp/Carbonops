@@ -25,9 +25,26 @@ export default function VerifyOrg() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(orgProfValues);
+    const res = await fetch("http://localhost:3000/api/orgprofilecomp/", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        dealsBool,
+        orgProfValues
+      })
+    })
+    const resp = await res.json()
+    if (resp.error){
+     console.log(resp.error);
+    }else{
+      console.log(resp);
+      console.log("Saved organisation successfully")
+  }
   };
 
   return (
