@@ -2,7 +2,7 @@ import initDB from '../../helpers/db'
 import { sendError,sendSuccess } from '../../utilities/response-helpers';
 var Org =require("../../models/Organisation")
 
-export default async (req, res)=>{
+export default async function OrgProfileCompletion(req, res){
     if (req.method === "POST"){
 
         initDB()

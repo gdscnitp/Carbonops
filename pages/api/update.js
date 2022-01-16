@@ -6,13 +6,15 @@ import { sendError,sendSuccess } from '../../utilities/response-helpers';
 export default async function updateRecords(req,res) {
     if (req.method === 'PUT') {
 
-        const {id}=req.body;
+       const {id}=req.body;
         initDB()
-        var account = await  PendAcc.findById({id:{$eq:id}});
-        {
-            if(!account)
-            return sendError(res,"User already verified or does not exists",11,422)
-        }
+        //check if the user is already in verified accounts then send error.
+
+        var account = await  PendAcc.findById(id);
+        
+        if(!account)
+        return sendError(res,"User already verified or does not exists",11,422)
+        
         
         let accType = (account.dob === undefined) ? "Organisation" : "Individual"
         console.log(accType)
@@ -21,12 +23,12 @@ export default async function updateRecords(req,res) {
         
         //adding to verified
         var {email,password,contact,dob,organisationId}=account;
-        
-        const verifiedAccount = await VerifiedAcc({email:{$eq:email},password:{$eq:password},contact:{$eq:contact},dob:{$eq:dob},organisationId:{$eq:organisationId},isOrganisation:{$eq:isOrganisation}});
+        //console.log(account);
+        const verifiedAccount = await VerifiedAcc({email,password,contact,dob,organisationId,isOrganisation});
         await verifiedAccount.save();
-        
+        console.log("saved to verified accounts")
         // //Remove from pending accounts
-        let info=await PendAcc.deleteOne({_id : id});
+        let info=await PendAcc.deleteOne({_id : req.body.id});
         //info is delete info in form of delete count
         console.log(info);
         return  sendSuccess(res,isOrganisation) 

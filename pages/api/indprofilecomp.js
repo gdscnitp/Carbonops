@@ -3,7 +3,7 @@ import { sendError,sendSuccess } from '../../utilities/response-helpers';
 var Indiv =require("../../models/Individual")
 import potentialIndividual from "./auth/signupin"
 
-export default async (req, res)=>{
+export default async function indProfileCompletion (req, res){
     if (req.method === "POST"){
 
         initDB()

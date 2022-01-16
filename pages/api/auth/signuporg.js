@@ -10,24 +10,20 @@ var Individual=require('../../../models/Individual')
 
 export default async function SignupOrg(req, res){
     if(req.method==='POST')
-    {
-        const {email,password,contact,organisationId} = req.body
+    {    
 
     try {
-        if (!email || !password || !contact ||  !organisationId){
+        if (!req.body.email || !req.body.password || !req.body.contact ||  !req.body.organisationId){
             return sendError(res,"Please fill all fields",11,422)
         }else
         {
             //add server side input validation
             initDB() 
-            const regUser =  await Org.findOne({email:{$eq:email}})
-            const pUserAcc = await PendAcc.findOne({email:{$eq:email}})
-            const IndiAcc = await Individual.findOne({email:{$eq:email}})
-            const verifAcc = await VerAcc.findOne({email:{$eq:email}})
-            // console.log(regUser)
-            // console.log(pUserAcc)
-            // console.log(IndiAcc)
-            // console.log(verifAcc)
+            const regUser =  await Org.findOne({email:{$eq:req.body.email}})
+            const pUserAcc = await PendAcc.findOne({email:{$eq:req.body.email}})
+            const IndiAcc = await Individual.findOne({email:{$eq:req.body.email}})
+            const verifAcc = await VerAcc.findOne({email:{$eq:req.body.email}})
+            
             //check if the user is existing also in the individual
             //collection and verified accounts collection
     
@@ -36,10 +32,10 @@ export default async function SignupOrg(req, res){
                 return sendError(res,"Account already exists",11,422)
             }else
             {
-                const newAccount = await PendAcc({email:{$eq:email},password:{$eq:password},contact:{$eq:contact},organisationId:{$eq:organisationId}})
+                const newAccount = await PendAcc({email:req.body.email,password:req.body.password,contact:req.body.contact,organisationId:req.body.organisationId})
                 await newAccount.save()
                 console.log("Saved a pending acc to database")
-                await sendConfirmationMail(email,  newAccount._id)
+                await sendConfirmationMail(newAccount.email,  newAccount._id)
                  return sendSuccess(res,newAccount)
             }
         }

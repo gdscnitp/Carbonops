@@ -5,11 +5,11 @@ async function createUser(email,password,contact,dob)
 {
   const response =await  fetch('/api/auth/signupin', {
     method: 'POST',
-    body: JSON.stringify({ email, password,contact,dob }),
+    body: JSON.stringify({ email:email, password:password,contact:contact,dob:dob }),
     headers: {
       'Content-Type': 'application/json',
     }})
-    console.log(response)
+    //console.log(response)
     const data = response.json();
     //console.log(data)
   if (!response.ok) {
@@ -36,7 +36,14 @@ export default function Sign(props) {
     const contact=contactInputRef.current.value;
   
     const result=await createUser(email,password,contact,dob)
-    console.log(result);
+    if(result)
+    {
+      console.log("successful signup");
+    }
+    else
+    {
+      console.log("Could not signup as individual")
+    }
   }
   return (
     <div className={styles.container}>

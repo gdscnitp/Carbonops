@@ -2,56 +2,43 @@ import { useRouter } from "next/router"
 import Link from 'next/link'
 
 
-async function verifyUser(id)
-{
-  const response =await  fetch(`http://localhost:3000/api/update`, {
-    method: 'POST',
-    body: JSON.stringify({ id}),
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }})
-    let resdata = response.json()
-    
-    console.log(resdata)
-    
-    
-  if (!response.ok) {
-    console.log("Error occured")
-  }
-
-  return resdata;
-}
- 
-
 export default  function Mycomponent(){
     const router = useRouter()
     var id = router.query.hash;
     console.log(id);
-    var url;
-    // console.log(router.pathname)
-  
-      verifyUser(id).then((result)=>{
-        console.log("result");
-        console.log(result);
-        url = result.data
-      })
-      //Now result.data has false meaning not organisation or true meaning organisation
+   
       
-    return <div><h1 style={{color: "#fff"}}>Your account is verified.{url} Please complete profile here: <Link href='../../login'><a>Login {url}</a></Link></h1></div>
+    return <div><h1 style={{color: "#fff"}}>{id} Your account is verified. Please complete profile here: <Link href='../../login'><a>Login </a></Link></h1></div>
 }
 
-//   ,(err)=>{
-      //   if(err)
-      //   {
-      //     console.log(err)
-      //   }
-      //   else
-      //   {
-      //     console.log("verified")
-      //   }
-      // });//how to await the promise here?
-   
+export async function getServerSideProps(context)
+{
+ 
+    var id = context.params.hash;
+    console.log(id);
+    const response =await  fetch('http://localhost:3000/api/update',{
+      method: 'PUT',
+      body: JSON.stringify({id}),
+      headers: {
+        'Content-Type': 'application/json',
+      }})
+      const data = await  response.json();
+      console.log(data)
+      if(!response.ok)
+      return{
+        notFound: true,
+      }
+      // const isOr=data.data.isOrganisation;
+      // console.log(isOr)
+      //const href= isOr? "/profile-organisation-form": "/profile-individual-form"
+      
+    return {
+      props:{
+        id
+      }
+    }
+}
+
     
     //when the user is directed to this page, you have to remove user from pending collection
     
@@ -67,3 +54,29 @@ export default  function Mycomponent(){
     //verified users collection
     //after profile completion, save in respective schema.
     //create a function in lib to change send user from pending to respective collection, import it and use here
+// var url;
+    // console.log(router.pathname)
+  
+      //verifyUser(id);
+      //Now result.data has false meaning not organisation or true meaning organisation
+
+      // async function verifyUser(id)
+// {
+//   const response =await  fetch(`http://localhost:3000/api/update`, {
+//     method: 'POST',
+//     body: JSON.stringify({ id: id}),
+//     headers: {
+//       'Content-Type': 'application/json'
+//     }})
+//     let resdata = response.json()
+    
+//     console.log(resdata)
+    
+    
+//   if (!response.ok) {
+//     console.log("Error occured")
+//   }
+
+//   return resdata;
+// }
+ 

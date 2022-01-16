@@ -5,7 +5,7 @@ async function createUser(email,password,contact,organisationId)
 {
   const response = await fetch('/api/auth/signuporg', {
     method: 'POST',
-    body: JSON.stringify({ email, password,contact,organisationId }),
+    body: JSON.stringify({email: email, password:password,contact:contact,organisationId:organisationId }),
     headers: {
       'Content-Type': 'application/json',
     }})
@@ -34,7 +34,14 @@ export default function Sign(props) {
     const contact=contactInputRef.current.value;
 
     const result=await createUser(email,password,contact,organisationId)
-    console.log(result);
+    if(result)
+    {
+      console.log("successfully signed up")
+    }
+    else
+    {
+      console.log("Could not sign you as an organisation")
+    }
   }
   return (
     <div className={styles.container}>
