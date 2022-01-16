@@ -6,11 +6,13 @@ import { sendError,sendSuccess } from '../../utilities/response-helpers';
 export default async function updateRecords(req,res) {
     if (req.method === 'PUT') {
 
-       const {id}=req.body;
+       var userId={
+           id: req.body.id
+       }
         initDB()
         //check if the user is already in verified accounts then send error.
 
-        var account = await  PendAcc.findById(id);
+        var account = await  PendAcc.findById(userId.id);
         
         if(!account)
         return sendError(res,"User already verified or does not exists",11,422)
@@ -28,7 +30,7 @@ export default async function updateRecords(req,res) {
         await verifiedAccount.save();
         console.log("saved to verified accounts")
         // //Remove from pending accounts
-        let info=await PendAcc.deleteOne({_id : req.body.id});
+        let info=await PendAcc.deleteOne({_id : {$eq:req.body.id}});
         //info is delete info in form of delete count
         console.log(info);
         return  sendSuccess(res,isOrganisation) 
