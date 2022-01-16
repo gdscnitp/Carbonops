@@ -10,7 +10,7 @@ function Aboutus(){
    return(
        <>
           <div className={styles.page}>
-            <nav className={styles.nav}>
+            {/* <nav className={styles.nav}>
                 <div className={styles.navbar}>
                 <Link href="/" passHref>
                 <span className={styles.navbar}>Logo</span>
@@ -23,7 +23,7 @@ function Aboutus(){
                 <div className={styles.signup}>
                     <button className={styles.btn} type="submit">SignUp</button>
                 </div>
-            </nav>
+            </nav> */}
             <div className={styles.container}>
               <div className={styles.grid1}>
                 <div className={styles.content1}>

@@ -10,7 +10,7 @@ export default function AboutUs() {
           <meta name="description" content="" />
         </Head>
   
-        <Navbar action1="" action2="Home" buttonText="SignUp" />
+        <Navbar action1="" action2="Home" buttonText1="SignUp" buttonText2="" />
         <Aboutus  />
       </div>
     );
