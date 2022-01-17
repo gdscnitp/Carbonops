@@ -23,7 +23,7 @@ export default function Home() {
       <main className={styles.main}>
         <HomePage />
       </main>
-
+     
       <footer>
         <Footer />
       </footer>
