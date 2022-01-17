@@ -1,7 +1,50 @@
 import styles from "./Signup.module.css";
-import React from "react";
+import React, { useRef } from "react";
 
+async function createUser(email,password,contact,dob)
+{
+  const response =await  fetch('/api/auth/signupin', {
+    method: 'POST',
+    body: JSON.stringify({ email:email, password:password,contact:contact,dob:dob }),
+    headers: {
+      'Content-Type': 'application/json',
+    }})
+    //console.log(response)
+    const data = response.json();
+    //console.log(data)
+  if (!response.ok) {
+    console.log("Error occured")
+    //throw new Error(data.message || 'Something went wrong!');
+  }
+
+  // return data;
+  return data;
+}
 export default function Sign(props) {
+  
+  const emailInputRef = useRef();
+  const passwordInputRef = useRef();
+  const dobInputRef=useRef();
+  const contactInputRef=useRef();
+
+  async function SubmitHandler(event)
+  {
+    event.preventDefault();
+    const email=emailInputRef.current.value;
+    const password=passwordInputRef.current.value;
+    const dob=dobInputRef.current.value;
+    const contact=contactInputRef.current.value;
+  
+    const result=await createUser(email,password,contact,dob)
+    if(result)
+    {
+      console.log("successful signup");
+    }
+    else
+    {
+      console.log("Could not signup as individual")
+    }
+  }
   return (
     <div className={styles.container}>
       <signup className={styles.signu}>
@@ -13,12 +56,12 @@ export default function Sign(props) {
               </div>
               <div className={styles.inputBx}>
                 <p>
-                  Already {props.text1}?<a href="#">Login Now!</a>
+                  Already an User?<a href="#">Login Now!</a>
                 </p>
               </div>
             </div>
           </div>
-          <forms className={styles.formss}>
+          <forms className={styles.formss} >
             <div className={styles.contentBx}>
               <div className={styles.formBx}>
                 <h2>SIGNUP</h2>
@@ -27,23 +70,25 @@ export default function Sign(props) {
                     Join us in our<a href="#">Green Journey!</a>
                   </p>
                 </div>
-                <form>
+                <form onSubmit={SubmitHandler}>
                   <div className={styles.inputBx}>
                     <input
                       className={styles.email}
                       type="email"
                       name=""
                       placeholder="Email"
+                      required
+                      ref={emailInputRef}//email id
                     />
                   </div>
                   <div className={styles.inputBxx}>
-                    <input type="number" name="" placeholder="Contact" />
+                    <input type="number" name="" placeholder="Contact" required ref={contactInputRef}/>  
                   </div>
                   <div className={styles.inputBx}>
-                    <input type={props.text3} name="" placeholder={props.text2} />
+                    <input type="date" name="" placeholder="Date of Birth" required ref={dobInputRef}/>
                   </div>
                   <div className={styles.inputBx}>
-                    <input type="password" name="" placeholder="Password" />
+                    <input type="password" name="" placeholder="Password" required ref={passwordInputRef}/>
                   </div>
                   <div className={styles.inputBx}>
                     <input

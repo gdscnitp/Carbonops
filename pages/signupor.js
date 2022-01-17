@@ -1,10 +1,10 @@
 import Navbar from "../src/components/navbar/Navbar";
-import Sign from "../src/components/sign/sign";
+import SignupOrganisation from "../src/components/sign/signup-organisation";
 import React from "react";
 import Head from "next/head";
 import styles from "../styles/Signu.module.css";
 
-export default function SignUpOr() {
+export default function SignUpOrg() {
   return (
     <div className={styles.container}>
       <Head>
@@ -13,7 +13,7 @@ export default function SignUpOr() {
       </Head>
 
       <Navbar action1="" action2="Home" buttonText1="" buttonText2="" />
-      <Sign text1="Registered" text2="Organisation ID" text3="number" />
+      <SignupOrganisation />
     </div>
   );
 }

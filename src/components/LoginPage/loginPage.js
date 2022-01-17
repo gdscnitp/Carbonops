@@ -1,4 +1,5 @@
 import Image from "next/image";
+<<<<<<< HEAD
 import EnvImg from "/public/environment.png";
 import React, { useState } from "react";
 import styles from "./login.module.css";
@@ -19,10 +20,34 @@ function Login() {
     console.log(email);
     console.log(password);
     const result = await signIn("credentials", {
+=======
+import EnvImg from "/public/environment.png"
+import React from "react";
+import styles from "./login.module.css"
+import Link from "next/link";
+import {signIn} from "next-auth/react"
+import { useRef } from "react";
+import  { useRouter } from "next/router";
+
+function Login(){
+  const emailInputRef=useRef();
+  const passwordInputRef=useRef();
+  const router=useRouter();
+
+
+   async function submitHandler()
+   {
+     const email=emailInputRef.current.value;
+     const password=passwordInputRef.current.value;
+     console.log(email)
+    //  console.log(password)
+     const result = await signIn('credentials', {
+>>>>>>> 80f78a97e03f6d75995ed61e7c4c21123dd5d9ed
       redirect: false,
       email: email,
       password: password,
     });
+<<<<<<< HEAD
     console.log(result);
     if (!result.error) {
       // set some auth state
@@ -33,6 +58,22 @@ function Login() {
       console.log(result);
     }
   }
+=======
+    console.log(result)
+    if (!result.error) {
+      // set some auth state
+      router.replace('/individual-dashboard');
+    }
+    else
+    {
+      console.log(result);
+    }
+   }
+
+
+    return(
+      <>
+>>>>>>> 80f78a97e03f6d75995ed61e7c4c21123dd5d9ed
 
   return (
     <>
@@ -71,6 +112,7 @@ function Login() {
               <form onSubmit={submitHandler}>
                 <div className={styles.inputBx}>
                   <span>Email</span>
+<<<<<<< HEAD
                   <input
                     className={styles.input}
                     type="email"
@@ -96,15 +138,33 @@ function Login() {
                   <option disabled selected>
                     Choose Category
                   </option>
+=======
+                  <input className={styles.input} type="email" name="" required ref={emailInputRef}/>
+                </div>
+                <div className={styles.inputBx}>
+                  <span>Password</span>
+                  <input className={styles.input} type="password" name="" required ref={passwordInputRef}/>
+                 </div>
+                <select className={styles.select}>
+                  <option disabled selected>Choose Category</option>
+>>>>>>> 80f78a97e03f6d75995ed61e7c4c21123dd5d9ed
                   <option value="individual">Individual</option>
                   <option value="organisation">Organisation</option>
-                </select>
+                </select> 
 
+<<<<<<< HEAD
                 <p>
                   <Link href="/" passHref>
                     <span className={styles.forgot}>Forgot Password?</span>
                   </Link>
                 </p>
+=======
+                <p> 
+                    <Link href="/" passHref>
+                       <span className={styles.forgot}>Forgot Password?</span>
+                    </Link>
+                    </p>
+>>>>>>> 80f78a97e03f6d75995ed61e7c4c21123dd5d9ed
                 <div className={styles.remember}>
                   <label>
                     <input className={styles.input} type="checkbox" name="" />{" "}
@@ -112,6 +172,7 @@ function Login() {
                   </label>
                 </div>
                 <div className={styles.inputBx}>
+<<<<<<< HEAD
                   <botton
                     className={styles.input}
                     type="submit"
@@ -122,6 +183,10 @@ function Login() {
                     Login
                   </botton>
                 </div>
+=======
+                  <botton className={styles.input} type="submit" value="Log in" name="" onClick={submitHandler} >Login</botton>
+                  </div>
+>>>>>>> 80f78a97e03f6d75995ed61e7c4c21123dd5d9ed
 
                 <h3>Or Login With</h3>
               </form>

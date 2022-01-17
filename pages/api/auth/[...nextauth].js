@@ -26,7 +26,7 @@ export default NextAuth({
         const userOrg = await Organisation.findOne({
           email: credentials.email,
         });
-        console.log(userOrg);
+        if (userOrg) console.log(userOrg);
         if (!userOrg && !userInd) {
           throw new Error("No user found!");
         } else {
