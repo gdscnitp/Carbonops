@@ -43,6 +43,7 @@ export default function Dashboard(props) {
               <p>Location</p>
               <p>{props.location}</p>
             </div>
+
             <div className={styles.profile_stat}>
               <p>Your Score</p>
               <p>{props.score}</p>
@@ -82,21 +83,21 @@ export default function Dashboard(props) {
               src={`/images/dashboard/Stats1.png`}
               alt="Stats1"
               height={100}
-              width={150}
+              width={140}
             />
             <Image
               className={styles.stats_image2}
-              src={`/images/dashboard/Stats1.png`}
+              src={`/images/dashboard/Stats2.png`}
               alt="Stats1"
               height={100}
-              width={150}
+              width={140}
             />
             <Image
               className={styles.stats_image3}
               src={`/images/dashboard/Stats1.png`}
               alt="Stats1"
               height={100}
-              width={150}
+              width={140}
             />
           </div>
           <div className={styles.stats_graph}>
@@ -105,7 +106,7 @@ export default function Dashboard(props) {
               src={`/images/dashboard/Chart.png`}
               alt="Stats1"
               height={350}
-              width={1050}
+              width={900}
             />
           </div>
         </div>

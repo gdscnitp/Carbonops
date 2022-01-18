@@ -9,11 +9,16 @@ export default function EditForm(props) {
   const router = useRouter();
 
   const [values, setValues] = useState({
-    Name: '',
-    Email: '',
-    Location: '',
-    Phone: '',
-    DateofLastReport: '',
+    name: '',
+    email: '',
+    location: '',
+    phone: '',
+    dateofLastReport: '',
+    areaName: '',
+    cityName: '',
+    stateName: '',
+    pincode: '',
+    countryName: '',
   });
 
   const handleChange = (e) => {
@@ -46,92 +51,133 @@ export default function EditForm(props) {
           </div>
           <div className={styles.profileImage}>
             <span className={styles.ellipse}>
-            <FaCamera style={{color: 'rgba(0, 0, 0,0.5)', fontSize: '35px'}}/>
+              <FaCamera
+                style={{ color: 'rgba(0, 0, 0,0.5)', fontSize: '35px' }}
+              />
             </span>
             <label className={styles.imagefile} htmlFor="poster">
-             <p className={styles.text}>Profile Image </p> 
+              <p className={styles.text}>Profile Image </p>
               <input
                 type="file"
                 id="imageInput"
                 name="imageInput"
                 accept="image/png,image/jpg"
-                className="btn btn-primary"
-              />{' '}
-              <br />
+              />
             </label>
           </div>
 
           <div className={styles.Form}>
             <form>
-              <label className={styles.label} htmlFor="Name">
-              <p className={styles.text}> Name</p>
+              <label className={styles.label} htmlFor="name">
+                <p className={styles.text}> Name</p>
                 <input
                   type="text"
-                  id="Name"
-                  name="Name"
+                  id="name"
+                  name="name"
                   value={values.Name}
                   onChange={handleChange}
                   required
                   autoComplete="off"
-                />{' '}
-                <br />
+                />
               </label>
 
-              <label className={styles.label} htmlFor="Email">
-              <p className={styles.text}>Email</p>
+              <label className={styles.label} htmlFor="email">
+                <p className={styles.text}>Email</p>
                 <input
                   type="email"
                   id="email"
-                  name="Email"
+                  name="email"
                   value={values.Email}
                   onChange={handleChange}
                   required
                   autoComplete="off"
-                />{' '}
-                <br />
+                />
               </label>
 
-              <label className={styles.label} htmlFor="Location">
-              <p className={styles.text}>Location</p>
-                <textarea
-                  rows="2"
+              <label className={styles.label} htmlFor="area">
+                <p className={styles.text}>Area</p>
+                <input
                   type="text"
-                  id="Location"
-                  name="Location"
-                  value={values.Location}
+                  id="areaName"
+                  name="areaName"
+                  value={values.areaName}
                   onChange={handleChange}
                   required
                   autoComplete="off"
-                />{' '}
-                <br />
+                />
               </label>
-
-              <label className={styles.label} htmlFor="Phone">
-              <p className={styles.text}>Phone</p>
+              <label className={styles.label} htmlFor="city">
+                <p className={styles.text}>City</p>
+                <input
+                  type="text"
+                  id="cityName"
+                  name="cityName"
+                  value={values.cityName}
+                  onChange={handleChange}
+                  required
+                  autoComplete="off"
+                />
+              </label>
+              <label className={styles.label} htmlFor="state">
+                <p className={styles.text}>State</p>
+                <input
+                  type="text"
+                  id="stateName"
+                  name="stateName"
+                  value={values.stateName}
+                  onChange={handleChange}
+                  required
+                  autoComplete="off"
+                />
+              </label>
+              <label className={styles.label} htmlFor="pincode">
+                <p className={styles.text}>Pincode</p>
                 <input
                   type="number"
+                  id="pincode"
+                  name="pincode"
+                  value={values.pincode}
+                  onChange={handleChange}
+                  required
+                  autoComplete="off"
+                />
+              </label>
+              <label className={styles.label} htmlFor="country">
+                <p className={styles.text}>Country</p>
+                <input
+                  type="text"
+                  id="countryName"
+                  name="countryName"
+                  value={values.countryName}
+                  onChange={handleChange}
+                  required
+                  autoComplete="off"
+                />
+              </label>
+              <label className={styles.label} htmlFor="phone">
+                <p className={styles.text}>Phone</p>
+                <input
+                  type="tel"
                   id="phone"
                   name="phone"
                   value={values.Phone}
                   onChange={handleChange}
                   required
                   autoComplete="off"
-                />{' '}
-                <br />
+                />
               </label>
 
-              <label className={styles.label} htmlFor="DateofLastReport">
-              <p className={styles.text}>Date of Last Report</p>
+              <label className={styles.label} htmlFor="dateofLastReport">
+                <p className={styles.text}>Date of Last Report</p>
                 <input
                   type="date"
-                  id="DateLastReport"
-                  name="DateLastReport"
+                  id="dateLastReport"
+                  name="dateLastReport"
                   value={values.DateLastReport}
                   onChange={handleChange}
                   required
                   autoComplete="off"
-                />{' '}
-                <br />
+                />
               </label>
               <div className={styles.buttons}>
                 <a>Save</a>

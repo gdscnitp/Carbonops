@@ -6,16 +6,17 @@
   left: 0;
   color: white;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: auto;
 }
 
 .container {
   position: relative;
   width: 35%;
-  height: 98%;
+  height: 175vh;
   padding: 1rem;
   background-color: #142424;
   box-shadow: 3px 0px 50px 4px rgba(0, 0, 0, 0.25);
@@ -26,7 +27,7 @@
 
 .LeftArrow {
   position: absolute;
-  top: 1rem;
+  top: 18rem;
   left: 1.5rem;
   float: leftt;
   display: flex;
@@ -40,20 +41,18 @@
 
 .heading {
   position: absolute;
-  top: 4rem;
+  top: 20rem;
   left: 2rem;
-  /* margin-top: 3em;
-  margin-left:-18rem; */
 }
 
-.profileImage{
+.profileImage {
   position: relative;
-  top:18%;
+  top: 29%;
   margin-left: 4rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  grid-template-areas: "ellipse imagefile";
+  grid-template-areas: 'ellipse imagefile';
   grid-gap: 1.5em;
 }
 
@@ -74,18 +73,18 @@
   background-size: cover;
 }
 
-.imagefile{
+.imagefile {
   grid-area: imagefile;
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-evenly;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 .Profiletitle {
   position: absolute;
   top: 13rem;
-  right:7rem;
+  right: 7rem;
   float: right;
   display: flex;
   align-items: center;
@@ -93,36 +92,39 @@
   font-size: 20px;
 }
 
-.text{
-color: #00bd57;
+.text {
+  color: #00bd57;
 }
-.text span{
+.text span {
   color: red;
 }
-.Form{
+.Form {
   position: absolute;
-  top: 40%;
-
+  top: 41%;
 }
-.label input{
+.label input {
   color: white;
-  height:2.5rem;
+  height: 2.5rem;
   width: 18rem;
   background-color: #202934;
   border: 1px solid #202934;
-  border-radius:8px ;
+  border-radius: 8px;
   outline: none;
   margin-bottom: 1em;
 }
 
-.label textarea{
+.label textarea {
   color: white;
-  height:2.5rem;
+  height: 2.5rem;
   width: 18rem;
   background-color: #202934;
   border: 1px solid #202934;
-  border-radius:8px ;
+  border-radius: 8px;
   box-direction: none;
+  outline: none;
+}
+.imagefile input[type=file] {
+  color: white;
 }
 .buttons {
   margin-top: 1rem;
@@ -130,8 +132,8 @@ color: #00bd57;
 .buttons a {
   background-color: #00bd57;
   color: white;
- border-radius: 8px;
-  padding:0.5em 8rem;
+  border-radius: 8px;
+  padding: 0.5em 8rem;
   box-shadow: 0px 4px 50px 0px rgba(0, 255, 240, 0.19);
 }
 .buttons a:hover {
@@ -140,13 +142,13 @@ color: #00bd57;
 }
 
 @media only screen and (max-width: 980px) {
-  .container{
+  .container {
     width: 50%;
   }
 }
 
 @media only screen and (max-width: 680px) {
-  .container{
+  .container {
     width: 70%;
   }
 }

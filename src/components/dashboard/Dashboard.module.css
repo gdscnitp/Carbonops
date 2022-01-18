@@ -1,7 +1,8 @@
 .container {
-  background-color: #152b2c;
+  background-color: #142424;
   display: grid;
   grid-template-columns: 1fr 2fr;
+  /* min-height: 100vh; */
 }
 
 /*------------Profile portion ----------------*/
@@ -9,9 +10,11 @@
   margin: 0px 0px 0px 50px;
   background-color: #141a1f;
   color: white;
+  height: 100%;
 }
 .profile_image_container {
   position: relative;
+  
 }
 .profile_description {
   position: absolute;
@@ -29,9 +32,9 @@
   bottom: 0;
   right: 0;
   padding: 13px;
-  margin: 12px;
-  width: 12%;
-  height: 12%;
+  margin: 10px;
+  width: 10%;
+  height: 10%;
 }
 
 .profile_stats {
@@ -51,7 +54,7 @@
 /* --------------Statistics portion----------- */
 .topText {
   margin: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   color: white;
   font-size: 20px;
 }
@@ -64,17 +67,17 @@
   grid-template-rows: 1fr;
   grid-template-areas: 'stats_image1,stats_image2,stats_image3';
   grid-gap: 1rem;
-  margin-top: 5rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-top: 6rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
 }
 .stats_image1,.stats_image2,.stats_image3{
   border-radius: 15px;
 }
 .stats_graph {
-  margin-top: 1rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-top: 2rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
 }
 .box {
   background-color: #173033;
