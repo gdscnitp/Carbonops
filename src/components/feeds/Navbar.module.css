@@ -1,0 +1,25 @@
+.navbar {
+  height: 80px;
+  background-color: #142424;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 20px;
+  color: white;
+  margin: 0 15px;
+}
+.middle {
+  font-size: 15px;
+  color: white;
+  margin-left: 30%;
+  margin-right: 20%;
+}
+.right {
+  font-size: 15px;
+  color: white;
+  margin-left: 20%;
+  margin-right: 15px;
+}
