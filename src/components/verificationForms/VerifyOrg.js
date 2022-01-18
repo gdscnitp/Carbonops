@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import styles from "./OrgForm.module.css";
 
-export default function VerifyOrg({idOfOrg}) {
+export default function VerifyOrg(props) {
+  console.log(props.id);
+  var id = props.id;
+  console.log("====================");
   const [dealsBool, setDealsBool] = useState(false);
 
   const [orgProfValues, setOrgProfValues] = useState({
-    id : idOfOrg,
+    id,
     organisationName: "",
     typeOfOrganisation: "",
     areaName: "",
@@ -40,8 +43,8 @@ export default function VerifyOrg({idOfOrg}) {
       })
     })
     const resp = await res.json()
-    if (resp.error){
-     console.log(resp.error);
+    if (resp.error || resp.success==false){
+      console.log(resp);
     }else{
       console.log(resp);
       console.log("Saved organisation successfully")

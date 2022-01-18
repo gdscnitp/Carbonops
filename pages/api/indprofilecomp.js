@@ -1,7 +1,7 @@
 import initDB from '../../helpers/db'
 import { sendError,sendSuccess } from '../../utilities/response-helpers';
 var Indiv =require("../../models/Individual")
-import potentialIndividual from "./auth/signupin"
+var VerAcc = require("../../models/VerifiedAcc")
 
 export default async function indProfileCompletion (req, res){
     if (req.method === "POST"){
@@ -23,7 +23,7 @@ export default async function indProfileCompletion (req, res){
             var idExists = await VerAcc.find({_id:{$eq:id}})
             console.log(idExists);
         if (idExists !== null) {
-             const {email,password,contact,dob} = idExists   
+             const {email,password,contact,dob,isOrganisation} = idExists[0]  
             console.log(email,contact,dob)
             
             try {

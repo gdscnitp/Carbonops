@@ -8,7 +8,7 @@ export default async function OrgProfileCompletion(req, res){
 
         initDB()
         const {dealsBool,orgProfValues} = req.body
-        const {_id,organisationName,
+        const {id,organisationName,
         typeOfOrganisation,
         areaName,
         cityName,
@@ -17,14 +17,14 @@ export default async function OrgProfileCompletion(req, res){
         pincode,
         wasteRequirements,
         websiteLink,
-        linkedin,} = orgProfValues
+        linkedin} = orgProfValues
             console.log(orgProfValues)
             
             //checking if id exists in verified account or not
-            var idExists = await VerAcc.find({_id:{$exists:true}})
+            var idExists = await VerAcc.find({_id:{$eq:id}})
             console.log(idExists);
             if (idExists !== null) {
-             const {email,password,contact,organisationId} = idExists   
+             const {email,password,contact,organisationId,isOrganisation} = idExists[0]   
              
              try {
                  if (!organisationName || !typeOfOrganisation || !areaName || !cityName || !stateName || !pincode || !countryName  || !websiteLink || !linkedin) {
@@ -33,7 +33,7 @@ export default async function OrgProfileCompletion(req, res){
                     
                     
                     const newOrganisation = await  new Org({
-                        organisationId, organisationName,mailId:email,password,contact:contact,                        
+                        organisationId, organisationName,mailId:email,password,contact,                        
                         location:{area:areaName,city:cityName,state:stateName,pincode,nation:countryName},wasteRequirements,dealsProducts:dealsBool,linkedin,
                         website:websiteLink,type:typeOfOrganisation
                     }).save()

@@ -6,7 +6,7 @@ export default function IndProfile({idOfInd}) {
     return (
         <>
         <Navbar action1="Home" action2="" buttonText1="" buttonText2=""/>
-        <VerifyIn props={idOfInd} />
+        <VerifyIn id={idOfInd} />
         </>
     )
 }

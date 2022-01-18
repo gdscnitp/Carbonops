@@ -28,13 +28,14 @@ export async function getServerSideProps(context)
       return{
         notFound: true,
       }
-      const isOrg=data.data;
+      const isOrg=data.data.isOrganisation;
       console.log(isOrg)
+      const verifiedId = data.data.verifiedAccount._id
       const profHref= isOrg ? "profile-organisation-form": "profile-individual-form"
       
     return {
       props:{
-        id,profHref
+        id:verifiedId,profHref
       }
     }
 }
