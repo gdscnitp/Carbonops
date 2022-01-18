@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import Signpop from "./signpo";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
 
 export default function Navbar(props) {
+  const [detailPopup, setDetailPopup] = useState(false);
   return (
     <>
       <nav className={styles.navbar}>
@@ -18,7 +20,13 @@ export default function Navbar(props) {
           </li>
           <Link href="/">
             {props.buttonText1.length > 0 ? (
-              <a className={styles.button}> {props.buttonText1} </a>
+              <a
+                onClick={(e) => setDetailPopup(true)}
+                className={styles.button}
+              >
+                {" "}
+                {props.buttonText1}{" "}
+              </a>
             ) : (
               ""
             )}
@@ -32,6 +40,7 @@ export default function Navbar(props) {
           </Link>
         </ul>
       </nav>
+      <Signpop trigger={detailPopup} setTrigger={setDetailPopup} />
     </>
   );
 }
