@@ -87,7 +87,7 @@ export default function Dashboard(props) {
             />
             <Image
               className={styles.stats_image2}
-              src={`/images/dashboard/Stats2.png`}
+              src={`/images/dashboard/Stats1.png`}
               alt="Stats1"
               height={100}
               width={140}
