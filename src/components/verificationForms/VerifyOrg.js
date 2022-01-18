@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import styles from "./OrgForm.module.css";
 
-export default function VerifyOrg() {
+export default function VerifyOrg({idOfOrg}) {
   const [dealsBool, setDealsBool] = useState(false);
 
   const [orgProfValues, setOrgProfValues] = useState({
+    id : idOfOrg,
     organisationName: "",
     typeOfOrganisation: "",
     areaName: "",

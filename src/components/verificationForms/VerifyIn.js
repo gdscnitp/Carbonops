@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import styles from "./InForm.module.css";
 
 
-export default function VerifyIn() {
-
+export default function VerifyIn(props) {
+  console.log(props.id);
+  console.log("====================");
   const [inProfValues, setinProfValues] = useState({
+    id,
     individualName: "",
     areaName: "",
     cityName: "",
@@ -188,3 +190,13 @@ export default function VerifyIn() {
     </>
   );
 }
+
+
+// export function getServerSideProps(props) {
+//   console.log(props)
+//   return {
+//     props:{
+//        id
+//     }
+//   }
+// }

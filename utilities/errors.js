@@ -19,6 +19,7 @@ export const errorCodes = [
    [700, "Account Doesnot exists"],
    [800, "Access without token is not authorised"],
    [900, "Invalid Credentials"],
-   [1400, "Email is invalid or disposal"]
+   [1400, "Email is invalid or disposal"],
+   
 ]
 
