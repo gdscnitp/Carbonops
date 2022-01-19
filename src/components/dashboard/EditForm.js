@@ -81,12 +81,12 @@ export default function EditForm(props) {
                 />
               </label>
              {/* add occupation chnage field */}
-              <label className={styles.label} htmlFor="email">
+              <label className={styles.label} htmlFor="occupation">
                 <p className={styles.text}>Occupation</p>
                 <input
                   type="text"
-                  id="email"
-                  name="email"
+                  id="occupation"
+                  name="occupation"
                   value={values.occupation}
                   onChange={handleChange}
                   required
