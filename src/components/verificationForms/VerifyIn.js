@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import styles from "./InForm.module.css";
 
 
-export default function VerifyIn(props) {
-  console.log(props.id);
-  var id = props.id;
-  console.log("====================");
+export default function VerifyIn() {
+
   const [inProfValues, setinProfValues] = useState({
-    id,
     individualName: "",
     areaName: "",
     cityName: "",
@@ -40,8 +37,8 @@ export default function VerifyIn(props) {
       })
     })
     const resp = await res.json()
-    if (resp.error || resp.success==false){
-     console.log(resp);
+    if (resp.error){
+     console.log(resp.error);
     }else{
       console.log(resp);
       console.log("Saved individual successfully")
@@ -191,13 +188,3 @@ export default function VerifyIn(props) {
     </>
   );
 }
-
-
-// export function getServerSideProps(props) {
-//   console.log(props)
-//   return {
-//     props:{
-//        id
-//     }
-//   }
-// }

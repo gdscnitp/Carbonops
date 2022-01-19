@@ -33,7 +33,7 @@ export default async function updateRecords(req,res) {
         let info=await PendAcc.deleteOne({_id : {$eq:req.body.id}});
         //info is delete info in form of delete count
         console.log(info);
-        return  sendSuccess(res,{isOrganisation,verifiedAccount}) 
+        return  sendSuccess(res,isOrganisation) 
         
     }
 }
