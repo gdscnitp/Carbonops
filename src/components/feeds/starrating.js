@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Star from "./Star";
+import Star from "./star";
 function StarRating({ onChange }) {
   const [rating, setRating] = useState(0);
   const changeRating = (newRating) => {
