@@ -21,14 +21,14 @@ export default async function indProfileCompletion (req, res){
            
             //checking if id exists in verified account or not
             var idExists = await VerAcc.find({_id:{$eq:id}})
-            console.log(idExists);
+            //console.log(idExists);
         if (idExists !== null) {
              const {email,password,contact,dob,isOrganisation} = idExists[0]  
-            console.log(email,contact,dob)
+            //console.log(email,contact,dob)
             
             try {
                 if (!individualName || !areaName || !cityName || !stateName || !pincode || !countryName || !occupation || !facebook || !linkedin) {
-                    return sendError(res,"Please fill all fields",11,422)
+                    return sendError(res,"Please fill all fields",11,422)//facebook profile link is not required.
                 }
 
 
