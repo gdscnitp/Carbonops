@@ -1,14 +1,14 @@
 import initDB from '../../helpers/db'
 import { sendError,sendSuccess } from '../../utilities/response-helpers';
 var Indiv =require("../../models/Individual")
-var VerAcc = require("../../models/VerifiedAcc")
+import potentialIndividual from "./auth/signupin"
 
 export default async function indProfileCompletion (req, res){
     if (req.method === "POST"){
 
         initDB()
         const {inProfValues} = req.body
-        const {id,individualName,
+        const {individualName,
             areaName,
             cityName,
             stateName,
@@ -34,7 +34,7 @@ export default async function indProfileCompletion (req, res){
 
                 const newIndividual = await  new Indiv({
                         name:individualName,
-                        
+                        // email:"srijan@gmail.com",password:"testdscTenv*$app123",contact:"6203544363",dob:"2022-01-04",
                         email,password,contact,dob,
                         
                     address:{area:areaName,city:cityName,state:stateName,pincode,nation:countryName},occupation,facebook,linkedin
@@ -45,8 +45,6 @@ export default async function indProfileCompletion (req, res){
                 console.log(err.message)
                 return sendError(res, err.message,err.message,422); 
             }
-        }else{
-            return sendError(res,"Such id not exists in verified accounts",18,700)
-        }
     }
+}
 }

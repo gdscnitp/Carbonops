@@ -2,13 +2,13 @@ import { useRouter } from "next/router"
 import Link from 'next/link'
 
 
-export default  function Mycomponent({id,profHref}){
-    // const router = useRouter()
-    // var id = router.query.hash;
+export default  function Mycomponent(){
+    const router = useRouter()
+    var id = router.query.hash;
     console.log(id);
    
       
-    return <div><h1 style={{color: "#fff"}}>{id} Your account is verified. Please complete profile here: <Link href={`../../${profHref}/${id}`}><a>Profile Comp </a></Link></h1></div>
+    return <div><h1 style={{color: "#fff"}}>{id} Your account is verified. Please complete profile here: <Link href='../../login'><a>Login </a></Link></h1></div>
 }
 
 export async function getServerSideProps(context)
@@ -28,14 +28,13 @@ export async function getServerSideProps(context)
       return{
         notFound: true,
       }
-      const isOrg=data.data.isOrganisation;
-      console.log(isOrg)
-      const verifiedId = data.data.verifiedAccount._id
-      const profHref= isOrg ? "profile-organisation-form": "profile-individual-form"
+      // const isOr=data.data.isOrganisation;
+      // console.log(isOr)
+      //const href= isOr? "/profile-organisation-form": "/profile-individual-form"
       
     return {
       props:{
-        id:verifiedId,profHref
+        id
       }
     }
 }
