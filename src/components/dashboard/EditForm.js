@@ -10,7 +10,7 @@ export default function EditForm(props) {
 
   const [values, setValues] = useState({
     name: '',
-    email: '',
+    occupation: '',
     location: '',
     phone: '',
     dateofLastReport: '',
@@ -80,14 +80,14 @@ export default function EditForm(props) {
                   autoComplete="off"
                 />
               </label>
-
+             {/* add occupation chnage field */}
               <label className={styles.label} htmlFor="email">
-                <p className={styles.text}>Email</p>
+                <p className={styles.text}>Occupation</p>
                 <input
-                  type="email"
+                  type="text"
                   id="email"
                   name="email"
-                  value={values.Email}
+                  value={values.occupation}
                   onChange={handleChange}
                   required
                   autoComplete="off"
@@ -167,7 +167,7 @@ export default function EditForm(props) {
                 />
               </label>
 
-              <label className={styles.label} htmlFor="dateofLastReport">
+              {/* <label className={styles.label} htmlFor="dateofLastReport">
                 <p className={styles.text}>Date of Last Report</p>
                 <input
                   type="date"
@@ -178,7 +178,7 @@ export default function EditForm(props) {
                   required
                   autoComplete="off"
                 />
-              </label>
+              </label> */}
               <div className={styles.buttons}>
                 <a>Save</a>
               </div>
