@@ -7,6 +7,7 @@ const user_obj = {
   phone: "123-3243-324",
   date: "2-3-42",
 };
+
 export default function dashboard(props) {
   return (
     <>

@@ -16,6 +16,7 @@ function Content(props) {
                 src={Company}
                 placeholder="blur"
                 alt="company logo"
+                layout="Responsive"
                 width={350}
                 height={300}
               />
@@ -118,12 +119,14 @@ function Content(props) {
               placeholder="Product Name"
               className={styles.input}
             />
-           <div className={styles.topic}>Your Description</div>
-                  <textarea
-                    type="description"
-                    placeholder="Product Description"
-                    className={styles.input}
-                  />
+            <div className={styles.topic}>Your Description</div>
+            <textarea
+              type="description"
+              placeholder="Product Description"
+              className={styles.input}
+              // cols="40"
+              // rows="5"
+            />
             <div className={styles.topic}>Product URL</div>
             <input
               type="url"
