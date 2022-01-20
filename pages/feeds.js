@@ -17,7 +17,7 @@ export default function Feeds() {
             <div className={styles.search}>
             <div className={styles.inputBx}>
                   <input type="search" name="" placeholder="Search"/>
-                  <input type="filter" value="Filter" name=""/>
+                  <input type="filter" value="Filter" name="" readOnly/>
                 </div>
             </div>
             <div className={styles.feedcards}>
