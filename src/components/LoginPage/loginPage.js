@@ -1,19 +1,68 @@
 import Image from "next/image";
 import EnvImg from "/public/environment.png";
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import styles from "./login.module.css";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useRef } from "react";
 import { useRouter } from "next/router";
+import Notification from '../Notifications/notification'
+
+// async function sendLoginData(loginDetails) {
+//   const response = await fetch('/api/auth/login', {
+//     method: 'POST',
+//     body: JSON.stringify(loginDetails),
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//   });
+
+//   const data = await response.json();
+
+//   if (!response.ok) {
+//     throw new Error(data.message || 'Something went wrong!');
+//   }
 
 function Login() {
+
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
   const router = useRouter();
   const [selects, setSelects] = useState();
+  const [enteredEmail, setEnteredEmail] = useState('');
+  const [enteredPassword, setEnteredPassword] = useState('');
+  const [requestStatus, setRequestStatus] = useState();
+  const [requestError, setRequestError] = useState();
 
-  async function submitHandler() {
+  useEffect(()=>{
+    if(requestStatus === 'success' || requestError === 'error'){
+      const timer = setTimeout(() => {
+        setRequestError(null);
+        setRequestStatus(null);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [requestError, requestStatus]);
+
+  async function submitHandler(event) {
+     event.preventDefault();
+
+     setRequestStatus('pending');
+     
+     try{
+       await sendLoginData({
+         email: enteredEmail,
+         password: enteredPassword,
+       });
+       setRequestStatus('success');
+       setEnteredEmail('');
+       setEnteredPassword('');
+     } catch(error){
+       setRequestError(error.message);
+       setRequestStatus('error');
+     }
+
     const email = emailInputRef.current.value;
     const password = passwordInputRef.current.value;
     console.log(email);
@@ -33,6 +82,33 @@ function Login() {
       console.log(result);
     }
   }
+
+  
+  let notification;
+
+  if (requestStatus === 'pending') {
+   notification = {
+     status: 'pending',
+     title: 'Sending message...',
+     message: 'Your message is on its way!',
+   };
+ }
+
+ if (requestStatus === 'success') {
+   notification = {
+     status: 'success',
+     title: 'Success!',
+     message: 'Message sent successfully!',
+   };
+ }
+
+ if (requestStatus === 'error') {
+   notification = {
+     status: 'error',
+     title: 'Error!',
+     message: requestError,
+   };
+ }
 
   return (
     <>
@@ -68,13 +144,16 @@ function Login() {
           <div className={styles.contentBx}>
             <div className={styles.formBx}>
               <h2>Login</h2>
-              <form onSubmit={submitHandler}>
+          <form onSubmit={submitHandler}>
                 <div className={styles.inputBx}>
                   <span>Email</span>
                   <input
                     className={styles.input}
+                    id='email'
                     type="email"
                     name=""
+                    value={enteredEmail}
+                    onChange={(event)=> setEnteredEmail(event.target.value)}
                     required
                     ref={emailInputRef}
                   />
@@ -87,6 +166,8 @@ function Login() {
                     name=""
                     required
                     ref={passwordInputRef}
+                    value={enteredPassword}
+                    onChange={(event)=> setEnteredPassword(event.target.value)}
                   />
                 </div>
                 <select
@@ -125,6 +206,13 @@ function Login() {
 
                 <h3>Or Login With</h3>
               </form>
+              {notification && (
+            <Notification
+                status= {notification.status}
+                title= {notification.title}
+                message={notification.message}
+              />
+          )}
               <ul className={styles.sci}>
                 <li>
                   <svg
