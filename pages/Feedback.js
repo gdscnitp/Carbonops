@@ -1,9 +1,21 @@
-import Feedback from "../src/components/Feedback/feedback";
+import React from 'react'
+import Navbar from '../src/components/navbar/Navbar'
+import FeedBack from '../src/components/Feedbackpage/Feedback'
+const Feedback = () => {
+    return (
+        <>
+         <Navbar action1="" action2="Login" buttonText1="SignUp" buttonText2="" />
+       
+<FeedBack/>
 
-export default function Feedbackpage() {
-  return (
-    <div>
-      <Feedback />
-    </div>
-  );
+
+
+
+
+
+
+        </>
+    )
 }
+
+export default Feedback
