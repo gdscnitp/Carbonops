@@ -3,18 +3,25 @@ import Image from "next/image";
 import styles from "./CreateEvents.module.css";
 import { useRouter } from "next/dist/client/router";
 
-export default function CreateEvents() {
+export default function CreateEvents(props) {
   const router = useRouter();
 
+  const [isOfflineBool, setIsOfflineBool] = useState(false);
   const [values, setValues] = useState({
     eventName: "",
+    eventType: "",
     eventDate: "",
     eventTime: "",
+    eventDuration: "",
+    eventPoster: "",
+    targetAudience: "",
     eventLocation: "",
-    enqNumber: "",
-    eventType: "",
-    audience: "",
+    participantsLimit: "",
+    eventLocation: "",
+    enquiryDetails: "",
+    onOrgModel: "",
     eventDescription: "",
+    isOffline: isOfflineBool,
   });
 
   const handleChange = (e) => {
@@ -27,17 +34,8 @@ export default function CreateEvents() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    if (
-      values.eventName.length > 0 &&
-      values.eventLocation.length > 0 &&
-      values.enqNumber.length > 0 &&
-      values.audience.length > 0 &&
-      values.eventDescription.length > 0
-    ) {
-      if (values.enqNumber.length === 10) console.log(values);
-      else console.log("Phone no. must be 10 digit long");
-    } else console.log("Please fill all values correctly");
+    // props.onAddEvent(values);
+    props.onAddEvent(values);
   };
 
   return (
@@ -56,14 +54,12 @@ export default function CreateEvents() {
         </div>
 
         {/* ______________________________________  */}
-        <div className={styles.formMid}>
+
+        <div className={styles.formRight}>
           <form>
-            <label
-              className={`${styles.label} ${styles.eventName}`}
-              htmlFor="eventName"
-            >
-              Your Event Title* <br />
+            <div className={styles.row}>
               <input
+                className={`${styles.eventName}`}
                 type="text"
                 id="eventName"
                 name="eventName"
@@ -71,79 +67,12 @@ export default function CreateEvents() {
                 onChange={handleChange}
                 required
                 autoComplete="off"
-              />{" "}
+                placeholder=" Your Event Name * "
+              />
               <br />
-            </label>
 
-            <label className={styles.label} htmlFor="eventDate">
-              Choose a date for your event* <br />
-              <input
-                type="date"
-                id="eventDate"
-                name="eventDate"
-                value={values.eventDate}
-                onChange={handleChange}
-                required
-                autoComplete="off"
-              />{" "}
-              <br />
-            </label>
-
-            <label className={styles.label} htmlFor="eventTime">
-              Choose a time for your event* <br />
-              <input
-                type="time"
-                id="eventTime"
-                name="eventTime"
-                value={values.eventTime}
-                onChange={handleChange}
-                required
-                autoComplete="off"
-              />{" "}
-              <br />
-            </label>
-
-            <label
-              className={`${styles.label} ${styles.eventLocation}`}
-              htmlFor="eventLocation"
-            >
-              Enter event location (if offline)* <br />
-              <textarea
-                rows="2"
-                type="text"
-                id="eventLocation"
-                name="eventLocation"
-                value={values.eventLocation}
-                onChange={handleChange}
-                required
-                autoComplete="off"
-              />{" "}
-              <br />
-            </label>
-
-            <label className={styles.label} htmlFor="enqNumber">
-              Enter enquiry number* <br />
-              <input
-                type="number"
-                id="enqNumber"
-                name="enqNumber"
-                value={values.enqNumber}
-                onChange={handleChange}
-                required
-                autoComplete="off"
-              />{" "}
-              <br />
-            </label>
-          </form>
-        </div>
-
-        {/* __________________________________________ */}
-        <div className={styles.formRight}>
-          <form>
-            <label className={styles.eventType} htmlFor="eventType">
-              Type of event <br />
               <select
-                className={styles.select}
+                className={`${styles.select} ${styles.eventType}`}
                 id="eventType"
                 name="eventType"
                 value={values.eventType}
@@ -151,62 +80,172 @@ export default function CreateEvents() {
                 required
                 autoComplete="off"
               >
+                <option value="" disabled>
+                  Choose Event Type
+                </option>
                 <option value="Offline">Offline</option>
                 <option value="Online">Online</option>
-                <option value="Environmental">Environmental talks</option>
-                <option value="carbon">Carbon Score</option>
+                <option value="Environmental Tasks">Environmental talks</option>
+                <option value="Carbon Score">Carbon Score</option>
               </select>
               <br />
-            </label>
+            </div>
 
-            <label className={styles.audience} htmlFor="audience">
-              Specify audience limit* <br />
+            <div className={styles.row}>
               <input
-                type="number"
-                id="audience"
-                name="audience"
-                value={values.audience}
+                type="date"
+                id="eventDate"
+                name="eventDate"
+                className={styles.eventDate}
+                value={values.eventDate}
                 onChange={handleChange}
                 required
                 autoComplete="off"
-              />{" "}
-              <br />
-            </label>
+                placeholder="Choose a date for your event*"
+              />
 
-            <label
-              className={styles.eventDescription}
-              htmlFor="eventDescription"
-            >
-              Enter event description* <br />
+              <input
+                type="time"
+                id="eventTime"
+                name="eventTime"
+                className={styles.eventTime}
+                value={values.eventTime}
+                onChange={handleChange}
+                required
+                autoComplete="off"
+                placeholder="Choose a time for your event*"
+              />
+            </div>
+
+            <div className={styles.row}>
+              <input
+                type="number"
+                id="eventDuration"
+                name="eventDuration"
+                className={styles.eventDuration}
+                value={values.eventDuration}
+                onChange={handleChange}
+                required
+                autoComplete="off"
+                placeholder="Event Duration *"
+              />
+
+              <input
+                type="url"
+                id="eventPoster"
+                name="eventPoster"
+                className={styles.eventPoster}
+                value={values.eventPoster}
+                onChange={handleChange}
+                placeholder="Upload your event poster *"
+              />
+            </div>
+            <div className={styles.row}>
+              <input
+                type="text"
+                id="targetAudience"
+                name="targetAudience"
+                className={styles.targetAudience}
+                value={values.targetAudience}
+                onChange={handleChange}
+                required
+                autoComplete="off"
+                placeholder=" Specify target audience *"
+              />
+
               <textarea
                 id="eventDescription"
                 name="eventDescription"
+                className={styles.eventDescription}
                 value={values.eventDescription}
                 onChange={handleChange}
                 required
                 autoComplete="off"
-                cols="40"
+                placeholder="Enter event description* "
+                // cols="40"
                 rows="8"
               ></textarea>
-              <br />
-            </label>
-
-            <label className={styles.poster} htmlFor="poster">
-              Upload your event poster*
-              <br />
+            </div>
+            <div className={styles.row}>
               <input
-                type="file"
-                id="poster"
-                name="poster"
-                className={styles.customFileInput}
-              />{" "}
+                type="number"
+                id="participantsLimit"
+                name="participantsLimit"
+                className={styles.participantsLimit}
+                value={values.participantsLimit}
+                onChange={handleChange}
+                required
+                autoComplete="off"
+                placeholder=" Participants limit*"
+              />
+
+              <label htmlFor="isOfflineBool" className={styles.label}>
+                Is event offline ?
+                <input
+                  type="checkbox"
+                  id="isOfflineBool"
+                  name="isOfflineBool"
+                  value={isOfflineBool}
+                  onChange={() => {
+                    setIsOfflineBool(!isOfflineBool);
+                  }}
+                />
+              </label>
+
+              {isOfflineBool ? (
+                <textarea
+                  rows="2"
+                  type="text"
+                  id="eventLocation"
+                  name="eventLocation"
+                  className={styles.eventLocation}
+                  value={values.eventLocation}
+                  onChange={handleChange}
+                  required
+                  autoComplete="off"
+                  placeholder="Enter event location *"
+                />
+              ) : (
+                ""
+              )}
+            </div>
+
+            <div className={styles.row}>
+              <input
+                type="number"
+                id="enquiryDetails"
+                name="enquiryDetails"
+                className={styles.enquiryDetails}
+                value={values.enquiryDetails}
+                onChange={handleChange}
+                required
+                autoComplete="off"
+                placeholder="Enter enquiry number*"
+              />
+
+              <select
+                className={styles.onOrgModel}
+                id="onOrgModel"
+                name="onOrgModel"
+                value={values.onOrgModel}
+                onChange={handleChange}
+                required
+                autoComplete="off"
+              >
+                <option value="" disabled>
+                  Select Category
+                </option>
+                <option value="individual">Individual</option>
+                <option value="organisation">Organisation</option>
+              </select>
               <br />
-            </label>
+            </div>
+            <div className={styles.row}>
+              <div className={styles.buttons}>
+                <a onClick={() => router.push("/events")}>Cancel</a>
 
-            <div className={styles.buttons}>
-              <a onClick={() => router.push("/events")}>Cancel</a>
-
-              <a onClick={handleSubmit}>Add Event</a>
+                <a onClick={handleSubmit}>Add Event</a>
+              </div>
             </div>
           </form>
         </div>
@@ -214,3 +253,4 @@ export default function CreateEvents() {
     </>
   );
 }
+
