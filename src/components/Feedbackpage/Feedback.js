@@ -5,7 +5,8 @@
 import styles from './Feedback.module.css'
 import { FaInstagram, FaTwitter} from "react-icons/fa";
 // import {MdCode}  from "react-icons/md";
-import {SiLinkedin} from "react-icons/Si";
+//import {SiLinkedin} from "react-icons/Si";
+import { SiLinkedin } from "react-icons/si";
 import {ImMail} from "react-icons/im";
 import {FaFacebookSquare} from "react-icons/fa";
 
