@@ -1,7 +1,7 @@
 // import Head from 'next/head'
 // import Feedback from '../../../pages/Feedback'
 // import Image from 'next/image'
-import { icons } from 'react-icons'
+//import { icons } from 'react-icons'
 import styles from './Feedback.module.css'
 import { FaInstagram, FaTwitter} from "react-icons/fa";
 // import {MdCode}  from "react-icons/md";

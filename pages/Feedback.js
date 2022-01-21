@@ -6,13 +6,7 @@ const Feedback = () => {
         <>
          <Navbar action1="" action2="Login" buttonText1="SignUp" buttonText2="" />
        
-<FeedBack/>
-
-
-
-
-
-
+         <FeedBack/>
 
         </>
     )
