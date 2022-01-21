@@ -9,7 +9,7 @@ var Individual= require("../../models/Individual");
 // var Org =require("../../models/Organisation")
 //var EventSc =require("../../models/Event")
 // var EventRegSc =require("../../models/EventRegistered")
-//var proSc =require("../../models/Product")
+var proSc =require("../../models/Product")
 // var scoresc =require("../../models/Score")
 //console.log(proSc)
 
@@ -23,27 +23,32 @@ export default async function handler(req, res) {
         //for registered event
         //var {individualId,eventId,name,mailId,phoneNumber}=req.body;
 
-        //for products
-        //var {organisationId,productName,price,description,productImage,rating,stockUnits,isRecyclable,productUrl} = req.body;
+        // for products
+        var {organisationId,productName,price,description,productImage,rating,stockUnits,isRecyclable,productUrl} = req.body;
 
         //for score
         // var {individualId} = req.body;
         initDB();
-        var {name,email,password,contact,address,dob,occupation,linkedin,facebook,profileImage}=req.body;
+        // var {name,email,password,contact,address,dob,occupation,linkedin,facebook,profileImage}=req.body;
 
-         var item=new Individual({
-          //eventName,eventType,eventDetails,targetAudience,eventDescription,participantsLimit,isOffline,enquiryDetails,organiserId,onOrgModel
-          name,email,password,contact,address,dob,occupation,linkedin,facebook,profileImage
-        })
+        //  var item=new Individual({
+        //   //eventName,eventType,eventDetails,targetAudience,eventDescription,participantsLimit,isOffline,enquiryDetails,organiserId,onOrgModel
+        //   name,email,password,contact,address,dob,occupation,linkedin,facebook,profileImage
+        // })
+
+        var prod=new proSc({organisationId,productName,price,description,productImage,rating,stockUnits,isRecyclable,productUrl})
 
          //IMP For Event Schema 
         //location ? item['location'] = location : ""
 
-         console.log(item)
-          await item.save();
+        //  console.log(item)
+         console.log(prod)
+          // await item.save();
+          await prod.save();
         //  console.log(item);
         mongoose.connection.close();
-         return sendSuccess(res,item);
+        //  return sendSuccess(res,item);
+         return sendSuccess(res,prod);
     } 
     else {
         return sendSuccess(res,{"message": "This works"});
