@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import styles from "./InForm.module.css";
 
 
-export default function VerifyIn() {
-
+export default function VerifyIn(props) {
+  console.log(props.id);
+  var id = props.id;
+  console.log("====================")
   const [inProfValues, setinProfValues] = useState({
     individualName: "",
     areaName: "",
