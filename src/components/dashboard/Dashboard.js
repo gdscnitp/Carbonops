@@ -11,7 +11,7 @@ export default function Dashboard(props) {
   const [detailPopup, setDetailPopup] = useState(false);
   return (
     <>
-      <Navbar action1="" action2="" buttonText1="LOGOUT" buttonText2="" />
+      <Navbar link1="/" link2="/" link3="/" link4="/" action1="" action2="" buttonText1="LOGOUT" buttonText2="" />
       <div className={styles.container}>
         <div className={styles.profile_card_container}>
           <div className={styles.profile_image_container}>
@@ -71,9 +71,9 @@ export default function Dashboard(props) {
           </div>
           <div>
             <div className={styles.box}>
-              <a className={styles.options}>Create+</a>
-              <a className={styles.options}>Events</a>
-              <a className={styles.options}>Feeds</a>
+              <Link href="./create-events"><a className={styles.options}>Create+</a></Link>  
+              <Link href="./events"><a className={styles.options}>Events</a></Link>
+              <Link href="./feeds"><a className={styles.options}>Feeds</a></Link>
             </div>
           </div>
 

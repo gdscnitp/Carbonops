@@ -12,7 +12,7 @@ export default function SignUpOrg() {
         <meta name="description" content="" />
       </Head>
 
-      <Navbar action1="" action2="Home" buttonText1="" buttonText2="" />
+      <Navbar link1="/" link2="/" link3="/" link4="/" action1="" action2="Home" buttonText1="" buttonText2="" />
       <SignupOrganisation />
     </div>
   );

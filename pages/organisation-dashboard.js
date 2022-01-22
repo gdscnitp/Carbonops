@@ -16,7 +16,7 @@ const organisationDash = () => {
     return (
         <>
         {/* <Navbar action1="Events" action2="Dashboard" action3="Logout" buttonText="Create Events" /> */}
-        <Navbar action1="Dashboard" action2="Events" buttonText1="Create Events" buttonText2="Logout"/>
+        <Navbar link1="/" link2="./events" link3="./create-events" link4="/" action1="Dashboard" action2="Events" buttonText1="Create Events" buttonText2="Logout"/>
 
         <main className={styles.main}>
         <OrganisationDashBoard {...organisationDetail}/>

@@ -13,12 +13,12 @@ export default function Navbar(props) {
         </div>
         <ul>
           <li>
-            <Link href="/">{props.action1}</Link>
+            <Link href={props.link1}>{props.action1}</Link>
           </li>
           <li>
-            <Link href="/">{props.action2}</Link>
+            <Link href={props.link2}>{props.action2}</Link>
           </li>
-          <Link href="/">
+          <Link href={props.link3}>
             {props.buttonText1.length > 0 ? (
               <a
                 onClick={(e) => setDetailPopup(true)}
@@ -31,7 +31,7 @@ export default function Navbar(props) {
               ""
             )}
           </Link>
-          <Link href="/">
+          <Link href={props.link4}>
             {props.buttonText2.length > 0 ? (
               <a className={styles.button}> {props.buttonText2} </a>
             ) : (
