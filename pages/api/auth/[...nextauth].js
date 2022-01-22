@@ -25,7 +25,7 @@ export default NextAuth({
           //validate email on client side
           const userInd= await Individual.findOne({email: credentials.email})
           console.log(userInd)
-          const userOrg=await Organisation.findOne({email: credentials.email})
+          const userOrg=await Organisation.findOne({mailId: credentials.email})
           if(userOrg)
           console.log(userOrg)
           if(!userOrg && !userInd)
