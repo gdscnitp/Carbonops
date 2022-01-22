@@ -10,13 +10,38 @@ const organisationDetail={
     
 };
 
+const navLinks=[
+    {
+        name: "Dashoard",
+        link: '/'
+    },
+    {
+        name: "Events",
+        link: '/events'
+    },
+    {
+        name:"Create Events",
+        link:'/create-events'
+    }
+]
+   
+
 
 
 const organisationDash = () => {
+    // console.log(navLinks[0].name);
+    // console.log(navLinks[0].link)
     return (
         <>
         {/* <Navbar action1="Events" action2="Dashboard" action3="Logout" buttonText="Create Events" /> */}
-        <Navbar action1="Dashboard" action2="Events" buttonText1="Create Events" buttonText2="Logout"/>
+        <Navbar 
+        action1={navLinks[0].name} 
+        href1="/"
+        action2={navLinks[1].name}
+        href2="/events"
+        buttonText1={navLinks[2].name}
+        href3="/create-events"
+        buttonText2="Logout"/>
 
         <main className={styles.main}>
         <OrganisationDashBoard {...organisationDetail}/>

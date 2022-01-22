@@ -16,7 +16,7 @@ function Content(props) {
                 src={Company}
                 placeholder="blur"
                 alt="company logo"
-                layout="Responsive"
+                layout="responsive"
                 width={350}
                 height={300}
               />

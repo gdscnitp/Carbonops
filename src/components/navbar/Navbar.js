@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import Signpop from "./signpo";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
+//import events from "../../../pages/events"
 
 export default function Navbar(props) {
   const [detailPopup, setDetailPopup] = useState(false);
+  const link1=props.href1;
+  const link2=props.href2;
+  const link3=props.href3;
+  
   return (
     <>
       <nav className={styles.navbar}>
@@ -13,12 +18,13 @@ export default function Navbar(props) {
         </div>
         <ul>
           <li>
-            <Link href="/">{props.action1}</Link>
+            <Link href={`${link1}`}><a>{props.action1}</a></Link>
+           
           </li>
           <li>
-            <Link href="/">{props.action2}</Link>
+            <Link href={`${link2}`}>{props.action2}</Link>
           </li>
-          <Link href="/">
+          <Link href={`${link3}`}>
             {props.buttonText1.length > 0 ? (
               <a
                 onClick={(e) => setDetailPopup(true)}
