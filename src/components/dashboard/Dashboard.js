@@ -11,7 +11,7 @@ export default function Dashboard(props) {
   const [detailPopup, setDetailPopup] = useState(false);
   return (
     <>
-      <Navbar action1="" action2="" buttonText1="LOGOUT" buttonText2="" />
+      
       <div className={styles.container}>
         <div className={styles.profile_card_container}>
           <div className={styles.profile_image_container}>

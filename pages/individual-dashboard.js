@@ -1,4 +1,6 @@
 import Dashboard from "../src/components/dashboard/Dashboard";
+import Navbar from '../src/components/navbar/Navbar'
+import {navLinks} from '../src/components/utils/data'
 const user_obj = {
   name: "Emanuael Lundy",
   email: "abcefg@gmail.com",
@@ -11,6 +13,12 @@ const user_obj = {
 export default function dashboard(props) {
   return (
     <>
+    <Navbar  
+       action1="" 
+       action2=""
+       buttonText1=""
+       buttonText2="Logout" />
+    {/* <Navbar action1="" action2="" buttonText1="" buttonText2="LOGOUT" /> */}
       <Dashboard {...user_obj} />
     </>
   );
