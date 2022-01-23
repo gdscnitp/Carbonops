@@ -8,9 +8,9 @@ const productpage = () => {
     return (
         <>
 
-            <button className={styles.dash}>
+            {/* <button className={styles.dash}>
                    DashBoard
-            </button>
+            </button> */}
 
             <div className={styles.heading}>
                 <h2>Organisation Name</h2>

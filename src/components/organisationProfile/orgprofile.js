@@ -12,13 +12,6 @@ const orgprofile = () => {
   return (
     <>
 
-          <div className={styles.dashb}>
-             Dashboard
-          </div>
-          <button  className={styles.event}>
-                  Create Events +
-          </button>
-
       <div className={styles.cont1}>
         <h2 className={styles.orgN}>Organisation Name</h2>
         <span className={styles.welcome}> Welcome to our</span> <span className={styles.greenF}> <strong>Green Family</strong> </span>
@@ -39,6 +32,9 @@ const orgprofile = () => {
 
       <button className={styles.buton}>
         Know more
+      </button>
+      <button className={styles.buton2}>
+        Donate/Sell
       </button>
 
       <div className={styles.ordet}>
@@ -331,3 +327,4 @@ const orgprofile = () => {
 }
 
 export default orgprofile
+

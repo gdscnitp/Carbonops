@@ -1,13 +1,15 @@
-.dash{
+/* .dash{
   background-color: #00BD57;
-    border-radius: 9px 2px 9px 2px;
+border-radius: 9px 2px 9px 2px;
     position: relative;
    bottom: 52px;
     right: 95px;
     height: 30px;
     color: white;
+} */
+.dash:hover{
+    background-color: yellowgreen;
 }
-
 .heading{
     color: #54CCFA;
     text-align: center;
@@ -20,7 +22,7 @@
     height: 0.1px;
     width: 20%;
     position: relative;
-    left: 36%;
+    left: 40%;
     
 }
 
@@ -69,8 +71,12 @@
     position: relative;
     border-radius: 6px 4px 2px 2px;
     right: 25%;
-    width: 140px;
+    width: 69%;
     cursor: pointer;
+}
+.btn:hover{
+    color: rgb(114, 153, 76);
+    color: white;
 }
 .description{
     color: #82DB62;

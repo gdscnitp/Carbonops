@@ -4,7 +4,7 @@ import Productpage from "../src/components/ProductPage/productpage"
 const product = () => {
     return (
         <>
-             <Navbar action1="" action2="Home" buttonText1="" buttonText2=""/> 
+             <Navbar action1="" action2="" buttonText1="DashBoard" buttonText2=""/> 
              <Productpage/>
         </>
     )

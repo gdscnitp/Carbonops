@@ -4,7 +4,7 @@ import OrganisationProfile from '../src/components/organisationProfile/orgprofil
 const organisationprofile = () => {
     return (
         <>
-            <Navbar action1="" action2="Home" buttonText1="" buttonText2=""/> 
+            <Navbar action1="" action2="Home" buttonText1="DashBoard" buttonText2="Create Events"/> 
             <OrganisationProfile/>
         </>
     )
