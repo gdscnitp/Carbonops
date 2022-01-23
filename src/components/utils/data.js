@@ -23,4 +23,8 @@ export const navLinks = [
     name: 'Login',
     link: '/login',
   },
+  {
+    name: 'Logout',
+    link: '/',
+  },
 ];

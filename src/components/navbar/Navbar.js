@@ -28,7 +28,7 @@ export default function Navbar(props) {
           <Link href={`${link3}`}>
             {props.buttonText1.length > 0 ? (
               <a
-                onClick={(e) => setDetailPopup(true)}
+                // onClick={(e) => setDetailPopup(true)}
                 className={styles.button}
               >
                 {' '}

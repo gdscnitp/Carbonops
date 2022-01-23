@@ -17,7 +17,8 @@ export default function dashboard(props) {
        action1="" 
        action2=""
        buttonText1=""
-       buttonText2="Logout" />
+       buttonText2={navLinks[6].name}
+       href4={navLinks[6].link} />
     {/* <Navbar action1="" action2="" buttonText1="" buttonText2="LOGOUT" /> */}
       <Dashboard {...user_obj} />
     </>
