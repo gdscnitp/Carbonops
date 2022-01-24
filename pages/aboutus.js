@@ -1,6 +1,8 @@
 import Aboutus from '../src/components/AboutUs/Aboutus'
 import Navbar from "../src/components/navbar/Navbar";
 import Head from "next/head";
+import {navLinks} from '../src/components/utils/data'
+
 
 export default function AboutUs() {
     return (
@@ -10,7 +12,13 @@ export default function AboutUs() {
           <meta name="description" content="" />
         </Head>
   
-        <Navbar link1="/" link2="/" link3="" link4="/" action1="" action2="Home" buttonText1="SignUp" buttonText2="" />
+        <Navbar  
+       action1={navLinks[3].name} 
+       href1={navLinks[3].link}
+       action2=""
+       buttonText1={navLinks[4].name} 
+       href3={navLinks[4].link}
+       buttonText2="" />
         <Aboutus  />
       </div>
     );
