@@ -6,7 +6,7 @@ import Navbar from '../navbar/Navbar';
 import React, { useState } from 'react';
 import Formpop from './EditForm';
 import { MdEdit } from 'react-icons/md';
-
+  
 export default function Dashboard(props) {
   const [detailPopup, setDetailPopup] = useState(false);
   return (

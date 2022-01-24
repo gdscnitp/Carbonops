@@ -19,7 +19,7 @@ export default function Home() {
         <meta name="description" content="" />
       </Head>
 
-      <Navbar action1="" action2="Login" buttonText1="SignUp" buttonText2="" />
+      <Navbar link1="/" link2="./login" link3="/" link4="/" action1="" action2="Login" buttonText1="SignUp" buttonText2="" />
       {/* <div className={styles.circle}></div> */}
       <main className={styles.main}>
         <HomePage />
