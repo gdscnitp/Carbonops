@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import styles from "./OrgForm.module.css";
 
-export default function VerifyOrg() {
+export default function VerifyOrg(props) {
+  console.log(props.id);
+  var id = props.id;
+  console.log("====================");
   const [dealsBool, setDealsBool] = useState(false);
 
   const [orgProfValues, setOrgProfValues] = useState({
+    id,
     organisationName: "",
     typeOfOrganisation: "",
     areaName: "",
@@ -25,9 +29,26 @@ export default function VerifyOrg() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(orgProfValues);
+    const res = await fetch("http://localhost:3000/api/orgprofilecomp/", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        dealsBool,
+        orgProfValues
+      })
+    })
+    const resp = await res.json()
+    if (resp.error || resp.success==false){
+      console.log(resp);
+    }else{
+      console.log(resp);
+      console.log("Saved organisation successfully")
+  }
   };
 
   return (

@@ -1,0 +1,130 @@
+.container{
+    height: 210px;
+    width: 25%;
+    background-color: #222235;
+    color: #fff;
+    border: 0px solid #fff;
+    border-radius: 6px;
+    margin: 20px 4% 20px 4%;
+}
+.container:hover{
+    box-shadow: 0.5px 0.5px 1px 1.5px #fff;
+}
+.frame1{
+    width: 90%;
+    background-color: #313131;
+    color: #fff;
+    height: 45px;
+    margin-top: 10px;
+    margin-left: 5%;
+    display: flex;
+}
+.frame2{
+    width: 90%;
+    color: #fff;
+    height: 110px;
+    margin-top: 10px;
+    margin-left: 5%;
+}
+.head{
+    font-size: 12px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.h4{ 
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    margin-top: 6px;
+    margin-left: 7px;
+}
+.h6{ 
+    font-size: 12px;
+    margin-bottom: 0px;
+    margin-left: 7px;
+    margin-top: 0px;
+}
+.starratings{
+    display: flex;
+}
+
+.btns button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .starratings .btns button .on {
+    background-color: #DFB300;
+  }
+  .starratings .btns button .off {
+    color: #313131;
+  }
+  .text{
+      font-size: 12px;
+      text-align: justify;
+  }
+  .end{
+      font-size: 9px;
+      display: flex;
+  }
+  .leftend{
+      margin-left: px;
+  }
+  .rightend{
+      margin-left: 58%;
+      justify-content: right;
+      margin-right: 0px;
+  }
+  .navbar{
+    height: 80px;
+    background-color: #142424;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    font-size: 20px;
+    color: white;
+    margin: 0 15px;
+}
+.middle{
+    font-size: 15px;
+    color: white;
+    margin-left: 30%;
+    margin-right: 25%;
+    cursor: pointer;
+}
+.right{
+    font-size: 15px;
+    color: white;
+    margin-left: 5%;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.starss{
+    outline: none;
+    cursor: pointer;
+}
+.navbar2{
+    height: 80px;
+    background-color: #142424;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.middle2{
+    font-size: 15px;
+    color: #9FA2B4;
+    margin-left: 80%;
+    cursor: pointer;
+}
+.right2{
+    font-size: 15px;
+    color: #9FA2B4;
+    margin-left: 5%;
+    margin-right: 15px;
+    cursor: pointer;
+}
