@@ -2,10 +2,13 @@ import styles from "./orgprofile.module.css"
 import Image from "next/image";
 import undraw from "/public/images/organisationProfilee/undraw.png"
 
-import goomgle from "/public/images/organisationProfilee/goomgle.png"
+// import goomgle from "/public/images/organisationProfilee/goomgle.png"
 import Hack from "/public/images/organisationProfilee/Hack.png"
-import fb from "/public/images/organisationProfilee/fb.png"
-import twitt from "/public/images/organisationProfilee/twitt.png"
+// import fb from "/public/images/organisationProfilee/fb.png"
+// import twitt from "/public/images/organisationProfilee/twitt.png"
+import { FcGoogle } from 'react-icons/fc';
+import { FiTwitter } from 'react-icons/fi';
+import { GrFacebook } from 'react-icons/gr';
 
 
 const orgprofile = () => {
@@ -59,28 +62,31 @@ const orgprofile = () => {
           </p>
           <br />
           <div className={styles.cont4}>
-            <Image
+            <FcGoogle/>
+            {/* <Image
               src={goomgle}
               alt="Home Image"
               width={40}
               height={32}
-            />
+            /> */}
           </div>
           <div className={styles.cont5}>
-            <Image
+          <GrFacebook/>
+            {/* <Image
               src={fb}
               alt="Home Image"
               width={37}
               height={32}
-            />
+            /> */}
           </div>
           <div className={styles.cont6}>
-            <Image
+          < FiTwitter/>
+            {/* <Image
               src={twitt}
               alt="Home Image"
               width={50}
               height={32}
-            />
+            /> */}
           </div>
         </div>
       </div>
