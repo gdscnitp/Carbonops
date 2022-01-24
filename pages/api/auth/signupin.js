@@ -46,14 +46,15 @@ export default async function SignupIn(req, res) {
 
 
     //add server side input validation
+
     initDB();
 
     const regUser = await Individual.findOne({
       email: { $eq: req.body.email },
     });
     const pUserAcc = await PendAcc.findOne({ email: { $eq: req.body.email } });
-    const orgAcc = await Org.findOne({ email: { $eq: req.body.email } });
-    const verifAcc = await VerAcc.findOne({ email: { $eq: req.body.email } });
+    const orgAcc = await Org.findOne({ mailId: { $eq: req.body.email } });
+    const verifAcc = await VerAcc.findOne({ email: { $eq: req.body.email }});
 
     if (regUser || pUserAcc || orgAcc || verifAcc) {
       /*checking if the user is existing also in the organisation collection and verified accounts collection*/
