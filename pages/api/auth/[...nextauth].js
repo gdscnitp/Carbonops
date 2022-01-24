@@ -18,15 +18,17 @@ export default NextAuth({
       id: "credentials",
       // name: "Credentials",
       type: "credentials",
+
+  
       async authorize(credentials) {
         initDB();
         //validate email on client side
         const userInd = await Individual.findOne({ email: credentials.email });
-        console.log(userInd);
+        //console.log(userInd);
         const userOrg = await Organisation.findOne({
-          email: credentials.email,
+          mailId: credentials.email,
         });
-        if (userOrg) console.log(userOrg);
+        //if (userOrg) console.log(userOrg);
         if (!userOrg && !userInd) {
           throw new Error("No user found!");
         } else {
@@ -42,6 +44,7 @@ export default NextAuth({
               credentials.password,
               userOrg.password
             );
+
           }
           if (!isValid) {
             throw new Error("Wrong Password");
