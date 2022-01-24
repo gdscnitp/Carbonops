@@ -15,7 +15,7 @@ async function createUser(email,password,contact,dob)
     //console.log(data)
   if (!response.ok) {
     console.log("Error occured")
-    //throw new Error(data.message || 'Something went wrong!');
+    //throw new Error(data.mes sage || 'Something went wrong!');
   }
 
   // return data;

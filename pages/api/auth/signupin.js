@@ -22,6 +22,29 @@ export default async function SignupIn(req, res) {
       return sendError(res, "Please fill all fields", 11, 422);
     }
 
+    let re1 = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if ( re1.test(req.body.email) ) {
+        console.log("valid email id");
+    }
+    else {
+        console.log("invalid email id");
+    }
+    let re2 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if(re2.test(req.body.password)){
+      console.log("strong password");
+    }
+    else{
+      console.log("weak password");
+    }
+    if(req.body.contact.length!=10){
+      console.log("contact no. must have 10 digits");
+    }
+    else{
+      console.log("valid contact no.");
+    }
+     
+
+
     //add server side input validation
     initDB();
 
