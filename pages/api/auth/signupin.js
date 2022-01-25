@@ -23,6 +23,7 @@ export default async function SignupIn(req, res) {
     }
 
     //add server side input validation
+
     initDB();
 
     const regUser = await Individual.findOne({
