@@ -9,6 +9,7 @@ export default function Navbar(props) {
   const link2 = props.href2;
   const link3 = props.href3;
   const link4 = props.href4;
+  const link5 = props.href5;
 
   return (
     <>
@@ -34,6 +35,13 @@ export default function Navbar(props) {
                 {' '}
                 {props.buttonText1}{' '}
               </a>
+            ) : (
+              ''
+            )}
+          </Link>
+          <Link href={`${link5}`}>
+            {props.buttonText3.length > 0 ? (
+              <a className={styles.button}> {props.buttonText3} </a>
             ) : (
               ''
             )}
