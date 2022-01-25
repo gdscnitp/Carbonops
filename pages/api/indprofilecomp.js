@@ -18,9 +18,11 @@ export default async function indProfileCompletion (req, res){
             facebook,
             linkedin} = inProfValues
             console.log(inProfValues)
-           
+           const userId={
+               id: {$eq:id}
+           }
             //checking if id exists in verified account or not
-            var idExists = await VerAcc.findById(id)
+            var idExists = await VerAcc.findById(userId.id)
             console.log(idExists);
         if (idExists !== null) {
              const {email,password,contact,dob,isOrganisation} = idExists
