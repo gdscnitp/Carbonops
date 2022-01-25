@@ -46,6 +46,7 @@ export default function Navbar(props) {
             )}
           </Link>
         </ul>
+     
       </nav>
       <Signpop trigger={detailPopup} setTrigger={setDetailPopup} />
     </>
