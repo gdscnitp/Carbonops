@@ -17,6 +17,7 @@ export default async function SignupOrg(req, res){
         }
         else {
             console.log("invalid email id");
+            return sendError(res,"Invalid Email ID",19,400);
         }
         let re2 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
         if(re2.test(req.body.password)){
@@ -24,9 +25,11 @@ export default async function SignupOrg(req, res){
         }
         else{
           console.log("weak password");
+          return sendError(res,"Weak Password",19,400);
         }
         if(req.body.contact.length!=10){
           console.log("contact no. must have 10 digits");
+          return sendError(res,"contact no. must have 10 digits",19,400);
         }
         else{
           console.log("valid contact no.");
