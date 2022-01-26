@@ -18,6 +18,8 @@ export default NextAuth({
       id: "credentials",
       // name: "Credentials",
       type: "credentials",
+
+  
       async authorize(credentials) {
         initDB();
         //validate email on client side
@@ -42,6 +44,7 @@ export default NextAuth({
               credentials.password,
               userOrg.password
             );
+
           }
           if (!isValid) {
             throw new Error("Wrong Password");

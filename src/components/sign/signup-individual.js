@@ -1,5 +1,6 @@
 import styles from "./Signup.module.css";
 import React, { useRef } from "react";
+import Link from 'next/link';
 
 async function createUser(email,password,contact,dob)
 {
@@ -56,7 +57,7 @@ export default function Sign(props) {
               </div>
               <div className={styles.inputBx}>
                 <p>
-                  Already an User?<a href="#">Login Now!</a>
+                  Already an User?<Link href="./login">Login Now!</Link>
                 </p>
               </div>
             </div>
