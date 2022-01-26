@@ -6,6 +6,7 @@ import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useRef } from "react";
 import { useRouter } from "next/router";
+import Signpop from "./signpo";
 
 function Login() {
   const emailInputRef = useRef();
@@ -33,6 +34,7 @@ function Login() {
       console.log(result);
     }
   }
+  const [detailPopup, setDetailPopup] = useState(false);
 
   return (
     <>
@@ -59,8 +61,13 @@ function Login() {
             <div className={styles.inputBx}>
               <p>
                 New User?{" "}
-                <Link href="/" passHref>
+                <Link href="" passHref>
+                <a
+                onClick={(e) => setDetailPopup(true)}
+                className={styles.button}
+              >
                   <span className={styles.register}>Register Here!</span>
+                  </a>
                 </Link>
               </p>
             </div>
@@ -143,6 +150,7 @@ function Login() {
           </div>
         </div>
       </div>
+      <Signpop trigger={detailPopup} setTrigger={setDetailPopup} />
     </>
   );
 }

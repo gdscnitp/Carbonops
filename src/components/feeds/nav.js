@@ -8,7 +8,7 @@ export default function Navbar() {
         <>
             <nav className={styles.navbar}>
                 <div className={styles.logo}>
-                    <Link href="/"> Dashboard</Link>
+                    <Link href="./"> Dashboard</Link>
                 </div>
                 <div className={styles.middle}>
                     Search for all organisations
