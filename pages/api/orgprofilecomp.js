@@ -19,9 +19,12 @@ export default async function OrgProfileCompletion(req, res){
         websiteLink,
         linkedin} = orgProfValues
             console.log(orgProfValues)
+            const userId={
+                id: {$eq:id}
+            }
             
             //checking if id exists in verified account or not
-            var idExists = await VerAcc.findById(id)
+            var idExists = await VerAcc.findById(userId.id)
             console.log(idExists);
             if (idExists !== null) {
              const {email,password,contact,organisationId,isOrganisation} = idExists  

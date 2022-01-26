@@ -60,4 +60,4 @@ function getDemo () {
   }
   const proSc= getDemo()
   module.exports= proSc;
-  console.log(proSc)
+  //console.log(proSc)
