@@ -18,7 +18,8 @@ export default function AboutUs() {
        action2=""
        buttonText1={navLinks[4].name} 
        href3={navLinks[4].link}
-       buttonText2="" />
+       buttonText2=""
+       buttonText3="" />
         <Aboutus  />
       </div>
     );

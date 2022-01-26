@@ -19,7 +19,15 @@ export default function Home() {
         <meta name="description" content="" />
       </Head>
 
-      <Navbar link1="/" link2="./login" link3="/" link4="/" action1="" action2="Login" buttonText1="SignUp" buttonText2="" />
+      {/*<Navbar href1="/" href2="./login" href3="/" href4="/" action1="" action2="Login" buttonText1="SignUp" buttonText2="" />*/}
+      <Navbar  
+       action1=""
+       action2={navLinks[5].name}
+       href2={navLinks[5].link}
+       buttonText1={navLinks[4].name}
+       href3={navLinks[4].link} 
+       buttonText2="" 
+       buttonText3=""/>
       {/* <div className={styles.circle}></div> */}
       <main className={styles.main}>
         <HomePage />

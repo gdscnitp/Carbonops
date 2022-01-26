@@ -21,7 +21,8 @@ export default function SignUpIn() {
        action2={navLinks[3].name}
        href2={navLinks[3].link}
        buttonText1="" 
-       buttonText2="" />
+       buttonText2=""
+       buttonText3=""  />
       {/* <Navbar action1="" action2="Home" buttonText1="" buttonText2=""/> */}
      <SignupIndividual />
     </div>

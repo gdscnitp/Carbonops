@@ -17,7 +17,7 @@ export const navLinks = [
   },
   {
     name: 'SignUp',
-    link: '/signupor',
+    link: '',
   },
   {
     name: 'Login',

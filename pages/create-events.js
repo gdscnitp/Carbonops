@@ -11,7 +11,8 @@ export default function Events() {
         action2={navLinks[1].name}
         href2={navLinks[1].link} 
         buttonText1="" 
-        buttonText2=""/>
+        buttonText2=""
+        buttonText3=""/>
         <CreateEvents />
         </>
     )
