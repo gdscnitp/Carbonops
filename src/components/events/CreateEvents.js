@@ -6,7 +6,7 @@ import { useRouter } from "next/dist/client/router";
 export default function CreateEvents(props) {
   const router = useRouter();
 
-  const [isOfflineBool, setIsOfflineBool] = useState(false);
+//  const [posterFile, handleUpload]= useForm()
   const [values, setValues] = useState({
     eventName: "",
     eventType: "",
@@ -21,20 +21,31 @@ export default function CreateEvents(props) {
     enquiryDetails: "",
     onOrgModel: "",
     eventDescription: "",
-    isOffline: isOfflineBool,
+    isOffline: false,
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setValues({
       ...values,
       [name]: value,
     });
   };
 
+  // console.log(values.isOffline , "isOffline change")
+
+  const handleBool = (e) => {
+    setValues({
+      ...values,
+      isOffline: !(values.isOffline),
+    });
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    // props.onAddEvent(values);
+    // console.log(values.isOffline , "isOffline")
+    console.log(values)
     props.onAddEvent(values);
   };
 
@@ -179,38 +190,7 @@ export default function CreateEvents(props) {
                 placeholder=" Participants limit*"
               />
 
-              <label htmlFor="isOfflineBool" className={styles.label}>
-                Is event offline ?
-                <input
-                  type="checkbox"
-                  id="isOfflineBool"
-                  name="isOfflineBool"
-                  value={isOfflineBool}
-                  onChange={() => {
-                    setIsOfflineBool(!isOfflineBool);
-                  }}
-                />
-              </label>
 
-              {isOfflineBool ? (
-                <textarea
-                  rows="2"
-                  type="text"
-                  id="eventLocation"
-                  name="eventLocation"
-                  className={styles.eventLocation}
-                  value={values.eventLocation}
-                  onChange={handleChange}
-                  required
-                  autoComplete="off"
-                  placeholder="Enter event location *"
-                />
-              ) : (
-                ""
-              )}
-            </div>
-
-            <div className={styles.row}>
               <input
                 type="number"
                 id="enquiryDetails"
@@ -222,6 +202,12 @@ export default function CreateEvents(props) {
                 autoComplete="off"
                 placeholder="Enter enquiry number*"
               />
+
+
+            </div>
+
+            <div className={styles.row}>
+
 
               <select
                 className={styles.onOrgModel}
@@ -240,6 +226,40 @@ export default function CreateEvents(props) {
               </select>
               <br />
             </div>
+
+
+            <div className={styles.row}>
+
+            <label htmlFor="isOfflineBool" className={styles.label}>
+                Is event offline ?
+                <input
+                  type="checkbox"
+                  id="isOffline"
+                  name="isOffline"
+                  value={values.isOffline}
+                  onChange={handleBool}
+                />
+              </label>
+
+              {values.isOffline ? (
+                <textarea
+                  rows="2"
+                  type="text"
+                  id="eventLocation"
+                  name="eventLocation"
+                  className={styles.eventLocation}
+                  value={values.eventLocation}
+                  onChange={handleChange}
+                  required
+                  autoComplete="off"
+                  placeholder="Enter event location *"
+                />
+              ) : (
+                ""
+              )}
+            </div>
+            
+            
             <div className={styles.row}>
               <div className={styles.buttons}>
                 <a onClick={() => router.push("/events")}>Cancel</a>
