@@ -1,10 +1,16 @@
-import React, { useState } from "react";
-import Signpop from "./signpo";
-import Link from "next/link";
-import styles from "./Navbar.module.css";
+import React, { useState } from 'react';
+import Signpop from './signpo';
+import Link from 'next/link';
+import styles from './Navbar.module.css';
 
 export default function Navbar(props) {
   const [detailPopup, setDetailPopup] = useState(false);
+  const link1 = props.href1;
+  const link2 = props.href2;
+  const link3 = props.href3;
+  const link4 = props.href4;
+  const link5 = props.href5;
+
   return (
     <>
       <nav className={styles.navbar}>
@@ -13,32 +19,42 @@ export default function Navbar(props) {
         </div>
         <ul>
           <li>
-            <Link href="/">{props.action1}</Link>
+            <Link href={`${link1}`}>
+              <a>{props.action1}</a>
+            </Link>
           </li>
           <li>
-            <Link href="/">{props.action2}</Link>
+            <Link href={`${link2}`}>{props.action2}</Link>
           </li>
-          <Link href="/">
+          <Link href={`${link3}`}>
             {props.buttonText1.length > 0 ? (
               <a
                 onClick={(e) => setDetailPopup(true)}
                 className={styles.button}
               >
-                {" "}
-                {props.buttonText1}{" "}
+                {' '}
+                {props.buttonText1}{' '}
               </a>
             ) : (
-              ""
+              ''
             )}
           </Link>
-          <Link href="/">
+          <Link href={`${link5}`}>
+            {props.buttonText3.length > 0 ? (
+              <a className={styles.button}> {props.buttonText3} </a>
+            ) : (
+              ''
+            )}
+          </Link>
+          <Link href={`${link4}`}>
             {props.buttonText2.length > 0 ? (
               <a className={styles.button}> {props.buttonText2} </a>
             ) : (
-              ""
+              ''
             )}
           </Link>
         </ul>
+     
       </nav>
       <Signpop trigger={detailPopup} setTrigger={setDetailPopup} />
     </>

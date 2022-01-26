@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../src/components/navbar/Navbar';
 import OrganisationDashBoard from '../src/components/organisation/Content'
 import styles from '../styles/Home.module.css'
+import {navLinks} from '../src/components/utils/data'
 
 const organisationDetail={
     profile:"Welcome to Green World",
@@ -16,7 +17,17 @@ const organisationDash = () => {
     return (
         <>
         {/* <Navbar action1="Events" action2="Dashboard" action3="Logout" buttonText="Create Events" /> */}
-        <Navbar action1="Dashboard" action2="Events" buttonText1="Create Events" buttonText2="Logout"/>
+        <Navbar 
+        action1={navLinks[0].name} 
+        href1="/"
+        action2={navLinks[1].name}
+        href2="/events"
+        buttonText3={navLinks[2].name}
+        href5="/create-events"
+        buttonText2={navLinks[6].name}
+        href4={navLinks[6].link}
+        buttonText1=""
+        />
 
         <main className={styles.main}>
         <OrganisationDashBoard {...organisationDetail}/>
