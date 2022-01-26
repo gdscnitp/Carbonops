@@ -11,6 +11,7 @@ export default function OrgProfile() {
         href2={navLinks[3].link}
         buttonText1=""
         buttonText2=""
+        buttonText3=""
       />
       {/* <Navbar action1="Home" action2="" buttonText1="" buttonText2=""/> */}
       <VerifyOrg />

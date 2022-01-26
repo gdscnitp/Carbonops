@@ -16,7 +16,8 @@ export default function LoginPage() {
        href2={navLinks[3].link}
        buttonText1={navLinks[4].name}
        href3={navLinks[4].link} 
-       buttonText2="" />
+       buttonText2="" 
+       buttonText3=""/>
       {/* <Navbar action1="" action2="Home" buttonText1="SignUp" buttonText2="" /> */}
       <Login />
     </div>
