@@ -7,6 +7,7 @@ const eventSchema = new mongoose.Schema({
         type:String,
         required:true,
         trim:true,
+        unique:true,
     },
     eventType:{
         type:String,
@@ -20,18 +21,16 @@ const eventSchema = new mongoose.Schema({
             required: true,
             trim: true,
         },
-       
         duration:{
             type:Number,
             required:true,
         },
         poster:{
-            type:String,
-            required:true,
+            type:URL,
+            required:false,
             trim: true,
             validate: [ isURL, 'Please provide a valid Url' ]
         },
-
     }],
     targetAudience:{
         type:String,
