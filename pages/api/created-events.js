@@ -9,23 +9,20 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     console.log(req.body)
 
-    const {eventDate,eventTime,eventDuration,eventPoster,eventName,eventType,targetAudience,eventDescription,participantsLimit,isOffline,location,enquiryDetails,organiserId,onOrgModel}=req.body;
+    const {eventDate,eventTime,eventDuration,eventPoster,eventName,eventType,targetAudience,eventDescription,participantsLimit,isOffline,eventLocation,enquiryDetails,onOrgModel}=req.body;
 
       if (!eventName || !eventType || !eventDate || !eventTime || !eventDuration || !eventPoster || !targetAudience || !eventDescription || !participantsLimit || !isOffline || !enquiryDetails || !onOrgModel) {
         return sendError(res,"Please provide all values",11,404)
     }
-     const eventDetails = {eventDate,eventTime,eventDuration,eventPoster}
 
-    if (isOffline===true &&  location){
-    // if (isOffline===true &&  location ? item['location'] = location : ""){
+    if (isOffline===true &&  eventLocation.length<=0){
       return sendError(res, "Please provide event's location",11,404);
     }
-
     const item=new EventSc({
-      eventName,eventType,eventDetails,targetAudience,eventDescription,participantsLimit,isOffline,enquiryDetails,organiserId,onOrgModel
+      eventName:eventName,eventType:eventType,eventDetails:{date:eventDate,time:eventTime ,duration:eventDuration , poster:eventPoster},targetAudience:targetAudience,eventDescription:eventDescription,participantsLimit:participantsLimit,isOffline:isOffline,enquiryDetails:enquiryDetails,onOrgModel,location:eventLocation,
     })
 
-          location ? item['location'] = location : "";
+    eventLocation ? item['eventLocation'] = eventLocation : "";
           console.log(item)
           await item.save();
           //  console.log(item);
@@ -37,7 +34,6 @@ export default async function handler(req, res) {
   else {
     return sendError(res,"Bad rquest(NOT POST)",8,400);
 }
-
 
 }
 
