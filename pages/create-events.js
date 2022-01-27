@@ -25,7 +25,7 @@ export default function Events() {
         buttonText1="" 
         buttonText2=""
         buttonText3=""/>
-        <CreateEvents />
+        <CreateEvents onAddEvent={onAddEventHandler}/>
         </>
     )
 }
