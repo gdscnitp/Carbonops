@@ -16,8 +16,13 @@ const eventSchema = new mongoose.Schema({
         enum: ["Online","Environmental Tasks","Carbon Score","Offline"]
     },
     eventDetails:[{
-        date_time:{
+        date:{
             type: Date,
+            required: true,
+            trim: true,
+        },
+        time:{
+            type: String,
             required: true,
             trim: true,
         },
@@ -26,7 +31,7 @@ const eventSchema = new mongoose.Schema({
             required:true,
         },
         poster:{
-            type:URL,
+            type:String,
             required:false,
             trim: true,
             validate: [ isURL, 'Please provide a valid Url' ]
