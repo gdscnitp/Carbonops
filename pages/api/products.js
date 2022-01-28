@@ -40,26 +40,34 @@ export default async function handler(req, res) {
       });
 
       console.log(prod);
-      await prod.save();
-
+      const createdProd= await prod.save();
+      console.log(createdProd);
       // let info = await proSc.deleteOne({ _id: { $eq: "req.body.id" } });
       // //info is delete info in form of delete count
       // console.log(info);
-      const entry = await proSc.create({ productName: "Masteringjs.io" });
-      console.log(await proSc.countDocuments({ _id: entry._id })); // 1
+      //const entry = await proSc.create({ productName: "Masteringjs.io" });
+      //console.log(await proSc.countDocuments({ _id: entry._id })); // 1
 
       // Delete the document by its _id
-      await proSc.deleteOne({ _id: entry._id });
+      
+      //console.log(await proSc.countDocuments({ _id: entry._id }));
 
-      console.log(await proSc.countDocuments({ _id: entry._id }));
-
-      mongoose.connection.close();
+      // mongoose.connection.close();
 
       return sendSuccess(res, prod);
     } catch (error) {
       console.log(error.message);
     }
-  } else {
+  } else if(req.method==="DELETE")
+  {
+
+      console.log(req.body);
+      const {id}=req.body;
+      const info=await proSc.deleteOne({ _id: id });
+      console.log(info)
+      return sendSuccess(res,info);
+  }
+   else{
     return sendSuccess(res, { message: "This works" });
   }
 }
