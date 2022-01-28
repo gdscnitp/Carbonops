@@ -58,11 +58,11 @@ export default async function handler(req, res) {
     } catch (error) {
       console.log(error.message);
     }
-  } else if(req.method==="DELETE")
+  } else if(req.method ==="DELETE")
   {
-
       console.log(req.body);
       const {id}=req.body;
+      initDB();
       const info=await proSc.deleteOne({ _id: id });
       console.log(info)
       return sendSuccess(res,info);
