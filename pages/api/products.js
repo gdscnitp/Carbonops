@@ -61,9 +61,11 @@ export default async function handler(req, res) {
   } else if(req.method ==="DELETE")
   {
       console.log(req.body);
-      const {id}=req.body;
+      const ProdId={
+        id: {$eq: req.body.id}
+      }
       initDB();
-      const info=await proSc.deleteOne({ _id: id });
+      const info=await proSc.deleteOne({ _id: ProdId.id });
       console.log(info)
       return sendSuccess(res,info);
   }
