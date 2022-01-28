@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './profileCompletion.module.css' 
 import { TiTick } from 'react-icons/ti';
 
-export default function profileCompletion({ id, profHref }) {
+export default function ProfileCompletion({ id, profHref }) {
   return (
     <>
       <div className={styles.profilePage}>
