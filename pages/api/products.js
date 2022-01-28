@@ -11,9 +11,9 @@ export default async function handler(req, res) {
     try {
       // for addition of products
 
-      var userId = {
-        id: { $eq: req.body.id },
-      };
+      // var userId = {
+      //   id: { $eq: req.body.id },
+      // };
       var {
         organisationId,
         productName,
@@ -42,9 +42,16 @@ export default async function handler(req, res) {
       console.log(prod);
       await prod.save();
 
-      let info = await proSc.deleteOne({ _id: { $eq: req.body.id } });
-      //info is delete info in form of delete count
-      console.log(info);
+      // let info = await proSc.deleteOne({ _id: { $eq: "req.body.id" } });
+      // //info is delete info in form of delete count
+      // console.log(info);
+      const entry = await proSc.create({ productName: "Masteringjs.io" });
+      console.log(await proSc.countDocuments({ _id: entry._id })); // 1
+
+      // Delete the document by its _id
+      await proSc.deleteOne({ _id: entry._id });
+
+      console.log(await proSc.countDocuments({ _id: entry._id }));
 
       mongoose.connection.close();
 
