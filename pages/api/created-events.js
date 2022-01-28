@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 import { sendSuccess,sendError } from "../../utilities/response-helpers"
 import EventSc from "../../models/Event";
 
-  initDB();
+  
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -11,13 +11,14 @@ export default async function handler(req, res) {
 
     const {eventDate,eventTime,eventDuration,eventPoster,eventName,eventType,targetAudience,eventDescription,participantsLimit,isOffline,eventLocation,enquiryDetails,onOrgModel}=req.body;
 
-      if (!eventName || !eventType || !eventDate || !eventTime || !eventDuration || !eventPoster || !targetAudience || !eventDescription || !participantsLimit || !isOffline || !enquiryDetails || !onOrgModel) {
+      if (!eventName || !eventType || !eventDate || !eventTime || !eventDuration || !eventPoster || !targetAudience || !eventDescription || !participantsLimit  || !enquiryDetails || !onOrgModel) {
         return sendError(res,"Please provide all values",11,404)
     }
 
     if (isOffline===true &&  eventLocation.length<=0){
       return sendError(res, "Please provide event's location",11,404);
     }
+    initDB();
     const item=new EventSc({
       eventName:eventName,eventType:eventType,eventDetails:{date:eventDate,time:eventTime ,duration:eventDuration , poster:eventPoster},targetAudience:targetAudience,eventDescription:eventDescription,participantsLimit:participantsLimit,isOffline:isOffline,enquiryDetails:enquiryDetails,onOrgModel,location:eventLocation,
     })
@@ -26,7 +27,7 @@ export default async function handler(req, res) {
           console.log(item)
           await item.save();
           //  console.log(item);
-          mongoose.connection.close();
+         // mongoose.connection.close();
           return sendSuccess(res,item);
 
   }
