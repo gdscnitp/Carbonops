@@ -6,6 +6,8 @@ const PendAcc = require("../../../models/PendingAccount");
 const VerAcc = require("../../../models/VerifiedAcc");
 const Org = require("../../../models/Organisation");
 export var potentialIndividual;
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default async function SignupIn(req, res) {
   //const {email,password,contact,dob} = req.body
@@ -26,6 +28,7 @@ export default async function SignupIn(req, res) {
     if ( re1.test(req.body.email) ) {
      
         console.log("valid email id");
+        toast.error("valid email id");
     }
     else {
       console.log("invalid email id");
@@ -35,17 +38,21 @@ export default async function SignupIn(req, res) {
     let re2 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if(re2.test(req.body.password)){
       console.log("strong password");
+      toast.success("strong password");
     }
     else{
       console.log("weak password");
+      toast.error("weak password");
       return sendError(res,"Weak Password",19,400);
       
     }
     if(req.body.contact.length!=10){
       console.log("contact no. must have 10 digits");
+      toast.error("contact no. must have 10 digits");
       return sendError(res,"contact no. must have 10 digits",19,400);
     }
     else{
+      toast.error("valid contact no.");
       console.log("valid contact no.");
     }
      

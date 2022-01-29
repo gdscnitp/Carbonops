@@ -7,6 +7,8 @@ import { signIn } from "next-auth/react";
 import { useRef } from "react";
 import { useRouter } from "next/router";
 import Signpop from "./signpo";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
   const emailInputRef = useRef();
@@ -32,6 +34,7 @@ function Login() {
         : router.replace("/organisation-dashboard");
     } else {
       console.log(result);
+      toast.error("Error");
     }
   }
   const [detailPopup, setDetailPopup] = useState(false);
@@ -39,6 +42,7 @@ function Login() {
   return (
     <>
       <div className={styles.page}>
+        <ToastContainer />
         {/* <nav className={styles.nav}>
           <div className={styles.navbar}>
            <Link href="/" passHref>
