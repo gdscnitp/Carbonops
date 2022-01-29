@@ -13,11 +13,13 @@ async function createUser(email,password,contact,organisationId)
       'Content-Type': 'application/json',
     }})
     const data = await response.json();
-
+  console.log(response)
+  console.log(data)
   if (!response.ok) {
     // throw new Error(data.message || 'Something went wrong!');
     console.log("something went wrong");
-    toast.error("something went wrong");
+    toast.error(data.message);
+    return false;
   }
 
   return data;

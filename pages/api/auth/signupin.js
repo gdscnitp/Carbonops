@@ -49,7 +49,7 @@ export default async function SignupIn(req, res) {
     if(req.body.contact.length!=10){
       toast.error("contact no. must have 10 digits");
       console.log("contact no. must have 10 digits");
-      return sendError(res,"contact no. must have 10 digits",19,400);
+      return sendError(res,"Contact no. must have 10 digits",1,400);
     }
     else{
       console.log("valid contact no.");
