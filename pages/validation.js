@@ -25,7 +25,7 @@ export  function passwordCheck(data){
 }
 
 export function contactCheck(data){
-    if(data!=10){
+    if(data.length!=10){
         console.log("contact no. must have 10 digits");
         return sendError(res,"contact no. must have 10 digits",19,400);
       }
