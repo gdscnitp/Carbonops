@@ -3,7 +3,7 @@ import SignupIndividual from "../src/components/sign/signup-individual";
 import React from "react";
 import Head from "next/head";
 import styles from "../styles/Signu.module.css";
-import {navLinks} from '../src/components/utils/data'
+import {navLinks} from '../src/components/utils/data';
 //redirect to a complete profile form.
 // save the data in respective schema.
 //ask to login.
