@@ -1,8 +1,6 @@
 import styles from "./Signup.module.css";
 import React, { useRef } from "react";
 import Link from 'next/link';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 async function createUser(email,password,contact,organisationId)
 {
@@ -17,7 +15,6 @@ async function createUser(email,password,contact,organisationId)
   if (!response.ok) {
     // throw new Error(data.message || 'Something went wrong!');
     console.log("something went wrong")
-    toast.error("Something went wrong");
   }
 
   return data;
@@ -40,18 +37,15 @@ export default function Sign(props) {
     const result=await createUser(email,password,contact,organisationId)
     if(result)
     {
-      console.log("successfully signed up");
-      toast.error("successfully signed up");
+      console.log("successfully signed up")
     }
     else
     {
-      console.log("Could not sign you as an organisation");
-      toast.error("Could not sign you as an organisation");
+      console.log("Could not sign you as an organisation")
     }
   }
   return (
     <div className={styles.container}>
-      <ToastContainer />
       <signup className={styles.signu}>
         <section className={styles.section}>
           <div className={styles.left}>
