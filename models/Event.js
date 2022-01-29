@@ -8,6 +8,7 @@ const eventSchema = new mongoose.Schema({
         required:true,
         trim:true,
         unique:true,
+        dropDups: true 
     },
     eventType:{
         type:String,
