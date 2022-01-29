@@ -1,7 +1,7 @@
 import initDB from "../../../helpers/db";
 import { sendSuccess, sendError } from "../../../utilities/response-helpers";
 import sendConfirmationMail from "../../../lib/mailer";
-import { contactCheck, emailcheck, passwordCheck } from "../../validation";
+import { contactCheck, emailCheck, passwordCheck } from "../../../utilities/validation";
 
 const Individual = require("../../../models/Individual");
 const PendAcc = require("../../../models/PendingAccount");
@@ -13,7 +13,7 @@ export default async function SignupIn(req, res) {
   //const {email,password,contact,dob} = req.body
   //potentialIndividual = req.body
 
-  console.log(req.body);
+ // console.log(req.body);
   try {
     if (
       !req.body.email ||
@@ -23,14 +23,25 @@ export default async function SignupIn(req, res) {
     ) {
       return sendError(res, "Please fill all fields", 11, 422);
     }
+          // server side input validation
+           var emailChecked=emailCheck(req.body.email);
+            var passwordChecked=passwordCheck(req.body.password);
+            var contactChecked=contactCheck(req.body.contact)
+            if(emailChecked===false)
+            {
+                return sendError(res,"Invalid Email ID",19,400)
+            }
+            if(passwordChecked===false)
+            {
+                 return sendError(res,"Weak Password",19,400);
+            }
+            if(contactChecked===false)
+            {
+                return sendError(res,"Contact no. must have 10 digits",19,400);
+            }
 
-    emailcheck(req.body.email);
-    passwordCheck(req.body.password);
-    contactCheck(req.body.contact);
 
-
-    //add server side input validation
-
+   
     initDB();
 
     const regUser = await Individual.findOne({

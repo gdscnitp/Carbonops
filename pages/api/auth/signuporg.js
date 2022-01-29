@@ -1,7 +1,7 @@
 import initDB from "../../../helpers/db"
 import { sendSuccess,sendError } from "../../../utilities/response-helpers"
 import sendConfirmationMail from "../../../lib/mailer"
-import { contactCheck, emailcheck, passwordCheck } from "../../validation";
+import { emailCheck,passwordCheck,contactCheck} from "../../../utilities/validation";
 var Org= require('../../../models/Organisation');
 var PendAcc=require('../../../models/PendingAccount');
 var VerAcc = require('../../../models/VerifiedAcc')
@@ -12,9 +12,8 @@ var Individual=require('../../../models/Individual')
 export default async function SignupOrg(req, res){
     if(req.method==='POST')
     {    
-        emailcheck(req.body.email);
-        passwordCheck(req.body.password);
-        contactCheck(req.body.contact);
+       
+       
          
     
     try {
@@ -22,7 +21,24 @@ export default async function SignupOrg(req, res){
             return sendError(res,"Please fill all fields",11,422)
         }else
         {
-            //add server side input validation
+            // server side input validation
+            var emailChecked=emailCheck(req.body.email);
+            var passwordChecked=passwordCheck(req.body.password);
+            var contactChecked=contactCheck(req.body.contact)
+            if(emailChecked===false)
+            {
+                return sendError(res,"Invalid Email ID",19,400)
+            }
+            if(passwordChecked===false)
+            {
+                 return sendError(res,"Weak Password",19,400);
+            }
+            if(contactChecked===false)
+            {
+                return sendError(res,"Contact no. must have 10 digits",19,400);
+            }
+
+            
             initDB() 
             const regUser =  await Org.findOne({mailId:{$eq:req.body.email}})
             const pUserAcc = await PendAcc.findOne({email:{$eq:req.body.email}})
