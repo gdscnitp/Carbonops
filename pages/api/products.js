@@ -42,17 +42,6 @@ export default async function handler(req, res) {
       console.log(prod);
       const createdProd = await prod.save();
       console.log(createdProd);
-      // let info = await proSc.deleteOne({ _id: { $eq: "req.body.id" } });
-      // //info is delete info in form of delete count
-      // console.log(info);
-      //const entry = await proSc.create({ productName: "Masteringjs.io" });
-      //console.log(await proSc.countDocuments({ _id: entry._id })); // 1
-
-      // Delete the document by its _id
-
-      //console.log(await proSc.countDocuments({ _id: entry._id }));
-
-      // mongoose.connection.close();
 
       return sendSuccess(res, prod);
     } catch (error) {
