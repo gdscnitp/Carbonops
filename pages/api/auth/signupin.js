@@ -1,6 +1,8 @@
 import initDB from "../../../helpers/db";
 import { sendSuccess, sendError } from "../../../utilities/response-helpers";
 import sendConfirmationMail from "../../../lib/mailer";
+import { contactCheck, emailCheck, passwordCheck } from "../../../utilities/validation";
+
 const Individual = require("../../../models/Individual");
 const PendAcc = require("../../../models/PendingAccount");
 const VerAcc = require("../../../models/VerifiedAcc");
@@ -11,7 +13,7 @@ export default async function SignupIn(req, res) {
   //const {email,password,contact,dob} = req.body
   //potentialIndividual = req.body
 
-  console.log(req.body);
+ // console.log(req.body);
   try {
     if (
       !req.body.email ||
@@ -21,38 +23,25 @@ export default async function SignupIn(req, res) {
     ) {
       return sendError(res, "Please fill all fields", 11, 422);
     }
-
-    let re1 = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if ( re1.test(req.body.email) ) {
-     
-        console.log("valid email id");
-    }
-    else {
-      console.log("invalid email id");
-      return sendError(res,"Invalid Email ID",19,400);
-        
-    }
-    let re2 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-    if(re2.test(req.body.password)){
-      console.log("strong password");
-    }
-    else{
-      console.log("weak password");
-      return sendError(res,"Weak Password",19,400);
-      
-    }
-    if(req.body.contact.length!=10){
-      console.log("contact no. must have 10 digits");
-      return sendError(res,"contact no. must have 10 digits",19,400);
-    }
-    else{
-      console.log("valid contact no.");
-    }
-     
+          // server side input validation
+           var emailChecked=emailCheck(req.body.email);
+            var passwordChecked=passwordCheck(req.body.password);
+            var contactChecked=contactCheck(req.body.contact)
+            if(emailChecked===false)
+            {
+                return sendError(res,"Invalid Email ID",19,400)
+            }
+            if(passwordChecked===false)
+            {
+                 return sendError(res,"Weak Password",19,400);
+            }
+            if(contactChecked===false)
+            {
+                return sendError(res,"Contact no. must have 10 digits",19,400);
+            }
 
 
-    //add server side input validation
-
+   
     initDB();
 
     const regUser = await Individual.findOne({
