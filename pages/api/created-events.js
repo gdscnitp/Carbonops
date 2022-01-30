@@ -19,11 +19,14 @@ export default async function handler(req, res) {
       return sendError(res, "Please provide event's location",11,404);
     }
 
+        var eveName={
+          name: {$eq:req.body.eventName}
+      }
    //checking if event already exists in database
-   const nameExists = await EventSc.findOne({eventName:eventName})
-      console.log(nameExists);
-       if (!nameExists) {
+   const nameExists = await EventSc.findOne({eventName:eveName.name})
+      console.log(nameExists); 
 
+       if (!nameExists) {
           const item=new EventSc({
             eventName:eventName,eventType:eventType,eventDetails:{date:eventDate,time:eventTime ,duration:eventDuration , poster:eventPoster},targetAudience:targetAudience,eventDescription:eventDescription,participantsLimit:participantsLimit,isOffline:isOffline,enquiryDetails:enquiryDetails,onOrgModel,location:eventLocation,
           })
