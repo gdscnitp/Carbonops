@@ -9,11 +9,6 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     console.log(req.body);
     try {
-      // for addition of products
-
-      // var userId = {
-      //   id: { $eq: req.body.id },
-      // };
       var {
         organisationId,
         productName,
@@ -53,8 +48,12 @@ export default async function handler(req, res) {
       id: { $eq: req.body.id },
     };
     initDB();
-    const info = await proSc.deleteOne({ _id: ProdId.id });
-    console.log(info);
+    try {
+      const info = await proSc.deleteOne({ _id: ProdId.id });
+      console.log(info);
+    } catch (error) {
+      console.log(error.message);
+    }
     return sendSuccess(res, info);
   } else {
     return sendSuccess(res, { message: "This works" });
