@@ -8,6 +8,8 @@ let isValid;
 let user;
 import verifyPassword from "../../../lib/verifyPassword";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default NextAuth({
   session: {
@@ -30,6 +32,7 @@ export default NextAuth({
         });
         //if (userOrg) console.log(userOrg);
         if (!userOrg && !userInd) {
+          toast.error("No user found!");
           throw new Error("No user found!");
         } else {
           if (userInd) {
@@ -47,8 +50,11 @@ export default NextAuth({
 
           }
           if (!isValid) {
+            console.log(!isValid.error);
+            toast.error("Wrong Password");
             throw new Error("Wrong Password");
           } else {
+            console.log(isValid);
             console.log("successfully logged in");
             return { email: user.email };
           }

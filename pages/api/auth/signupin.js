@@ -2,7 +2,8 @@ import initDB from "../../../helpers/db";
 import { sendSuccess, sendError } from "../../../utilities/response-helpers";
 import sendConfirmationMail from "../../../lib/mailer";
 import { contactCheck, emailCheck, passwordCheck } from "../../../utilities/validation";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Individual = require("../../../models/Individual");
 const PendAcc = require("../../../models/PendingAccount");
 const VerAcc = require("../../../models/VerifiedAcc");
@@ -12,7 +13,6 @@ export var potentialIndividual;
 export default async function SignupIn(req, res) {
   //const {email,password,contact,dob} = req.body
   //potentialIndividual = req.body
-
  // console.log(req.body);
   try {
     if (
@@ -29,6 +29,7 @@ export default async function SignupIn(req, res) {
             var contactChecked=contactCheck(req.body.contact)
             if(emailChecked===false)
             {
+               
                 return sendError(res,"Invalid Email ID",19,400)
             }
             if(passwordChecked===false)

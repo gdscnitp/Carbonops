@@ -1,5 +1,5 @@
 
-export const errorCodes = [
+const errorCodes = [
    [100, "Invalid Parameters"],
    [201, "Created"],
    [203, "Non-Authoritative Information"],
@@ -22,3 +22,4 @@ export const errorCodes = [
    [1400, "Email is invalid or disposal"]
 ]
 
+module.exports= errorCodes

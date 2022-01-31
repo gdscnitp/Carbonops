@@ -6,7 +6,8 @@ var Org= require('../../../models/Organisation');
 var PendAcc=require('../../../models/PendingAccount');
 var VerAcc = require('../../../models/VerifiedAcc')
 var Individual=require('../../../models/Individual')
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default async function SignupOrg(req, res){
