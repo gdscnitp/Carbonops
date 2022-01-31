@@ -1,5 +1,6 @@
 import { useRouter } from "next/router"
 import Link from 'next/link'
+import ProfileCompletion from '../user/profileCompletion'
 
 
 export default  function Mycomponent({id,profHref}){
@@ -8,7 +9,7 @@ export default  function Mycomponent({id,profHref}){
     console.log(id);
    
       
-    return <div><h1 style={{color: "#fff"}}>{id} Your account is verified. Please complete profile here: <Link href={`../../${profHref}/${id}`}><a>Profile Comp </a></Link></h1></div>
+    return <ProfileCompletion id={id} profHref={profHref} />
 }
 
 export async function getServerSideProps(context)

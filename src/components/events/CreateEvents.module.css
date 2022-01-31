@@ -2,9 +2,9 @@
   color: white;
   min-height: 90vh;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
-  grid-template-areas: "formLeft formMid formRight";
+  grid-template-areas: "formLeft formRight";
   background-color: #142424;
 
 }
@@ -18,24 +18,11 @@
 .formLeft .heading{
   text-align: center;
   color: #54CCFA;
-}
-
-.formMid {
-  height: 85%;
-  width: 80%;
-  background-color: #173033;
-  grid-area: formMid;
-  margin-top: 1rem;
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: -100px 1px 50px 0px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
 }
 
 .formRight {
-  width: 80%;
+  width: 95%;
   background-color: #173033;
   grid-area: formRight;
   height: 85%;
@@ -44,84 +31,51 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   box-shadow: -100px 1px 50px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
 
-.formBody input {
-  background-color: #173033;
-  color: white;
-  height: 30px;
-  border: 1px solid white;
-  border-radius:5px ;
-}
+  
+  .formRight form {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .formRight .row{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 1rem;
+    padding: 10px 0;
+  }
+  
+  .formRight form .row input::placeholder{
+    font-size: 15px;
+    color: rgb(187, 187, 187);
+    padding: 5px;
+  } 
+  .formRight form .row textarea::placeholder{
+    font-size: 15px;
+    color: rgb(187, 187, 187);
+    padding: 5px;
+  }
 
-.formMid form {
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
+  .formRight form .row .eventName , .eventType , .eventDate , .eventTime , .eventDuration , .eventPoster , .targetAudience , .eventDescription , .participantsLimit , .eventLocation , .enquiryDetails , .onOrgModel{
+    flex: 0.45;
+    height: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #173033;
+    color: white;
+    border: 1px solid white;
+    border-radius:5px ;
 
-.formRight form {
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.formMid .label {
-  margin-top: 1.5rem;
-}
-.eventName input{
-  width: 250px;
-}
-.eventLocation textarea{
-  width: 300px;
-  background-color: #173033;
-  color: white;
-  border: 1px solid white;
-  border-radius:5px ;
-}
-
-.formRight .eventType,
-.audience,
-.eventDescription {
-  margin-top: 1.5rem;
-}
-
-.formRight input[type="file"] {
-  background-color: #142424;
-  border: none;
-}
-
-.select {
-  height: 30px;
-  background-color: #173033;
-  color: white;
-  border: 1px solid white;
-  border-radius:5px ;
-}
-
-.customFileInput {
-  height: 30px;
-  background-color: #173033;
-  color: white;
-}
-.eventDescription textarea {
-  background-color: #173033;
-  width: auto;
-  color: white;
-  border: 1px solid white;
-  border-radius:5px ;
-}
-
-.poster{
-  margin-top: 1rem;
-}
-.poster input[type="file"] {
-  background-color: #173033;
-}
+  }
+ 
 
 .buttons {
   margin-top: 1rem;
@@ -138,6 +92,8 @@
   box-shadow: inset 5px 3px 11px 10px rgba(7, 255, 0, 0.42);
 }
 
+
+
 /*_____________TAB VIEW__________________ */
 @media only screen and (max-width: 900px) {
   .formBody {
@@ -145,21 +101,18 @@
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
       "formLeft formLeft "
-      "formMid formRight";
+      "formRight formRight";
   }
 
   .formLeft {
     grid-area: formLeft;
   }
 
-  .formMid {
-    width: 100%;
-    height: 100%;
-    grid-area: formMid;
-  }
   .formRight {
-    width: 100%;
+    width: 95%;
     height: 100%;
+    margin-left: auto;
+    margin-right: auto;
     grid-area: formRight;
     flex-direction: column;
   }
@@ -169,10 +122,9 @@
 @media only screen and (max-width: 550px) {
   .formBody {
     grid-template-columns: 1fr;
-    grid-template-rows: 0.1fr 1fr 0.5fr;
+    grid-template-rows: 0.5fr 1fr;
     grid-template-areas:
       "formLeft"
-      "formMid"
       "formRight";
   }
 
@@ -181,22 +133,55 @@
     grid-area: formLeft;
   }
 
-  .formMid {
-    width: 100%;
-    height: 100%;
-    grid-area: formMid;
-  }
   .formRight {
     width: 100%;
-    height: 100%;
+    height: auto;
     grid-area: formRight;
     flex-direction: column;
     border-bottom: 2px solid grey;
     margin-top: 0;
+    margin-bottom: 2rem;
   }
+
   .formRight form{
     margin-top: 0;
     margin-bottom: 3rem;
+  }
+
+  .formRight .row{
+    height: auto;
+    flex-direction: column;
+    margin-top: 0.3rem;
 
   }
+  .formRight form .row input::placeholder{
+    font-size: 15px;
+    color: rgb(187, 187, 187);
+    padding: 0px;
+  } 
+  .formRight form .row textarea::placeholder{
+    font-size: 15px;
+    color: rgb(187, 187, 187);
+    padding: 0px;
+  }
+
+  .formRight .row .eventName , .eventType , .eventDate , .eventTime , .eventDuration , .eventPoster , .targetAudience , .eventDescription , .participantsLimit , .eventLocation , .enquiryDetails , .onOrgModel{
+    width: 300px;
+    height: 35px;
+    margin-top: 0.5rem;
+    padding: 10px;
+    background-color: #173033;
+    color: white;
+    border: 1px solid white;
+    border-radius:5px ;
+
+  }
+  .targetAudience{
+    flex: 0.1;
+  }
+  .eventLocation{
+    flex: 0.9;
+  }
+
 }
+
