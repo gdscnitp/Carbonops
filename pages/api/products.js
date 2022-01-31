@@ -34,6 +34,17 @@ export default async function handler(req, res) {
         productUrl,
       });
 
+      if (
+        !productName ||
+        !price ||
+        !description ||
+        !productImage ||
+        !rating ||
+        !isRecyclable
+      ) {
+        return sendError(res, "Please provide all values🚩", 11, 404);
+      }
+
       console.log(prod);
       const createdProd = await prod.save();
       console.log(createdProd);
@@ -43,17 +54,17 @@ export default async function handler(req, res) {
       console.log(error.message);
     }
   } else if (req.method === "DELETE") {
+    initDB();
     console.log(req.body);
     const ProdId = {
       id: { $eq: req.body.id },
     };
-    initDB();
-    try {
-      const info = await proSc.deleteOne({ _id: ProdId.id });
-      console.log(info);
-    } catch (error) {
-      console.log(error.message);
+    if (!ProdId.id) {
+      return sendError(res, "Please provide the Correct Product Id🚩", 11, 404);
     }
+
+    const info = await proSc.deleteOne({ _id: ProdId.id });
+    console.log(info);
     return sendSuccess(res, info);
   } else {
     return sendSuccess(res, { message: "This works" });
