@@ -4,6 +4,7 @@ import Card from "../src/components/feeds/cards";
 import React from "react";
 import Head from 'next/head'
 import styles from '../styles/Signu.module.css'
+import {navLinks} from '../src/components/utils/data'
 
 export default function Feeds() {
     return (

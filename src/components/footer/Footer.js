@@ -11,7 +11,7 @@ export default function Footer() {
        <Link href="/">LOGO HERE</Link>
         </div>
         <div className={`${styles.footerAbout}`}>
-          <Link href="/"> ABOUT US </Link>
+          <Link href="./aboutus"> ABOUT US </Link>
         </div>
         <div className={`${styles.footerContact}`}>
           <Link href="/"> CONTACT US</Link>
