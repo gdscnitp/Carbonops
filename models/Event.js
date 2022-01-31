@@ -7,6 +7,8 @@ const eventSchema = new mongoose.Schema({
         type:String,
         required:true,
         trim:true,
+        unique:true,
+        dropDups: true 
     },
     eventType:{
         type:String,
@@ -15,23 +17,26 @@ const eventSchema = new mongoose.Schema({
         enum: ["Online","Environmental Tasks","Carbon Score","Offline"]
     },
     eventDetails:[{
-        date_time:{
+        date:{
             type: Date,
             required: true,
             trim: true,
         },
-       
+        time:{
+            type: String,
+            required: true,
+            trim: true,
+        },
         duration:{
             type:Number,
             required:true,
         },
         poster:{
             type:String,
-            required:true,
+            required:false,
             trim: true,
             validate: [ isURL, 'Please provide a valid Url' ]
         },
-
     }],
     targetAudience:{
         type:String,
