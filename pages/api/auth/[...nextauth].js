@@ -47,6 +47,7 @@ export default NextAuth({
 
           }
           if (!isValid) {
+            console.log("Wrong Password")
             throw new Error("Wrong Password");
           } else {
             console.log("successfully logged in");
