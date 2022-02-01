@@ -65,6 +65,9 @@ export default async function handler(req, res) {
 
     const info = await proSc.deleteOne({ _id: ProdId.id });
     console.log(info);
+    if (info.deletedCount === 0) {
+      return sendError(res, "Product not found🚩", 11, 404);
+    }
     return sendSuccess(res, info);
   } else {
     return sendSuccess(res, { message: "This works" });
