@@ -8,12 +8,15 @@ initDB();
 export default async function handler(req, res) {
   if (req.method === "GET") {
     const { mailId } = req.body;
-
+    var mail={
+      email: {$eq:req.body.mailId}
+  }
+  
     //checking if mail is valid or not
     const checkMail = emailCheck(mailId);
     // console.log(checkMail)
     if (checkMail) {
-      const Org = await organisationSchema.find({ mailId: mailId });
+      const Org = await organisationSchema.find({ mailId: mail.email });
       if (Org.length <= 0) return sendError(res, "Not Found", 11, 404);
       else {
         // console.log(Org);
