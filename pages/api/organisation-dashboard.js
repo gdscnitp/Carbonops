@@ -1,49 +1,35 @@
-import initDB from "../../helpers/db"
-import mongoose from 'mongoose'
-import { sendSuccess,sendError } from "../../utilities/response-helpers"
+import initDB from "../../helpers/db";
+import { sendSuccess, sendError } from "../../utilities/response-helpers";
+import { emailCheck } from "../../utilities/validation";
 import organisationSchema from "../../models/Organisation";
 
 initDB();
 
 export default async function handler(req, res) {
-    if (req.method === 'GET') {
-        console.log(req.body)
+  if (req.method === "GET") {
+    const { mailId } = req.body;
 
-        //data to be displayed on organisation dashboard
-        const {organisationName , mailId , contact ,area ,city ,state , pincode , nation ,dealsProducts, wasteRequirements , linkedin , website , type }=req.body;
-
-          if(!organisationName || !mailId || !contact || !area || !city || !state || !pincode || !nation || !linkedin || !website || !type) {
-            return sendError(res,"Please provide all values properly",11,404)
-          }
-
-              const item=new organisationSchema({ 
-                organisationName:organisationName ,
-                mailId:mailId ,
-                contact:contact ,  
-                location:{
-                  area:area,
-                  city:city,
-                  state:state,
-                  pincode:pincode,
-                  nation:nation,
-               },
-                dealsProducts,
-                wasteRequirements:wasteRequirements , 
-                linkedin:linkedin , 
-                website:website ,
-                type:type
-               })
-
-                    console.log(item)
-                    await item.save();
-                    //  console.log(item);
-                  mongoose.connection.close();
-                    return sendSuccess(res,item);
-      }
-
+    //checking if mail is valid or not
+    const checkMail = emailCheck(mailId);
+    // console.log(checkMail)
+    if (checkMail) {
+      const Org = await organisationSchema.find({ mailId: mailId });
+      if (Org.length <= 0) return sendError(res, "Not Found", 11, 404);
       else {
-        return sendError(res,"Bad rquest(NOT GET)",8,400);
+        // console.log(Org);
+        if (Org) {
+          return sendSuccess(res, Org);
+        } else {
+          return sendError(res, "User Not Found", 11, 404);
+        }
+      }
+    } else {
+      return sendError(res, "Email Invalid", 11, 400);
     }
+  } 
 
+  else {
+    return sendError(res, "Bad rquest(NOT GET)", 8, 400);
+  }
 }
 
