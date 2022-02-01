@@ -23,6 +23,7 @@ export default function Events({events}) {
 }
 
 
+
 export async function getServerSideProps() {
     const response = await fetch('http://localhost:3000/api/getevents',{method:'GET'})
     
@@ -35,3 +36,4 @@ export async function getServerSideProps() {
     }
   }
   
+
