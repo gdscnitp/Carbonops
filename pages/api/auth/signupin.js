@@ -1,7 +1,9 @@
 import initDB from "../../../helpers/db";
 import { sendSuccess, sendError } from "../../../utilities/response-helpers";
 import sendConfirmationMail from "../../../lib/mailer";
-import { contactCheck, emailCheck, passwordCheck } from "../../../utilities/validation";
+
+import { contactCheck, emailcheck, passwordCheck } from "../../../utilities/validation";
+
 
 const Individual = require("../../../models/Individual");
 const PendAcc = require("../../../models/PendingAccount");

@@ -37,8 +37,6 @@ export default async function SignupOrg(req, res){
             {
                 return sendError(res,"Contact no. must have 10 digits",19,400);
             }
-
-            
             initDB() 
             const regUser =  await Org.findOne({mailId:{$eq:req.body.email}})
             const pUserAcc = await PendAcc.findOne({email:{$eq:req.body.email}})
