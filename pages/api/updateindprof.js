@@ -39,11 +39,14 @@ export default async function handler(req, res) {
             // else {
             //     await Individual.updateOne({email:email},{$set:{userdata:values[userdata]}})
             // }
+           
 
-
-            const filter = { email: email }
-            const update = { occupation: occupation, contact: contact, name: name }
-            updatedUser = await Individual.findOneAndUpdate(filter, update,
+            const filter = { email: {$eq:email} }
+            const update = { occupation: {$eq:occupation} ,
+             contact: {$eq:contact}, name: {$eq:name} }
+           
+            updatedUser = await Individual.findOneAndUpdate( { email: {$eq:email} }, 
+                {"$set":{"occupation":occupation,"name":name,"contact":contact}},
                 { new: true })
             console.log(updatedUser);
 
