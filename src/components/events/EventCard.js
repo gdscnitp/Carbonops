@@ -3,10 +3,16 @@ import Image from "next/image";
 import styles from "./EventsPage.module.css";
 import Popup from "./Popup";
 
-export default function EventCard() {
+
+
+export default function EventCard({events}) {
+ 
   const [detailPopup,setDetailPopup]=useState(false)
   return (
     <>
+    
+     
+      
       <div className={styles.card}>
         <div className={styles.cardBody}>
           <div className={styles.cardImage}>
@@ -19,9 +25,9 @@ export default function EventCard() {
           </div>
 
           <div className={styles.cardDetails}>
-          <div className={styles.cardHeading}>Name of the event</div>
-          <div className={styles.cardText}>Type of event</div>
-          <div className={styles.cardTime}>1st Jan,2022  @ 4:00 pm</div>
+          <div className={styles.cardHeading}>{events.eventName}</div>
+          <div className={styles.cardText}>{events.eventType}</div>
+          <div className={styles.cardTime}>{events.eventDetails[0].date}</div>
           <div className={styles.cardbtn}>
           <div className={styles.rsvp}>
           RSVP NOW
@@ -40,7 +46,11 @@ export default function EventCard() {
 
         </div>
       </div>
-        <Popup trigger={detailPopup} setTrigger={setDetailPopup}/>
+     
+    
+        <Popup events={events} trigger={detailPopup} setTrigger={setDetailPopup}/>
+      
     </>
   );
 }
+
