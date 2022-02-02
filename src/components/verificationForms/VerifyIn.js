@@ -45,8 +45,9 @@ export default function VerifyIn(props) {
     } else {
       console.log(resp);
       console.log("Saved individual successfully");
-      //redirect to individual profile
-      Router.push(`/profile-individual-form/${id}`);
+      //redirect to login page
+
+      Router.push(`/login`);
     }
     // if (
     //    inProfValues.cityName.length > 0 &&
