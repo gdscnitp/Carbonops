@@ -5,21 +5,26 @@ import React, { useState } from 'react';
 import { FaCamera } from 'react-icons/fa';
 import { FaAngleLeft } from 'react-icons/fa';
 
+
+
 export default function EditForm(props) {
   const router = useRouter();
-
+  const currentUserMail= "palakkumari404@gmail.com"
   const [values, setValues] = useState({
     name: '',
     occupation: '',
     location: '',
-    phone: '',
+    contact: '',
     dateofLastReport: '',
     areaName: '',
     cityName: '',
     stateName: '',
     pincode: '',
     countryName: '',
+    email:currentUserMail
   });
+
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +32,28 @@ export default function EditForm(props) {
       ...values,
       [name]: value,
     });
+    console.log(values);
   };
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()   
+    console.log(values)
+    const res = await fetch("http://localhost:3000/api/updateindprof/", {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({values})
+    })
+    const resp = await res.json()
+    if (resp.error || resp.success==false){
+     console.log(resp);
+    }else{
+      console.log(resp);
+      console.log("Updated individual profile successfully")
+  }
+};
 
   return props.trigger ? (
     <>
@@ -154,13 +180,13 @@ export default function EditForm(props) {
                   autoComplete="off"
                 />
               </label>
-              <label className={styles.label} htmlFor="phone">
-                <p className={styles.text}>Phone</p>
+              <label className={styles.label} htmlFor="contact">
+                <p className={styles.text}>contact</p>
                 <input
                   type="tel"
-                  id="phone"
-                  name="phone"
-                  value={values.Phone}
+                  id="contact"
+                  name="contact"
+                  value={values.contact}
                   onChange={handleChange}
                   required
                   autoComplete="off"
@@ -180,7 +206,7 @@ export default function EditForm(props) {
                 />
               </label> */}
               <div className={styles.buttons}>
-                <a>Save</a>
+              <a onClick={handleSubmit}> Save</a>
               </div>
             </form>
           </div>
