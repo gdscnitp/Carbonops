@@ -7,11 +7,11 @@ initDB();
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
-    const { mailId } = req.body;
+    const mailId = req.body.mailId;
     var mail={
       email: {$eq:req.body.mailId}
   }
-  
+ // console.log(mailId)
     //checking if mail is valid or not
     const checkMail = emailCheck(mailId);
     // console.log(checkMail)
