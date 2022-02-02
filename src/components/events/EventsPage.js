@@ -4,7 +4,8 @@ import EventCard from './EventCard'
 import styles from './EventsPage.module.css'
 import EventsList from './EventsList'
 
-export default function EventsPage() {
+export default function EventsPage({event}) {
+ 
     return (
         <>
             <div className={styles.eventBody}>
@@ -12,17 +13,17 @@ export default function EventsPage() {
             <div className={`${styles.eventLeft}`}>
                 <EventSidebar />
             </div>           
-
+             
             <div className={styles.eventMid}>
-                <EventCard />
-                <EventCard />
-                <EventCard />
-                <EventCard />
-                <EventCard />
-                <EventCard />
-                <EventCard />
-                <EventCard />
-                <EventCard />
+            {event && event.map((events)=>{
+                return(
+                    <div key ={events.id}>
+
+                <EventCard events={events}/>
+                </div>
+                )
+            })}
+
             </div>   
                   
             <div className={`${styles.eventRight}`} >
