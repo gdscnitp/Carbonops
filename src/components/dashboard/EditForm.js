@@ -39,12 +39,15 @@ export default function EditForm(props) {
   const handleSubmit = async (event) => {
     event.preventDefault()   
     console.log(values)
+    // const toUpdate = {name,occupation,contact,
+    //   address:[{areaName,cityName,stateName,countryName,pincode}]
+    // }
     const res = await fetch("http://localhost:3000/api/updateindprof/", {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({values})
+      body: JSON.stringify(values)
     })
     const resp = await res.json()
     if (resp.error || resp.success==false){
