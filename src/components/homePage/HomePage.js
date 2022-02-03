@@ -59,8 +59,7 @@ export default function Navbar() {
               />
               <br />
               <p className={styles.serviceDescription}>
-                Lorem Ipsum and something that can look good here. Lorem Ipsum
-                and something that can look good here.
+              Individuals in our app are the users who want to calculate their carbon score and who want to sell or donate waste to eco friendly orgs
               </p>
             </div>
 
@@ -74,8 +73,9 @@ export default function Navbar() {
               />
               <br />
               <p className={styles.serviceDescription}>
-                Lorem Ipsum and something that can look good here. Lorem Ipsum
-                and something that can look good here.
+                Organisation in our app are the user who want to buy raw materials or products directly from the eco-friendly startups.
+              {/* We provide interface where people/organisations can buy/ donate/sell raw materials or products directly from the  eco-friendly startups. */}
+              
               </p>
             </div>
           </div>
@@ -101,12 +101,13 @@ export default function Navbar() {
               </p>
               <br />
               <p className={styles.graphDescription}>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Similique rerum dolores quo tempore aliquid velit blanditiis
-                architecto, natus quae autem, voluptatum iure sapiente. Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Autem dolores
-                reiciendis odit impedit voluptatum deserunt officiis quod
-                molestiae porro! Esse?
+        
+                We provide carbon Footprint calculator for individuals user & they will get timely notification to update their carbon score & they have ability to monitor their carbon footprint progress.
+                <br />
+                A social media sharing option can allow users to post their carbon scores.
+                People can participate in/ host Monthly/ Weekly go green challenges and see who can go most sustainable.<br/> They can also win awards and badges.
+                We provide interface where people/org. can buy raw materials or product directly from startups.
+                Featured profiles of startups on the basis of ratings of products and impact.
               </p>
             </div>
           </div>
@@ -131,8 +132,8 @@ export default function Navbar() {
               />
               <br />
               <p>
-                Lorem Ipsum and something that can look good here. Lorem Ipsum
-                and something that can look good here. <br />
+                This is a great platform to buy raw materials/ products and can host many events about enviromenral awareness.
+                 <br />
                 -The Green Builders
               </p>
             </div>
@@ -147,9 +148,9 @@ export default function Navbar() {
               />
               <br />
               <p>
-                Lorem Ipsum and something that can look good here. Lorem Ipsum
-                and something that can look good here. <br />
-                -The Green Builders
+              Absolutely pleased with the features of this platform and we really enjoyed while participating in the events.
+                 <br />
+                -The Eco Earth 
               </p>
             </div>
           </div>
