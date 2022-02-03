@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./OrgForm.module.css";
+import Router from "next/router";
 
 export default function VerifyOrg(props) {
   console.log(props.id);
@@ -48,6 +49,7 @@ export default function VerifyOrg(props) {
     }else{
       console.log(resp);
       console.log("Saved organisation successfully")
+      Router.push(`/login`);
   }
   };
 
