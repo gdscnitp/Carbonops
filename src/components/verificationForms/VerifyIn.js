@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./InForm.module.css";
-import Router from "next/router"
+import Router from "next/router";
 
 export default function VerifyIn(props) {
   console.log(props.id);
@@ -29,24 +29,26 @@ export default function VerifyIn(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(inProfValues)
+    console.log(inProfValues);
     const res = await fetch("http://localhost:3000/api/indprofilecomp/", {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        inProfValues
-      })
-    })
-    const resp = await res.json()
-    if (resp.error || resp.success==false){
-     console.log(resp);
-    }else{
+        inProfValues,
+      }),
+    });
+    const resp = await res.json();
+    if (resp.error || resp.success == false) {
       console.log(resp);
-      console.log("Saved individual successfully")
-      Router.push('/login')
-  }
+    } else {
+      console.log(resp);
+      console.log("Saved individual successfully");
+      //redirect to login page
+
+      Router.push(`/login`);
+    }
     // if (
     //    inProfValues.cityName.length > 0 &&
     //    inProfValues.pincode.length > 0 &&
@@ -54,14 +56,20 @@ export default function VerifyIn(props) {
     //    inProfValues.linkedin.length > 0 &&
     //    inProfValues.eventDescription.length > 0
     // } else console.log("Please fill all values correctly");
-
   };
-
 
   return (
     <>
       <div className={styles.formBody}>
-        <h1 style={{ color: "#54CCFA", textAlign: "center", marginBottom: "1rem" }}>Please complete your profile before proceeding further!</h1>
+        <h1
+          style={{
+            color: "#54CCFA",
+            textAlign: "center",
+            marginBottom: "1rem",
+          }}
+        >
+          Please complete your profile before proceeding further!
+        </h1>
         <div className={styles.formIn}>
           <form>
             <input
@@ -192,7 +200,6 @@ export default function VerifyIn(props) {
     </>
   );
 }
-
 
 // export function getServerSideProps(props) {
 //   console.log(props)
