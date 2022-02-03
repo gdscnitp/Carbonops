@@ -3,6 +3,7 @@ import styles from './Popup.module.css'
 
 
 export default function Popup(props) {
+   
     return ( props.trigger )?
         <>
         <div className={styles.popupPage}>
@@ -12,17 +13,18 @@ export default function Popup(props) {
         </div>
    
         <div className={styles.popupHead}>
-        Name of the Event
+        {props.events.eventName}
         </div>
         <div className={styles.description}>
             <ol>
-                <li>Type of event : Onine</li>
-                <li>Date of event : 1st January</li>
-                <li>Time of event : 13:00</li>
-                <li>Event Location: N/A</li>
-                <li>Contact organisers : 9191919191</li>
-                <li>Audience Limit : 80</li>
-                <li>About this event : Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, at consectetur adipisicing elit. Tenetur, at quae. Doloribus quo rerum animi quam optio itaque so</li>
+                <li>Type of event : {props.events.eventType}</li>
+                <li>Date of event : {props.events.eventDetails[0].date}</li>
+                <li>Time of event :  {props.events.eventDetails[0].time}</li>
+                <li>Duration :  {props.events.eventDetails[0].duration}</li>
+                <li>Target Audience:{props.events.targetAudience} </li>
+                <li>Contact organisers :{props.events.enquiryDetails}</li>
+                <li>Audience Limit : {props.events.participantsLimit}</li>
+                <li>About this event : {props.events.eventDescription}</li>
             </ol> 
         </div> <br />
         <div className={styles.button}>
