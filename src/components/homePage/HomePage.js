@@ -59,7 +59,7 @@ export default function Navbar() {
               />
               <br />
               <p className={styles.serviceDescription}>
-              Individuals in our app are the users who want to calculate their carbon score and who want to sell or donate waste to eco friendly orgs
+              Individuals in our app are the users who want to calculate their carbon score and who want to sell or donate waste to eco friendly startups and organisations.
               </p>
             </div>
 
@@ -73,7 +73,7 @@ export default function Navbar() {
               />
               <br />
               <p className={styles.serviceDescription}>
-                Organisation in our app are the user who want to buy raw materials or products directly from the eco-friendly startups.
+                Organisations are startups that are contributing to the environment through their eco friendly products.
               {/* We provide interface where people/organisations can buy/ donate/sell raw materials or products directly from the  eco-friendly startups. */}
               
               </p>
@@ -102,12 +102,12 @@ export default function Navbar() {
               <br />
               <p className={styles.graphDescription}>
         
-                We provide carbon Footprint calculator for individuals user & they will get timely notification to update their carbon score & they have ability to monitor their carbon footprint progress.
+                We provide carbon Footprint calculator for individuals users.We also  notify you to update your carbon score. We help you monitor your carbon footprint progress.
                 <br />
-                A social media sharing option can allow users to post their carbon scores.
-                People can participate in/ host Monthly/ Weekly go green challenges and see who can go most sustainable.<br/> They can also win awards and badges.
-                We provide interface where people/org. can buy raw materials or product directly from startups.
-                Featured profiles of startups on the basis of ratings of products and impact.
+                You can share your scores on your social media sites and compete with your friends and family. The one with the lowest carbon score wins.
+                You can participate in/ host Monthly/ Weekly go green challenges and see who can go most sustainable.<br/> You can also win awards and badges.
+                We provide interface where people/org. can buy raw materials or product directly from startups.<br/>
+               Rate your favourite organisations and we will feature their profiles. 
               </p>
             </div>
           </div>
