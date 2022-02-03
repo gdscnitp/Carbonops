@@ -11,7 +11,7 @@ export default function EditForm(props) {
   const router = useRouter();
   const currentUserMail= "palakkumari404@gmail.com"
   const [values, setValues] = useState({
-    name: '',
+    userName: '',
     occupation: '',
     location: '',
     contact: '',
@@ -21,7 +21,7 @@ export default function EditForm(props) {
     stateName: '',
     pincode: '',
     countryName: '',
-    email:currentUserMail
+    
   });
 
   
@@ -32,22 +32,24 @@ export default function EditForm(props) {
       ...values,
       [name]: value,
     });
-    console.log(values);
+
   };
 
 
   const handleSubmit = async (event) => {
     event.preventDefault()   
     console.log(values)
-    // const toUpdate = {name,occupation,contact,
-    //   address:[{areaName,cityName,stateName,countryName,pincode}]
-    // }
+    const addressObj = {area:areaName.value,city:cityName.value,state:stateName.value,pincode:pincode.value,nation:countryName.value}
+    const toUpdate = {name:userName.value,occupation:occupation.value,contact:contact.value,email:currentUserMail,
+      address:addressObj
+    }
+    console.log(toUpdate);
     const res = await fetch("http://localhost:3000/api/updateindprof/", {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(values)
+      body: JSON.stringify(toUpdate)
     })
     const resp = await res.json()
     if (resp.error || resp.success==false){
@@ -97,13 +99,13 @@ export default function EditForm(props) {
 
           <div className={styles.Form}>
             <form>
-              <label className={styles.label} htmlFor="name">
+              <label className={styles.label} htmlFor="userName">
                 <p className={styles.text}> Name</p>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={values.Name}
+                  id="userName"
+                  name="userName"
+                  value={values.userName}
                   onChange={handleChange}
                   required
                   autoComplete="off"

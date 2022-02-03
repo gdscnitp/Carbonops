@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./InForm.module.css";
-
+import Router from "next/router"
 
 export default function VerifyIn(props) {
   console.log(props.id);
@@ -45,6 +45,7 @@ export default function VerifyIn(props) {
     }else{
       console.log(resp);
       console.log("Saved individual successfully")
+      Router.push('/login')
   }
     // if (
     //    inProfValues.cityName.length > 0 &&
