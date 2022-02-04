@@ -9,7 +9,7 @@ import { FaAngleLeft } from 'react-icons/fa';
 
 export default function EditForm(props) {
   const router = useRouter();
-  const currentUserMail= "palakkumari404@gmail.com"
+  const currentUserMail= "srijans.ug20.ece@nitp.ac.in"
   const [values, setValues] = useState({
     userName: '',
     occupation: '',
@@ -43,6 +43,7 @@ export default function EditForm(props) {
     const toUpdate = {name:userName.value,occupation:occupation.value,contact:contact.value,email:currentUserMail,
       address:addressObj
     }
+    console.log("To Update ===")
     console.log(toUpdate);
     const res = await fetch("http://localhost:3000/api/updateindprof/", {
       method: 'PATCH',
@@ -53,6 +54,7 @@ export default function EditForm(props) {
     })
     const resp = await res.json()
     if (resp.error || resp.success==false){
+      console.log("could not update")
      console.log(resp);
     }else{
       console.log(resp);
@@ -98,7 +100,7 @@ export default function EditForm(props) {
           </div>
 
           <div className={styles.Form}>
-            <form>
+            <form onSubmit={handleSubmit}>
               <label className={styles.label} htmlFor="userName">
                 <p className={styles.text}> Name</p>
                 <input
@@ -210,8 +212,8 @@ export default function EditForm(props) {
                   autoComplete="off"
                 />
               </label> */}
-              <div className={styles.buttons}>
-              <a onClick={handleSubmit}> Save</a>
+              <div className={styles.buttons} >
+              <a onClick={handleSubmit}>Save </a>
               </div>
             </form>
           </div>

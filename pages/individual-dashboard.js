@@ -23,11 +23,11 @@ export default function dashboard(props) {
 }
 
 export async function getServerSideProps(context){
-  var userMail = "palakkumari404@gmail.com";
+  var userMail = "srijans.ug20.ece@nitp.ac.in";
   const response = await  fetch(`http://localhost:3000/api/indivdata/${userMail}`,{
       method: 'GET'
     })
-    console.log(response.data);
+    console.log(response);
       const data = await  response.json();
       console.log(data);
       // console.log(data)

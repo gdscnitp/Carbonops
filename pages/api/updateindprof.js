@@ -6,24 +6,34 @@ var updatedUser = {}
 export default async function handler(req, res) {
 
     if (req.method === 'PATCH') {
+        console.log(req.body)
         try {
-            const { toUpdate } = req.body
+            const  toUpdate = req.body
             console.log(toUpdate);
-            const { email, userName, occupation,address,contact } = toUpdate
-            const {area,city,state,pincode,nation} = address[0]
-            if (!area || !state || !pincode || !nation || !city){
-                return sendError(res,9, "Fill all address fields", 400)
+            const { email, name, occupation,address,contact } = toUpdate
+            //console.log(name,occupation)
+            const {area,city,state,pincode,nation} = address;
+            
+            if (!name && !occupation && !contact && !area && !city && !state && !pincode && !nation) {
+                return sendError(res, "Fill at least one field",9, 400)
+            }   
+            
+           
+            if ((area || state || pincode || nation || city)){
+                if(!area || !state || !pincode || !nation || !city)
+                {
+                    return sendError(res, "Fill all address fields",9, 400)
+                }  
             }
-            if (!userName && !occupation && !contact && !address) {
-                return sendError(res,9, "Fill at least one field", 400)
-            }      
+              
             initDB()
 
             for (const userdata in toUpdate){
-                if (userdata === "userName" && userName !== ''){
+                console.log(userdata)
+                if (userdata === "name" && name !== ''){
                    
                     updatedUser = await Individual.findOneAndUpdate( { email: {$eq:email} }, 
-                        {"$set":{"name":userName}},
+                        {"$set":{"name":name}},
                         { new: true })
                     console.log(updatedUser);
 
@@ -50,7 +60,7 @@ export default async function handler(req, res) {
             return sendSuccess(res, updatedUser);
 
         } catch (error) {
-            return sendError(res, 9,error, 400)
+            return sendError(res,error,9, 400)
         }
     }
 
