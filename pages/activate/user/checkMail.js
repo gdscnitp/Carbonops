@@ -10,11 +10,11 @@ export default function checkMail() {
           <div className={styles.tick}>
             <TiTick style={{ fontSize: "55px" }} />
           </div>
-          <div className={styles.text}>Congrats🎉 Step 1/2 ✅
+          <div className={styles.text}>Congrats🎉 Step 1/3 ✅
           <br></br>
-          Please check your Email.
+          Please check your entered Email.
           <br></br>
-           Click on <strong>Activate</strong> to proceed with Step 2/2
+           Click on <strong>Activate</strong> to proceed with Step 2/3.
           </div>
           
         </div>

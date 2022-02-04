@@ -40,7 +40,8 @@ export default function Sign(props) {
       
   
     const result=await createUser(email,password,contact,dob)
-    if(result)
+    
+    if(result.success)
     {
       console.log("successful signup");
       Router.push("/activate/user/checkMail");
@@ -66,7 +67,7 @@ export default function Sign(props) {
               </div>
             </div>
           </div>
-          <forms className={styles.formss} >
+          <div className={styles.formss} >
             <div className={styles.contentBx}>
               <div className={styles.formBx}>
                 <h2>SIGNUP</h2>
@@ -114,7 +115,7 @@ export default function Sign(props) {
                 </form>
               </div>
             </div>
-          </forms>
+          </div>
         </section>
       </signup>
     </div>
