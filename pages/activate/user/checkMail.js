@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./profileCompletion.module.css";
 import { TiTick } from "react-icons/ti";
 
-export default function checkMail({ id, profHref }) {
+export default function checkMail() {
   return (
     <>
       <div className={styles.profilePage}>
@@ -10,8 +10,11 @@ export default function checkMail({ id, profHref }) {
           <div className={styles.tick}>
             <TiTick style={{ fontSize: "55px" }} />
           </div>
-          <div className={styles.text}>
-            {id} Please check your Email. Click on <strong>Link </strong> provided to confirm signup.
+          <div className={styles.text}>Congrats🎉 Step 1/2 ✅
+          <br></br>
+          Please check your Email.
+          <br></br>
+           Click on <strong>Activate</strong> to proceed with Step 2/2
           </div>
           
         </div>
