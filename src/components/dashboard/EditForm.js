@@ -43,8 +43,8 @@ export default function EditForm(props) {
     const toUpdate = {name:userName.value,occupation:occupation.value,contact:contact.value,email:currentUserMail,
       address:addressObj
     }
-    console.log("To Update ===")
-    console.log(toUpdate);
+    // console.log("To Update ===")
+    // console.log(toUpdate);
     const res = await fetch("http://localhost:3000/api/updateindprof/", {
       method: 'PATCH',
       headers: {
@@ -55,9 +55,9 @@ export default function EditForm(props) {
     const resp = await res.json()
     if (resp.error || resp.success==false){
       console.log("could not update")
-     console.log(resp);
+    // console.log(resp);
     }else{
-      console.log(resp);
+      //console.log(resp);
       console.log("Updated individual profile successfully")
   }
 };

@@ -6,10 +6,10 @@ var updatedUser = {}
 export default async function handler(req, res) {
 
     if (req.method === 'PATCH') {
-        console.log(req.body)
+        //console.log(req.body)
         try {
             const  toUpdate = req.body
-            console.log(toUpdate);
+            //console.log(toUpdate);
             const { email, name, occupation,address,contact } = toUpdate
             //console.log(name,occupation)
             const {area,city,state,pincode,nation} = address;
@@ -29,34 +29,35 @@ export default async function handler(req, res) {
             initDB()
 
             for (const userdata in toUpdate){
-                console.log(userdata)
+                //console.log(userdata)
                 if (userdata === "name" && name !== ''){
                    
                     updatedUser = await Individual.findOneAndUpdate( { email: {$eq:email} }, 
                         {"$set":{"name":name}},
                         { new: true })
-                    console.log(updatedUser);
+                    //console.log(updatedUser);
 
                 }
                 else if (userdata === "occupation" && occupation !== ''){
                     updatedUser = await Individual.findOneAndUpdate( { email: {$eq:email} }, 
                         {"$set":{"occupation":occupation}},
                         { new: true })
-                    console.log(updatedUser);
+                    //console.log(updatedUser);
                 }
                 else if (userdata === "address" && address !== ''){
                     updatedUser = await Individual.findOneAndUpdate( { email: {$eq:email} }, 
                         {"$set":{"address":address}},
                         { new: true })
-                    console.log(updatedUser);
+                    //console.log(updatedUser);
                 }
                 else if (userdata === "contact" && contact !== ''){
                     updatedUser = await Individual.findOneAndUpdate( { email: {$eq:email} }, 
                         {"$set":{"contact":contact}},
                         { new: true })
-                    console.log(updatedUser);
+                   // console.log(updatedUser);
                 }
-            }         
+            }      
+            console.log(updatedUser)   
             return sendSuccess(res, updatedUser);
 
         } catch (error) {
