@@ -5,21 +5,26 @@ import React, { useState } from 'react';
 import { FaCamera } from 'react-icons/fa';
 import { FaAngleLeft } from 'react-icons/fa';
 
+
+
 export default function EditForm(props) {
   const router = useRouter();
-
+  const currentUserMail= "srijans.ug20.ece@nitp.ac.in"
   const [values, setValues] = useState({
-    name: '',
+    userName: '',
     occupation: '',
     location: '',
-    phone: '',
+    contact: '',
     dateofLastReport: '',
     areaName: '',
     cityName: '',
     stateName: '',
     pincode: '',
     countryName: '',
+    
   });
+
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +32,35 @@ export default function EditForm(props) {
       ...values,
       [name]: value,
     });
+
   };
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()   
+    console.log(values)
+    const addressObj = {area:areaName.value,city:cityName.value,state:stateName.value,pincode:pincode.value,nation:countryName.value}
+    const toUpdate = {name:userName.value,occupation:occupation.value,contact:contact.value,email:currentUserMail,
+      address:addressObj
+    }
+    // console.log("To Update ===")
+    // console.log(toUpdate);
+    const res = await fetch("http://localhost:3000/api/updateindprof/", {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(toUpdate)
+    })
+    const resp = await res.json()
+    if (resp.error || resp.success==false){
+      console.log("could not update")
+    // console.log(resp);
+    }else{
+      //console.log(resp);
+      console.log("Updated individual profile successfully")
+  }
+};
 
   return props.trigger ? (
     <>
@@ -67,14 +100,14 @@ export default function EditForm(props) {
           </div>
 
           <div className={styles.Form}>
-            <form>
-              <label className={styles.label} htmlFor="name">
+            <form onSubmit={handleSubmit}>
+              <label className={styles.label} htmlFor="userName">
                 <p className={styles.text}> Name</p>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={values.Name}
+                  id="userName"
+                  name="userName"
+                  value={values.userName}
                   onChange={handleChange}
                   required
                   autoComplete="off"
@@ -154,13 +187,13 @@ export default function EditForm(props) {
                   autoComplete="off"
                 />
               </label>
-              <label className={styles.label} htmlFor="phone">
-                <p className={styles.text}>Phone</p>
+              <label className={styles.label} htmlFor="contact">
+                <p className={styles.text}>contact</p>
                 <input
                   type="tel"
-                  id="phone"
-                  name="phone"
-                  value={values.Phone}
+                  id="contact"
+                  name="contact"
+                  value={values.contact}
                   onChange={handleChange}
                   required
                   autoComplete="off"
@@ -179,8 +212,8 @@ export default function EditForm(props) {
                   autoComplete="off"
                 />
               </label> */}
-              <div className={styles.buttons}>
-                <a>Save</a>
+              <div className={styles.buttons} >
+              <a onClick={handleSubmit}>Save </a>
               </div>
             </form>
           </div>

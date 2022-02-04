@@ -8,6 +8,7 @@ import Formpop from './EditForm';
 import { MdEdit } from 'react-icons/md';
   
 export default function Dashboard(props) {
+  console.log(props);
   const [detailPopup, setDetailPopup] = useState(false);
   return (
     <>
@@ -24,10 +25,10 @@ export default function Dashboard(props) {
             />
             <div className={styles.profile_description}>
               <p>
-                NAME:<span>{props.name}</span>
+                NAME:<span>{props.data.name}</span>
               </p>
               <p>
-                EMail:<span>{props.email}</span>
+                EMail:<span>{props.data.email}</span>
               </p>
             </div>
             <div className={styles.editButton}>
@@ -40,7 +41,7 @@ export default function Dashboard(props) {
           <div className={styles.profile_stats}>
             <div className={styles.profile_stat}>
               <p>Location</p>
-              <p>{props.location}</p>
+              <p>{props.data.address[0].city}</p>
             </div>
 
             <div className={styles.profile_stat}>
@@ -49,7 +50,7 @@ export default function Dashboard(props) {
             </div>
             <div className={styles.profile_stat}>
               <p>Phone Number</p>
-              <p>{props.phone}</p>
+              <p>{props.data.contact}</p>
             </div>
             <div className={styles.profile_stat}>
               <p>Date of Last Report </p>
