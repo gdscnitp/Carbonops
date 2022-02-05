@@ -1,15 +1,16 @@
 const errorCodes = require('./errors');
 import {SERVER_ERROR,OK} from './constants';
 
-export function sendError(res, err, error_index, status_code) {
+export function sendError(res, err, status_code=500) {
     console.trace(err);
-    if (typeof error_index == undefined) {
-        status_code = SERVER_ERROR;
-    }
+    // if (typeof error_index == undefined) {
+    //     status_code = SERVER_ERROR;
+    // }
     res.status(status_code).json({
-        code: errorCodes[error_index] ? errorCodes[error_index][0] : 404,
-        message: errorCodes[error_index] ? errorCodes[error_index][1] : error_index,
+        code: status_code,
+        message: status_code===500? "SERVER ERROR" : err,
         success: false,
+        time: Date.now()
     });
     return;
 }
