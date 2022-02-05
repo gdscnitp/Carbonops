@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Signpop from './signpo';
 import Link from 'next/link';
 import styles from './Navbar.module.css';
+import { signOut } from "next-auth/react"
 
 export default function Navbar(props) {
   const [detailPopup, setDetailPopup] = useState(false);
@@ -10,6 +11,10 @@ export default function Navbar(props) {
   const link3 = props.href3;
   const link4 = props.href4;
   const link5 = props.href5;
+
+  const handleLogout=()=>{
+    signOut()
+  }
 
   return (
     <>
@@ -46,13 +51,16 @@ export default function Navbar(props) {
               ''
             )}
           </Link>
-          <Link href={`${link4}`}>
+         
+
+          <Link href={`${link4}`} onclick={()=>handleLogout()} preventDefault="true">
             {props.buttonText2.length > 0 ? (
               <a className={styles.button}> {props.buttonText2} </a>
-            ) : (
-              ''
-            )}
+              ) : (
+                ''
+                )}
           </Link>
+         
         </ul>
      
       </nav>
