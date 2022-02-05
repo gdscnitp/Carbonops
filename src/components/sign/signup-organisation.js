@@ -1,5 +1,5 @@
 import styles from "./Signup.module.css";
-import React, { useRef } from "react";
+import React, { useRef,useEffect,useState } from "react";
 import Link from 'next/link';
 
 async function createUser(email,password,contact,organisationId)
@@ -18,13 +18,57 @@ async function createUser(email,password,contact,organisationId)
   }
 
   return data;
-}
+} 
 export default function Sign(props) {
   
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
   const organisationIdInputRef=useRef();
   const contactInputRef=useRef();
+  const initialValues = { email: "",password:"",contact:""};
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+  const handleChange = (e) => {
+    
+    const { name, value } = e.target;
+    console.log(name)
+    setFormValues({ ...formValues, [name]: value });
+   
+  };
+  useEffect(() => {
+    console.log(formErrors);
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      console.log(formValues);
+    }
+  }, [formErrors]);
+  const validate = (values) => {
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!values.email) {
+      errors.email = "Email is required!";
+    } else if (!regex.test(values.email)) {
+      errors.email = "This is not a valid email format!";
+    }
+    // ^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\$%\^&\*])(?=.{8,})
+    let re2 = new RegExp("^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\$%\^&\*])(?=.{8,})");
+    if (!values.password) {
+      errors.password = "Password is required!";
+    } else if (!re2.test(values.password)) {
+      errors.password = "PASSWORD WEAK!";
+    }
+    const re3=/^([+]\d{2})?\d{10}$/;
+    if (!values.contact) {
+      errors.cotact = "Contact no is mandatory";
+    } else if (!re3.test(values.contact)) {
+      errors.contact = "Invalid contact no!";
+    }
+   
+    return errors;
+  }
+
+
+
 
   async function SubmitHandler(event)
   {
@@ -33,7 +77,8 @@ export default function Sign(props) {
     const password=passwordInputRef.current.value;
     const organisationId=organisationIdInputRef.current.value;
     const contact=contactInputRef.current.value;
-
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
     const result=await createUser(email,password,contact,organisationId)
     if(result)
     {
@@ -74,28 +119,47 @@ export default function Sign(props) {
                     <input
                       className={styles.email}
                       type="email"
-                      name=""
+                      name="email"
                       placeholder="Email"
                       required
-                      ref={emailInputRef}//email id
+                      value={formValues.email}
+                      ref={emailInputRef}
+                      onChange={handleChange}
+                     //email id
                     />
+ <p style={{color: "red"}}>{formErrors.email}</p>
+
                   </div>
                   <div className={styles.inputBxx}>
-                    <input type="number" name="" placeholder="Contact" required ref={contactInputRef}/>  
+                  <input type="number" name="contact" 
+                    placeholder="Contact" 
+                    value={formValues.contact}
+                    onChange={handleChange}
+                    required ref={contactInputRef}/>  
                   </div>
+                  <p style={{color: "red"}}>{formErrors.contact}</p>
+
                   <div className={styles.inputBx}>
                     <input type="number" name="" placeholder="Organisation ID" required ref={organisationIdInputRef}/>
                   </div>
                   <div className={styles.inputBx}>
-                    <input type="password" name="" placeholder="Password" required ref={passwordInputRef}/>
+                    <input type="password" name="password" placeholder="Password"
+                     required ref={passwordInputRef}
+                    //  required ref={passwordInputRef}
+                     value={formValues.password}
+                     onChange={handleChange}/>
                   </div>
+                    <p style={{color: "red"}}>{formErrors.password}</p>
                   <div className={styles.inputBx}>
                     <input
                       type="password"
-                      name=""
+                      name="password"
                       placeholder="Confirm Password"
+                   
+
                     />
                   </div>
+
                   <div className={styles.remember}>
                     <label>
                       <input type="checkbox" name="" /> Remember me
