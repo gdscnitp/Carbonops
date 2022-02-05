@@ -3,6 +3,8 @@ import NextAuth from "next-auth";
 import initDB from "../../../helpers/db";
 var Individual = require("../../../models/Individual");
 var Organisation = require("../../../models/Organisation");
+import { ToastContainer, toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
 //import { sendError,sendSuccess } from "../../../utilities/response-helpers";
 let isValid;
 let user;
@@ -30,6 +32,7 @@ export default NextAuth({
         });
         //if (userOrg) console.log(userOrg);
         if (!userOrg && !userInd) {
+          toast.error("No user found!");
           throw new Error("No user found!");
         } else {
           if (userInd) {
@@ -47,7 +50,8 @@ export default NextAuth({
 
           }
           if (!isValid) {
-            console.log("Wrong Password")
+            console.log(!isValid.error);
+            toast.error("Wrong Password");
             throw new Error("Wrong Password");
           } else {
             console.log("successfully logged in");

@@ -6,7 +6,8 @@ var Org= require('../../../models/Organisation');
 var PendAcc=require('../../../models/PendingAccount');
 var VerAcc = require('../../../models/VerifiedAcc')
 var Individual=require('../../../models/Individual')
-
+import { ToastContainer, toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
 
 
 export default async function SignupOrg(req, res){
@@ -27,15 +28,15 @@ export default async function SignupOrg(req, res){
             var contactChecked=contactCheck(req.body.contact)
             if(emailChecked===false)
             {
-                return sendError(res,"Invalid Email ID",19,400)
+                return sendError(res,"Invalid Email ID",21,400)
             }
             if(passwordChecked===false)
             {
-                 return sendError(res,"Weak Password",19,400);
+                 return sendError(res,"Weak Password",22,400);
             }
             if(contactChecked===false)
             {
-                return sendError(res,"Contact no. must have 10 digits",19,400);
+                return sendError(res,"Contact no. must have 10 digits",23,400);
             }
             initDB() 
             const regUser =  await Org.findOne({mailId:{$eq:req.body.email}})
@@ -48,7 +49,7 @@ export default async function SignupOrg(req, res){
     
             if (regUser || pUserAcc || IndiAcc || verifAcc) {
                 /*checking if the user is existing also in the organisation collection and verified accounts collection*/
-                return sendError(res,"Account already exists",11,422)
+                return sendError(res,"Account already exists",12,422)
             }else
             {
                 const newAccount = await PendAcc({email:req.body.email,password:req.body.password,contact:req.body.contact,organisationId:req.body.organisationId})

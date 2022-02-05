@@ -1,7 +1,8 @@
 import initDB from "../../../helpers/db";
 import { sendSuccess, sendError } from "../../../utilities/response-helpers";
 import sendConfirmationMail from "../../../lib/mailer";
-
+import { ToastContainer, toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
 import { contactCheck, emailCheck, passwordCheck } from "../../../utilities/validation";
 
 
@@ -31,15 +32,15 @@ export default async function SignupIn(req, res) {
             var contactChecked=contactCheck(req.body.contact)
             if(emailChecked===false)
             {
-                return sendError(res,"Invalid Email ID",19,400)
+                return sendError(res,"Invalid Email ID",21,400)
             }
             if(passwordChecked===false)
             {
-                 return sendError(res,"Weak Password",19,400);
+                 return sendError(res,"Weak Password",22,400);
             }
             if(contactChecked===false)
             {
-                return sendError(res,"Contact no. must have 10 digits",19,400);
+                return sendError(res,"Contact no. must have 10 digits",23,400);
             }
 
 
@@ -55,7 +56,7 @@ export default async function SignupIn(req, res) {
 
     if (regUser || pUserAcc || orgAcc || verifAcc) {
       //console.log(regUser,pUserAcc,orgAcc,verifAcc)
-      return sendError(res, "Account already exists", 11, 422);
+      return sendError(res, "Account already exists", 12, 422);
     } else {
       const newAccount = await PendAcc({
         email: req.body.email,

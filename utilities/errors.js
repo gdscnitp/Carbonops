@@ -1,5 +1,5 @@
 
-export const errorCodes = [
+const errorCodes = [
    [100, "Invalid Parameters"],
    [201, "Created"],
    [203, "Non-Authoritative Information"],
@@ -11,7 +11,9 @@ export const errorCodes = [
    [401, "Unauthorized Access"],
    [403, "Forbidden"]
    [404, "Not Found"],
-   [409, "Conflict"]
+   [409, "Conflict"],
+   [411, "Please fill all fields"],
+   [422, "Account already exists"],
    [429, "Too many requests"],
    [500, "password must contain one capital letter, Special charactor and numerical value"],
    [503, "Service Unavailable"],
@@ -19,6 +21,9 @@ export const errorCodes = [
    [700, "Account Doesnot exists"],
    [800, "Access without token is not authorised"],
    [900, "Invalid Credentials"],
-   [1400, "Email is invalid or disposal"]
+   [1400, "Email is invalid or disposal"],
+   [1500, "Weak Password"],
+   [1600, "Contact no. must have 10 digits"]
 ]
 
+module.exports= errorCodes
