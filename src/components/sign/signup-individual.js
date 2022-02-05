@@ -1,6 +1,7 @@
 import styles from "./Signup.module.css";
 import React, { useRef,useEffect,useState } from "react";
 import Link from 'next/link';
+import Router from "next/router";
 
 async function createUser(email,password,contact,dob)
 {
@@ -76,12 +77,20 @@ export default function Sign(props) {
     const password=passwordInputRef.current.value;
     const dob=dobInputRef.current.value;
     const contact=contactInputRef.current.value;
+
     setFormErrors(validate(formValues));
     setIsSubmit(true);
+
+
+      
+  
+
     const result=await createUser(email,password,contact,dob)
-    if(result)
+    
+    if(result.success)
     {
       console.log("successful signup");
+      Router.push("/activate/user/checkMail");
     }
     else
     {
@@ -104,7 +113,7 @@ export default function Sign(props) {
               </div>
             </div>
           </div>
-          <forms className={styles.formss} >
+          <div className={styles.formss} >
             <div className={styles.contentBx}>
               <div className={styles.formBx}>
                 <h2>SIGNUP</h2>
@@ -164,11 +173,12 @@ export default function Sign(props) {
                   </div>
                   <div className={styles.inputBx}>
                     <input type="submit" value="SignUp" name="" />
+
                   </div>
                 </form>
               </div>
             </div>
-          </forms>
+          </div>
         </section>
       </signup>
     </div>
