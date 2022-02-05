@@ -52,7 +52,7 @@ export default function Sign(props) {
       errors.email = "This is not a valid email format!";
     }
     // ^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\$%\^&\*])(?=.{8,})
-    let re2 = new RegExp("^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\$%\^&\*])(?=.{8,})");
+    let re2 = new RegExp("^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#$%^&*])(?=.{8,})");
     if (!values.password) {
       errors.password = "Password is required!";
     } else if (!re2.test(values.password)) {
