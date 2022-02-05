@@ -1,14 +1,28 @@
-import { useSession } from "next-auth/react"
+import { useSession,getSession } from "next-auth/react"
 import Dashboard from "../src/components/dashboard/Dashboard";
 import Navbar from '../src/components/navbar/Navbar'
 import {navLinks} from '../src/components/utils/data'
+import { useRouter } from 'next/router';
 
 
 export default function dashboard(props) {
   const userObj = props.userData
-  
-  return (
-    <>
+  const { data: session, status } = useSession()
+  const router = useRouter();
+  if (status === "loading") {
+    return <p>Loading...</p>
+  }
+
+  else if (status === "unauthenticated") {
+    router.push('/login');
+    
+  }
+
+  else if(status === "authenticated") {
+
+    
+    return (
+      <>
     <Navbar  
        action1="" 
        action2=""
@@ -21,24 +35,37 @@ export default function dashboard(props) {
     </>
   );
 }
+}
 
 export async function getServerSideProps(context){
-  var userMail = "srijans.ug20.ece@nitp.ac.in";
+  // console.log("==============================================");
+  const session = await getSession(context)
+  if (!session){
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/login",
+      },
+      props:{},
+    };
+  }
+  console.log(session)
+  var userMail = session.user.email
   const response = await  fetch(`http://localhost:3000/api/indivdata/${userMail}`,{
-      method: 'GET'
-    })
-    console.log(response);
-      const data = await  response.json();
-      console.log(data);
-      // console.log(data)
-      // if(!response.ok)
-      // return{
+    method: 'GET'
+  })
+  // console.log(response);
+  const data = await  response.json();
+  // console.log(data);
+  // if(!response.ok)
+  // return{
       //   notFound: true,
       // }
-    
-  return {
-      props:{
-        userData:data
+      
+      return {
+        props:{
+         
+          userData:data
+        }
       }
     }
-}

@@ -6,11 +6,14 @@ import Navbar from '../navbar/Navbar';
 import React, { useState } from 'react';
 import Formpop from './EditForm';
 import { MdEdit } from 'react-icons/md';
+
   
 export default function Dashboard(props) {
   console.log(props);
-  const [detailPopup, setDetailPopup] = useState(false);
-  return (
+  
+
+    const [detailPopup, setDetailPopup] = useState(false);
+    return (
     <>
       <div className={styles.container}>
         <div className={styles.profile_card_container}>
@@ -22,7 +25,7 @@ export default function Dashboard(props) {
               height={10}
               width={10}
               layout="responsive"
-            />
+              />
             <div className={styles.profile_description}>
               <p>
                 NAME:<span>{props.data.name}</span>
@@ -90,21 +93,21 @@ export default function Dashboard(props) {
               alt="Stats1"
               height={100}
               width={140}
-            />
+              />
             <Image
               className={styles.stats_image2}
               src={`/images/dashboard/Stats1.png`}
               alt="Stats1"
               height={100}
               width={140}
-            />
+              />
             <Image
               className={styles.stats_image3}
               src={`/images/dashboard/Stats1.png`}
               alt="Stats1"
               height={100}
               width={140}
-            />
+              />
           </div>
           <div className={styles.stats_graph}>
             <Image
@@ -113,7 +116,7 @@ export default function Dashboard(props) {
               alt="Stats1"
               height={350}
               width={900}
-            />
+              />
           </div>
         </div>
       </div>
@@ -121,3 +124,4 @@ export default function Dashboard(props) {
     </>
   );
 }
+
