@@ -18,7 +18,7 @@ export default function dashboard(props) {
     
   }
 
-  else if(status === "authenticated") {
+  else if(session && status === "authenticated") {
 
     
     return (
