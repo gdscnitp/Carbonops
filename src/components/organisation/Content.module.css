@@ -47,8 +47,13 @@
   margin-top: 0.5rem;
   padding:1rem 2rem;
   font-size: 20px;
-  /* border-radius: 10px; */
+  background-color: #142424;
+  border-radius: 10px;
   /* border: 1px solid grey; */
+}
+.RightPosition .row .dataSpan{
+  color: #00bd57;
+  margin-right: 5px;
 }
 
 .container2 {

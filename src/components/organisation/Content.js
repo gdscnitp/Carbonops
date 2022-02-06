@@ -6,6 +6,8 @@ import Product from '/public/images/organisationDash/Product.png';
 import styles from './Content.module.css';
 
 function Content(props) {
+  // console.log(props,"props")
+
   return (
     <>
       <div className={styles.dashPage}>
@@ -27,35 +29,56 @@ function Content(props) {
 
                <div className={styles.organisationData}>
                  <div className={styles.row}>
-                  Organisation ID :
-                   {/* { Orgs.organisationId} */}
-                   {/* {props.organisationId} */}
-                   {/* {Orgs.Org && Orgs.map((Org) =>{
-                     return (
-                       <div key={Org.Id}>
-                          {Org.organisationId}
-                       </div>
-                     )
-                   })} */}
+                 <span className={styles.dataSpan}>
+                  Organisation ID 
+                 </span>
+                 : {props.data[0].organisationId}
                  </div>
+
                  <div className={styles.row}>
-                  Organisation Name : 6551dg
+                 <span className={styles.dataSpan}>
+                  Organisation Name 
+                  </span>
+                  : {props.data[0].organisationName}
                  </div>
+
                  <div className={styles.row}>
-                  Type : Private
+                 <span className={styles.dataSpan}>
+                  Type 
+                  </span>
+                  : {props.data[0].type}
                  </div>
+
                  <div className={styles.row}>
-                   Mail-ID : org@gmail.com
+                  <span className={styles.dataSpan}>
+                   Mail-ID 
+                  </span>
+                    : {props.data[0].mailId}
                  </div>
+
                  <div className={styles.row}>
-                  Contact : 12356487
+                 <span className={styles.dataSpan}>                 
+                  Contact
+                  </span>                  
+                   : {props.data[0].contact}
                  </div>
+
                  <div className={styles.row}>
-                  Location : Thomas Street
+                 <span className={styles.dataSpan}> Area </span>  :  {props.data[0].location[0].area } , <br />
+                 <span className={styles.dataSpan}> City</span> : {props.data[0].location[0].city }, <br />
+                 <span className={styles.dataSpan}> Pincode </span> : {props.data[0].location[0].pincode } , <br />
+                 <span className={styles.dataSpan}>
+                  State 
+                  </span> : {props.data[0].location[0].state } , <br />
+                  <span className={styles.dataSpan}>
+                  Nation 
+                  </span> : {props.data[0].location[0].nation } ,
                  </div>
-                 <div className={styles.row}>
-                  Waste Requirements : Carbon
-                 </div>
+                 
+                 {/* wasteRequirements will only appear when dealsProducts is true  */}
+                {props.data[0].dealsProducts && <div className={styles.row}>
+                <span className={styles.dataSpan}> Waste Requirements</span>  : {props.data[0].wasteRequirements}
+                 </div>}
                </div>
 
             </div>
