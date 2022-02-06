@@ -32,6 +32,9 @@ const organisationSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    description: {
+        type: String,
+    },
     location:[{
         area:{
             type:String,
@@ -116,5 +119,5 @@ function getDemo () {
   }
   const Org= getDemo()
   module.exports= Org;
-  
+   console.log(Org)
 

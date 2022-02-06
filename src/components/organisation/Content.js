@@ -118,7 +118,7 @@ function Content(props) {
               placeholder="Product Name"
               className={styles.input}
             />
-            <div className={styles.topic}>Your Description</div>
+            <div className={styles.topic}>Product Description</div>
             <textarea
               type="description"
               placeholder="Product Description"
