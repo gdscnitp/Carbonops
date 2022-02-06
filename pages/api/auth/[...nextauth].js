@@ -22,15 +22,30 @@ export default NextAuth({
   
       async authorize(credentials) {
         initDB();
+        console.log(credentials);
+        const userCategory = credentials.category
+        console.log(userCategory);
+        let userInd;
+        let userOrg;
+        switch(userCategory) {
+          case "individual":
+             userInd = await Individual.findOne({ email: credentials.email });
+            break;
+          case "organisation":
+             userOrg = await Organisation.findOne({
+              mailId: credentials.email,
+            });
+            break;
+          
+        }
         //validate email on client side
-        const userInd = await Individual.findOne({ email: credentials.email });
         //console.log(userInd);
-        const userOrg = await Organisation.findOne({
-          mailId: credentials.email,
-        });
         //if (userOrg) console.log(userOrg);
-        if (!userOrg && !userInd) {
-          throw new Error("No user found!");
+        if (userCategory==="individual" && !userInd) {
+          throw new Error("Invalid credentials");
+        } 
+        else if (userCategory==="organisation" && !userOrg) {
+          throw new Error("Invalid credentials");
         } else {
           if (userInd) {
             user = userInd;
