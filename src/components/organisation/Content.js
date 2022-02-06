@@ -21,22 +21,43 @@ function Content(props) {
               />
             </div>
           </div>
+          
           <div className={styles.RightPosition}>
             <div className={styles.organisation}>
-              <form action="">
-                <div>
-                  <div className={styles.topic}>Your Profile Text here</div>
-                  <p className={styles.text}>{props.profile}</p>
-                </div>
-                <div>
-                  <div className={styles.topic}>Your Description</div>
-                  <p className={styles.text}>{props.description}</p>
-                </div>
-                <div>
-                  <div className={styles.topic}>Your Website Link</div>
-                  <p className={styles.text}>{props.link}</p>
-                </div>
-              </form>
+
+               <div className={styles.organisationData}>
+                 <div className={styles.row}>
+                  Organisation ID :
+                   {/* { Orgs.organisationId} */}
+                   {/* {props.organisationId} */}
+                   {/* {Orgs.Org && Orgs.map((Org) =>{
+                     return (
+                       <div key={Org.Id}>
+                          {Org.organisationId}
+                       </div>
+                     )
+                   })} */}
+                 </div>
+                 <div className={styles.row}>
+                  Organisation Name : 6551dg
+                 </div>
+                 <div className={styles.row}>
+                  Type : Private
+                 </div>
+                 <div className={styles.row}>
+                   Mail-ID : org@gmail.com
+                 </div>
+                 <div className={styles.row}>
+                  Contact : 12356487
+                 </div>
+                 <div className={styles.row}>
+                  Location : Thomas Street
+                 </div>
+                 <div className={styles.row}>
+                  Waste Requirements : Carbon
+                 </div>
+               </div>
+
             </div>
           </div>
         </div>
