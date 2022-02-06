@@ -9,7 +9,9 @@ import {getSession, useSession} from 'next-auth/react';
 
 const organisationDash = (props) => {
   const orgObj = props.Org
-
+  
+  const { data: session, status } = useSession()
+  console.log(session)
      // const { data: session, status } = useSession()
      // console.log(session,"useSession")
  
@@ -47,7 +49,7 @@ export default organisationDash;
 
 export async function getServerSideProps(context) {
 
-    const {session} = await getSession(context)
+    const session= await getSession(context)
     console.log(session, "sessionss")
     // var orgMail = session.user.email
 
