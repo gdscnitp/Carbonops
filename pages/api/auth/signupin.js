@@ -2,7 +2,7 @@ import initDB from "../../../helpers/db";
 import { sendSuccess, sendError } from "../../../utilities/response-helpers";
 import sendConfirmationMail from "../../../lib/mailer";
 
-import { contactCheck, emailcheck, passwordCheck } from "../../../utilities/validation";
+import { contactCheck, emailCheck, passwordCheck } from "../../../utilities/validation";
 
 
 const Individual = require("../../../models/Individual");
@@ -54,8 +54,7 @@ export default async function SignupIn(req, res) {
     const verifAcc = await VerAcc.findOne({ email: { $eq: req.body.email }});
 
     if (regUser || pUserAcc || orgAcc || verifAcc) {
-      /*checking if the user is existing also in the organisation collection and verified accounts collection*/
-      //console.log(orgAcc)//here organisation is returned that is why it is giving error that account already exists
+      //console.log(regUser,pUserAcc,orgAcc,verifAcc)
       return sendError(res, "Account already exists", 11, 422);
     } else {
       const newAccount = await PendAcc({
@@ -67,7 +66,7 @@ export default async function SignupIn(req, res) {
       await newAccount.save();
       console.log("Saved to database.");
       var result = await sendConfirmationMail(newAccount.email, newAccount._id);
-
+      
       return sendSuccess(res, newAccount);
     }
   } catch (err) {

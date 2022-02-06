@@ -6,10 +6,14 @@ import Navbar from '../navbar/Navbar';
 import React, { useState } from 'react';
 import Formpop from './EditForm';
 import { MdEdit } from 'react-icons/md';
+
   
 export default function Dashboard(props) {
-  const [detailPopup, setDetailPopup] = useState(false);
-  return (
+  console.log(props);
+  
+
+    const [detailPopup, setDetailPopup] = useState(false);
+    return (
     <>
       <div className={styles.container}>
         <div className={styles.profile_card_container}>
@@ -21,13 +25,13 @@ export default function Dashboard(props) {
               height={10}
               width={10}
               layout="responsive"
-            />
+              />
             <div className={styles.profile_description}>
               <p>
-                NAME:<span>{props.name}</span>
+                NAME:<span>{props.data.name}</span>
               </p>
               <p>
-                EMail:<span>{props.email}</span>
+                EMail:<span>{props.data.email}</span>
               </p>
             </div>
             <div className={styles.editButton}>
@@ -40,7 +44,7 @@ export default function Dashboard(props) {
           <div className={styles.profile_stats}>
             <div className={styles.profile_stat}>
               <p>Location</p>
-              <p>{props.location}</p>
+              <p>{props.data.address[0].city}</p>
             </div>
 
             <div className={styles.profile_stat}>
@@ -49,7 +53,7 @@ export default function Dashboard(props) {
             </div>
             <div className={styles.profile_stat}>
               <p>Phone Number</p>
-              <p>{props.phone}</p>
+              <p>{props.data.contact}</p>
             </div>
             <div className={styles.profile_stat}>
               <p>Date of Last Report </p>
@@ -89,21 +93,21 @@ export default function Dashboard(props) {
               alt="Stats1"
               height={100}
               width={140}
-            />
+              />
             <Image
               className={styles.stats_image2}
               src={`/images/dashboard/Stats1.png`}
               alt="Stats1"
               height={100}
               width={140}
-            />
+              />
             <Image
               className={styles.stats_image3}
               src={`/images/dashboard/Stats1.png`}
               alt="Stats1"
               height={100}
               width={140}
-            />
+              />
           </div>
           <div className={styles.stats_graph}>
             <Image
@@ -112,7 +116,7 @@ export default function Dashboard(props) {
               alt="Stats1"
               height={350}
               width={900}
-            />
+              />
           </div>
         </div>
       </div>
@@ -120,3 +124,4 @@ export default function Dashboard(props) {
     </>
   );
 }
+

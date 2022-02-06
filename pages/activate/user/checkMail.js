@@ -1,9 +1,8 @@
 import React from "react";
-import Link from "next/link";
 import styles from "./profileCompletion.module.css";
 import { TiTick } from "react-icons/ti";
 
-export default function ProfileCompletion({ id, profHref }) {
+export default function checkMail() {
   return (
     <>
       <div className={styles.profilePage}>
@@ -11,13 +10,13 @@ export default function ProfileCompletion({ id, profHref }) {
           <div className={styles.tick}>
             <TiTick style={{ fontSize: "55px" }} />
           </div>
-          <div className={styles.text}>
-            {id} Your account is <strong>Verified!</strong> . Please complete
-            profile here{" "}
+          <div className={styles.text}>Congrats🎉 Step 1/3 ✅
+          <br></br>
+          Please check your entered Email.
+          <br></br>
+           Click on <strong>Activate</strong> to proceed with Step 2/3.
           </div>
-          <Link href={`../../${profHref}/${id}`}>
-            <a className={styles.button}>Profile Comp </a>
-          </Link>
+          
         </div>
       </div>
     </>
