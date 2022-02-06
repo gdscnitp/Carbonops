@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     const mailId = req.query.organisationDashboard;
     // const mailId = req.body.mailId;
     const mail = {
-      email:  mailId
+      email: {$eq : mailId}
     };
     //console.log(mailId);
     // checking if mail is valid or not
