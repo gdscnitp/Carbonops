@@ -12,7 +12,8 @@ export default function OrgProfile({idOfOrg}) {
         buttonText2=""
         href4=""
         buttonText1=""
-        buttonText3=""/>
+        buttonText3=""
+        buttonText4=""/>
 
         <VerifyOrg id={idOfOrg}/>
         </>

@@ -14,7 +14,9 @@ export default function IndProfile({idOfInd}) {
         buttonText2=""
         href4=""
         buttonText1=""
-        buttonText3=""/>
+        buttonText3=""
+        buttonText4=""
+        />
 
         <VerifyIn id={idOfInd} />
         </>
