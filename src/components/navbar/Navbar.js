@@ -53,6 +53,17 @@ export default function Navbar(props) {
               ''
             )}
           </Link>
+          
+          {/* <Link href=""> */}
+          {props.buttonText4.length > 0 ? (
+          <button className={styles.button1}>{props.buttonText4}</button>
+          ) : (
+            ''
+          )}
+          {/* </Link> */}
+          
+          
+          
         </ul>
      
       </nav>

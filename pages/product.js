@@ -14,7 +14,8 @@ const product = () => {
             buttonText3={navLinks[0].name}
             href5={navLinks[0].link} 
             buttonText2=""
-            buttonText1=""/>
+            buttonText1=""
+            buttonText4=""/>
              <Productpage/>
         </>
     )

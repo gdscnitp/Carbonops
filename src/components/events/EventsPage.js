@@ -17,9 +17,10 @@ export default function EventsPage({event}) {
             <div className={styles.eventMid}>
             {event && event.map((events)=>{
                 return(
-                    <div key ={events.id}>
+                    <div key ={events._id}>
+                   {/* { console.log(events._id) } */}
 
-                <EventCard events={events}/>
+                    <EventCard events={events}/>
                 </div>
                 )
             })}

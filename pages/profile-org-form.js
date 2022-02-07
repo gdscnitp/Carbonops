@@ -12,6 +12,7 @@ export default function OrgProfile() {
         buttonText1=""
         buttonText2=""
         buttonText3=""
+        buttonText4=""
       />
       {/* <Navbar action1="Home" action2="" buttonText1="" buttonText2=""/> */}
       <VerifyOrg />

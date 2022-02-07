@@ -24,9 +24,9 @@ const organisationDash = () => {
         href2="/events"
         buttonText3={navLinks[2].name}
         href5="/create-events"
-        buttonText2={navLinks[6].name}
-        href4={navLinks[6].link}
+        buttonText2=""
         buttonText1=""
+        buttonText4="SignOut"
         />
 
         <main className={styles.main}>
