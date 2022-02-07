@@ -42,7 +42,7 @@ export default NextAuth({
               userInd.password
             );
           } else {
-            console.log("user is org")
+           // console.log("user is org")
             user = userOrg;
             mail=user.mailId;
             isValid = await verifyPassword(
