@@ -16,6 +16,7 @@ export default function Bottom() {
             //     router.push(`/feeds?page=${page - 1}`)
             // }}
             // disabled={page <= 1}
+            // href='/'
           >
             <FaAngleLeft style={{ color: '#00bd57', fontSize: '35px' }} />
           </a>

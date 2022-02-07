@@ -15,7 +15,7 @@ export default function Feeds({ organ }) {
           <title>Environment Awareness App</title>
           <meta name="description" content="" />
         </Head>
-        <Navbar />
+        {/* <Navbar /> */}
         <br />
         <div className={styles.search}>
           <div className={styles.inputBx}>
@@ -29,7 +29,7 @@ export default function Feeds({ organ }) {
             {organ &&
               organ.map((organs) => {
                 return (
-                  <div className={styles.card} key={organs.id}>
+                  <div className={styles.card} key={organs._id}>
                     <Card  organs={organs} />
                   </div>
                 );

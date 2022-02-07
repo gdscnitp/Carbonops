@@ -34,7 +34,7 @@ export default function Card({ organs }) {
               <div className={styles.leftend}>Nguyen Shane</div>
               <div className={styles.rightend}>Oct 13, 2017</div>
             </div>
-            <Link href=" ">
+            <Link href="/">
                 <a className={styles.button}>View More</a>
               </Link>
             
