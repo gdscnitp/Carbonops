@@ -18,7 +18,8 @@ export default function SignUpOrg() {
        href2={navLinks[3].link}
        buttonText1="" 
        buttonText2="" 
-       buttonText3=""/>
+       buttonText3=""
+       buttonText4=""/>
       {/* <Navbar action1="" action2="Home" buttonText1="" buttonText2="" /> */}
       <SignupOrganisation />
     </div>

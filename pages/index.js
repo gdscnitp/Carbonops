@@ -27,7 +27,8 @@ export default function Home() {
        buttonText1={navLinks[4].name}
        href3={navLinks[4].link} 
        buttonText2="" 
-       buttonText3=""/>
+       buttonText3=""
+       buttonText4=""/>
       {/* <div className={styles.circle}></div> */}
       <main className={styles.main}>
         <HomePage />
