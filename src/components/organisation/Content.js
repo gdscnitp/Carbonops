@@ -6,6 +6,8 @@ import Product from '/public/images/organisationDash/Product.png';
 import styles from './Content.module.css';
 
 function Content(props) {
+  // console.log(props,"props")
+
   return (
     <>
       <div className={styles.dashPage}>
@@ -21,22 +23,64 @@ function Content(props) {
               />
             </div>
           </div>
+          
           <div className={styles.RightPosition}>
             <div className={styles.organisation}>
-              <form action="">
-                <div>
-                  <div className={styles.topic}>Your Profile Text here</div>
-                  <p className={styles.text}>{props.profile}</p>
-                </div>
-                <div>
-                  <div className={styles.topic}>Your Description</div>
-                  <p className={styles.text}>{props.description}</p>
-                </div>
-                <div>
-                  <div className={styles.topic}>Your Website Link</div>
-                  <p className={styles.text}>{props.link}</p>
-                </div>
-              </form>
+
+               <div className={styles.organisationData}>
+                 <div className={styles.row}>
+                 <span className={styles.dataSpan}>
+                  Organisation ID 
+                 </span>
+                 : {props.data[0].organisationId}
+                 </div>
+
+                 <div className={styles.row}>
+                 <span className={styles.dataSpan}>
+                  Organisation Name 
+                  </span>
+                  : {props.data[0].organisationName}
+                 </div>
+
+                 <div className={styles.row}>
+                 <span className={styles.dataSpan}>
+                  Type 
+                  </span>
+                  : {props.data[0].type}
+                 </div>
+
+                 <div className={styles.row}>
+                  <span className={styles.dataSpan}>
+                   Mail-ID 
+                  </span>
+                    : {props.data[0].mailId}
+                 </div>
+
+                 <div className={styles.row}>
+                 <span className={styles.dataSpan}>                 
+                  Contact
+                  </span>                  
+                   : {props.data[0].contact}
+                 </div>
+
+                 <div className={styles.row}>
+                 <span className={styles.dataSpan}> Area </span>  :  {props.data[0].location[0].area } , <br />
+                 <span className={styles.dataSpan}> City</span> : {props.data[0].location[0].city }, <br />
+                 <span className={styles.dataSpan}> Pincode </span> : {props.data[0].location[0].pincode } , <br />
+                 <span className={styles.dataSpan}>
+                  State 
+                  </span> : {props.data[0].location[0].state } , <br />
+                  <span className={styles.dataSpan}>
+                  Nation 
+                  </span> : {props.data[0].location[0].nation } ,
+                 </div>
+                 
+                 {/* wasteRequirements will only appear when dealsProducts is true  */}
+                {props.data[0].dealsProducts && <div className={styles.row}>
+                <span className={styles.dataSpan}> Waste Requirements</span>  : {props.data[0].wasteRequirements}
+                 </div>}
+               </div>
+
             </div>
           </div>
         </div>

@@ -1,19 +1,25 @@
-import React from 'react'
-import Navbar from '../src/components/navbar/Navbar';
-import OrganisationDashBoard from '../src/components/organisation/Content'
-import styles from '../styles/Home.module.css'
-import {navLinks} from '../src/components/utils/data'
+import React from "react";
+import Navbar from "../src/components/navbar/Navbar";
+import OrganisationDashBoard from "../src/components/organisation/Content";
+import styles from "../styles/Home.module.css";
+import { navLinks } from "../src/components/utils/data";
+import { useRouter } from "next/router";
+import { getSession, useSession } from "next-auth/react";
 
-const organisationDetail={
-    profile:"Welcome to Green World",
-    description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis reiciendis incidunt nostrum voluptates! Quidem excepturi nam optio rerum qui blanditiis iure,",
-    link:"http://mywebsite.com",
-    
-};
+const organisationDash = (props) => {
+  const orgObj = props.Org;
 
+  const { data: session, status } = useSession();
+  // console.log(session)
 
-
-const organisationDash = () => {
+  const router = useRouter();
+  if (status === "loading") {
+    return <h1 style={{ color: "white" }}>Loading...</h1>;
+  }
+   else if (status === "unauthenticated") {
+    router.push("/login");
+  } 
+  else if (session && status === "authenticated") {
     return (
         <>
         {/* <Navbar action1="Events" action2="Dashboard" action3="Logout" buttonText="Create Events" /> */}
@@ -28,12 +34,43 @@ const organisationDash = () => {
         buttonText1=""
         buttonText4="SignOut"
         />
-
         <main className={styles.main}>
-        <OrganisationDashBoard {...organisationDetail}/>
-       </main> 
-        </>
-    )
-}
+          <OrganisationDashBoard {...orgObj} />
+        </main>
+      </>
+    );
+  }
+};
 
 export default organisationDash;
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/login",
+      },
+      props: {},
+    };
+  }
+  console.log(session, "sessionss");
+  var orgMail = session.user.email;
+  // console.log(orgMail,"org Mail")
+
+  const response = await fetch(
+    `http://localhost:3000/api/organisation-dashboard/${orgMail}`,
+    {
+      method: "GET",
+    }
+  );
+  const data = await response.json();
+  // console.log(data,"data here")
+
+  return {
+    props: {
+      Org: data,
+    },
+  };
+}
