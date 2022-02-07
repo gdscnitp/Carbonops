@@ -7,11 +7,16 @@ import ProSc from "../../models/Product";
 export default async function handler(req,res){
     if(req.method==="GET"){
         initDB();
-        const products= await ProSc.find({"organisationId":req.body.OrgId});
+        //check whether the given org id is existing in the database
+        const products= await ProSc.find({"organisationId":{$eq:req.body.OrgId}});
+        if(products.length===0)
+        {
+            return sendError(res,"No product found",10,404)
+        }
         
         return sendSuccess(res, products);
     }
     else {
-        return sendError(res,"Bad rquest(NOT POST)",8,400);
+        return sendError(res,"Bad rquest",8,400);
     }
 }           
