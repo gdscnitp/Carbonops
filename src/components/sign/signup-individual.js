@@ -28,7 +28,8 @@ export default function Sign(props) {
   const passwordInputRef = useRef();
   const dobInputRef=useRef();
   const contactInputRef=useRef();
-  const initialValues = { email: "",password:"",contact:""};
+  const confirmpasswordInputRef=useRef();
+  const initialValues = { email: "",password:"",contact:"",confirmpassword:""};
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
@@ -55,10 +56,13 @@ export default function Sign(props) {
     }
     // ^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\$%\^&\*])(?=.{8,})
     const re2 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-    if (!values.password) {
+    if (values.password=="") {
       errors.password = "Password is required!";
     } else if (!re2.test(values.password)) {
       errors.password = "PASSWORD WEAK!";
+    }
+    if(values.password!=values.confirmpassword){
+      errors.confirmpassword = "Password doesn't match";
     }
     const re3=/^([+]\d{2})?\d{10}$/;
     if (!values.contact) {
@@ -129,10 +133,10 @@ export default function Sign(props) {
                       type="email"
                       name="email"
                       placeholder="Email"
-                      required
+                     
                       value={formValues.email}
-                      ref={emailInputRef}
                       onChange={handleChange}
+                      required ref={emailInputRef}
                       //0email id
                     />
  <p style={{color: "red"}}>{formErrors.email}</p>
@@ -143,8 +147,8 @@ export default function Sign(props) {
                     value={formValues.contact}
                     onChange={handleChange}
                     required ref={contactInputRef}/>  
-                  </div>
                   <p style={{color: "red"}}>{formErrors.contact}</p>
+                  </div>
 
                   <div className={styles.inputBx}>
                     <input type="date" name="" placeholder="Date of Birth" required ref={dobInputRef}/>
@@ -156,15 +160,20 @@ export default function Sign(props) {
                     value={formValues.password}
                        onChange={handleChange}
                     />
-                  </div>
                   <p style={{color: "red"}}>{formErrors.password}</p>
+                  </div>
                   <div className={styles.inputBx}>
                     <input
                       type="password"
-                      name="password"
+                      name="confirmpassword"
                       placeholder="Confirm Password"
+                      required ref={confirmpasswordInputRef}
+                      value={formValues.confirmpasword}
+                    onChange={handleChange}
                     />
+                  <p style={{color: "red"}}>{formErrors.confirmpassword}</p>
                   </div>
+
                   <div className={styles.remember}>
                     <label>
                       <input type="checkbox" name="" /> 

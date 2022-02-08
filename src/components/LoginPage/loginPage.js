@@ -122,7 +122,7 @@ function Login() {
                     ref={emailInputRef}
                   />
                 </div>
-                <p style={{color: "red"}}>{formErrors.email}</p>
+      <p style={{color: "red"}}>{formErrors.email}</p>
                 <div className={styles.inputBx}>
                   <span>Password</span>
                   <input
@@ -156,7 +156,7 @@ function Login() {
                   </label>
                 </div>
                 <div className={styles.inputBx}>
-                  <botton
+                  <button
                     className={styles.input}
                     type="submit"
                     value="Log in"
@@ -164,7 +164,7 @@ function Login() {
                     onClick={submitHandler}
                   >
                     Login
-                  </botton>
+                  </button>
                 </div>
 
                 <h3>Or Login With</h3>
