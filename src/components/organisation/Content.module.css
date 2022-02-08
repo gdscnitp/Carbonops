@@ -10,8 +10,9 @@
 
 .container1 {
   margin: 5rem;
+  /* margin-bottom: 7rem; */
   width: auto;
-  height: 60vh;
+  height: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
@@ -32,7 +33,7 @@
 }
 
 .RightPosition {
-  padding: auto;
+  /* padding: auto; */
   width: auto;
   height: auto;
   grid-area: RightPosition;
@@ -40,6 +41,19 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.RightPosition .row{
+  margin-top: 0.5rem;
+  padding:1rem 2rem;
+  font-size: 20px;
+  background-color: #142424;
+  border-radius: 10px;
+  /* border: 1px solid grey; */
+}
+.RightPosition .row .dataSpan{
+  color: #00bd57;
+  margin-right: 5px;
 }
 
 .container2 {

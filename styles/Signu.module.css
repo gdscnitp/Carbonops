@@ -3,6 +3,12 @@
   background-color: #142424;
 }
 
+.card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 .main {
   min-height: 100vh;
   padding: 4rem 0;
@@ -80,6 +86,9 @@
 }
 .rowsss{
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
   margin-bottom: 20px;
   padding: 0% 0% 0% 0%;
