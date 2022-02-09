@@ -1,14 +1,15 @@
 
 import {sendError,sendSuccess} from "../../utilities/response-helpers"
 //the higher the score, more co2 produced.
+//The lower the score the better. If your score is less than 60 points, then you are making a small impact on your planet. If it is higher than 60, then you might want to look for some ways that you can reduce your impact.
 export default async function handler(req,res)
 {
    if(req.method==='POST')
    {
-       const {members,houseSize,meat,packagedFood,dishWasher,washingMachine, householdPurchases, garbageCans,recycles, itemsRecycled}=req.body;
+       const {members,houseSize,meat,packagedFood,dishWasher,washingMachine, householdPurchases, garbageCans,recycles, itemsRecycled, personalTransport, publicTransport,flight}=req.body;
        //validate the input
        var score=0;
-       //for members
+       //********************for family members********************
        if(members)
        {
             if(members==0)
@@ -139,7 +140,7 @@ export default async function handler(req,res)
           {
               score+=8;
           }
-          else if(householdPurchases>=3 && householdPurchases<=5)
+          else if(householdPurchases>=3 && householdPurchases<5)
           {
               score+=6;
           }
@@ -186,6 +187,68 @@ export default async function handler(req,res)
           //such as glass, plastic, paper, aluminium steel, food waste
           score-=4*noOfRecycled;
       }
+
+      //********************** for transportation scores **********************/
+        if(personalTransport)
+        {
+            if(personalTransport> 15000)
+            {
+                score+=12;
+            }
+            else if(personalTransport>=10000 && personalTransport<=15000)
+            {
+                score+=10;
+            }
+            else if(personalTransport>=1000 && personalTransport<10000)
+            {
+                score+=6;
+            }
+            else if(personalTransport<1000)
+            {
+                score+=4;
+            }
+            //if you dont have a personal vehicle, add nothing
+        }       
+
+        if(publicTransport)
+        {
+            if(publicTransport> 20000)
+            {
+                score+=12;
+            }
+            else if(publicTransport >=15000 && publicTransport<=20000)
+            {
+                score+=10;
+            }
+            else if(publicTransport>=10000 && publicTransport<15000)
+            {
+                score+=6;
+            }
+            else if(publicTransport>1000 && publicTransport<10000)
+            {
+                score+=4;
+            }
+            else if(publicTransport<=1000)
+            {
+                score+=2;
+            }
+        }
+
+        if(flight)
+        {
+            if(flight=="within state")
+            {
+                score+=2;
+            }
+            else if(flight=="another country")
+            {
+                score+=6;
+            }
+            else if(flight=="another continent")
+            {
+                score+=20;
+            }
+        }
 
 
       return sendSuccess(res,score);
