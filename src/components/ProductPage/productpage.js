@@ -4,10 +4,11 @@ import heart from "/public/images/organisationProfilee/heart.png"
 import stars from "/public/images/organisationProfilee/stars.png"
 import Image from "next/image";
 
-const productpage = () => {
+export default function productpage({product}){
+   
     return (
         <>
-
+         
             {/* <button className={styles.dash}>
                    DashBoard
             </button> */}
@@ -21,8 +22,10 @@ const productpage = () => {
 
 
             <section className={styles.servicescontainer}>
-
-            <br />
+            {product && product.map((products)=>{
+                return(
+                    <div key ={products._id}>
+                    <br />
             <div className={styles.services}>
                 <div className={styles.box}>
                     <Image
@@ -43,9 +46,9 @@ const productpage = () => {
                 </div>
 
                 <div className={styles.container1}>
-                    <h3 className={styles.product}>Product Name</h3>
+                    <h3 className={styles.product}>{products.productName}</h3>
                     <br />
-                    <h4 className={styles.dollar}>$45</h4>
+                    <h4 className={styles.dollar}>${products.price}</h4>
                     <br />
                     <div className={styles.stars}>
                         <Image
@@ -63,7 +66,7 @@ const productpage = () => {
 
                 <div className={styles.container2}>
                     <h4 className={styles.description}>DESCRIPTION </h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aliquid debitis ratione recusandae vel autem, labore laborum dolor nam, commodi asperiores doloribus animi?</p>
+                    <p>{products.description}</p>
                 </div>
 
 
@@ -71,105 +74,12 @@ const productpage = () => {
            
 
         <br />
+                </div>
+                )
+            })}
+           
       
-            <div className={styles.services}>
-                <div className={styles.box}>
-                    <Image
-                        src={Hack}
-                        alt="Hack Image"
-                        width={250}
-                        height={170}
-                    />
-                </div>
-
-                <div className={styles.heart}>
-                    <Image
-                        src={heart}
-                        alt="Heart Image"
-                        width={34}
-                        height={31}
-                    />
-                </div>
-
-
-                <div className={styles.container1}>
-                    <h3 className={styles.product}>Product Name</h3>
-                    <br />
-                    <h4 className={styles.dollar}>$45</h4>
-                    <br />
-                    <div className={styles.stars}>
-                        <Image
-                            src={stars}
-                            alt="stars Image"
-                            width={114}
-                            height={26}
-                        />
-                    </div>
-                    <button className={styles.btn}>
-                        Book Now
-                    </button>
-                </div>
-
-
-                <div className={styles.container2}>
-                    <h4 className={styles.description}>DESCRIPTION </h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aliquid debitis ratione recusandae vel autem, labore laborum dolor nam, commodi asperiores doloribus animi?</p>
-                </div>
-
-
-            </div>
-
-            {/* ____________________ */}
-
-
-            <br />
-      
-      <div className={styles.services}>
-          <div className={styles.box}>
-              <Image
-                  src={Hack}
-                  alt="Hack Image"
-                  width={250}
-                  height={170}
-              />
-          </div>
-
-          <div className={styles.heart}>
-              <Image
-                  src={heart}
-                  alt="Heart Image"
-                  width={34}
-                  height={31}
-              />
-          </div>
-
-
-          <div className={styles.container1}>
-              <h3 className={styles.product}>Product Name</h3>
-              <br />
-              <h4 className={styles.dollar}>$45</h4>
-              <br />
-              <div className={styles.stars}>
-                  <Image
-                      src={stars}
-                      alt="stars Image"
-                      width={114}
-                      height={26}
-                  />
-              </div>
-              <button className={styles.btn}>
-                  Book Now
-              </button>
-          </div>
-
-
-          <div className={styles.container2}>
-              <h4 className={styles.description}>DESCRIPTION </h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aliquid debitis ratione recusandae vel autem, labore laborum dolor nam, commodi asperiores doloribus animi?</p>
-          </div>
-
-
-      </div>
+           
 
 <br />
 <br />
@@ -180,23 +90,8 @@ const productpage = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </>
     )
 }
 
-export default productpage
+
