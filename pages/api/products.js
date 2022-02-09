@@ -23,15 +23,15 @@ export default async function handler(req, res) {
 
       initDB();
       var prod = new proSc({
-        organisationId,
-        productName,
-        price,
-        description,
-        productImage,
-        rating,
+        organisationId:organisationId,
+        productName:productName,
+        price:price,
+        description:description,
+        productImage:productImage,
+        rating:rating,
         stockUnits,
-        isRecyclable,
-        productUrl,
+        isRecyclable:isRecyclable,
+        productUrl:productUrl,
       });
 
       if (
@@ -39,8 +39,7 @@ export default async function handler(req, res) {
         !price ||
         !description ||
         !productImage ||
-        !rating ||
-        !isRecyclable
+        !productUrl
       ) {
         return sendError(res, "Please provide all values🚩", 11, 404);
       }

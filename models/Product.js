@@ -4,7 +4,7 @@ const {isURL} = require("validator");
 
 const productSchema = new mongoose.Schema({
     organisationId:{
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: 'organisation'
     },
     productName:{
@@ -29,7 +29,7 @@ const productSchema = new mongoose.Schema({
     },
     rating:{
         type:Number,
-        required:true,
+        required:false,
         enum: [1,2,3,4,5]
     },
     stockUnits:{
