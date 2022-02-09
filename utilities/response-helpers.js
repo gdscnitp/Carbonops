@@ -7,11 +7,7 @@ export function sendError(res, err, error_index, status_code) {
     if (typeof error_index == undefined) {
         status_code = SERVER_ERROR;
     }
-
     
-
-        
-        
         if (typeof status_code === 'number' && errorCodes.hasOwnProperty(status_code)) {
 
             

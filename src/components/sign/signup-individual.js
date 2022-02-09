@@ -11,6 +11,7 @@ async function createUser(email,password,contact,dob)
     headers: {
       'Content-Type': 'application/json',
     }})
+    
     //console.log(response)
     const data = response.json();
     //console.log(data)
@@ -36,16 +37,16 @@ export default function Sign(props) {
   const handleChange = (e) => {
     
     const { name, value } = e.target;
-    console.log(name)
+   // console.log(name)
     setFormValues({ ...formValues, [name]: value });
    
   };
-  useEffect(() => {
-    console.log(formErrors);
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues);
-    }
-  }, [formErrors]);
+  // useEffect(() => {
+  //  // console.log(formErrors);
+  //   if (Object.keys(formErrors).length === 0 && isSubmit) {
+  //     //console.log(formValues);
+  //   }
+  // }, [formErrors]);
   const validate = (values) => {
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -90,7 +91,7 @@ export default function Sign(props) {
   
 
     const result=await createUser(email,password,contact,dob)
-    
+    console.log(result)
     if(result.success)
     {
       console.log("successful signup");

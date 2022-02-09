@@ -41,7 +41,7 @@ export default async function indProfileCompletion (req, res){
                     address:{area:areaName,city:cityName,state:stateName,pincode,nation:countryName},occupation,facebook,linkedin
                       }).save()
                 if (newIndividual) return sendSuccess(res, newIndividual)
-                else return sendError(res, err.message,1,422);
+                else return sendError(res, "Could not complete profile",1,422);
             } catch (err) {
                 console.log(err.message)
                 return sendError(res, err.message,1,422); 

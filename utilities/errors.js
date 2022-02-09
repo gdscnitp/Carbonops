@@ -9,7 +9,7 @@ const errorCodes = {
    350: ["Already subscribe to this platform"],
    400: ["Default- correct Error Index", "Bad Request located"],
    401: ["Unauthorized Access"],
-   403: ["Default- correct Error Index","Event with this name is already registered"],
+   403: ["Default- correct Error Index","Event with this name is already registered","No events found"],
    404: ["Default- correct Error Index","Event's Location Not Found","Missing Inputs or Wrong Inputs","Page Not Found"],
    409: ["Conflict"],
    429: ["Too many requests"],
@@ -21,6 +21,7 @@ const errorCodes = {
    800: ["Access without token is not authorised"],
    900: ["Invalid Credentials"],
    400: ["Email is invalid or disposal"]
+
 }
 module.exports=errorCodes;
   
