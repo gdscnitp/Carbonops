@@ -1,6 +1,6 @@
 import Image from "next/image";
 import EnvImg from "/public/environment.png";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import styles from "./login.module.css";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
@@ -13,12 +13,44 @@ function Login() {
   const passwordInputRef = useRef();
   const router = useRouter();
   const [selects, setSelects] = useState();
-
-  async function submitHandler() {
+  const initialValues = { email: ""};
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+  const handleChange = (e) => {
+    
+    const { name, value } = e.target;
+    
+    setFormValues({ ...formValues, [name]: value });
+   
+  };
+  useEffect(() => {
+    console.log(formErrors);
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      console.log(formValues);
+    }
+  }, [formErrors]);
+  const validate = (values) => {
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!values.email) {
+      errors.email = "Email is required!";
+    } else if (!regex.test(values.email)) {
+      errors.email = "Invalid email format!";
+    }
+    return errors;
+  }
+  async function submitHandler(e) {
+    
+    
     const email = emailInputRef.current.value;
-    const password = passwordInputRef.current.value;
     console.log(email);
-
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    
+    const password = passwordInputRef.current.value;
+    
+    setIsSubmit(true);
     const result = await signIn("credentials", {
       redirect: false,
       email: email,
@@ -35,6 +67,7 @@ function Login() {
       console.log(result);
     }
   }
+ 
   const [detailPopup, setDetailPopup] = useState(false);
 
   return (
@@ -82,11 +115,14 @@ function Login() {
                   <input
                     className={styles.input}
                     type="email"
-                    name=""
+                    name="email"
                     required
+                    value={formValues.email}
+              onChange={handleChange}
                     ref={emailInputRef}
                   />
                 </div>
+      <p style={{color: "red"}}>{formErrors.email}</p>
                 <div className={styles.inputBx}>
                   <span>Password</span>
                   <input
@@ -120,7 +156,7 @@ function Login() {
                   </label>
                 </div>
                 <div className={styles.inputBx}>
-                  <botton
+                  <button
                     className={styles.input}
                     type="submit"
                     value="Log in"
@@ -128,7 +164,7 @@ function Login() {
                     onClick={submitHandler}
                   >
                     Login
-                  </botton>
+                  </button>
                 </div>
 
                 <h3>Or Login With</h3>
