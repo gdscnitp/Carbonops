@@ -7,6 +7,15 @@ import { useRouter } from "next/router";
 import { getSession, useSession } from "next-auth/react";
 
 const organisationDash = (props) => {
+   async function addProductHandler(productDetails){
+    const response =await fetch('/api/products',{
+      method:'POST',
+      body:JSON.stringify(productDetails),
+      headers:{
+          'Content-Type' :'application/json'
+      }    
+    })
+  }
   const orgObj = props.Org;
 
   const { data: session, status } = useSession();
@@ -35,7 +44,7 @@ const organisationDash = (props) => {
         buttonText4="SignOut"
         />
         <main className={styles.main}>
-          <OrganisationDashBoard {...orgObj} />
+          <OrganisationDashBoard {...orgObj} onAddProduct={addProductHandler} />
         </main>
       </>
     );
