@@ -31,7 +31,7 @@ export default async function OrgProfileCompletion(req, res){
              
              try {
                  if (!organisationName || !typeOfOrganisation || !areaName || !cityName || !stateName || !pincode || !countryName  || !websiteLink || !linkedin) {
-                     return sendError(res,"Please fill all fields",11,422)
+                     return sendError(res,"Please fill all fields",2,404)
                     }
                     
                     
@@ -41,13 +41,13 @@ export default async function OrgProfileCompletion(req, res){
                         website:websiteLink,type:typeOfOrganisation
                     }).save()
                     if (newOrganisation) return sendSuccess(res, newOrganisation)
-                    else return sendError(res, err.message,err.message,422);
+                    else return sendError(res, "could not create new Organisation",1,422);
                 } catch (err) {
                     console.log(err.message)
-                    return sendError(res, err.message,err.message,422); 
+                    return sendError(res, err.message,1,422); 
                 }
             }else{
-                return sendError(res,"Such id not exists in verified accounts",18,700)
+                return sendError(res,"Such id not exists in verified accounts",1,700)
             }
     }
 }
