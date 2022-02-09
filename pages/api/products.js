@@ -41,7 +41,7 @@ export default async function handler(req, res) {
         !productImage ||
         !productUrl
       ) {
-        return sendError(res, "Please provide all values🚩", 11, 404);
+        return sendError(res, "Please provide all values🚩", 2, 404);
       }
 
       console.log(prod);
@@ -59,16 +59,16 @@ export default async function handler(req, res) {
       id: { $eq: req.body.id },
     };
     if (!ProdId.id) {
-      return sendError(res, "Please provide the Correct Product Id🚩", 11, 404);
+      return sendError(res, "Please provide the Correct Product Id🚩", 2, 404);
     }
 
     const info = await proSc.deleteOne({ _id: ProdId.id });
     console.log(info);
     if (info.deletedCount === 0) {
-      return sendError(res, "Could not delete product🚩", 11, 404);
+      return sendError(res, "Could not delete product🚩", 1, 404);
     }
     return sendSuccess(res, info);
   } else {
-    return sendError(res, "Bad rquest", 8, 400);
+    return sendError(res, "Bad rquest", 0, 400);
   }
 }

@@ -11,12 +11,12 @@ export default async function handler(req,res){
         const products= await ProSc.find({"organisationId":{$eq:req.body.OrgId}});
         if(products.length===0)
         {
-            return sendError(res,"No product found",10,404)
+            return sendError(res,"No product found",3,404)
         }
         
         return sendSuccess(res, products);
     }
     else {
-        return sendError(res,"Bad rquest",8,400);
+        return sendError(res,"Bad request",1,400);
     }
 }           

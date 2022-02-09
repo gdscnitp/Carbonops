@@ -2,7 +2,7 @@ import initDB from "../../helpers/db";
 import mongoose from "mongoose";
 import { sendSuccess, sendError } from "../../utilities/response-helpers";
 import EventSc from "../../models/Event";
-
+const { errorCodes } = require("../../utilities/errors");
 initDB();
 
 export default async function handler(req, res) {
@@ -38,11 +38,11 @@ export default async function handler(req, res) {
       !enquiryDetails ||
       !onOrgModel
     ) {
-      return sendError(res, "Please provide all values", 11, 404);
+      return sendError(res, "Please provide all values", 2, 404);
     }
 
     if (isOffline === true && eventLocation.length <= 0) {
-      return sendError(res, "Please provide event's location", 11, 404);
+      return sendError(res, "Please provide event's location", 1, 404);
     }
 
     var eveName = {
@@ -81,11 +81,11 @@ export default async function handler(req, res) {
       return sendError(
         res,
         "Event with this name is already registered",
-        10,
+        1,
         403
       );
     }
   } else {
-    return sendError(res, "Bad rquest(NOT POST)", 8, 400);
+    return sendError(res, "Bad request(NOT POST)", 1, 400);
   }
 }

@@ -30,7 +30,7 @@ export default async function indProfileCompletion (req, res){
             
             try {
                 if (!individualName || !areaName || !cityName || !stateName || !pincode || !countryName || !occupation || !facebook || !linkedin) {
-                    return sendError(res,"Please fill all fields",11,422)
+                    return sendError(res,"Please fill all fields",2,404)
                 }
 
                 const newIndividual = await  new Indiv({
@@ -41,14 +41,14 @@ export default async function indProfileCompletion (req, res){
                     address:{area:areaName,city:cityName,state:stateName,pincode,nation:countryName},occupation,facebook,linkedin
                       }).save()
                 if (newIndividual) return sendSuccess(res, newIndividual)
-                else return sendError(res, err.message,err.message,422);
+                else return sendError(res, err.message,1,422);
             } catch (err) {
                 console.log(err.message)
-                return sendError(res, err.message,err.message,422); 
+                return sendError(res, err.message,1,422); 
             }
         }
         else{
-            return sendError(res,"Such id not exists in verified accounts",18,700)
+            return sendError(res,"Such id not exists in verified accounts",1,700)
         }
     }
 }

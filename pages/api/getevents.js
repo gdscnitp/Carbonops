@@ -12,6 +12,6 @@ export default async function handler(req,res){
         return sendSuccess(res, events);
     }
     else {
-        return sendError(res,"Bad rquest(NOT POST)",8,400);
+        return sendError(res,"Bad request(NOT POST)",1,400);
     }
 }                                             
