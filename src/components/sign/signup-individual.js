@@ -1,6 +1,7 @@
 import styles from "./Signup.module.css";
-import React, { useRef } from "react";
+import React, { useRef,useEffect,useState } from "react";
 import Link from 'next/link';
+import Router from "next/router";
 
 async function createUser(email,password,contact,dob)
 {
@@ -27,6 +28,51 @@ export default function Sign(props) {
   const passwordInputRef = useRef();
   const dobInputRef=useRef();
   const contactInputRef=useRef();
+  const confirmpasswordInputRef=useRef();
+  const initialValues = { email: "",password:"",contact:"",confirmpassword:""};
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+  const handleChange = (e) => {
+    
+    const { name, value } = e.target;
+    console.log(name)
+    setFormValues({ ...formValues, [name]: value });
+   
+  };
+  useEffect(() => {
+    console.log(formErrors);
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      console.log(formValues);
+    }
+  }, [formErrors]);
+  const validate = (values) => {
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!values.email) {
+      errors.email = "Email is required!";
+    } else if (!regex.test(values.email)) {
+      errors.email = "This is not a valid email format!";
+    }
+    // ^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\$%\^&\*])(?=.{8,})
+    const re2 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (values.password=="") {
+      errors.password = "Password is required!";
+    } else if (!re2.test(values.password)) {
+      errors.password = "PASSWORD WEAK!";
+    }
+    if(values.password!=values.confirmpassword){
+      errors.confirmpassword = "Password doesn't match";
+    }
+    const re3=/^([+]\d{2})?\d{10}$/;
+    if (!values.contact) {
+      errors.cotact = "Contact no is mandatory";
+    } else if (!re3.test(values.contact)) {
+      errors.contact = "Invalid contact no!";
+    }
+   
+    return errors;
+  }
 
   async function SubmitHandler(event)
   {
@@ -35,11 +81,20 @@ export default function Sign(props) {
     const password=passwordInputRef.current.value;
     const dob=dobInputRef.current.value;
     const contact=contactInputRef.current.value;
+
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+
+
+      
   
+
     const result=await createUser(email,password,contact,dob)
-    if(result)
+    
+    if(result.success)
     {
       console.log("successful signup");
+      Router.push("/activate/user/checkMail");
     }
     else
     {
@@ -62,7 +117,7 @@ export default function Sign(props) {
               </div>
             </div>
           </div>
-          <forms className={styles.formss} >
+          <div className={styles.formss} >
             <div className={styles.contentBx}>
               <div className={styles.formBx}>
                 <h2>SIGNUP</h2>
@@ -76,40 +131,63 @@ export default function Sign(props) {
                     <input
                       className={styles.email}
                       type="email"
-                      name=""
+                      name="email"
                       placeholder="Email"
-                      required
-                      ref={emailInputRef}//email id
+                     
+                      value={formValues.email}
+                      onChange={handleChange}
+                      required ref={emailInputRef}
+                      //0email id
                     />
+ <p style={{color: "red"}}>{formErrors.email}</p>
                   </div>
                   <div className={styles.inputBxx}>
-                    <input type="number" name="" placeholder="Contact" required ref={contactInputRef}/>  
+                    <input type="number" name="contact" 
+                    placeholder="Contact" 
+                    value={formValues.contact}
+                    onChange={handleChange}
+                    required ref={contactInputRef}/>  
+                  <p style={{color: "red"}}>{formErrors.contact}</p>
                   </div>
+
                   <div className={styles.inputBx}>
                     <input type="date" name="" placeholder="Date of Birth" required ref={dobInputRef}/>
                   </div>
                   <div className={styles.inputBx}>
-                    <input type="password" name="" placeholder="Password" required ref={passwordInputRef}/>
+                    <input type="password" name="password" 
+                    placeholder="Password"
+                     required ref={passwordInputRef}
+                    value={formValues.password}
+                       onChange={handleChange}
+                    />
+                  <p style={{color: "red"}}>{formErrors.password}</p>
                   </div>
                   <div className={styles.inputBx}>
                     <input
                       type="password"
-                      name=""
+                      name="confirmpassword"
                       placeholder="Confirm Password"
+                      required ref={confirmpasswordInputRef}
+                      value={formValues.confirmpasword}
+                    onChange={handleChange}
                     />
+                  <p style={{color: "red"}}>{formErrors.confirmpassword}</p>
                   </div>
+
                   <div className={styles.remember}>
                     <label>
-                      <input type="checkbox" name="" /> Remember me
+                      <input type="checkbox" name="" /> 
+                      Remember me
                     </label>
                   </div>
                   <div className={styles.inputBx}>
                     <input type="submit" value="SignUp" name="" />
+
                   </div>
                 </form>
               </div>
             </div>
-          </forms>
+          </div>
         </section>
       </signup>
     </div>

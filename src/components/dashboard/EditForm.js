@@ -4,33 +4,72 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { FaCamera } from 'react-icons/fa';
 import { FaAngleLeft } from 'react-icons/fa';
+import { useSession, getSession } from "next-auth/react"
+
+
 
 export default function EditForm(props) {
-  const router = useRouter();
+ 
+  const { data: session, status } = useSession()
+ 
 
-  const [values, setValues] = useState({
-    name: '',
-    occupation: '',
-    location: '',
-    phone: '',
-    dateofLastReport: '',
-    areaName: '',
-    cityName: '',
-    stateName: '',
-    pincode: '',
-    countryName: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues({
-      ...values,
-      [name]: value,
+    const currentUserMail = session.user.email
+    console.log(session,status)
+    
+    const [values, setValues] = useState({
+      userName: '',
+      occupation: '',
+      location: '',
+      contact: '',
+      dateofLastReport: '',
+      areaName: '',
+      cityName: '',
+      stateName: '',
+      pincode: '',
+      countryName: '',
+      
     });
-  };
+    
+    
+    
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setValues({
+        ...values,
+        [name]: value,
+      });
+      
+    };
+    
+    
+    const handleSubmit = async (event) => {
+      event.preventDefault()   
+      // console.log(values)
+      const addressObj = {area:areaName.value,city:cityName.value,state:stateName.value,pincode:pincode.value,nation:countryName.value}
+      const toUpdate = {name:userName.value,occupation:occupation.value,contact:contact.value,email:currentUserMail,
+        address:addressObj
+      }
+      // console.log("To Update ===")
+      // console.log(toUpdate);
+      const res = await fetch("http://localhost:3000/api/updateindprof/", {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(toUpdate)
+      })
+      const resp = await res.json()
+      if (resp.error || resp.success==false){
+        console.log("could not update")
+        // console.log(resp);
+      }else{
+        //console.log(resp);
+        console.log("Updated individual profile successfully")
+      }
+};
 
-  return props.trigger ? (
-    <>
+return props.trigger ? (
+  <>
       <div className={styles.editformBody}>
         <div className={styles.container}>
           {/*_________________________________ */}
@@ -39,7 +78,7 @@ export default function EditForm(props) {
               onClick={() => {
                 props.setTrigger(false);
               }}
-            >
+              >
               <FaAngleLeft style={{ color: '#00bd57', fontSize: '35px' }} />
             </a>
           </div>
@@ -53,7 +92,7 @@ export default function EditForm(props) {
             <span className={styles.ellipse}>
               <FaCamera
                 style={{ color: 'rgba(0, 0, 0,0.5)', fontSize: '35px' }}
-              />
+                />
             </span>
             <label className={styles.imagefile} htmlFor="poster">
               <p className={styles.text}>Profile Image </p>
@@ -62,23 +101,23 @@ export default function EditForm(props) {
                 id="imageInput"
                 name="imageInput"
                 accept="image/png,image/jpg"
-              />
+                />
             </label>
           </div>
 
           <div className={styles.Form}>
-            <form>
-              <label className={styles.label} htmlFor="name">
+            <form onSubmit={handleSubmit}>
+              <label className={styles.label} htmlFor="userName">
                 <p className={styles.text}> Name</p>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={values.Name}
+                  id="userName"
+                  name="userName"
+                  value={values.userName}
                   onChange={handleChange}
                   required
                   autoComplete="off"
-                />
+                  />
               </label>
              {/* add occupation chnage field */}
               <label className={styles.label} htmlFor="occupation">
@@ -91,7 +130,7 @@ export default function EditForm(props) {
                   onChange={handleChange}
                   required
                   autoComplete="off"
-                />
+                  />
               </label>
 
               <label className={styles.label} htmlFor="area">
@@ -104,7 +143,7 @@ export default function EditForm(props) {
                   onChange={handleChange}
                   required
                   autoComplete="off"
-                />
+                  />
               </label>
               <label className={styles.label} htmlFor="city">
                 <p className={styles.text}>City</p>
@@ -116,7 +155,7 @@ export default function EditForm(props) {
                   onChange={handleChange}
                   required
                   autoComplete="off"
-                />
+                  />
               </label>
               <label className={styles.label} htmlFor="state">
                 <p className={styles.text}>State</p>
@@ -128,7 +167,7 @@ export default function EditForm(props) {
                   onChange={handleChange}
                   required
                   autoComplete="off"
-                />
+                  />
               </label>
               <label className={styles.label} htmlFor="pincode">
                 <p className={styles.text}>Pincode</p>
@@ -140,7 +179,7 @@ export default function EditForm(props) {
                   onChange={handleChange}
                   required
                   autoComplete="off"
-                />
+                  />
               </label>
               <label className={styles.label} htmlFor="country">
                 <p className={styles.text}>Country</p>
@@ -152,35 +191,35 @@ export default function EditForm(props) {
                   onChange={handleChange}
                   required
                   autoComplete="off"
-                />
+                  />
               </label>
-              <label className={styles.label} htmlFor="phone">
-                <p className={styles.text}>Phone</p>
+              <label className={styles.label} htmlFor="contact">
+                <p className={styles.text}>contact</p>
                 <input
                   type="tel"
-                  id="phone"
-                  name="phone"
-                  value={values.Phone}
+                  id="contact"
+                  name="contact"
+                  value={values.contact}
                   onChange={handleChange}
                   required
                   autoComplete="off"
-                />
+                  />
               </label>
 
               {/* <label className={styles.label} htmlFor="dateofLastReport">
                 <p className={styles.text}>Date of Last Report</p>
                 <input
-                  type="date"
-                  id="dateLastReport"
-                  name="dateLastReport"
-                  value={values.DateLastReport}
-                  onChange={handleChange}
-                  required
-                  autoComplete="off"
+                type="date"
+                id="dateLastReport"
+                name="dateLastReport"
+                value={values.DateLastReport}
+                onChange={handleChange}
+                required
+                autoComplete="off"
                 />
               </label> */}
-              <div className={styles.buttons}>
-                <a>Save</a>
+              <div className={styles.buttons} >
+              <a onClick={handleSubmit}>Save </a>
               </div>
             </form>
           </div>
@@ -189,5 +228,6 @@ export default function EditForm(props) {
     </>
   ) : (
     ''
-  );
-}
+    );
+  }
+  

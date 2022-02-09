@@ -31,7 +31,7 @@ export default async function handler(req, res) {
 
         //for organisation
         var {
-           organisationId,organisationName,mailId,password,contact,location,wasteRequirements,dealsProducts,linkedin,website,type
+           organisationId,organisationName,mailId,password,contact,description,location,wasteRequirements,dealsProducts,linkedin,website,type
         }=req.body;
 
         initDB();
@@ -41,7 +41,7 @@ export default async function handler(req, res) {
           //eventName,eventType,eventDetails,targetAudience,eventDescription,participantsLimit,isOffline,enquiryDetails,organiserId,onOrgModel
           //name,email,password,contact,address,dob,occupation,linkedin,facebook,profileImage
           //for org
-          organisationId,organisationName,mailId,password,contact,location,wasteRequirements,dealsProducts,linkedin,website,type
+          organisationId,organisationName,mailId,password,contact,description,location,wasteRequirements,dealsProducts,linkedin,website,type
         })
 
          //IMP For Event Schema 
