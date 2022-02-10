@@ -8,10 +8,12 @@ export default async function handler(req,res){
     if(req.method==="GET"){
         initDB();
         const events= await EventSc.find({});
-        
+        if(events.length>0)
         return sendSuccess(res, events);
+        else
+        return sendError(res,"Could not fetch events",3,403);
     }
     else {
-        return sendError(res,"Bad rquest(NOT POST)",8,400);
+        return sendError(res,"Bad request(NOT POST)",1,400);
     }
 }                                             

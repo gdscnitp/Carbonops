@@ -15,14 +15,14 @@ export default async function handler(req, res) {
             const {area,city,state,pincode,nation} = address;
             
             if (!name && !occupation && !contact && !area && !city && !state && !pincode && !nation) {
-                return sendError(res, "Fill at least one field",9, 400)
+                return sendError(res, "Fill at least one field",2, 404)
             }   
             
            
             if ((area || state || pincode || nation || city)){
                 if(!area || !state || !pincode || !nation || !city)
                 {
-                    return sendError(res, "Fill all address fields",9, 400)
+                    return sendError(res, "Fill all address fields",2, 404)
                 }  
             }
               
@@ -61,7 +61,7 @@ export default async function handler(req, res) {
             return sendSuccess(res, updatedUser);
 
         } catch (error) {
-            return sendError(res,error,9, 400)
+            return sendError(res,error,1, 400)
         }
     }
 
