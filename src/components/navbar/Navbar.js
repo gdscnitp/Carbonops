@@ -12,11 +12,7 @@ export default function Navbar(props) {
   const link4 = props.href4;
   const link5 = props.href5;
 
-  const handleLogout=()=>{
-    signOut()
-  }
-
-  return (
+   return (
     <>
       <nav className={styles.navbar}>
         <div className={styles.logo}>
@@ -64,7 +60,9 @@ export default function Navbar(props) {
           
           {/* <Link href=""> */}
           {props.buttonText4.length > 0 ? (
-          <button className={styles.button1}>{props.buttonText4}</button>
+          <button className={styles.button1}
+          onClick={()=>signOut()}
+          >{props.buttonText4}</button>
           ) : (
             ''
           )}
