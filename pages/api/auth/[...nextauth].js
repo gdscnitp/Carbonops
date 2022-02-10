@@ -6,6 +6,7 @@ var Organisation = require("../../../models/Organisation");
 //import { sendError,sendSuccess } from "../../../utilities/response-helpers";
 let isValid;
 let user;
+let mail;
 import verifyPassword from "../../../lib/verifyPassword";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -41,20 +42,25 @@ export default NextAuth({
         //validate email on client side
         //console.log(userInd);
         //if (userOrg) console.log(userOrg);
+
         if (userCategory==="individual" && !userInd) {
           throw new Error("Invalid credentials");
         } 
         else if (userCategory==="organisation" && !userOrg) {
           throw new Error("Invalid credentials");
+
         } else {
           if (userInd) {
             user = userInd;
+            mail=user.email;
             isValid = await verifyPassword(
               credentials.password,
               userInd.password
             );
           } else {
+           // console.log("user is org")
             user = userOrg;
+            mail=user.mailId;
             isValid = await verifyPassword(
               credentials.password,
               userOrg.password
@@ -66,7 +72,8 @@ export default NextAuth({
             throw new Error("Wrong Password");
           } else {
             console.log("successfully logged in");
-            return { email: user.email };
+           // console.log(mail)
+            return { email: mail };
           }
         }
         //connect to database
@@ -88,30 +95,4 @@ export default NextAuth({
   },
 });
 
-//[CredentialsProvider({
-//     name: 'Credentials',
 
-//     // credentials:{
-//     //     mailId: {  type: "email", placeholder: "Email" },
-//     //     password: {  type: "password", placeholder: "Password" },
-//     //     contact: {  type: "password", placeholder: "Password" },
-
-//     // },
-
-//     async authorize(credentials) {
-//        initDB();
-//         // const res = await fetch(`${process.env.DOMAIN}/api/signup`, {
-//         //     method: 'POST',
-//         //     body: JSON.stringify(credentials),
-//         //     headers: { "Content-Type": "application/json" }
-//         //   })
-//           // const user = await res.json()
-
-//           // // If no error and we have user data, return it
-//           // if (res.ok && user) {
-//           //   return user
-//           // }
-//           // // Return null if user data could not be retrieved
-//           // return null
-//     }
-// })],

@@ -17,7 +17,7 @@ export default async function updateRecords(req, res) {
       return sendError(
         res,
         "User already verified or does not exists",
-        11,
+        1,
         422
       );
 
