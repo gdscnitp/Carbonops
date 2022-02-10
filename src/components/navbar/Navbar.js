@@ -49,7 +49,7 @@ export default function Navbar(props) {
           </Link>
          
 
-          <Link href={`${link4}`} onclick={()=>handleLogout()} preventDefault="true">
+          <Link href={`${link4}`} >
             {props.buttonText2.length > 0 ? (
               <a className={styles.button}> {props.buttonText2} </a>
               ) : (
