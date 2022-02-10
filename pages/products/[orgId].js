@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export default function product({product}){
  
-    console.log(product) 
+    //console.log(product) 
     return (
         <>
              {/*<Navbar action1="" action2="" buttonText1="DashBoard" buttonText2=""/>*/} 
