@@ -23,7 +23,7 @@ export default async function SignupIn(req, res) {
       !req.body.contact ||
       !req.body.dob
     ) {
-      return sendError(res, "Please fill all fields", 11, 422);
+      return sendError(res, "Please fill all fields", 422);
     }
           // server side input validation
            var emailChecked=emailCheck(req.body.email);
