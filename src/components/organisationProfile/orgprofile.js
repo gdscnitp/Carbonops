@@ -49,7 +49,7 @@ const orgprofile = ({ org }) => {
           <h3 className={styles.torgg}>Type Of Org : {org[0].type}</h3>
           <h3 className={styles.bol}>
             {' '}
-            Based in {org[0].location[0].state},{org[0].location[0].nation}
+            Based in{' '} {org[0].location[0].state},{' '}{' '}{org[0].location[0].nation}
           </h3>
           <br />
           <p>

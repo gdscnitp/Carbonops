@@ -5,6 +5,7 @@ import StarRating from './starrating';
 import Link from 'next/link';
 
 export default function Card({ organs }) {
+  const id=organs.organisationId;
   return (
     <>
       <div className={styles.box}>
@@ -34,7 +35,7 @@ export default function Card({ organs }) {
               <div className={styles.leftend}>Nguyen Shane</div>
               <div className={styles.rightend}>Oct 13, 2017</div>
             </div>
-            <Link href={`${organs.organisationName}\${organs._id}`}>
+            <Link href={`organisation-profile/${id}`}>
                 <a className={styles.button}>View More</a>
               </Link>
             
