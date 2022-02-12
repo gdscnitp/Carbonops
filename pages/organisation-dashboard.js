@@ -7,6 +7,16 @@ import { useRouter } from "next/router";
 import { getSession, useSession } from "next-auth/react";
 
 const organisationDash = (props) => {
+   async function updateDetailsHandler(updateDetails){
+    const response =await fetch(`/api/organisation-dashboard/${updateDetails.mailOrganisation}`,{
+      method:'PATCH',
+      body:JSON.stringify(updateDetails),
+      headers:{
+          'Content-Type' :'application/json'
+      }    
+    })
+  }
+
    async function addProductHandler(productDetails){
     const response =await fetch('/api/products',{
       method:'POST',
@@ -17,7 +27,7 @@ const organisationDash = (props) => {
     })
   }
   const orgObj = props.Org;
-
+ 
   const { data: session, status } = useSession();
   // console.log(session)
 
@@ -31,7 +41,6 @@ const organisationDash = (props) => {
   else if (session && status === "authenticated") {
     return (
         <>
-        {/* <Navbar action1="Events" action2="Dashboard" action3="Logout" buttonText="Create Events" /> */}
         <Navbar 
         action1={navLinks[0].name} 
         href1="/"
@@ -44,7 +53,8 @@ const organisationDash = (props) => {
         buttonText4="SignOut"
         />
         <main className={styles.main}>
-          <OrganisationDashBoard {...orgObj} onAddProduct={addProductHandler} />
+          {/* <OrganisationDashBoard {...orgObj} onAddProduct={addProductHandler} /> */}
+          <OrganisationDashBoard {...orgObj} onAddProduct={addProductHandler} onUpdateDetails={updateDetailsHandler} />
         </main>
       </>
     );
