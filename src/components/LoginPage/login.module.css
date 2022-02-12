@@ -151,6 +151,8 @@
     align-items: center;
     cursor: pointer;
     margin-left: 25%;
+    margin-right: 50%;
+    margin-bottom: 5%;
 }
 .select{
     width: 80%;
@@ -243,4 +245,13 @@
     .section  .imgBx .inputBx {
         display: none;
     }
+    
 }
+.sci{
+   margin-left:-75%;
+   margin-top: 4%;
+        
+}
+/* .or{
+    margin-top:1000%;
+} */
