@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     } 
     else {
       if (organProfile) {
-        console.log(organProfile);
+        //console.log(organProfile);
         return sendSuccess(res, organProfile);
       } 
       else {

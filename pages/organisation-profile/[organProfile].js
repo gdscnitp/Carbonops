@@ -4,7 +4,7 @@ import {navLinks} from '../../src/components/utils/data';
 import { useEffect } from "react";
 
 export default function organisationProfile({org}){
-    console.log(org) 
+    //console.log(org) 
     return (
         <>
            {/* <Navbar action1="" action2="Home" buttonText1="DashBoard" buttonText2="Create Events"/> */}
