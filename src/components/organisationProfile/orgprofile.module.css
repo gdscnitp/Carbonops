@@ -151,7 +151,7 @@
     padding: 14px;
     margin: 3px 28px;
     border-radius: 8px;
-    width: 23%;
+    width: 95%;
   height: 54%;
     color: white;
     background-color: #173033;
@@ -185,9 +185,12 @@
 }
 .viewmore{
     position: absolute;
-    top: 271%;
+    top: 205%;
+    margin-bottom:50px;
     right: 2%;
-    height: 27px;
+    height: 57px;
+     width: 200px;
+     font-size: 30px;
     border-radius: 8px 4px 8px 5px;
     cursor: pointer;
     color: white;

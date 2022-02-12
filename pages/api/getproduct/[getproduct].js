@@ -15,8 +15,6 @@ export default async function Handler(req,res){
         {
             return sendError(res,"No product found",10,404)
         }
-
-        
         return sendSuccess(res, products);
     }
     else {
