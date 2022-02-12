@@ -55,6 +55,9 @@ function Login() {
       redirect: false,
       email: email,
       password: password,
+      category:selects
+      
+      
     });
    
     console.log(result);

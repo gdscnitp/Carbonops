@@ -1,33 +1,34 @@
 import Navbar from "../../src/components/navbar/Navbar";
-import Productpage from "../../src/components/ProductPage/productpage";
+import OrganisationProfile from '../../src/components/organisationProfile/orgprofile';
 import {navLinks} from '../../src/components/utils/data';
 import { useEffect } from "react";
 
-export default function product({product}){
- 
-    //console.log(product) 
+export default function organisationProfile({org}){
+    //console.log(org) 
     return (
         <>
-             {/*<Navbar action1="" action2="" buttonText1="DashBoard" buttonText2=""/>*/} 
-             <Navbar  
+           {/* <Navbar action1="" action2="Home" buttonText1="DashBoard" buttonText2="Create Events"/> */}
+           <Navbar  
             action1=""
             action2={navLinks[3].name}
             href2={navLinks[3].link}
             buttonText3={navLinks[0].name}
             href5={navLinks[0].link} 
-            buttonText2=""
+            buttonText2={navLinks[2].name}
+            href4={navLinks[2].link} 
             buttonText1=""
             buttonText4=""/>
-             
-             <Productpage product={product}/>
+            <OrganisationProfile org={org}/>
         </>
     )
 }
 
+
+
 export async function getServerSideProps(context) {
   
-    const orgId=context.params.orgId;
-    const response = await fetch(`http://localhost:3000/api/getproduct/${orgId}`, {
+    const organProfile=context.params.organProfile;
+    const response = await fetch(`http://localhost:3000/api/organisation-profile/${organProfile}`, {
       method: 'GET',
     });
   
@@ -35,8 +36,7 @@ export async function getServerSideProps(context) {
   
     return {
       props: {
-        product: data.data,
+        org: data.data,
       },
     };
   }
-

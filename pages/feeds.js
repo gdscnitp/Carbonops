@@ -7,7 +7,6 @@ import styles from '../styles/Signu.module.css';
 import { navLinks } from '../src/components/utils/data';
 
 export default function Feeds({ organ }) {
-
   return (
     <>
       <div className={styles.container}>
@@ -30,7 +29,7 @@ export default function Feeds({ organ }) {
               organ.map((organs) => {
                 return (
                   <div className={styles.card} key={organs._id}>
-                    <Card  organs={organs} />
+                    <Card  organs={organs}/>
                   </div>
                 );
               })}
