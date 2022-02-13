@@ -13,10 +13,12 @@ async function createUser(email,password,contact,dob)
     }})
     
     //console.log(response)
-    const data = response.json();
+    const data =await response.json();
+    //console.log(data)
     //console.log(data)
   if (!response.ok) {
     console.log("Error occured")
+    //return;
     //throw new Error(data.message || 'Something went wrong!');
   }
 
@@ -75,7 +77,7 @@ export default function Sign(props) {
     return errors;
   }
 
-  async function SubmitHandler(event)
+   async function SubmitHandler(event)
   {
     event.preventDefault();
     const email=emailInputRef.current.value;
@@ -86,11 +88,7 @@ export default function Sign(props) {
     setFormErrors(validate(formValues));
     setIsSubmit(true);
 
-
-      
-  
-
-    const result=await createUser(email,password,contact,dob)
+    const result= await createUser(email,password,contact,dob)
     console.log(result)
     if(result.success)
     {
@@ -102,6 +100,7 @@ export default function Sign(props) {
       console.log("Could not signup as individual")
     }
   }
+
   return (
     <div className={styles.container}>
       <signup className={styles.signu}>
