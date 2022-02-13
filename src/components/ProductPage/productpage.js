@@ -48,7 +48,7 @@ export default function productpage({product}){
                 <div className={styles.container1}>
                     <h3 className={styles.product}>{products.productName}</h3>
                     <br />
-                    <h4 className={styles.dollar}>${products.price}</h4>
+                    <h4 className={styles.dollar}>Rs.{products.price}</h4>
                     <br />
                     <div className={styles.stars}>
                         <Image
