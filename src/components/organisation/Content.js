@@ -106,6 +106,13 @@ function Content(props) {
 
                  <div className={styles.row}>
                  <span className={styles.dataSpan}>
+                  Organisation Description 
+                  </span>
+                  : {props.data[0].description}
+                 </div>
+
+                 <div className={styles.row}>
+                 <span className={styles.dataSpan}>
                   Type 
                   </span>
                   : {props.data[0].type}
