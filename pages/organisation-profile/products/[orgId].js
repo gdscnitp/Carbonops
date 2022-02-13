@@ -1,6 +1,6 @@
-import Navbar from "../../src/components/navbar/Navbar";
-import Productpage from "../../src/components/ProductPage/productpage";
-import {navLinks} from '../../src/components/utils/data';
+import Navbar from "../../../src/components/navbar/Navbar";
+import Productpage from "../../../src/components/ProductPage/productpage";
+import {navLinks} from '../../../src/components/utils/data';
 import { useEffect } from "react";
 
 export default function product({product}){
