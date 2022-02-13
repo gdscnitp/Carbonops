@@ -17,17 +17,18 @@ export function sendError(res, err, error_index, status_code) {
 
         };
 
-        return res.status(status_code).json({
+         res.status(status_code).json({
         code: status_code,
         message: err,
         success: false,
         time: Date.now()
     });
+    return;
   
 }
 export function sendSuccess(res, data) {
    
-    return res.status(OK).json({
+     res.status(OK).json({
         success: true,
         data: data,
     });
