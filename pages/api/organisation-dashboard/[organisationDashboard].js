@@ -48,6 +48,7 @@ export default async function handler(req, res) {
     const toUpdate = req.body;
     const { organisationName,type ,description,website ,linkedin ,area,city,state,pincode,nation} = toUpdate;
             // console.log(toUpdate);
+            const location = {area,city,state,pincode,nation};
 
     if (!organisationName && !type && !area && !city && !state && !pincode && !nation && !description && !website && !linkedin) {
       return sendError(res, "Fill at least one field",2, 404)
@@ -67,39 +68,33 @@ export default async function handler(req, res) {
         updatedOrg = await organisationSchema.findOneAndUpdate( { mailId: mail.email }, 
             {"$set":{"organisationName":organisationName}},
             { new: true })
-        //console.log(updatedOrg);
 
     }
     else if (userdata === "type" && type !== ''){
        updatedOrg = await organisationSchema.findOneAndUpdate( { mailId: mail.email }, 
             {"$set":{"type":type}},
             { new: true })
-        //console.log(updatedOrg);
     }
 
     else if (userdata === "description" && description !== ''){
        updatedOrg = await organisationSchema.findOneAndUpdate( { mailId: mail.email }, 
             {"$set":{"description":description}},
             { new: true })
-       // console.log(updatedOrg);
     }
     else if (userdata === "website" && website !== ''){
        updatedOrg = await organisationSchema.findOneAndUpdate( { mailId: mail.email }, 
             {"$set":{"website":website}},
             { new: true })
-       // console.log(updatedOrg);
     }
     else if (userdata === "linkedin" && linkedin !== ''){
        updatedOrg = await organisationSchema.findOneAndUpdate( { mailId: mail.email }, 
             {"$set":{"linkedin":linkedin}},
             { new: true })
-       // console.log(updatedOrg);
     }
     else if (userdata === "area" || userdata === "city" ||  userdata === "state" || userdata === "pincode" || userdata === "nation" && area !== '' && city !== '' && state !== '' && pincode !== '' && nation !== ''){
        updatedOrg = await organisationSchema.findOneAndUpdate( { mailId: mail.email }, 
           {"$set":{"location":location}},
           { new: true })
-      //console.log(updatedOrg);
   }
 
 } 
