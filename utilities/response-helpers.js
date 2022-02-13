@@ -9,31 +9,26 @@ export function sendError(res, err, error_index, status_code) {
     }
     
         if (typeof status_code === 'number' && errorCodes.hasOwnProperty(status_code)) {
-
-            
           const arrayOfErrors=errorCodes[status_code];
             if (typeof error_index === 'number' && arrayOfErrors.length > error_index) {
                 //go to corresponding error index
                 err = arrayOfErrors[error_index];
-            } else {
-                //default error
-                err = arrayOfErrors[0];
-
             }
 
+        };
 
-        return res.status(status_code).json({
+         res.status(status_code).json({
         code: status_code,
         message: err,
         success: false,
         time: Date.now()
     });
-        };
+    return;
   
 }
 export function sendSuccess(res, data) {
    
-    return res.status(OK).json({
+     res.status(OK).json({
         success: true,
         data: data,
     });
