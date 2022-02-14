@@ -7,6 +7,19 @@ import { signIn } from "next-auth/react";
 import { useRef } from "react";
 import { useRouter } from "next/router";
 import Signpop from "./signpo";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+  const customId = "custom-id-yes";
+
+
+const notify = (string, type) =>
+  toast(string, {
+        type,
+      }, {
+        toastId: customId
+      },
+    );
 
 function Login() {
   const emailInputRef = useRef();
@@ -62,11 +75,15 @@ function Login() {
    
     console.log(result);
     if (!result.error) {
+      notify("SignIn Successfull",'success');
       // set some auth state
       selects == "individual"
         ? router.replace("/individual-dashboard")
         : router.replace("/organisation-dashboard");
     } else {
+      notify(result.error,'error');
+      console.log(result.error);
+      notify("SignIn Unsuccessfull!",'error');
       console.log(result);
     }
   }
@@ -76,6 +93,23 @@ function Login() {
   return (
     <>
       <div className={styles.page}>
+      <ToastContainer
+          toastStyle={{ backgroundColor:"rgba(23, 48, 51, 1)",
+          color:"#fff",
+          border:"1px solid #0d551f",
+          boxSizing:"border-box",
+          boxShadow:"0.5px 0.5px 1px 1px #c9e1e1",
+          borderRadius:"5px", }}
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         {/* <nav className={styles.nav}>
           <div className={styles.navbar}>
            <Link href="/" passHref>

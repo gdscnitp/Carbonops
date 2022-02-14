@@ -2,6 +2,19 @@ import styles from "./Signup.module.css";
 import React, { useRef,useEffect,useState } from "react";
 import Link from 'next/link';
 import Router from "next/router";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+  const customId = "custom-id-yes";
+
+
+  const notify = (string, type) =>
+      toast(string, {
+        type,
+      }, {
+        toastId: customId
+      },
+    );
 
 async function createUser(email,password,contact,organisationId)
 {
@@ -12,10 +25,13 @@ async function createUser(email,password,contact,organisationId)
       'Content-Type': 'application/json',
     }})
     const data = await response.json();
-
+    console.log(response)
+    console.log(data)
   if (!response.ok) {
     // throw new Error(data.message || 'Something went wrong!');
     console.log("something went wrong")
+    notify(data.message, 'error');
+    return false;
   }
 
   return data;
@@ -89,16 +105,34 @@ export default function Sign(props) {
     const result=await createUser(email,password,contact,organisationId)
     if(result.success)
     {
-      console.log("successfully signed up")
+      notify("Successfully signed up", 'success');
+      console.log("Successfully signed up")
       Router.push("/activate/user/checkMail");
     }
     else
     {
-      console.log("Could not sign you as an organisation")
+      notify("Could not Sign you as an Organisation", 'error');
+      console.log("Could not Sign you as an Organisation")
     }
   }
   return (
     <div className={styles.container}>
+       <ToastContainer
+         toastStyle={{ backgroundColor:"rgba(23, 48, 51, 1)",
+         color:"#fff",
+         border:"1px solid #0d551f",
+         boxSizing:"border-box",
+         boxShadow:"0.5px 0.5px 1px 1px #c9e1e1",
+         borderRadius:"5px", }}
+         position="top-right"
+         autoClose={5000}
+         hideProgressBar={false}
+         newestOnTop={false}
+         closeOnClick
+         rtl={false}
+         pauseOnFocusLoss
+         draggable
+         pauseOnHover/>
       <signup className={styles.signu}>
         <section className={styles.section}>
           <div className={styles.left}>
