@@ -1,4 +1,4 @@
-import Navbar from '../src/components/feeds/nav';
+import Navbar from "../src/components/navbar/Navbar";
 import Bottom from '../src/components/feeds/bottom';
 import Card from '../src/components/feeds/cards';
 import React from 'react';
@@ -14,6 +14,16 @@ export default function Feeds({ organ }) {
           <title>Environment Awareness App</title>
           <meta name="description" content="" />
         </Head>
+        <Navbar  
+         action1={navLinks[0].name}
+         href1={navLinks[0].link}
+         action2={navLinks[1].name}
+         href2={navLinks[1].link}
+         buttonText2={navLinks[2].name}
+         href4={navLinks[2].link} 
+         buttonText1="" 
+         buttonText3=""
+         buttonText4=""/>
         {/* <Navbar /> */}
         <br />
         <div className={styles.search}>
