@@ -118,9 +118,9 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.section .contentBx .formBx .bx p {
+ .section .contentBx .formBx .bx p {
   font-size: 20px;
-  color: #fff;
+  color: #fff; 
 }
 .section .contentBx .formBx .bx p a {
   color: #00c44f;
@@ -178,7 +178,7 @@
 }
 
 .section .contentBx .formBx .inputBx input[type="submit"] {
-  background: #00bd57;
+   background: #00bd57;
   color: #fff;
   outline: none;
   border: none;
@@ -189,8 +189,7 @@
   align-items: center;
   cursor: pointer;
   margin-left: 30%;
-  margin-bottom: 0px;
-}
+  margin-bottom: 0px; } 
 
 .option {
   border-radius: 50%;
@@ -209,3 +208,125 @@
   font-weight: 500;
   color: #ecf6ed;
 }
+
+
+
+
+
+
+
+
+
+@media (max-width: 1150px)
+{
+
+.formss{
+z-index: 1;
+height:100%;
+width: 200%;
+
+}
+.section .imgBx {
+ z-index: 0;
+ width:100%;
+ height:10%;
+ display: none;
+
+ /* background: rgb(11 40 7 / 80%); */
+}
+/* .inputBx{
+  width:100%;
+
+} */
+.formss.contentBx.formBx{
+  width: 90%;
+  position: relative;
+  left: -12%;
+}
+/* .inputBx{
+  margin-left: 10%;
+  width:50%;
+} */
+
+.section .contentBx .formBx .inputBx input[type="submit"] {
+  background: #00bd57;
+  color: #fff;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  width: 60%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 10%;
+  margin-bottom: 0px;
+}
+
+.section .contentBx .formBx h2 {
+  color: #54ccfa;
+  font-weight: 600;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: inline-block;
+  letter-spacing: 1px;
+  margin-left: 10%;
+}
+.section .contentBx .formBx {
+  width: 90%;
+  margin-left: -24%;
+  position: relative;
+
+}
+.container {
+  background-color: #142424;
+  margin-top: 5%;
+  height: 80%;
+  width: 131%;
+  display: flex;
+}
+
+
+
+
+
+
+
+
+/* section .imgBx .inputBx p {
+  font-size: 25px;
+  color: #fff;
+}
+.section .imgBx .inputBx p a {
+  color: #00c44f;
+  font-size: 25px;
+  margin-left: 5px;
+} */
+
+.org{
+
+ background-color: #82DB62;
+ border: none;
+width: 24vw;
+height: 4vh;
+font-size: 2vw;
+float: right;
+margin-right: 167px;}
+
+.section .imgBx .inputBx p {
+  font-size: 25px;
+  color: #fff;
+}
+.section .imgBx .inputBx p a {
+  color: #00c44f;
+  font-size: 25px;
+  margin-left: 5px;
+}
+.shift{
+margin-left:10000%;
+text-align: right;
+}
+
+
+}    

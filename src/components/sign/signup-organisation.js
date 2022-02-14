@@ -107,9 +107,12 @@ export default function Sign(props) {
                 <pic className={styles.pics}></pic>
               </div>
               <div className={styles.inputBx}>
+              {/* <div className={styles.shift}> */}
                 <p>
-                  Already Registered?<Link href="./login">Login Now!</Link>
-                </p>
+                  Already Registered?
+                  <Link href="./login">Login Now!</Link>
+                  </p>
+              {/* </div> */}
               </div>
             </div>
           </div>
@@ -176,9 +179,9 @@ export default function Sign(props) {
                       <input type="checkbox" name="" /> Remember me
                     </label>
                   </div>
-                  <div className={styles.inputBx}>
-                    <button type="submit"  name="">SignUp</button>
-                  </div>
+                  {/* <div className={styles.inputBx}> */}
+                    <button type="submit" className={styles.org}  name="">SignUp</button>
+                  {/* </div> */}
                 </form>
               </div>
             </div>

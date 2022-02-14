@@ -112,7 +112,7 @@ export default function Sign(props) {
               </div>
               <div className={styles.inputBx}>
                 <p>
-                  Already an User?<Link href="./login">Login Now!</Link>
+                  Already a User?<Link href="./login">Login Now!</Link>
                 </p>
               </div>
             </div>
