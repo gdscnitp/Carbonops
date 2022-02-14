@@ -55,6 +55,9 @@ function Login() {
       redirect: false,
       email: email,
       password: password,
+      category:selects
+      
+      
     });
    
     console.log(result);
@@ -156,6 +159,7 @@ function Login() {
                   </label>
                 </div>
                 <div className={styles.inputBx}>
+                  <div>
                   <button
                     className={styles.input}
                     type="submit"
@@ -163,12 +167,13 @@ function Login() {
                     name=""
                     onClick={submitHandler}
                   >
-                    Login
+                    Log in
                   </button>
+                  </div>
                 </div>
-
-                <h3>Or Login With</h3>
               </form>
+<div className={styles.or}><h5 className="or">Or Login With</h5></div>
+          <div>
               <ul className={styles.sci}>
                 <li>
                   <svg
@@ -183,6 +188,7 @@ function Login() {
                   </svg>
                 </li>
               </ul>
+              </div>
             </div>
           </div>
         </div>

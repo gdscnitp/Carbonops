@@ -35,7 +35,7 @@ export default async function SignupIn(req, res) {
             }
             if(passwordChecked===false)
             {
-                 return sendError(res,"Weak Password",19,400);
+                 return sendError(res,"Weak Password",1,400);
             }
             if(contactChecked===false)
             {
@@ -71,6 +71,6 @@ export default async function SignupIn(req, res) {
     }
   } catch (err) {
     console.log(err.message);
-    return sendError(res, err.message, err.message, 422);
+    return sendError(res, err.message, 1, 422);
   }
 }
