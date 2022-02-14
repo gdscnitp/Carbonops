@@ -9,9 +9,11 @@ import Hack from '/public/images/organisationProfilee/Hack.png';
 import { FcGoogle } from 'react-icons/fc';
 import { FiTwitter } from 'react-icons/fi';
 import { GrFacebook } from 'react-icons/gr';
+import styles1 from '../../../styles/Signu.module.css';
 
-const orgprofile = ({ org }) => {
-  console.log(org);
+const orgprofile = ({ org ,pro}) => {
+  const link1= org[0].organisationId;
+  
   return (
     <>
       <div className={styles.cont1}>
@@ -97,149 +99,50 @@ const orgprofile = ({ org }) => {
       </div>
 
       <div className={styles.products}>
-        <h2>Our Products</h2>
-      </div>
-
+         <h2>Our Products</h2>
+       </div>
+     
       {/* ---------------------------------------------------------------------- */}
-
+    
+      
+     
       <div className={styles.services1}>
-        <div className={styles.box1}>
-          <Image src={Hack} alt="Hack Image" width={320} height={130} />
+      {pro && pro.map((products)=>{
+                return(
+                    <div   key ={products._id}>
+                    
+                      <div className={styles.box1}>
+                          <Image src={Hack} alt="Hack Image" width={320} height={130} />
 
-          <h2 className={styles.hsecondary}>Product Name</h2>
-          <p className={styles.center}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio,
-            eaque. Aliquam dolor . Quas auem fugiat dolorme{' '}
-            <span className={styles.descr}> *DESCRIPTION*</span>
-          </p>
+                          <h2 className={styles.hsecondary}>{products.productName}</h2>
+                          <p className={styles.center}>{products.description}{' '}
+                            <span className={styles.descr}> *DESCRIPTION*</span>
+                          </p>
 
-          <div className={styles.card}>
-            <div className={styles.btn1}>$45</div>
+                          <div className={styles.card}>
+                            <div className={styles.btn1}>${products.price}</div>
 
-            <div className={styles.btn2}>Buy Now</div>
-          </div>
-        </div>
+                            <div className={styles.btn2}>Buy Now</div>
+                          </div>
+                      </div>
 
-        <div className={styles.box1}>
-          <Image src={Hack} alt="Hack Image" width={320} height={130} />
-          <h2 className={styles.hsecondary}>Product Name</h2>
-          <p className={styles.center}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio,
-            eaque. Aliquam dolor . Quas autem fugiat dolore{' '}
-            <span className={styles.descr}> *DESCRIPTION*</span>
-          </p>
-
-          <div className={styles.card}>
-            <div className={styles.btn1}>$45</div>
-
-            <div className={styles.btn2}>Buy Now</div>
-          </div>
-        </div>
-
-        <div className={styles.box1}>
-          <Image src={Hack} alt="Hack Image" width={320} height={130} />
-          <h2 className={styles.hsecondary}>Product Name</h2>
-          <p className={styles.center}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio,
-            eaque. Aliquam dolor . Quas autem fugiat dolore{' '}
-            <span className={styles.descr}> *DESCRIPTION*</span>
-          </p>
-
-          <div className={styles.card}>
-            <div className={styles.btn1}>$45</div>
-
-            <div className={styles.btn2}>Buy Now</div>
-          </div>
-        </div>
-
-        <div className={styles.box1}>
-          <Image src={Hack} alt="Hack Image" width={320} height={130} />
-          <h2 className={styles.hsecondary}>Product Name</h2>
-          <p className={styles.center}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio,
-            eaque. Aliquam dolor . Quas autem fugiat dolore{' '}
-            <span className={styles.descr}> *DESCRIPTION*</span>
-          </p>
-
-          <div className={styles.card}>
-            <div className={styles.btn1}>$45</div>
-
-            <div className={styles.btn2}>Buy Now</div>
-          </div>
-        </div>
+                  </div>
+                 
+                )
+            })}
+      
+     
       </div>
+      <Link  href={`products/${link1}`}>
+      <button className={styles.viewmore}>
+        View more
+      </button>
+      </Link>
 
-      {/* ------------------------------------------------------------------------------------- */}
-
-      <div className={styles.services2}>
-        <div className={styles.box2}>
-          <Image src={Hack} alt="Hack Image" width={320} height={130} />
-          <h2 className={styles.hsecondary}>Product Name</h2>
-          <p className={styles.center}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio,
-            eaque. Aliquam dolor . Quas auem fugiat dolorse{' '}
-            <span className={styles.descr}> *DESCRIPTION*</span>
-          </p>
-
-          <div className={styles.card}>
-            <div className={styles.btn1}>$45</div>
-
-            <div className={styles.btn2}>Buy Now</div>
-          </div>
-        </div>
-
-        <div className={styles.box2}>
-          <Image src={Hack} alt="Hack Image" width={320} height={130} />
-          <h2 className={styles.hsecondary}>Product Name</h2>
-          <p className={styles.center}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio,
-            eaque. Aliquam dolor . Quas autem fugiat dolore{' '}
-            <span className={styles.descr}> *DESCRIPTION*</span>
-          </p>
-
-          <div className={styles.card}>
-            <div className={styles.btn1}>$45</div>
-
-            <div className={styles.btn2}>Buy Now</div>
-          </div>
-        </div>
-
-        <div className={styles.box2}>
-          <Image src={Hack} alt="Hack Image" width={320} height={130} />
-          <h2 className={styles.hsecondary}>Product Name</h2>
-          <p className={styles.center}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio,
-            eaque. Aliquam dolor . Quas autem fugiat dolore{' '}
-            <span className={styles.descr}> *DESCRIPTION*</span>.
-          </p>
-
-          <div className={styles.card}>
-            <div className={styles.btn1}>$45</div>
-
-            <div className={styles.btn2}>Buy Now</div>
-          </div>
-        </div>
-
-        <div className={styles.box2}>
-          <Image src={Hack} alt="Hack Image" width={320} height={130} />
-          <h2 className={styles.hsecondary}>Product Name</h2>
-          <p className={styles.center}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio,
-            eaque. Aliquam dolor . Quas autem fugiat dolore{' '}
-            <span className={styles.descr}> *DESCRIPTION*</span>
-          </p>
-
-          <div className={styles.card}>
-            <div className={styles.btn1}>$45</div>
-
-            <div className={styles.btn2}>Buy Now</div>
-          </div>
-        </div>
-      </div>
-
-      <button className={styles.viewmore}>View more</button>
-    </>
+      </>
   );
 };
 
 export default orgprofile;
+
+
