@@ -17,7 +17,7 @@ if (req.method === 'GET') {
         console.log(currentUser);
         return sendSuccess(res,currentUser);
     } catch (error) {
-        return sendError(res,error,9,400)
+        return sendError(res,error,2,400)
     }
   }
     

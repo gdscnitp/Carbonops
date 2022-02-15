@@ -91,6 +91,6 @@ export default async function handler(req, res) {
     }
     return sendSuccess(res, info);
   } else {
-    return sendError(res, "Bad rquest", 1, 400);
+    return sendError(res, "Bad request", 2, 400);
   }
 }
