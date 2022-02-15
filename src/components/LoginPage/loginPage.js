@@ -75,7 +75,7 @@ function Login() {
    
     console.log(result);
     if (!result.error) {
-      notify("SignIn Successfull",'success');
+      notify("SignIn Successful",'success');
       // set some auth state
       selects == "individual"
         ? router.replace("/individual-dashboard")
@@ -83,7 +83,7 @@ function Login() {
     } else {
       notify(result.error,'error');
       console.log(result.error);
-      notify("SignIn Unsuccessfull!",'error');
+      notify("Login Unsuccessful!",'error');
       console.log(result);
     }
   }
