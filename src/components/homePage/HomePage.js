@@ -22,7 +22,7 @@ export default function Navbar() {
                 and <strong> maintain </strong> your
               </div>
             </div>
-
+ 
             <p className={styles.bottomText}>Carbon Footprints</p>
 
             <Link href="/" passHref>
