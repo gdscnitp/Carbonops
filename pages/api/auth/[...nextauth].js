@@ -69,9 +69,9 @@ export default NextAuth({
           }
           if (!isValid) {
             console.log("Wrong Password")
-            throw new Error("Wrong Password");
+            throw new Error("Invalid Credentials");
           } else {
-            console.log("successfully logged in");
+            console.log("Successfully logged in");
            // console.log(mail)
             return { email: mail };
           }

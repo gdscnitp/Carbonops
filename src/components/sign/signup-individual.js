@@ -2,7 +2,20 @@ import styles from "./Signup.module.css";
 import React, { useRef,useEffect,useState } from "react";
 import Link from 'next/link';
 import Router from "next/router";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+  const customId = "custom-id-yes";
+
+
+  const notify = (string, type) =>
+      toast(string, {
+        type,
+      }, {
+        toastId: customId
+      },
+    );
+    
 async function createUser(email,password,contact,dob)
 {
   const response =await  fetch('/api/auth/signupin', {
@@ -14,10 +27,12 @@ async function createUser(email,password,contact,dob)
     
     //console.log(response)
     const data =await response.json();
-    //console.log(data)
-    //console.log(data)
+    console.log(response)
+    console.log(data)
   if (!response.ok) {
     console.log("Error occured")
+    notify(data.message, 'error');
+   // return false;
     //return;
     //throw new Error(data.message || 'Something went wrong!');
   }
@@ -92,17 +107,35 @@ export default function Sign(props) {
     console.log(result)
     if(result.success)
     {
-      console.log("successful signup");
+      notify("Successful Signup", 'success');
+      console.log("Successful signup");
       Router.push("/activate/user/checkMail");
     }
     else
     {
-      console.log("Could not signup as individual")
+      notify("Could not Signup as Individual",'error');
+      //console.log("Could not Signup as Individual")
     }
   }
 
   return (
     <div className={styles.container}>
+     <ToastContainer
+        toastStyle={{ backgroundColor:"rgba(23, 48, 51, 1)",
+        color:"#fff",
+        border:"1px solid #0d551f",
+        boxSizing:"border-box",
+        boxShadow:"0.5px 0.5px 1px 1px #c9e1e1",
+        borderRadius:"5px", }}
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover/>
       <signup className={styles.signu}>
         <section className={styles.section}>
           <div className={styles.left}>
