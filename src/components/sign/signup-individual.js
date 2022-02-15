@@ -32,7 +32,7 @@ async function createUser(email,password,contact,dob)
   if (!response.ok) {
     console.log("Error occured")
     notify(data.message, 'error');
-    return false;
+   // return false;
     //return;
     //throw new Error(data.message || 'Something went wrong!');
   }
@@ -114,7 +114,7 @@ export default function Sign(props) {
     else
     {
       notify("Could not Signup as Individual",'error');
-      console.log("Could not Signup as Individual")
+      //console.log("Could not Signup as Individual")
     }
   }
 
