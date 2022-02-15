@@ -26,7 +26,7 @@
   margin-left: 50px;
   font-weight: 500;
   font-size: 30px;
-  color: rgba(0, 189, 87, 1);
+  color: rgb(189, 0, 72);
   letter-spacing: 1px;
   cursor: pointer;
 }
@@ -47,7 +47,9 @@
 .btn:hover{
     background: #66f108;
 }
-
+/* 
+@media (max-width: 998px)
+{ */
 .section{
     top:10vh;
     left: 15vw;
@@ -69,8 +71,8 @@
 }
 .section .imgBx .img{
     position:relative;
-   top: 40px;
-    left: 110px;
+   top: 10%;
+    left: 10%;
     width: 100%;
     height: 100%;
     object-fit:fill;
@@ -85,14 +87,19 @@
 }
 .section  .imgBx .inputBx {
     margin-left: 30%;
-    margin-top: 50px;
+    margin-top:5rem;
+    /* width: fit-content; */
+    /* max-width: min-content; */
+    display: flex;
 }
 .section .imgBx .inputBx p{
-    font-size: 25px;
+    font-size: 120%;
     color: #0bf752;
 }
 .section .imgBx .inputBx p .register{
     color: #809717;
+    font-size: 120%;
+
 }
 .section .contentBx{
     display: flex;
@@ -227,6 +234,7 @@
         color: #0bf752;
         position: absolute;
         bottom: 1%;
+        z-index: 1.4;
     }
 }
 
@@ -234,6 +242,7 @@
 /* @media (max-width: 768px) */
 @media screen and (min-device-width: 459px) and (max-device-width: 768px) 
 {
+   
     .section .imgBx{
         position: absolute;
         top:0;
@@ -263,13 +272,9 @@
 }
 .sci{
    margin-left:-75%;
-   margin-top: 1%;
+   margin-top: 4%;
         
 }
-/* .or{
-    margin-top:1000%;
-} */
-
 
 
 @media (max-width: 458px)
@@ -278,7 +283,7 @@
     .section .imgBx{
         position: absolute;
         top:0;
-        left:-20%;
+        left:0%;
         width: 70%;
         height: 100%;
     }
