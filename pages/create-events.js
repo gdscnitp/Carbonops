@@ -1,6 +1,19 @@
 import CreateEvents from '../src/components/events/CreateEvents';
 import Navbar from '../src/components/navbar/Navbar';
 import { navLinks } from '../src/components/utils/data';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+  const customId = "custom-id-yes";
+
+
+  const notify = (string, type) =>
+      toast(string, {
+        type,
+      }, {
+        toastId: customId
+      },
+    );
 
 export default function Events() {
   async function onAddEventHandler(values) {
@@ -13,6 +26,7 @@ export default function Events() {
     });
     const data = await response.json();
     console.log(data);
+    notify(data.message, 'error');
   }
 
   return (
@@ -27,6 +41,22 @@ export default function Events() {
         buttonText3=""
         buttonText4=""
       />
+        <ToastContainer
+        toastStyle={{ backgroundColor:"rgba(23, 48, 51, 1)",
+        color:"#fff",
+        border:"1px solid #0d551f",
+        boxSizing:"border-box",
+        boxShadow:"0.5px 0.5px 1px 1px #c9e1e1",
+        borderRadius:"5px", }}
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover/>
 
       <CreateEvents onAddEvent={onAddEventHandler} />
     </>

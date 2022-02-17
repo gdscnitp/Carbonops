@@ -21,18 +21,18 @@ export default async function handler(req, res) {
     if (checkMail) {
       // console.log(mail.email);
       const Org = await organisationSchema.find({ mailId: mail.email });
-      if (Org.length <= 0) return sendError(res, 'Not Found', 0, 401);
+      if (Org.length <= 0) return sendError(res, 'Not Found', 1, 401);
       else {
         // console.log(Org);
         if (Org) {
           console.log(Org)
           return sendSuccess(res, Org);
         } else {
-          return sendError(res, 'User Not Found', 0, 401);
+          return sendError(res, 'User Not Found', 1, 401);
         }
       }
     } else {
-      return sendError(res, 'Email Invalid', 0, 400);
+      return sendError(res, 'Email Invalid', 1, 400);
     }
   } 
 
@@ -102,7 +102,7 @@ export default async function handler(req, res) {
 }
 
   else {
-    return sendError(res, 'Bad rquest', 1, 400);
+    return sendError(res, 'Bad request', 2, 400);
   }
 }
 

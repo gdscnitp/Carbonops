@@ -181,7 +181,11 @@
 }
 
 .color{
-color: #00bd57
+color: #00bd57;
+}
+
+.c1{
+color:black;;
 }
 .gap1{
     margin-top:4%;

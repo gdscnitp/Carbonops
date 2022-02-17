@@ -86,6 +86,6 @@ export default async function handler(req, res) {
       );
     }
   } else {
-    return sendError(res, "Bad request(NOT POST)", 1, 400);
+    return sendError(res, "Bad request(NOT POST)", 2, 400);
   }
 }
