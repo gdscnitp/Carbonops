@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Tippy from '@tippy.js/react';
-import 'tippy.js/dist/tippy.css'
+// import 'tippy.js/dist/tippy.css';
 import styles from './carbonFootprint.module.css';
 import { BsExclamationCircle } from 'react-icons/bs';
+import {content} from './content';
 
 export default function carbonFootprint() {
   const [show1, setShow1] = useState(false);
@@ -16,74 +17,86 @@ export default function carbonFootprint() {
   const [show9, setShow9] = useState(false);
   const [show10, setShow10] = useState(false);
   const [show11, setShow11] = useState(false);
+
   
+
   return (
     <>
+     <div className={styles.heading}>
+            <h1>Carbon Footprint Calculator </h1>
+          </div>
       <div className={styles.carbonFootprintBody}>
         <div className={styles.BodyLeft}>
-          {/* <div className={styles.heading}>
-            <h1>Carbon Footprint Calculator </h1>
-          </div> */}
+         
           <ul>
             <li>
               <div className={styles.content}>
                 <div
-                  onClick={()=>setShow1(!show1)}
+                  onClick={() => setShow1(!show1)}
                   className={`${show1 ? styles.h4 : styles.h3}`}
                 >
                   Members{' '}
-                  {/* <span style={{paddingBottom:'20px'}}> */}
-                    {/* <Tippy content='Hello'> */}
-                    <BsExclamationCircle className={styles.exclaim} />
-                    {/* </Tippy> */}
-                  {/* </span>  */}
+                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                    <span>
+                      <BsExclamationCircle className={styles.exclaim} />
+                    </span>
+                  </Tippy>
                 </div>
                 {show1 && (
-                <input
-                  className={styles.input}
-                  type="number"
-                  id="members"
-                  name="members"
-                  required
-                  autoComplete="off"
-                  placeholder="Members"
-                />
+                  <input
+                    className={styles.input}
+                    type="number"
+                    id="members"
+                    name="members"
+                    required
+                    autoComplete="off"
+                    placeholder="Members"
+                  />
                 )}
               </div>
             </li>
             <li>
               <div className={styles.content}>
                 <div
-                  onClick={()=>setShow2(!show2)}
+                  onClick={() => setShow2(!show2)}
                   className={`${show2 ? styles.h4 : styles.h3}`}
                 >
-                  House-Size <BsExclamationCircle className={styles.exclaim} />
+                  House-Size {' '}
+                  <Tippy placement="right" className={styles.tippy} content={content.houseSize} >
+                    <span>
+                      <BsExclamationCircle className={styles.exclaim} />
+                    </span>
+                  </Tippy>
                 </div>
                 {show2 && (
-                <select
-                  className={styles.input}
-                  id="meat"
-                  name="meat"
-                  required
-                  autoComplete="off"
-                >
-                  <option value="" disabled></option>
-                  <option>large</option>
-                  <option>medium</option>
-                  <option>small</option>
-                  <option>apartment</option>
-                </select>
-                 )}
+                  <select
+                    className={styles.input}
+                    id="meat"
+                    name="meat"
+                    required
+                    autoComplete="off"
+                  >
+                    <option value="" disabled></option>
+                    <option>large</option>
+                    <option>medium</option>
+                    <option>small</option>
+                    <option>apartment</option>
+                  </select>
+                )}
               </div>
             </li>
             <li>
               <div className={styles.content}>
                 <div
-                  onClick={()=>setShow3(!show3)}
+                  onClick={() => setShow3(!show3)}
                   className={`${show3 ? styles.h4 : styles.h3}`}
                 >
                   Preferred diet{' '}
-                  <BsExclamationCircle className={styles.exclaim} />
+                  <Tippy placement="right" className={styles.tippy} content={content.houseSize} >
+                    <span>
+                      <BsExclamationCircle className={styles.exclaim} />
+                    </span>
+                  </Tippy>
                 </div>
                 {show3 && (
                   <select
@@ -105,11 +118,15 @@ export default function carbonFootprint() {
             <li>
               <div className={styles.content}>
                 <div
-                  onClick={()=>setShow4(!show4)}
+                  onClick={() => setShow4(!show4)}
                   className={`${show4 ? styles.h4 : styles.h3}`}
                 >
                   Packaged Food{' '}
-                  <BsExclamationCircle className={styles.exclaim} />
+                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                    <span>
+                      <BsExclamationCircle className={styles.exclaim} />
+                    </span>
+                  </Tippy>
                 </div>
                 {show4 && (
                   <select
@@ -130,11 +147,15 @@ export default function carbonFootprint() {
             <li>
               <div className={styles.content}>
                 <div
-                  onClick={()=>setShow5(!show5)}
+                  onClick={() => setShow5(!show5)}
                   className={`${show5 ? styles.h4 : styles.h3}`}
                 >
                   Dish Washer {' '}
-                  <BsExclamationCircle className={styles.exclaim} />
+                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                    <span>
+                      <BsExclamationCircle className={styles.exclaim} />
+                    </span>
+                  </Tippy>
                 </div>
                 {show5 && (
                   <select
@@ -155,11 +176,15 @@ export default function carbonFootprint() {
             <li>
               <div className={styles.content}>
                 <div
-                  onClick={()=>setShow6(!show6)}
+                  onClick={() => setShow6(!show6)}
                   className={`${show6 ? styles.h4 : styles.h3}`}
                 >
                   Washing Machine{' '}
-                  <BsExclamationCircle className={styles.exclaim} />
+                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                    <span>
+                      <BsExclamationCircle className={styles.exclaim} />
+                    </span>
+                  </Tippy>
                 </div>
                 {show6 && (
                   <select
@@ -176,15 +201,20 @@ export default function carbonFootprint() {
                 )}
               </div>
             </li>
-
             <li>
               <div className={styles.content}>
                 <div
-                  onClick={()=>setShow7(!show7)}
+                  onClick={() => setShow7(!show7)}
                   className={`${show7 ? styles.h4 : styles.h3}`}
                 >
-                  Household Purchases{' '}
-                  <BsExclamationCircle className={styles.exclaim} />
+                  Household Purchases
+                  <Tippy className={styles.tippy} 
+                  placement="right" content={content.members} 
+                  arrow={false}>
+                    <span>
+                      <BsExclamationCircle className={styles.exclaim} />
+                    </span>
+                  </Tippy>
                 </div>
                 {show7 && (
                   <input
@@ -202,11 +232,15 @@ export default function carbonFootprint() {
             <li>
               <div className={styles.content}>
                 <div
-                  onClick={()=>setShow8(!show8)}
+                  onClick={() => setShow8(!show8)}
                   className={`${show8 ? styles.h4 : styles.h3}`}
                 >
                   Garbage Cans{' '}
-                  <BsExclamationCircle className={styles.exclaim} />
+                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                    <span>
+                      <BsExclamationCircle className={styles.exclaim} />
+                    </span>
+                  </Tippy>
                 </div>
                 {show8 && (
                   <input
@@ -224,11 +258,15 @@ export default function carbonFootprint() {
             <li>
               <div className={styles.content}>
                 <div
-                  onClick={()=>setShow9(!show9)}
+                  onClick={() => setShow9(!show9)}
                   className={`${show9 ? styles.h4 : styles.h3}`}
                 >
                   Personal Transport{' '}
-                  <BsExclamationCircle className={styles.exclaim} />
+                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                    <span>
+                      <BsExclamationCircle className={styles.exclaim} />
+                    </span>
+                  </Tippy>
                 </div>
                 {show9 && (
                   <input
@@ -247,11 +285,15 @@ export default function carbonFootprint() {
             <li>
               <div className={styles.content}>
                 <div
-                  onClick={()=>setShow10(!show10)}
+                  onClick={() => setShow10(!show10)}
                   className={`${show10 ? styles.h4 : styles.h3}`}
                 >
                   Public Transport{' '}
-                  <BsExclamationCircle className={styles.exclaim} />
+                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                    <span>
+                      <BsExclamationCircle className={styles.exclaim} />
+                    </span>
+                  </Tippy>
                 </div>
                 {show10 && (
                   <input
@@ -269,10 +311,15 @@ export default function carbonFootprint() {
             <li>
               <div className={styles.content}>
                 <div
-                  onClick={()=>setShow11(!show11)}
+                  onClick={() => setShow11(!show11)}
                   className={`${show11 ? styles.h4 : styles.h3}`}
                 >
-                  Flight <BsExclamationCircle className={styles.exclaim} />
+                  Flight {' '}
+                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                    <span>
+                      <BsExclamationCircle className={styles.exclaim} />
+                    </span>
+                  </Tippy>
                 </div>
                 {show11 && (
                   <input
@@ -288,6 +335,16 @@ export default function carbonFootprint() {
               </div>
             </li>
           </ul>
+        </div>
+        <div className={styles.BodyRight}>
+          <div className={styles.score}><strong> Your Score</strong></div>
+          <div className={styles.ellipse}>
+
+          </div>
+          <div>
+          <button className={styles.button}
+          >Calculate &rarr;</button>
+          </div>
         </div>
       </div>
     </>
