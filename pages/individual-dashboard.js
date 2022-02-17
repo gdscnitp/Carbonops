@@ -50,7 +50,7 @@ export async function getServerSideProps(context){
       props:{},
     };
   }
-  if (session.isOrganisation === true) {
+  if (session.user.isOrganisation === true) {
     return {
       redirect: {
         permanent: false,

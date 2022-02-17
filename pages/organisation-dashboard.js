@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { getSession, useSession } from "next-auth/react";
 
 const organisationDash = (props) => {
+  console.log(props);
    async function updateDetailsHandler(updateDetails){
     const response =await fetch(`/api/organisation-dashboard/${updateDetails.mailOrganisation}`,{
       method:'PATCH',
@@ -73,6 +74,15 @@ export async function getServerSideProps(context) {
       redirect: {
         permanent: false,
         destination: "/login",
+      },
+      props: {},
+    };
+  }
+  if (session.user.isOrganisation === false) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/individual-dashboard",
       },
       props: {},
     };
