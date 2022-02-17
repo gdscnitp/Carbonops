@@ -61,7 +61,7 @@ export default async function handler(req, res) {
             return sendSuccess(res, updatedUser);
 
         } catch (error) {
-            return sendError(res,error,1, 400)
+            return sendError(res,error,2, 400)
         }
     }
 
