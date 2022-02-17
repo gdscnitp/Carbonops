@@ -68,7 +68,8 @@ function Login() {
       redirect: false,
       email: email,
       password: password,
-      category:selects
+      category:selects,
+      isOrganisation: selects==="organisation" ? true : false
       
       
     });

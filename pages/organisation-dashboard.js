@@ -29,9 +29,12 @@ const organisationDash = (props) => {
   const orgObj = props.Org;
  
   const { data: session, status } = useSession();
-  // console.log(session)
+  console.log(session)
 
   const router = useRouter();
+  // if (session === "individual") {
+    // router.push("/individual-dashboard")
+  // }
   if (status === "loading") {
     return <h1 style={{ color: "white" }}>Loading...</h1>;
   }
@@ -74,6 +77,7 @@ export async function getServerSideProps(context) {
       props: {},
     };
   }
+ 
   console.log(session, "sessionss");
   var orgMail = session.user.email;
   // console.log(orgMail,"org Mail")
