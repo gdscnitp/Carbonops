@@ -3,7 +3,18 @@ import EnvImg from "/public/environment.png"
 import React from "react";
 import styles from "./Aboutus.module.css"
 import Link from "next/link";
-import pic from "/public/images/_picture.png"
+import palakmam from "/public/images/aboutus/palakmam.jpg"
+import tyagi from "/public/images/aboutus/tyagi.jpg"
+import kish from "/public/images/aboutus/kish.jpg"
+import sri from "/public/images/aboutus/sri.jpg"
+import amish from "/public/images/aboutus/amisha.jpg"
+import vs from "/public/images/aboutus/vs.jpg"
+import priya from "/public/images/aboutus/priya.jpg"
+import va from "/public/images/aboutus/va.jpg"
+import mohit from "/public/images/aboutus/mohit.jpg"
+// import mohit from "/public/images/aboutus/mohi.jpg"
+
+
 import { FaLinkedin } from "react-icons/fa"
 
 function Aboutus(){
@@ -71,33 +82,33 @@ All of our team members are following our academics also making awesome real lif
                 </div>
             </div>
             <div className={styles.grid3}>
-                <h1  className={styles.color}>MEET OUR TEAM</h1>
+                <h1  className={styles.c1}>MEET OUR TEAM</h1>
                 <div className={styles.row1}>
                     <div className={styles.col1}>
-                        <Image width={350} className={styles.img1} alt="" src={pic} />
+                        <Image width={350} className={styles.img1} alt="" src={palakmam} />
                         <div className={styles.about}>
-                        <h3  className={styles.color}>Palak Kumari(Team leader)</h3>
+                        <h3  className={styles.c1}>Palak Kumari(Team leader)</h3>
                         < FaLinkedin className={styles.icon} />
                         </div>
                     </div>
                     <div className={styles.col1}>
-                        <Image width={350}className={styles.img1} alt="" src={pic} />
+                        <Image width={350}className={styles.img1} alt="" src={tyagi} />
                         <div className={styles.about}>
-                        <h3  className={styles.color}>Shivam Tyagi</h3>
+                        <h3  className={styles.c1}>Shivam Tyagi</h3>
                         < FaLinkedin className={styles.icon} />
                         </div>
                     </div>
                     <div className={styles.col1}>
-                        <Image width={350} className={styles.img1} alt="" src={pic} />
+                        <Image width={350} className={styles.img1} alt="" src={kish} />
                         <div className={styles.about}>
-                        <h3  className={styles.color}>Kishan Kumar</h3>
+                        <h3  className={styles.c1}>Kishan Kumar</h3>
                         < FaLinkedin className={styles.icon} />
                         </div>
                     </div>
                     <div className={styles.col1}>
-                        <Image width={350} className={styles.img1} alt="" src={pic} />
+                        <Image width={350} className={styles.img1} alt="" src={sri} />
                         <div className={styles.about}>
-                            <h3  className={styles.color}>Srijan Shovit</h3>
+                            <h3  className={styles.c1}>Srijan Shovit</h3>
                             < FaLinkedin className={styles.icon} />
 
                         </div>
@@ -105,37 +116,37 @@ All of our team members are following our academics also making awesome real lif
                 </div>
                 <div className={styles.row2}>
                     <div className={styles.col1}>
-                        <Image width={350} className={styles.img1} alt="" src={pic} />
+                        <Image width={350} className={styles.img1} alt="" src={amish} />
                         <div className={styles.about}>
-                        <h3  className={styles.color}>Amisha Bharti</h3>
+                        <h3  className={styles.c1}>Amisha Bharti</h3>
                         < FaLinkedin className={styles.icon} />
                         </div>
                     </div>
                     <div className={styles.col1}>
-                        <Image width={350} className={styles.img1} alt="" src={pic} />
+                        <Image width={350} className={styles.img1} alt="" src={vs} />
                         <div className={styles.about}>
-                        <h3  className={styles.color}>Vivek Srivastava</h3>
+                        <h3  className={styles.c1}>Vivek Srivastava</h3>
                         < FaLinkedin className={styles.icon} />
                         </div>
                     </div>
                     <div className={styles.col1}>
-                        <Image width={350} className={styles.img1} alt="" src={pic} />
+                        <Image width={350} className={styles.img1} alt="" src={priya} />
                         <div className={styles.about}>
-                        <h3  className={styles.color}>Priya Kumari</h3>
+                        <h3  className={styles.c1}>Priya Kumari</h3>
                         < FaLinkedin className={styles.icon} />
                         </div>
                     </div>
                     <div className={styles.col1}>
-                        <Image width={350} className={styles.img1} alt="" src={pic} />
+                        <Image width={350} className={styles.img1} alt="" src={va} />
                         <div className={styles.about}>
-                        <h3  className={styles.color}>Vivek Ankit </h3>
+                        <h3  className={styles.c1}>Vivek Ankit </h3>
                         < FaLinkedin className={styles.icon} />
                         </div>
                     </div>
                     <div className={styles.col1}>
-                        <Image width={350} className={styles.img1} alt="" src={pic} />
+                        <Image width={350} className={styles.img1} alt="" src={mohit} />
                         <div className={styles.about}>
-                        <h3  className={styles.color}>Mohit </h3>
+                        <h3  className={styles.c1}>Mohit </h3>
                         < FaLinkedin className={styles.icon} />
                         </div>
                     </div>
