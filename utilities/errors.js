@@ -7,9 +7,9 @@ const errorCodes = {
    300: ["Account Already exist using Different Mode Of Signup, Please Choose the correct Way of Sign in!"],
    302: [" Account Found"],
    350: ["Already subscribe to this platform"],
-   400: ["Default- correct Error Index", "Bad Request located"],
-   401: ["Unauthorized Access"],
-   403: ["Default- correct Error Index","Event with this name is already registered","No events found"],
+   400: ["Default- correct Error Index", "Verify Password/Contact strength or Email ID","Bad Request (NOT POST)"],
+   401: ["Unauthorized Access","Couldnt find in DB"],
+   403: ["Default- correct Error Index","Already registered","No events found"],
    404: ["Default- correct Error Index","Event's Location Not Found","Missing Inputs or Wrong Inputs","Page Not Found"],
    409: ["Conflict"],
    429: ["Too many requests"],
@@ -20,7 +20,7 @@ const errorCodes = {
    700: ["Default- correct Error Index","Account Doesnot exists"],
    800: ["Access without token is not authorised"],
    900: ["Invalid Credentials"],
-   400: ["Email is invalid or disposal"]
+   // 400: ["Email is invalid or disposal"]
 
 }
 module.exports=errorCodes;

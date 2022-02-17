@@ -14,6 +14,6 @@ export default async function handler(req,res){
         return sendError(res,"Could not fetch events",3,403);
     }
     else {
-        return sendError(res,"Bad request(NOT POST)",1,400);
+        return sendError(res,"Bad request(NOT POST)",2,400);
     }
 }                                             
