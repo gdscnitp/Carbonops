@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Tippy from '@tippy.js/react';
 // import 'tippy.js/dist/tippy.css';
 import styles from './carbonFootprint.module.css';
 import { BsExclamationCircle } from 'react-icons/bs';
 import { content } from './content';
+import { set } from 'mongoose';
 
 export default function carbonFootprint() {
   const [show1, setShow1] = useState(false);
@@ -17,6 +18,99 @@ export default function carbonFootprint() {
   const [show9, setShow9] = useState(false);
   const [show10, setShow10] = useState(false);
   const [show11, setShow11] = useState(false);
+  const [show12, setShow12] = useState(false);
+
+  const [submit, setSubmit] = useState(false);
+
+  const [values, setValues] = useState({
+    members: '',
+    houseSize: '',
+    meat: '',
+    packagedFood: '',
+    dishWasher: '',
+    washingMachine: '',
+    householdPurchases: '',
+    garbageCans: '',
+    recycles: '',
+    itemsRecycled: false,
+    personalTransport: '',
+    publicTransport: '',
+    flight: '',
+  });
+  const [errors, setErrors] = useState({});
+  const handleChange = (e) => {
+    // console.log(e.target);
+    const { name, value } = e.target;
+
+    setValues({
+      ...values,
+      [name]: value,
+    });
+    // console.log(setValues);
+  };
+
+  console.log(values.itemsRecycled, 'itemsRecycled');
+  const handleBool = (e) => {
+    setValues({
+      ...values,
+      itemsRecycled: !values.itemsRecycled,
+    });
+    console.log(values.itemsRecycled, 'PRecycled');
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(values.itemsRecycled, 'isOffline');
+    setErrors(validate(values));
+    setSubmit(true);
+  };
+
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && submit) {
+      console.log(values);
+    }
+  }, [errors]);
+
+  const validate = (value) => {
+    const error = {};
+    if (!value.members) {
+      error.members = 'This is required';
+    } else if (value.members < 0) {
+      error.members = 'Members cannot be negative';
+    }
+    if (!value.houseSize) {
+      error.houseSize = 'This is required';
+    }
+    if (!value.householdPurchases) {
+      error.householdPurchases = 'This is required';
+    } else if (value.householdPurchases < 0) {
+      error.householdPurchases = 'Number of Purchased House cannot be negative';
+    }
+    if (!value.meat) {
+      error.meat = 'This is required';
+    }
+    if (!value.packagedFood) {
+      error.packagedFood = 'This is required';
+    }
+    if (!value.garbageCans) {
+      error.garbageCans = 'This is required';
+    } else if (value.garbageCans < 0) {
+      error.garbageCans = 'Garbage Cans count cannot be negative';
+    }
+    // if (!value.personalTransport) {
+    //   error.personalTransport = 'This is required';
+    // } else
+    if (value.personalTransport < 0) {
+      error.personalTransport = 'Amount cannot be negative';
+    }
+    if (value.publicTransport < 0) {
+      error.publicTransport = 'Amount cannot be negative';
+    }
+    if (value.flight < 0) {
+      error.flight = 'Amount cannot be negative';
+    }
+    return error;
+  };
 
   return (
     <>
@@ -24,7 +118,8 @@ export default function carbonFootprint() {
         <h1>Carbon Footprint Calculator </h1>
       </div>
       <div className={styles.carbonFootprintBody}>
-        <div className={styles.BodyLeft}>
+        {/* <pre>{JSON.stringify(values, undefined, 2)}</pre> */}
+        <form onSubmit={handleSubmit} className={styles.BodyLeft}>
           <ul>
             <li>
               <div className={styles.content}>
@@ -48,14 +143,19 @@ export default function carbonFootprint() {
                 {show1 && (
                   <input
                     className={styles.input}
-                    type="number"
+                    type="text"
                     id="members"
                     name="members"
                     required
                     autoComplete="off"
                     placeholder="Members"
+                    value={values.members}
+                    onChange={handleChange}
                   />
                 )}
+                <p style={{ color: 'red', fontSize: '15px' }}>
+                  {errors.members}
+                </p>
               </div>
             </li>
             <li>
@@ -75,21 +175,29 @@ export default function carbonFootprint() {
                     </span>
                   </Tippy>
                 </div>
+
                 {show2 && (
                   <select
                     className={styles.input}
-                    id="meat"
-                    name="meat"
+                    id="houseSize"
+                    name="houseSize"
                     required
                     autoComplete="off"
+                    value={values.houseSize}
+                    onChange={handleChange}
                   >
-                    <option value="" disabled></option>
-                    <option>large</option>
-                    <option>medium</option>
-                    <option>small</option>
-                    <option>apartment</option>
+                    <option value="" disabled selected>
+                      Choose your house size
+                    </option>
+                    <option value="large">large</option>
+                    <option value="medium">medium</option>
+                    <option value="mall">small</option>
+                    <option value="apartment">apartment</option>
                   </select>
                 )}
+                <p style={{ color: 'red', fontSize: '15px' }}>
+                  {errors.houseSize}
+                </p>
               </div>
             </li>
             <li>
@@ -109,6 +217,7 @@ export default function carbonFootprint() {
                     </span>
                   </Tippy>
                 </div>
+
                 {show3 && (
                   <select
                     className={styles.input}
@@ -116,14 +225,19 @@ export default function carbonFootprint() {
                     name="meat"
                     required
                     autoComplete="off"
+                    value={values.meat}
+                    onChange={handleChange}
                   >
-                    <option value="" disabled></option>
-                    <option>Meat daily</option>
-                    <option>Meat Weekly</option>
-                    <option>Vegetarian</option>
-                    <option>Vegan</option>
+                    <option value="" disabled selected>
+                      Choose your preferred diet
+                    </option>
+                    <option value="Meat daily">Meat daily</option>
+                    <option value="Meat Weekly">Meat Weekly</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Vegan">Vegan</option>
                   </select>
                 )}
+                <p style={{ color: 'red', fontSize: '15px' }}>{errors.meat}</p>
               </div>
             </li>
             <li>
@@ -151,13 +265,20 @@ export default function carbonFootprint() {
                     name="packagedFood"
                     required
                     autoComplete="off"
+                    value={values.packagedFood}
+                    onChange={handleChange}
                   >
-                    <option value="" disabled></option>
-                    <option>Frequently</option>
-                    <option>Balanced</option>
-                    <option>No</option>
+                    <option value="" disabled selected>
+                      Choose how often you take packaged food
+                    </option>
+                    <option value="Frequently">Frequently</option>
+                    <option value="Balanced">Balanced</option>
+                    <option value="No">No</option>
                   </select>
                 )}
+                <p style={{ color: 'red', fontSize: '15px' }}>
+                  {errors.packagedFood}
+                </p>
               </div>
             </li>
             <li>
@@ -183,13 +304,17 @@ export default function carbonFootprint() {
                     className={styles.input}
                     id="dishWasher"
                     name="dishWasher"
-                    required
+                    // required
                     autoComplete="off"
+                    value={values.dishWasher}
+                    onChange={handleChange}
                   >
-                    <option value="" disabled></option>
-                    <option>1 to 3 times</option>
-                    <option>4 to 9 times</option>
-                    <option>more than 9 times</option>
+                    <option value="" disabled selected>
+                      Choose how many times you run your dishwasher
+                    </option>
+                    <option value="1 to 3 times">1 to 3 times</option>
+                    <option value="4 to 9 times">4 to 9 times</option>
+                    <option value="more than 9 times">more than 9 times</option>
                   </select>
                 )}
               </div>
@@ -218,11 +343,15 @@ export default function carbonFootprint() {
                     id="WashingMachine"
                     name="WashingMachiner"
                     autoComplete="off"
+                    value={values.washingMachine}
+                    onChange={handleChange}
                   >
-                    <option value="" disabled></option>
-                    <option>1 to 3 times</option>
-                    <option>4 to 9 times</option>
-                    <option>more than 9 times</option>
+                    <option value="" disabled selected>
+                      Choose how many times you run your Washing Machine
+                    </option>
+                    <option value="1 to 3 times">1 to 3 times</option>
+                    <option value="4 to 9 times">4 to 9 times</option>
+                    <option value="more than 9 times">more than 9 times</option>
                   </select>
                 )}
               </div>
@@ -254,8 +383,13 @@ export default function carbonFootprint() {
                     required
                     autoComplete="off"
                     placeholder="Household Purchases"
+                    value={values.householdPurchases}
+                    onChange={handleChange}
                   />
                 )}
+                <p style={{ color: 'red', fontSize: '15px' }}>
+                  {errors.householdPurchases}
+                </p>
               </div>
             </li>
             <li>
@@ -285,8 +419,13 @@ export default function carbonFootprint() {
                     required
                     autoComplete="off"
                     placeholder="Garbage Cans"
+                    value={values.garbageCans}
+                    onChange={handleChange}
                   />
                 )}
+                <p style={{ color: 'red', fontSize: '15px' }}>
+                  {errors.garbageCans}
+                </p>
               </div>
             </li>
             <li>
@@ -313,11 +452,16 @@ export default function carbonFootprint() {
                     type="number"
                     id="personalTransport"
                     name="personalTransport"
-                    required
+                    // required
                     autoComplete="off"
                     placeholder="Personal Transport"
+                    value={values.personalTransport}
+                    onChange={handleChange}
                   />
                 )}
+                <p style={{ color: 'red', fontSize: '15px' }}>
+                  {errors.personalTransport}
+                </p>
               </div>
             </li>
 
@@ -345,11 +489,16 @@ export default function carbonFootprint() {
                     type="number"
                     id="publicTransport"
                     name="publicTransport"
-                    required
+                    // required
                     autoComplete="off"
                     placeholder="Public Transport"
+                    value={values.publicTransport}
+                    onChange={handleChange}
                   />
                 )}
+                <p style={{ color: 'red', fontSize: '15px' }}>
+                  {errors.personalTransport}
+                </p>
               </div>
             </li>
             <li>
@@ -361,7 +510,7 @@ export default function carbonFootprint() {
                   Flight{' '}
                   <Tippy
                     className={styles.tippy}
-                    placement="right"
+                    placement="bottom"
                     content={content.flight}
                     arrow={false}
                   >
@@ -376,23 +525,74 @@ export default function carbonFootprint() {
                     type="number"
                     id="flight"
                     name="flight"
-                    required
+                    // required
                     autoComplete="off"
                     placeholder="Flight"
+                    value={values.flight}
+                    onChange={handleChange}
                   />
+                )}
+                <p style={{ color: 'red', fontSize: '15px' }}>
+                  {errors.flight}
+                </p>
+              </div>
+            </li>
+            <li>
+              <div className={styles.content}>
+                <div
+                  onClick={() => setShow12(!show12)}
+                  className={`${show12 ? styles.h4 : styles.h3}`}
+                >
+                  Are your Items Recylable?{' '}
+                  <input
+                    type="checkbox"
+                    id="itemsRecycled"
+                    name="itemsRecycled"
+                    value={values.itemsRecycled}
+                    onChange={handleBool}
+                  />
+                  <Tippy
+                    className={styles.tippy}
+                    placement="bottom"
+                    content={content.recycles}
+                    arrow={false}
+                  >
+                    <span>
+                      <BsExclamationCircle className={styles.exclaim} />
+                    </span>
+                  </Tippy>
+                </div>
+                {values.itemsRecycled ? (
+                  <textarea
+                    className={styles.textarea}
+                    rows="2"
+                    type="text"
+                    id="recycles"
+                    name="recycles"
+                    value={values.recycles}
+                    onChange={handleChange}
+                    required
+                    autoComplete="off"
+                    placeholder="Enter Recyclable item "
+                  />
+                ) : (
+                  ''
                 )}
               </div>
             </li>
           </ul>
-        </div>
+          <div></div>
+
+          <div>
+            {/* <button onClick={handleSubmit} className={styles.button}>Calculate &rarr;</button> */}
+            <button className={styles.button}>Calculate &rarr;</button>
+          </div>
+        </form>
         <div className={styles.BodyRight}>
           <div className={styles.score}>
             <strong> Your Score</strong>
           </div>
           <div className={styles.ellipse}></div>
-          <div>
-            <button className={styles.button}>Calculate &rarr;</button>
-          </div>
         </div>
       </div>
     </>

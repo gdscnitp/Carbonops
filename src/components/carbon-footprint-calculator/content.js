@@ -3,20 +3,20 @@ export const content = {
     'Enter the total number of adults and children in your household. If you only want to calculate your personal carbon footprint, then select 1 ',
   ],
   houseSize: [
-    'Enter the total number of adults and children in your household. If you only want to calculate your personal carbon footprint, then select 1 ',
+    ' A smaller home makes a smaller impact on the environment. Take the size of your home into account as you calculate your impact.',
   ],
 
   meat: [
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam laudantium nemo dignissimos velit, minus deserunt? Vel, labore laudantium nisi porro eius, quae, dolorem sed inventore explicabo tempore ipsum tenetur pariatur.',
+    'The types of food that you eat can also have an effect on your carbon footprint. You will have a higher carbon footprint if you eat meat from domesticated animals regularly, and you will have a lower carbon footprint if you eat no meat or animal products at all.',
   ],
   packagedFood: [
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam laudantium nemo dignissimos velit, minus deserunt? Vel, labore laudantium nisi porro eius, quae, dolorem sed inventore explicabo tempore ipsum tenetur pariatur.',
   ],
   dishWasher: [
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam laudantium nemo dignissimos velit, minus deserunt? Vel, labore laudantium nisi porro eius, quae, dolorem sed inventore explicabo tempore ipsum tenetur pariatur.',
+    ' Your water consumption from appliances is also important to consider as you calculate your carbon footprint. Consider how many times per week you run your dishwasher.',
   ],
   washingMachine: [
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam laudantium nemo dignissimos velit, minus deserunt? Vel, labore laudantium nisi porro eius, quae, dolorem sed inventore explicabo tempore ipsum tenetur pariatur.',
+    ' Your water consumption from appliances is also important to consider as you calculate your carbon footprint. Consider how many times per week you run your washing machine.',
   ],
   householdPurchases: [
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam laudantium nemo dignissimos velit, minus deserunt? Vel, labore laudantium nisi porro eius, quae, dolorem sed inventore explicabo tempore ipsum tenetur pariatur.',
@@ -37,6 +37,9 @@ export const content = {
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam laudantium nemo dignissimos velit, minus deserunt? Vel, labore laudantium nisi porro eius, quae, dolorem sed inventore explicabo tempore ipsum tenetur pariatur.',
   ],
   flight: [
+    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam laudantium nemo dignissimos velit, minus deserunt? Vel, labore laudantium nisi porro eius, quae, dolorem sed inventore explicabo tempore ipsum tenetur pariatur.',
+  ],
+  recyles: [
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam laudantium nemo dignissimos velit, minus deserunt? Vel, labore laudantium nisi porro eius, quae, dolorem sed inventore explicabo tempore ipsum tenetur pariatur.',
   ],
 };
