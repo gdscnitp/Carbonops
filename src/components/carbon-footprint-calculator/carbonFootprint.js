@@ -3,7 +3,7 @@ import Tippy from '@tippy.js/react';
 // import 'tippy.js/dist/tippy.css';
 import styles from './carbonFootprint.module.css';
 import { BsExclamationCircle } from 'react-icons/bs';
-import {content} from './content';
+import { content } from './content';
 
 export default function carbonFootprint() {
   const [show1, setShow1] = useState(false);
@@ -18,16 +18,13 @@ export default function carbonFootprint() {
   const [show10, setShow10] = useState(false);
   const [show11, setShow11] = useState(false);
 
-  
-
   return (
     <>
-     <div className={styles.heading}>
-            <h1>Carbon Footprint Calculator </h1>
-          </div>
+      <div className={styles.heading}>
+        <h1>Carbon Footprint Calculator </h1>
+      </div>
       <div className={styles.carbonFootprintBody}>
         <div className={styles.BodyLeft}>
-         
           <ul>
             <li>
               <div className={styles.content}>
@@ -36,12 +33,18 @@ export default function carbonFootprint() {
                   className={`${show1 ? styles.h4 : styles.h3}`}
                 >
                   Members{' '}
-                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                  <Tippy
+                    className={styles.tippy}
+                    placement="right"
+                    content={content.members}
+                    arrow={false}
+                  >
                     <span>
                       <BsExclamationCircle className={styles.exclaim} />
                     </span>
                   </Tippy>
                 </div>
+
                 {show1 && (
                   <input
                     className={styles.input}
@@ -61,8 +64,12 @@ export default function carbonFootprint() {
                   onClick={() => setShow2(!show2)}
                   className={`${show2 ? styles.h4 : styles.h3}`}
                 >
-                  House-Size {' '}
-                  <Tippy placement="right" className={styles.tippy} content={content.houseSize} >
+                  House-Size{' '}
+                  <Tippy
+                    placement="right"
+                    className={styles.tippy}
+                    content={content.meat}
+                  >
                     <span>
                       <BsExclamationCircle className={styles.exclaim} />
                     </span>
@@ -92,7 +99,11 @@ export default function carbonFootprint() {
                   className={`${show3 ? styles.h4 : styles.h3}`}
                 >
                   Preferred diet{' '}
-                  <Tippy placement="right" className={styles.tippy} content={content.houseSize} >
+                  <Tippy
+                    placement="right"
+                    className={styles.tippy}
+                    content={content.packagedFood}
+                  >
                     <span>
                       <BsExclamationCircle className={styles.exclaim} />
                     </span>
@@ -122,7 +133,12 @@ export default function carbonFootprint() {
                   className={`${show4 ? styles.h4 : styles.h3}`}
                 >
                   Packaged Food{' '}
-                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                  <Tippy
+                    className={styles.tippy}
+                    placement="right"
+                    content={content.dishWasher}
+                    arrow={false}
+                  >
                     <span>
                       <BsExclamationCircle className={styles.exclaim} />
                     </span>
@@ -150,8 +166,13 @@ export default function carbonFootprint() {
                   onClick={() => setShow5(!show5)}
                   className={`${show5 ? styles.h4 : styles.h3}`}
                 >
-                  Dish Washer {' '}
-                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                  Dish Washer{' '}
+                  <Tippy
+                    className={styles.tippy}
+                    placement="right"
+                    content={content.dishWasher}
+                    arrow={false}
+                  >
                     <span>
                       <BsExclamationCircle className={styles.exclaim} />
                     </span>
@@ -180,7 +201,12 @@ export default function carbonFootprint() {
                   className={`${show6 ? styles.h4 : styles.h3}`}
                 >
                   Washing Machine{' '}
-                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                  <Tippy
+                    className={styles.tippy}
+                    placement="right"
+                    content={content.washingMachine}
+                    arrow={false}
+                  >
                     <span>
                       <BsExclamationCircle className={styles.exclaim} />
                     </span>
@@ -208,9 +234,12 @@ export default function carbonFootprint() {
                   className={`${show7 ? styles.h4 : styles.h3}`}
                 >
                   Household Purchases
-                  <Tippy className={styles.tippy} 
-                  placement="right" content={content.members} 
-                  arrow={false}>
+                  <Tippy
+                    className={styles.tippy}
+                    placement="right"
+                    content={content.householdPurchases}
+                    arrow={false}
+                  >
                     <span>
                       <BsExclamationCircle className={styles.exclaim} />
                     </span>
@@ -236,7 +265,12 @@ export default function carbonFootprint() {
                   className={`${show8 ? styles.h4 : styles.h3}`}
                 >
                   Garbage Cans{' '}
-                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                  <Tippy
+                    className={styles.tippy}
+                    placement="right"
+                    content={content.garbageCans}
+                    arrow={false}
+                  >
                     <span>
                       <BsExclamationCircle className={styles.exclaim} />
                     </span>
@@ -262,7 +296,12 @@ export default function carbonFootprint() {
                   className={`${show9 ? styles.h4 : styles.h3}`}
                 >
                   Personal Transport{' '}
-                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                  <Tippy
+                    className={styles.tippy}
+                    placement="right"
+                    content={content.personalTransport}
+                    arrow={false}
+                  >
                     <span>
                       <BsExclamationCircle className={styles.exclaim} />
                     </span>
@@ -289,7 +328,12 @@ export default function carbonFootprint() {
                   className={`${show10 ? styles.h4 : styles.h3}`}
                 >
                   Public Transport{' '}
-                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                  <Tippy
+                    className={styles.tippy}
+                    placement="right"
+                    content={content.publicTransport}
+                    arrow={false}
+                  >
                     <span>
                       <BsExclamationCircle className={styles.exclaim} />
                     </span>
@@ -314,8 +358,13 @@ export default function carbonFootprint() {
                   onClick={() => setShow11(!show11)}
                   className={`${show11 ? styles.h4 : styles.h3}`}
                 >
-                  Flight {' '}
-                  <Tippy className={styles.tippy} placement="right" content={content.members} arrow={false}>
+                  Flight{' '}
+                  <Tippy
+                    className={styles.tippy}
+                    placement="right"
+                    content={content.flight}
+                    arrow={false}
+                  >
                     <span>
                       <BsExclamationCircle className={styles.exclaim} />
                     </span>
@@ -337,13 +386,12 @@ export default function carbonFootprint() {
           </ul>
         </div>
         <div className={styles.BodyRight}>
-          <div className={styles.score}><strong> Your Score</strong></div>
-          <div className={styles.ellipse}>
-
+          <div className={styles.score}>
+            <strong> Your Score</strong>
           </div>
+          <div className={styles.ellipse}></div>
           <div>
-          <button className={styles.button}
-          >Calculate &rarr;</button>
+            <button className={styles.button}>Calculate &rarr;</button>
           </div>
         </div>
       </div>

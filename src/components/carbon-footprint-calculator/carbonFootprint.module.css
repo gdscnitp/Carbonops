@@ -121,7 +121,7 @@
   border-radius: 5px;
   padding: 10px;
   position: relative;
-  visibility: visible;
+  /* visibility: visible; */
   box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.4);
 }
 .tippy:before {
@@ -171,7 +171,8 @@
   height: 10rem;
   width: 10rem;
   border-radius: 50%;
-  background: #202934;
+  background: #00bd57;
+  box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.4),0px 4px 50px 0px rgba(0, 255, 240, 0.19);
   position: absolute;
   top: 30%;
   left: 35%;
