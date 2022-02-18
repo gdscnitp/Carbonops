@@ -50,6 +50,15 @@ export async function getServerSideProps(context){
       props:{},
     };
   }
+  if (session.user.isOrganisation === true) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/organisation-dashboard",
+      },
+      props: {},
+    };
+  }
   console.log(session)
   var userMail = session.user.email
   const response = await  fetch(`http://localhost:3000/api/indivdata/${userMail}`,{
