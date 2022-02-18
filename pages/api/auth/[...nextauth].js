@@ -9,6 +9,7 @@ let isValid;
 let user;
 let mail;
 let isOrg;
+let userCategory;
 
 export default NextAuth({
   session: {
@@ -24,7 +25,7 @@ export default NextAuth({
       async authorize(credentials) {
         initDB();
         console.log(credentials);
-        const userCategory = credentials.category
+        userCategory = credentials.category
         console.log(userCategory);
         let userInd;
         let userOrg;
@@ -97,6 +98,8 @@ export default NextAuth({
     },
     session: async ({session, token}) => {
       //console.log("data in session", token.user);
+      // session.isOrganisation = (userCategory === "organisation" ? true : false);
+     // session.isOrganisation = session.user.isOrganisation;
       session.user = token.user;
       return Promise.resolve(session);
     }
