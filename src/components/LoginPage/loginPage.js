@@ -33,6 +33,7 @@ function Login() {
   const handleChange = (e) => {
     
     const { name, value } = e.target;
+    console.log(selects);
     
     setFormValues({ ...formValues, [name]: value });
    
@@ -68,8 +69,7 @@ function Login() {
       redirect: false,
       email: email,
       password: password,
-      category:selects
-      
+      category:selects,    
       
     });
    
@@ -77,7 +77,7 @@ function Login() {
     if (!result.error) {
       notify("SignIn Successful",'success');
       // set some auth state
-      selects == "individual"
+      selects === "individual"
         ? router.replace("/individual-dashboard")
         : router.replace("/organisation-dashboard");
     } else {
