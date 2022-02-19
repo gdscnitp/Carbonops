@@ -216,7 +216,7 @@ export default function carbonFootprint() {
                   <Tippy
                     placement="bottom"
                     className={styles.tippy}
-                    content={content.packagedFood}
+                    content={content.meat}
                     arrow={false}
                   >
                     <span>
@@ -257,7 +257,7 @@ export default function carbonFootprint() {
                   <Tippy
                     className={styles.tippy}
                     placement="bottom"
-                    content={content.dishWasher}
+                    content={content.packagedFood}
                     arrow={false}
                   >
                     <span>
