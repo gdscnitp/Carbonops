@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Company from '/public/images/organisationDash/Logo.png';
 import Product from '/public/images/organisationDash/Product.png';
 import styles from './Content.module.css';
+import Delete from './Deleteproduct';
 
 function Content(props) {
   // console.log(props,"props")
@@ -147,6 +148,7 @@ function Content(props) {
                  {/* wasteRequirements will only appear when dealsProducts is true  */}
                 {props.data[0].dealsProducts && <div className={styles.row}>
                 <span className={styles.dataSpan}> Waste Requirements</span>  : {props.data[0].wasteRequirements}
+                <div>kjfdfnkjdfngjkdf</div>
                  </div>}
                </div>
 
@@ -377,7 +379,7 @@ function Content(props) {
               autoComplete="off"
             />
 
-            <div className={styles.topic}>Product Image</div>
+            <div className={styles.topic}>Product Image</div> 
             <input
               type="url"
               placeholder="Product Image(url)"
@@ -388,7 +390,7 @@ function Content(props) {
               onChange={handleProductChange}
               required
               autoComplete="off"
-            />
+            /> 
 
             <div className={styles.topic}>Is Your Product Recyclable?</div>
             <input
@@ -404,9 +406,16 @@ function Content(props) {
               <Link href=" ">
                 <a onClick={handleSubmit} className={styles.button}>Add</a>
               </Link>
+        
+
             </div>
+
+
+
+
           </div>
         </div>
+      <Delete/>
       </div>
     </>
   );
