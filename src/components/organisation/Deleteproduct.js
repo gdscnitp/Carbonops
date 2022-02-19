@@ -1,7 +1,7 @@
-
+import react from "react";
 import styles from "./Delete.module.css";
 
-import { MdDeleteForever } from "react-icons/Md";
+import { MdDeleteForever } from "react-icons/MD";
 
 const productpage = () => {
   return (
