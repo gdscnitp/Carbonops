@@ -1,9 +1,6 @@
-// import styles from "./product.module.css"
-// import Hack from "/public/images/organisationProfilee/Hack.png";
+
 import styles from "./Delete.module.css";
-// import heart from "/public/images/organisationProfilee/heart.png";
-// import stars from "/public/images/organisationProfilee/stars.png";
-import Image from "next/image";
+
 import { MdDeleteForever } from "react-icons/Md";
 
 const productpage = () => {
@@ -42,15 +39,7 @@ const productpage = () => {
             <br />
           </div>
 
-          {/* <div className={styles.container2}>
-            <div className={styles.pd}>
-              <h4 className={styles.product}>Product Description </h4>
-            </div>
-
-            <p className={styles.dollar}>
-              Lorem ipsum dolor sit amet,.
-            </p>
-          </div> */}
+         
 
           <div className={styles.container2}>
             <h4 className={styles.description}>Delete </h4>
@@ -90,15 +79,7 @@ const productpage = () => {
             <br />
           </div>
 
-          {/* <div className={styles.container2}>
-            <div className={styles.pd}>
-              <h4 className={styles.product}>Product Description </h4>
-            </div>
-
-            <p className={styles.dollar}>
-              Lorem ipsum dolor sit amet,.
-            </p>
-          </div> */}
+         
 
           <div className={styles.container2}>
             <h4 className={styles.description}>Delete </h4>
@@ -142,15 +123,7 @@ const productpage = () => {
             <br />
           </div>
 
-          {/* <div className={styles.container2}>
-            <div className={styles.pd}>
-              <h4 className={styles.product}>Product Description </h4>
-            </div>
-
-            <p className={styles.dollar}>
-              Lorem ipsum dolor sit amet,.
-            </p>
-          </div> */}
+       
 
           <div className={styles.container2}>
             <h4 className={styles.description}>Delete </h4>
