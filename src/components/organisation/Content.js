@@ -6,7 +6,7 @@ import Product from '/public/images/organisationDash/Product.png';
 import styles from './Content.module.css';
 import Delete from './Deleteproduct';
 
-function Content(props) {
+export default function Content(props) {
   // console.log(props,"props")
   const organisationid= (props.data[0].organisationId);
   const mailOrg = (props.data[0].mailId)
@@ -421,4 +421,4 @@ function Content(props) {
   );
 }
 
-export default Content;
+

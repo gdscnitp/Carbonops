@@ -3,7 +3,7 @@ import styles from "./Delete.module.css";
 
 import { MdDeleteForever } from "react-icons/md";
 
-const productpage = () => {
+const Productpage = () => {
   return (
     <>
       <div className={styles.heading}>
@@ -18,11 +18,9 @@ const productpage = () => {
         <div className={styles.services}>
           <div className={styles.box}>
             <div className={styles.product}>
-                <div className={styles.fin}>
-
-            <h4 >Product Name</h4>
-                </div>
-
+              <div className={styles.fin}>
+                <h4>Product Name</h4>
+              </div>
             </div>
 
             <div className={styles.spacing}>
@@ -39,17 +37,11 @@ const productpage = () => {
             <br />
           </div>
 
-         
-
           <div className={styles.container2}>
             <h4 className={styles.description}>Delete </h4>
             <div className={styles.delete}>
-             
-
-             <MdDeleteForever size="37px" color="#D44638" />
-           
-         
-         </div>
+              <MdDeleteForever size="37px" color="#D44638" />
+            </div>
           </div>
         </div>
 
@@ -57,12 +49,9 @@ const productpage = () => {
         <div className={styles.services}>
           <div className={styles.box}>
             <div className={styles.product}>
-          
-                <div className={styles.fin}>
-
-            <h4 >Product Name</h4>
-              
-</div>
+              <div className={styles.fin}>
+                <h4>Product Name</h4>
+              </div>
             </div>
 
             <div className={styles.spacing}>
@@ -79,21 +68,13 @@ const productpage = () => {
             <br />
           </div>
 
-         
-
           <div className={styles.container2}>
             <h4 className={styles.description}>Delete </h4>
             <div className={styles.delete}>
-             
-
-                <MdDeleteForever size="37px" color="#D44638" />
-              
-            
+              <MdDeleteForever size="37px" color="#D44638" />
             </div>
           </div>
         </div>
-
-       
 
         {/* ____________________ */}
 
@@ -101,12 +82,9 @@ const productpage = () => {
         <div className={styles.services}>
           <div className={styles.box}>
             <div className={styles.product}>
-             
-                <div className={styles.fin}>
-
-            <h4 >Product Name</h4>
-                </div>
-
+              <div className={styles.fin}>
+                <h4>Product Name</h4>
+              </div>
             </div>
 
             <div className={styles.spacing}>
@@ -123,25 +101,14 @@ const productpage = () => {
             <br />
           </div>
 
-       
-
           <div className={styles.container2}>
             <h4 className={styles.description}>Delete </h4>
             <div className={styles.delete}>
-             
-
-             <MdDeleteForever size="37px" color="#D44638" />
-           
-         
-         </div>
+              <MdDeleteForever size="37px" color="#D44638" />
+            </div>
           </div>
         </div>
 
-       
-
-
-
-     
         <br />
         <br />
         <br />
@@ -150,4 +117,4 @@ const productpage = () => {
   );
 };
 
-export default productpage;
+export default Productpage;
