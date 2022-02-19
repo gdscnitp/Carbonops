@@ -1,10 +1,13 @@
+.FootprintBody {
+  background-color: #142424;
+}
 .carbonFootprintBody {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: white;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 2.5fr 0.5fr;
+  grid-template-columns: 2fr 0.5fr;
   grid-template-areas: 'BodyLeft BodyRight';
   background-color: #142424;
 }
@@ -21,19 +24,13 @@
 }
 .BodyLeft {
   grid-area: BodyLeft;
-  display: flex;
-  /* border: 2px solid red; */
   position: relative;
-  margin: 50px auto;
-  width: 500px;
+ 
 }
 .BodyRight {
   grid-area: BodyRight;
-  /* border: 2px solid red; */
   position: relative;
-  margin: 50px auto;
-  left: -20%;
-  width: 500px;
+  /* right: 125px; */
 }
 .BodyLeft:before {
   content: '';
@@ -41,9 +38,12 @@
   width: 2px;
   height: 100%;
   background-color: #fff;
+  left: 250px;
+  margin-top: 30px;
 }
 .BodyLeft ul {
   margin: 0;
+  margin-top: 30px;
   padding: 0;
   transition: all 0.5s ease;
 }
@@ -54,6 +54,7 @@
   padding: 20px 40px;
   box-sizing: border-box;
   transition: all 0.5s ease;
+  left: 250px;
 }
 .BodyLeft ul li:before {
   border-radius: 50%;
@@ -77,7 +78,6 @@
   font-weight: bold;
   cursor: pointer;
   font-size: 20px;
-  /* position: absolute; */
   top: 3%;
   transition: all 0.4s ease;
 }
@@ -88,7 +88,7 @@
   font-weight: bold;
   cursor: pointer;
   font-size: 28px;
-  margin-top: 13%;
+  margin-top: 5%;
   transition: all 0.4s ease;
 }
 .BodyLeft ul li::after .h4 {
@@ -124,12 +124,12 @@
   background: #173033;
   color: white;
   border-radius: 5px;
-  padding: 10px;
-  position: relative;
+  padding: 6px;
+  /* position: relative; */
   /* visibility: visible; */
   box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.4);
 }
-.tippy:before {
+/* .tippy:before {
   content: '';
   position: absolute;
   width: 15px;
@@ -138,7 +138,7 @@
   bottom: 48px;
   left: -6px;
   transform: rotate(45deg);
-}
+} */
 
 .button {
   font-size: 15px;
@@ -154,7 +154,7 @@
   align-items: center;
   position: relative;
   top: 98%;
-  left: 15%;
+  right: -130px;
   box-shadow: 2px 10px 50px 0px rgba(0, 255, 10, 0.25) inset;
   box-shadow: 0px 4px 50px 0px rgba(0, 255, 240, 0.19);
 }
@@ -171,7 +171,6 @@
   padding: 1rem;
   position: absolute;
   top: 23%;
-  left: 34.5%;
 }
 .ellipse {
   height: 10rem;
@@ -182,36 +181,98 @@
     0px 4px 50px 0px rgba(0, 255, 240, 0.19);
   position: absolute;
   top: 30%;
-  left: 35%;
 }
-
+@media only screen and (max-width: 1281px) {
+  .BodyLeft:before {
+    left: 100px;
+  }
+  .BodyLeft ul li {
+    left: 100px;
+  }
+}
 @media only screen and (max-width: 930px) {
   .carbonFootprintBody {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 0.5fr;
+    grid-template-rows: 2fr 1fr;
     grid-template-areas:
       'BodyLeft '
       'BodyRight';
   }
   .BodyLeft {
-    /* border: 2px solid #00bd57; */
     grid-area: BodyLeft;
+    width: 100%;
   }
   .BodyRight {
-    /* border: 2px solid #00bd57; */
     position: relative;
-    top: 20%;
-    /* left: 5%; */
+    top: 25%;
     grid-area: BodyRight;
     height: 40%;
-    transition: all 4s ease;
+    transition: all 3s ease;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
   }
+
   .button {
     position: absolute;
-    left: 5%;
+    left: 130px;
+    margin: 0;
+    margin-top: 120px;
   }
   .ellipse {
-    position: absolute;
-    top: 50%;
+    top: 40%;
+  }
+  @media only screen and (max-width: 600px) {
+    .input,
+    .content .textarea {
+      width: 250px;
+    }
+    .BodyLeft ul li .h3 {
+      font-size: 15px;
+    }
+    .BodyLeft ul li .h4 {
+      font-size: 20px;
+    }
+    .BodyLeft:before {
+      left: 30px;
+    }
+    .BodyLeft ul li {
+      left: 30px;
+    }
+  }
+  @media only screen and (max-width: 455px) {
+    .button {
+      left: 50px;
+    }
+    .BodyLeft ul li .h3 {
+      width: 250px;
+    }
+    .BodyLeft ul li .h4 {
+      width: 250px;
+      font-size: 20px;
+    }
+  }
+}
+@media only screen and (max-width: 456px) {
+  .input,
+  .content .textarea {
+    width: 200px;
+  }
+  .button{
+    width: 150px;
+    left: 15px;
+  }
+}
+@media only screen and (max-width: 355px) {
+  .BodyLeft ul li .h3 {
+    width: 50px;
+  }
+  .BodyLeft ul li .h4 {
+    width: 50px;
+    font-size: 20px;
+  }
+  .input,
+  .content .textarea {
+    width: 150px;
   }
 }

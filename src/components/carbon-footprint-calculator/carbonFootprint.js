@@ -31,8 +31,8 @@ export default function carbonFootprint() {
     washingMachine: '',
     householdPurchases: '',
     garbageCans: '',
-    recycles: '',
     itemsRecycled: false,
+    recycles: '',
     personalTransport: '',
     publicTransport: '',
     flight: '',
@@ -49,18 +49,15 @@ export default function carbonFootprint() {
     // console.log(setValues);
   };
 
-  console.log(values.itemsRecycled, 'itemsRecycled');
   const handleBool = (e) => {
     setValues({
       ...values,
-      itemsRecycled: !values.itemsRecycled,
+      itemsRecycled: !(values.itemsRecycled),
     });
-    console.log(values.itemsRecycled, 'PRecycled');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values.itemsRecycled, 'isOffline');
     setErrors(validate(values));
     setSubmit(true);
   };
@@ -97,28 +94,36 @@ export default function carbonFootprint() {
     } else if (value.garbageCans < 0) {
       error.garbageCans = 'Garbage Cans count cannot be negative';
     }
-    // if (!value.personalTransport) {
-    //   error.personalTransport = 'This is required';
-    // } else
-    if (value.personalTransport < 0) {
-      error.personalTransport = 'Amount cannot be negative';
+    if (!value.personalTransport && !value.publicTransport && !value.flight) {
+      error.personalTransport =
+        'Atleast fill one from personalTransport , publicTransport or flight';
+      error.publicTransport =
+        'Atleast fill one from personalTransport , publicTransport or flight';
+      error.flight =
+        'Atleast fill one from personalTransport , publicTransport or flight';
+    } else {
+      if (value.personalTransport < 0) {
+        error.personalTransport = 'Amount cannot be negative';
+      } if (value.publicTransport < 0) {
+        error.publicTransport = 'Amount cannot be negative';
+      } if (value.flight < 0) {
+        error.flight = 'Amount cannot be negative';
+      }
     }
-    if (value.publicTransport < 0) {
-      error.publicTransport = 'Amount cannot be negative';
-    }
-    if (value.flight < 0) {
-      error.flight = 'Amount cannot be negative';
+    if(!value.recycles && value.itemsRecycled){
+      error.recycles = 'This is required';
     }
     return error;
   };
 
   return (
     <>
-      <div className={styles.heading}>
+    <div className={styles.FootprintBody}>
+    <div className={styles.heading}>
         <h1>Carbon Footprint Calculator </h1>
       </div>
       <div className={styles.carbonFootprintBody}>
-        {/* <pre>{JSON.stringify(values, undefined, 2)}</pre> */}
+        <pre>{JSON.stringify(values, undefined, 2)}</pre>
         <form onSubmit={handleSubmit} className={styles.BodyLeft}>
           <ul>
             <li>
@@ -130,7 +135,7 @@ export default function carbonFootprint() {
                   Members{' '}
                   <Tippy
                     className={styles.tippy}
-                    placement="right"
+                    placement="bottom"
                     content={content.members}
                     arrow={false}
                   >
@@ -164,9 +169,9 @@ export default function carbonFootprint() {
                   onClick={() => setShow2(!show2)}
                   className={`${show2 ? styles.h4 : styles.h3}`}
                 >
-                  House-Size{' '}
+                  House-Size
                   <Tippy
-                    placement="right"
+                    placement="top"
                     className={styles.tippy}
                     content={content.meat}
                   >
@@ -208,7 +213,7 @@ export default function carbonFootprint() {
                 >
                   Preferred diet{' '}
                   <Tippy
-                    placement="right"
+                    placement="bottom"
                     className={styles.tippy}
                     content={content.packagedFood}
                   >
@@ -249,7 +254,7 @@ export default function carbonFootprint() {
                   Packaged Food{' '}
                   <Tippy
                     className={styles.tippy}
-                    placement="right"
+                    placement="bottom"
                     content={content.dishWasher}
                     arrow={false}
                   >
@@ -290,7 +295,7 @@ export default function carbonFootprint() {
                   Dish Washer{' '}
                   <Tippy
                     className={styles.tippy}
-                    placement="right"
+                    placement="bottom"
                     content={content.dishWasher}
                     arrow={false}
                   >
@@ -328,7 +333,7 @@ export default function carbonFootprint() {
                   Washing Machine{' '}
                   <Tippy
                     className={styles.tippy}
-                    placement="right"
+                    placement="bottom"
                     content={content.washingMachine}
                     arrow={false}
                   >
@@ -365,7 +370,7 @@ export default function carbonFootprint() {
                   Household Purchases
                   <Tippy
                     className={styles.tippy}
-                    placement="right"
+                    placement="bottom"
                     content={content.householdPurchases}
                     arrow={false}
                   >
@@ -401,7 +406,7 @@ export default function carbonFootprint() {
                   Garbage Cans{' '}
                   <Tippy
                     className={styles.tippy}
-                    placement="right"
+                    placement="bottom"
                     content={content.garbageCans}
                     arrow={false}
                   >
@@ -437,7 +442,7 @@ export default function carbonFootprint() {
                   Personal Transport{' '}
                   <Tippy
                     className={styles.tippy}
-                    placement="right"
+                    placement="bottom"
                     content={content.personalTransport}
                     arrow={false}
                   >
@@ -474,7 +479,7 @@ export default function carbonFootprint() {
                   Public Transport{' '}
                   <Tippy
                     className={styles.tippy}
-                    placement="right"
+                    placement="bottom"
                     content={content.publicTransport}
                     arrow={false}
                   >
@@ -497,7 +502,7 @@ export default function carbonFootprint() {
                   />
                 )}
                 <p style={{ color: 'red', fontSize: '15px' }}>
-                  {errors.personalTransport}
+                  {errors.publicTransport}
                 </p>
               </div>
             </li>
@@ -571,20 +576,22 @@ export default function carbonFootprint() {
                     name="recycles"
                     value={values.recycles}
                     onChange={handleChange}
-                    required
+                    // required
                     autoComplete="off"
                     placeholder="Enter Recyclable item "
                   />
                 ) : (
                   ''
                 )}
+                <p style={{ color: 'red', fontSize: '15px' }}>
+                  {errors.recycles}
+                </p>
               </div>
             </li>
           </ul>
           <div></div>
 
-          <div>
-            {/* <button onClick={handleSubmit} className={styles.button}>Calculate &rarr;</button> */}
+          <div className={styles.boxbutn}>
             <button className={styles.button}>Calculate &rarr;</button>
           </div>
         </form>
@@ -595,6 +602,8 @@ export default function carbonFootprint() {
           <div className={styles.ellipse}></div>
         </div>
       </div>
+    </div>
+      
     </>
   );
 }
