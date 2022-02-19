@@ -123,7 +123,7 @@ export default function carbonFootprint() {
         <h1>Carbon Footprint Calculator </h1>
       </div>
       <div className={styles.carbonFootprintBody}>
-        <pre>{JSON.stringify(values, undefined, 2)}</pre>
+        {/* <pre>{JSON.stringify(values, undefined,4)}</pre> */}
         <form onSubmit={handleSubmit} className={styles.BodyLeft}>
           <ul>
             <li>
@@ -169,11 +169,12 @@ export default function carbonFootprint() {
                   onClick={() => setShow2(!show2)}
                   className={`${show2 ? styles.h4 : styles.h3}`}
                 >
-                  House-Size
+                  House Size{' '}
                   <Tippy
-                    placement="top"
+                    placement="bottom"
                     className={styles.tippy}
-                    content={content.meat}
+                    content={content.houseSize}
+                    arrow={false}
                   >
                     <span>
                       <BsExclamationCircle className={styles.exclaim} />
@@ -216,6 +217,7 @@ export default function carbonFootprint() {
                     placement="bottom"
                     className={styles.tippy}
                     content={content.packagedFood}
+                    arrow={false}
                   >
                     <span>
                       <BsExclamationCircle className={styles.exclaim} />

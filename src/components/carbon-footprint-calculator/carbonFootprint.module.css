@@ -124,8 +124,7 @@
   background: #173033;
   color: white;
   border-radius: 5px;
-  padding: 6px;
-  /* position: relative; */
+  padding: 10px;
   /* visibility: visible; */
   box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.4);
 }
@@ -204,7 +203,7 @@
   }
   .BodyRight {
     position: relative;
-    top: 25%;
+    top: 30%;
     grid-area: BodyRight;
     height: 40%;
     transition: all 3s ease;
@@ -220,6 +219,7 @@
     margin-top: 120px;
   }
   .ellipse {
+    margin-top: 40px;
     top: 40%;
   }
   @media only screen and (max-width: 600px) {

@@ -19,7 +19,7 @@ export const content = {
     ' Your water consumption from appliances is also important to consider as you calculate your carbon footprint. Consider how many times per week you run your washing machine.',
   ],
   householdPurchases: [
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam laudantium nemo dignissimos velit, minus deserunt? Vel, labore laudantium nisi porro eius, quae, dolorem sed inventore explicabo tempore ipsum tenetur pariatur.',
+    ' The number of new items that you buy for your household can also affect your carbon footprint. If you buy lots of new things, then your score will be higher than someone who does not buy anything or who only buys secondhand items.',
   ],
   garbageCans: [
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam laudantium nemo dignissimos velit, minus deserunt? Vel, labore laudantium nisi porro eius, quae, dolorem sed inventore explicabo tempore ipsum tenetur pariatur.',
