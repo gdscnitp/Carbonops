@@ -23,7 +23,7 @@ export default async function SignupIn(req, res) {
       !req.body.contact ||
       !req.body.dob
     ) {
-      return sendError(res, "Please fill all fields", 422);
+      return sendError(res, "Please fill all fields",2, 404);
     }
           // server side input validation
            var emailChecked=emailCheck(req.body.email);
@@ -31,7 +31,7 @@ export default async function SignupIn(req, res) {
             var contactChecked=contactCheck(req.body.contact)
             if(emailChecked===false)
             {
-                return sendError(res,"Invalid Email ID",19,400)
+                return sendError(res,"Invalid Email ID",1,400)
             }
             if(passwordChecked===false)
             {
@@ -39,7 +39,7 @@ export default async function SignupIn(req, res) {
             }
             if(contactChecked===false)
             {
-                return sendError(res,"Contact no. must have 10 digits",19,400);
+                return sendError(res,"Contact no. must have 10 digits",1,400);
             }
 
 
@@ -55,7 +55,7 @@ export default async function SignupIn(req, res) {
 
     if (regUser || pUserAcc || orgAcc || verifAcc) {
       //console.log(regUser,pUserAcc,orgAcc,verifAcc)
-      return sendError(res, "Account already exists", 11, 422);
+      return sendError(res, "Account already exists", 1, 403);
     } else {
       const newAccount = await PendAcc({
         email: req.body.email,

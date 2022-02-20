@@ -18,7 +18,7 @@ export default async function SignupOrg(req, res){
     
     try {
         if (!req.body.email || !req.body.password || !req.body.contact ||  !req.body.organisationId){
-            return sendError(res,"Please fill all fields",11,422)
+            return sendError(res,"Please fill all fields",2,404)
         }else
         {
             // server side input validation
@@ -27,15 +27,15 @@ export default async function SignupOrg(req, res){
             var contactChecked=contactCheck(req.body.contact)
             if(emailChecked===false)
             {
-                return sendError(res,"Invalid Email ID",19,400)
+                return sendError(res,"Invalid Email ID",1,400)
             }
             if(passwordChecked===false)
             {
-                 return sendError(res,"Weak Password",19,400);
+                 return sendError(res,"Weak Password",1,400);
             }
             if(contactChecked===false)
             {
-                return sendError(res,"Contact no. must have 10 digits",19,400);
+                return sendError(res,"Contact no. must have 10 digits",1,400);
             }
             initDB() 
             const regUser =  await Org.findOne({mailId:{$eq:req.body.email}})
@@ -48,7 +48,7 @@ export default async function SignupOrg(req, res){
     
             if (regUser || pUserAcc || IndiAcc || verifAcc) {
                 /*checking if the user is existing also in the organisation collection and verified accounts collection*/
-                return sendError(res,"Account already exists",11,422)
+                return sendError(res,"Account already exists",2,403)
             }else
             {
                 const newAccount = await PendAcc({email:req.body.email,password:req.body.password,contact:req.body.contact,organisationId:req.body.organisationId})
@@ -61,7 +61,7 @@ export default async function SignupOrg(req, res){
        
         } catch (err) {
             console.log(err.message)
-            return sendError(res, err.message,err.message,422);
+            return sendError(res, err.message,1,422);
         }
     }
     else

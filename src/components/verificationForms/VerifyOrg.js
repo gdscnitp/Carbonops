@@ -1,6 +1,19 @@
 import React, { useState } from "react";
 import styles from "./OrgForm.module.css";
 import Router from "next/router";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+  const customId = "custom-id-yes";
+
+
+  const notify = (string, type) =>
+      toast(string, {
+        type,
+      }, {
+        toastId: customId
+      },
+    );
 
 export default function VerifyOrg(props) {
   console.log(props.id);
@@ -44,10 +57,14 @@ export default function VerifyOrg(props) {
       })
     })
     const resp = await res.json()
+    notify(resp.message, 'error');
     if (resp.error || resp.success==false){
       console.log(resp);
+      notify(resp, 'error');
     }else{
       console.log(resp);
+      notify(resp, 'success');
+      notify("Saved organisation successfully", 'success');
       console.log("Saved organisation successfully")
       Router.push(`/login`);
   }
@@ -55,6 +72,23 @@ export default function VerifyOrg(props) {
 
   return (
     <div>
+       <ToastContainer
+        toastStyle={{ backgroundColor:"rgba(23, 48, 51, 1)",
+        color:"#fff",
+        border:"1px solid #0d551f",
+        boxSizing:"border-box",
+        boxShadow:"0.5px 0.5px 1px 1px #c9e1e1",
+        borderRadius:"5px", }}
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover/>
+
       <div className={styles.formBody}>
         <h1
           style={{
