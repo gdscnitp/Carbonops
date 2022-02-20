@@ -2,6 +2,7 @@ import initDB from '../../../helpers/db';
 import { sendSuccess, sendError } from '../../../utilities/response-helpers';
 import { emailCheck } from '../../../utilities/validation';
 import organisationSchema from '../../../models/Organisation';
+var updatedOrg = {}
 
 initDB();
 
@@ -14,33 +15,19 @@ export default async function handler(req, res) {
       email: {$eq : mailId}
     };
     //console.log(mailId);
+
     // checking if mail is valid or not
-    //console.log(mail.email)
     const checkMail = emailCheck(mailId);
     if (checkMail) {
       // console.log(mail.email);
       const Org = await organisationSchema.find({ mailId: mail.email });
-
-      if (Org.length <= 0) return sendError(res, 'Not Found', 11, 404);
-
       if (Org.length <= 0) return sendError(res, 'Not Found', 1, 401);
-
       else {
         // console.log(Org);
         if (Org) {
           console.log(Org)
           return sendSuccess(res, Org);
         } else {
-
-          return sendError(res, 'User Not Found', 11, 404);
-        }
-      }
-    } else {
-      return sendError(res, 'Email Invalid', 11, 400);
-    }
-  } else {
-    return sendError(res, 'Bad rquest(NOT GET)', 8, 400);
-
           return sendError(res, 'User Not Found', 1, 401);
         }
       }
@@ -116,7 +103,5 @@ export default async function handler(req, res) {
 
   else {
     return sendError(res, 'Bad request', 2, 400);
-
   }
 }
-
