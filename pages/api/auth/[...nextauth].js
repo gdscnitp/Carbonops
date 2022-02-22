@@ -3,12 +3,13 @@ import NextAuth from "next-auth";
 import initDB from "../../../helpers/db";
 var Individual = require("../../../models/Individual");
 var Organisation = require("../../../models/Organisation");
-//import { sendError,sendSuccess } from "../../../utilities/response-helpers";
+import verifyPassword from "../../../lib/verifyPassword";
+import CredentialsProvider from "next-auth/providers/credentials";
 let isValid;
 let user;
 let mail;
-import verifyPassword from "../../../lib/verifyPassword";
-import CredentialsProvider from "next-auth/providers/credentials";
+let isOrg;
+let userCategory;
 
 export default NextAuth({
   session: {
@@ -24,24 +25,23 @@ export default NextAuth({
       async authorize(credentials) {
         initDB();
         console.log(credentials);
-        const userCategory = credentials.category
+        userCategory = credentials.category
         console.log(userCategory);
         let userInd;
         let userOrg;
         switch(userCategory) {
           case "individual":
+            isOrg =false;
              userInd = await Individual.findOne({ email: credentials.email });
             break;
           case "organisation":
+            isOrg=true;
              userOrg = await Organisation.findOne({
               mailId: credentials.email,
             });
             break;
           
         }
-        //validate email on client side
-        //console.log(userInd);
-        //if (userOrg) console.log(userOrg);
 
         if (userCategory==="individual" && !userInd) {
           throw new Error("Invalid credentials");
@@ -58,7 +58,6 @@ export default NextAuth({
               userInd.password
             );
           } else {
-           // console.log("user is org")
             user = userOrg;
             mail=user.mailId;
             isValid = await verifyPassword(
@@ -69,20 +68,15 @@ export default NextAuth({
           }
           if (!isValid) {
             console.log("Wrong Password")
-            throw new Error("Wrong Password");
+            throw new Error("Invalid Credentials");
           } else {
-            console.log("successfully logged in");
-           // console.log(mail)
-            return { email: mail };
+            console.log("Successfully logged in");
+            const user={ email: mail,
+              isOrganisation:isOrg}
+              //console.log(user)
+            return Promise.resolve(user);
           }
         }
-        //connect to database
-        //find the user in a specific collection,
-        //if the user exits, check password
-        //if password matched
-        //log the user in,
-        //and create a session for the user
-        //else return error
       },
     }),
   ],
@@ -92,7 +86,24 @@ export default NextAuth({
   },
   jwt: {
     secret: process.env.JWT_SECRET,
-  },
+  }
+  ,
+  callbacks:{
+    jwt: async ({token, user}) => {
+     // console.log("data in token", user);
+      if (user) {
+        token.user = user;
+      }
+      return Promise.resolve(token);
+    },
+    session: async ({session, token}) => {
+      //console.log("data in session", token.user);
+      // session.isOrganisation = (userCategory === "organisation" ? true : false);
+     // session.isOrganisation = session.user.isOrganisation;
+      session.user = token.user;
+      return Promise.resolve(session);
+    }
+  }
 });
 
 

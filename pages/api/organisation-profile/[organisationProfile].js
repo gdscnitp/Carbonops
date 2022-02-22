@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     });
 
     if (organProfile.length <= 0) {
-      return sendError(res, 'Not Found', 11, 404);
+      return sendError(res, 'Not Found', 1, 401);
     } 
     else {
       if (organProfile) {
@@ -21,10 +21,10 @@ export default async function handler(req, res) {
         return sendSuccess(res, organProfile);
       } 
       else {
-        return sendError(res, 'User Not Found', 11, 404);
+        return sendError(res, 'User Not Found', 1, 401);
       }
     }
   } else {
-    return sendError(res, 'Bad request', 8, 400);
+    return sendError(res, 'Bad request', 2, 400);
   }
 }

@@ -7,6 +7,17 @@ import { useRouter } from "next/router";
 import { getSession, useSession } from "next-auth/react";
 
 const organisationDash = (props) => {
+  console.log(props);
+   async function updateDetailsHandler(updateDetails){
+    const response =await fetch(`/api/organisation-dashboard/${updateDetails.mailOrganisation}`,{
+      method:'PATCH',
+      body:JSON.stringify(updateDetails),
+      headers:{
+          'Content-Type' :'application/json'
+      }    
+    })
+  }
+
    async function addProductHandler(productDetails){
     const response =await fetch('/api/products',{
       method:'POST',
@@ -17,11 +28,14 @@ const organisationDash = (props) => {
     })
   }
   const orgObj = props.Org;
-
+ 
   const { data: session, status } = useSession();
-  // console.log(session)
+  console.log(session)
 
   const router = useRouter();
+  // if (session === "individual") {
+    // router.push("/individual-dashboard")
+  // }
   if (status === "loading") {
     return <h1 style={{ color: "white" }}>Loading...</h1>;
   }
@@ -31,7 +45,6 @@ const organisationDash = (props) => {
   else if (session && status === "authenticated") {
     return (
         <>
-        {/* <Navbar action1="Events" action2="Dashboard" action3="Logout" buttonText="Create Events" /> */}
         <Navbar 
         action1={navLinks[0].name} 
         href1="/"
@@ -65,6 +78,16 @@ export async function getServerSideProps(context) {
       props: {},
     };
   }
+  if (session.user.isOrganisation === false) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/individual-dashboard",
+      },
+      props: {},
+    };
+  }
+ 
   console.log(session, "sessionss");
   var orgMail = session.user.email;
   // console.log(orgMail,"org Mail")

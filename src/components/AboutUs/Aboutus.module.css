@@ -79,6 +79,7 @@
     width: 40%;
     text-align: justify;
     text-justify: inter-word;
+    width:80%;
 }
 .grid2{
     border-radius: 10px;
@@ -177,4 +178,18 @@
     .item{
         width: 100%;
     }
+}
+
+.color{
+color: #00bd57;
+}
+
+.c1{
+color:black;;
+}
+.gap1{
+    margin-top:4%;
+}
+.gap2{
+    margin-top:2%;
 }

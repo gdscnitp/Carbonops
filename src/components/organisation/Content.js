@@ -8,7 +8,22 @@ import styles from './Content.module.css';
 function Content(props) {
   // console.log(props,"props")
   const organisationid= (props.data[0].organisationId);
-  console.log(organisationid,"organisationid")
+  const mailOrg = (props.data[0].mailId)
+  // console.log(organisationid,"organisationid")
+
+  const [updateDetails,setUpdateDetails] = useState({
+    organisationName:"",
+    typeOfOrganisation:"",
+    description:"",
+    website:"",
+    linkedin:"",
+    area:"",
+    city:"",
+    pincode:"",
+    state:"",
+    nation:"",
+    mailOrganisation:mailOrg,
+  })
 
   const [productDetails,setProductDetails] = useState({
     productName:"",
@@ -20,13 +35,26 @@ function Content(props) {
     organisationId :organisationid,
   });
 
-  const handleChange = (e) => {
+  const handleUpdateChange = (e) => {
     const { name, value } = e.target;
+    setUpdateDetails({
+      ...updateDetails,
+      [name]: value,
+    });
+  };
 
-    setProductDetails({
+  const handleProductChange = (e) => {
+    const { name, value } = e.target;
+   setProductDetails({
       ...productDetails,
       [name]: value,
     });
+  };
+
+  const handleUpdate = (updates) => {
+    updates.preventDefault();
+    console.log(updateDetails)
+    props.onUpdateDetails(updateDetails)
   };
 
   const handleBool = () => {
@@ -38,7 +66,6 @@ function Content(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(productDetails)
     // console.log(productDetails.organisationId,"organisationId")
     props.onAddProduct(productDetails);
   };
@@ -75,6 +102,13 @@ function Content(props) {
                   Organisation Name 
                   </span>
                   : {props.data[0].organisationName}
+                 </div>
+
+                 <div className={styles.row}>
+                 <span className={styles.dataSpan}>
+                  Organisation Description 
+                  </span>
+                  : {props.data[0].description}
                  </div>
 
                  <div className={styles.row}>
@@ -119,60 +153,161 @@ function Content(props) {
             </div>
           </div>
         </div>
+
+
+
+
+{/* ORGANISATION UPdATE DETAILS PART  */}
         <div className={styles.container2}>
           <div className={styles.organDetails}>
-            {/* <strong className={styles.top}>Organisation Details</strong>
-              <br />
-              <br /> */}
             <p className={styles.topic}>Update Details</p>
             <div>
               <input
-                type="name"
+                type="text"
                 placeholder="Organisation Name"
                 className={styles.input}
+                id="organisationName"
+                name="organisationName"
+                value={updateDetails.organisationName}
+                onChange={handleUpdateChange}
+                required
+                autoComplete='off'
               />
             </div>
+
+            <select
+              className={styles.orgType}
+              id="typeOfOrganisation"
+              name="typeOfOrganisation"
+              value={updateDetails.typeOfOrganisation}
+              onChange={handleUpdateChange}
+              required
+              autoComplete="off"
+            >
+              <option value="" disabled >Select your Organisation type</option>
+              <option value="Cooperatives">Cooperatives</option>
+              <option value="Self help groups">Self help groups</option>
+              <option value="Private">Private </option>
+            </select>
+
             <div>
-              <input
-                type="type"
-                placeholder="Organisation Type"
+              <textarea
+                placeholder="Organisation Description"
                 className={styles.input}
+                row="3"
+                id="description"
+                name="description"
+                value={updateDetails.description}
+                onChange={handleUpdateChange}
+                required
+                autoComplete='off'
               />
             </div>
 
             <div>
               <input
-                type="location"
-                placeholder="Organisation Location"
+                type="url"
+                placeholder="Youe Website Url"
                 className={styles.input}
+                id="website"
+                name="website"
+                value={updateDetails.website}
+                onChange={handleUpdateChange}
+                required
+                autoComplete='off'
               />
             </div>
 
-            <p className={styles.topic}>Social Media Handles</p>
             <div>
               <input
-                type="facebook"
-                placeholder="Facebook"
-                className={styles.input}
-              />
-            </div>
-            <div>
-              <input
-                type="twitter"
-                placeholder="Twitter"
-                className={styles.input}
-              />
-            </div>
-            <div>
-              <input
-                type="linkedin"
+                type="url"
                 placeholder="Linkedin"
                 className={styles.input}
+                id="linkedin"
+                name="linkedin"
+                value={updateDetails.linkedin}
+                onChange={handleUpdateChange}
+                required
+                autoComplete='off'
               />
             </div>
+            
+            <p className={styles.topic}>Your Location</p>
+            <div>
+              <input
+                type="text"
+                placeholder=" Area"
+                className={styles.input}
+                id="area"
+                name="area"
+                value={updateDetails.area}
+                onChange={handleUpdateChange}
+                required
+                autoComplete='off'
+              />
+            </div>
+
+
+            <div>
+              <input
+                type="text"
+                placeholder=" City"
+                className={styles.input}
+                id="city"
+                name="city"
+                value={updateDetails.city}
+                onChange={handleUpdateChange}
+                required
+                autoComplete='off'
+              />
+            </div>
+
+            <div>
+              <input
+                type="text"
+                placeholder=" State"
+                className={styles.input}
+                id="state"
+                name="state"
+                value={updateDetails.state}
+                onChange={handleUpdateChange}
+                required
+                autoComplete='off'
+              />
+            </div>
+
+            <div>
+              <input
+                type="number"
+                placeholder=" Pincode"
+                className={styles.input}
+                id="pincode"
+                name="pincode"
+                value={updateDetails.pincode}
+                onChange={handleUpdateChange}
+                required
+                autoComplete='off'
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder=" Country"
+                className={styles.input}
+                id="nation"
+                name="nation"
+                value={updateDetails.nation}
+                onChange={handleUpdateChange}
+                required
+                autoComplete='off'
+              />
+
+            </div>
+
+      
             <div className={styles.alignCenter}>
               <Link href=" ">
-                <a className={styles.button}>Save</a>
+                <a className={styles.button} onClick={handleUpdate}>Save</a>
               </Link>
             </div>
           </div>
@@ -199,7 +334,7 @@ function Content(props) {
               id="productName"
               name="productName"
               value={productDetails.productName}
-              onChange={handleChange}
+              onChange={handleProductChange}
               required
               autoComplete="off"
             />
@@ -211,7 +346,7 @@ function Content(props) {
               id="description"
               name="description"
               value={productDetails.description}
-              onChange={handleChange}
+              onChange={handleProductChange}
               required
               autoComplete="off"
               // cols="40"
@@ -225,7 +360,7 @@ function Content(props) {
               id="productUrl"
               name="productUrl"
               value={productDetails.productUrl}
-              onChange={handleChange}
+              onChange={handleProductChange}
               required
               autoComplete="off"
             />
@@ -237,7 +372,7 @@ function Content(props) {
               id="price"
               name="price"
               value={productDetails.price}
-              onChange={handleChange}
+              onChange={handleProductChange}
               required
               autoComplete="off"
             />
@@ -250,7 +385,7 @@ function Content(props) {
               id="productImage"
               name="productImage"
               value={productDetails.productImage}
-              onChange={handleChange}
+              onChange={handleProductChange}
               required
               autoComplete="off"
             />

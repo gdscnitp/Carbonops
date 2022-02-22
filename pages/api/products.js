@@ -8,7 +8,17 @@ var proSc = require("../../models/Product");
 export default async function handler(req, res) {
   if (req.method === "POST") {
     console.log(req.body);
-    try {
+    var prodName = {
+      name: { $eq: req.body.productName },
+    };
+
+    //checking if product already exists or not
+    const prodExists = await proSc.findOne({ productName:  prodName.name });
+    // console.log(prodExists,"prodExists");
+
+    if(!prodExists){
+
+      try {
       var {
         organisationId,
         productName,
@@ -52,7 +62,19 @@ export default async function handler(req, res) {
     } catch (error) {
       console.log(error.message);
     }
-  } else if (req.method === "DELETE") {
+  }
+  else {
+    return sendError(
+      res,
+      "Product with this name is already registered",
+      1,
+      403
+    );
+  }
+
+  } 
+  
+  else if (req.method === "DELETE") {
     initDB();
     console.log(req.body);
     const ProdId = {
@@ -69,6 +91,6 @@ export default async function handler(req, res) {
     }
     return sendSuccess(res, info);
   } else {
-    return sendError(res, "Bad rquest", 0, 400);
+    return sendError(res, "Bad request", 2, 400);
   }
 }
