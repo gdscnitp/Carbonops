@@ -1,0 +1,277 @@
+.FootprintBody {
+  background-color: #142424;
+}
+.carbonFootprintBody {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: white;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 0.5fr;
+  grid-template-areas: 'BodyLeft BodyRight';
+  background-color: #142424;
+}
+.heading {
+  text-align: center;
+  color: #54ccfa;
+  padding: 1rem;
+  background-color: #142424;
+}
+.exclaim {
+  color: #54ccfa;
+  margin-left: 2px;
+  font-size: 15px;
+}
+.BodyLeft {
+  grid-area: BodyLeft;
+  position: relative;
+}
+.BodyRight {
+  grid-area: BodyRight;
+  position: relative;
+  /* right: 125px; */
+}
+.BodyLeft:before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 95%;
+  background-color: #fff;
+  left: 250px;
+  margin-top: 30px;
+}
+.BodyLeft ul {
+  margin: 0;
+  margin-top: 30px;
+  padding: 0;
+  transition: all 0.5s ease;
+}
+.BodyLeft ul li {
+  list-style: none;
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  transition: all 0.5s ease;
+  left: 250px;
+}
+.BodyLeft ul li:before {
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+  top: 35%;
+  width: 9px;
+  height: 9px;
+  background-color: #f76e11;
+  box-shadow: 0 0 0 4px #333, 0 0 0 5px #f76e11;
+  left: -3px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.BodyLeft ul li .h3 {
+  width: 300px;
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 20px;
+  top: 3%;
+  transition: all 0.4s ease;
+}
+.BodyLeft ul li .h4 {
+  width: 350px;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 28px;
+  margin-top: 5%;
+  transition: all 0.4s ease;
+}
+.BodyLeft ul li::after .h4 {
+  box-shadow: 0 0 0 4px #333;
+  cursor: pointer;
+}
+.BodyLeft ul li .input {
+  margin: 10px 0 0;
+  padding: 0;
+}
+.input,
+.content .textarea {
+  background-color: #142424;
+  border: none;
+  width: 400px;
+  height: 50px;
+  border-bottom: 2px solid #6d8299;
+  color: #fff;
+  outline: 0;
+}
+.content .input:hover,
+.content .textarea:hover {
+  border-color: #139487;
+}
+.content input::placeholder,
+.content textarea::placeholder {
+  font-size: 15px;
+  color: rgb(187, 187, 187);
+  padding: 0px;
+  font-style: italic;
+}
+.tippy {
+  background: #173033;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  /* visibility: visible; */
+  box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.4);
+}
+/* .tippy:before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #173033;
+  bottom: 48px;
+  left: -6px;
+  transform: rotate(45deg);
+} */
+
+.button {
+  font-size: 15px;
+  color: white;
+  background-color: #00bd57;
+  text-decoration: none;
+  margin: 20px;
+  width: 200px;
+  letter-spacing: 1px;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 98%;
+  right: -130px;
+  box-shadow: 2px 10px 50px 0px rgba(0, 255, 10, 0.25) inset;
+  box-shadow: 0px 4px 50px 0px rgba(0, 255, 240, 0.19);
+}
+
+.button:hover {
+  cursor: pointer;
+  color: white;
+  box-shadow: inset 5px 3px 11px 10px rgba(7, 255, 0, 0.42);
+}
+.score {
+  text-align: center;
+  color: #54ccfa;
+  font-size: 25px;
+  padding: 1rem;
+  position: absolute;
+  top: 10%;
+}
+.ellipse {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  background: #00bd57;
+  box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.4),
+    0px 4px 50px 0px rgba(0, 255, 240, 0.19);
+  position: absolute;
+  top: 15%;
+}
+@media only screen and (max-width: 1281px) {
+  .BodyLeft:before {
+    left: 100px;
+  }
+  .BodyLeft ul li {
+    left: 100px;
+  }
+}
+@media only screen and (max-width: 930px) {
+  .carbonFootprintBody {
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas:
+      'BodyLeft '
+      'BodyRight';
+  }
+  .BodyLeft {
+    grid-area: BodyLeft;
+    width: 100%;
+  }
+  .BodyRight {
+    position: relative;
+    top: 30%;
+    grid-area: BodyRight;
+    height: 40%;
+    transition: all 3s ease;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .button {
+    position: absolute;
+    left: 130px;
+    margin: 0;
+    margin-top: 120px;
+  }
+  .ellipse {
+    margin-top: 40px;
+    top: 40%;
+  }
+  @media only screen and (max-width: 600px) {
+    .input,
+    .content .textarea {
+      width: 250px;
+    }
+    .BodyLeft ul li .h3 {
+      font-size: 15px;
+    }
+    .BodyLeft ul li .h4 {
+      font-size: 20px;
+    }
+    .BodyLeft:before {
+      left: 30px;
+    }
+    .BodyLeft ul li {
+      left: 30px;
+    }
+  }
+  @media only screen and (max-width: 455px) {
+    .button {
+      left: 50px;
+    }
+    .BodyLeft ul li .h3 {
+      width: 250px;
+    }
+    .BodyLeft ul li .h4 {
+      width: 250px;
+      font-size: 20px;
+    }
+  }
+}
+@media only screen and (max-width: 456px) {
+  .input,
+  .content .textarea {
+    width: 200px;
+  }
+  .button {
+    width: 150px;
+    left: 15px;
+  }
+}
+@media only screen and (max-width: 355px) {
+  .BodyLeft ul li .h3 {
+    width: 50px;
+  }
+  .BodyLeft ul li .h4 {
+    width: 50px;
+    font-size: 20px;
+  }
+  .input,
+  .content .textarea {
+    width: 150px;
+  }
+}
