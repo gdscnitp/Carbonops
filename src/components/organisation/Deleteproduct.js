@@ -7,7 +7,7 @@ const Productpage = () => {
   return (
     <>
       <div className={styles.heading}>
-        <h2>Deletion Page</h2>
+        <h2>Delete Products</h2>
         <hr className={styles.hr} />
       </div>
 

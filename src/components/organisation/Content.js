@@ -148,7 +148,7 @@ export default function Content(props) {
                  {/* wasteRequirements will only appear when dealsProducts is true  */}
                 {props.data[0].dealsProducts && <div className={styles.row}>
                 <span className={styles.dataSpan}> Waste Requirements</span>  : {props.data[0].wasteRequirements}
-                <div>kjfdfnkjdfngjkdf</div>
+                {/* <div>kjfdfnkjdfngjkdf</div> */}
                  </div>}
                </div>
 
@@ -415,7 +415,7 @@ export default function Content(props) {
 
           </div>
         </div>
-      <Delete/>
+      <Delete />
       </div>
     </>
   );
