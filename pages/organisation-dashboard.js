@@ -45,6 +45,7 @@ const organisationDash = (props) => {
         />
         <main className={styles.main}>
           <OrganisationDashBoard {...orgObj} onAddProduct={addProductHandler} />
+          
         </main>
       </>
     );
