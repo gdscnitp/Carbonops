@@ -327,7 +327,7 @@ export default function carbonFootprint() {
                       onChange={handleChange}
                     >
                       <option value="" disabled selected>
-                        Choose how many times you run your dishwasher
+                        Choose how many times you run your dishwasher weekly
                       </option>
                       <option value="1 to 3 times">1 to 3 times</option>
                       <option value="4 to 9 times">4 to 9 times</option>
@@ -366,7 +366,7 @@ export default function carbonFootprint() {
                       onChange={handleChange}
                     >
                       <option value="" disabled selected>
-                        Choose how many times you run your Washing Machine
+                        Choose how many times you run your Washing Machine weekly
                       </option>
                       <option value="1 to 3 times">1 to 3 times</option>
                       <option value="4 to 9 times">4 to 9 times</option>
@@ -564,7 +564,7 @@ export default function carbonFootprint() {
                     onClick={() => setShow12(!show12)}
                     className={`${show12 ? styles.h4 : styles.h3}`}
                   >
-                    Are your Items Recylable?{' '}
+                    Do you recycle?{' '}
                     <input
                       type="checkbox"
                       id="itemsRecycled"
