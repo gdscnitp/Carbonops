@@ -32,7 +32,7 @@ export default async function handler(req, res) {
       mail: { $eq: req.body.mailId },
     };
 
-    //checking if user already exists in database
+    //checking if individual already exists in database
     const mailExists = await Indiv.findOne({ email: indivMail.mail });
     // console.log(mailExists,"mailExists");
 
@@ -60,13 +60,3 @@ export default async function handler(req, res) {
     return sendError(res, "Bad request(NOT POST)", 2, 400);
   }
 }
-
-
-// {
-//   "individualId":"1235468",
-//    "eventId":"987654654",
-//    "name":"Pushkar",
-//    "mailId":"paladfdfk234@gmail.com",
-//    "phoneNumber":12354997
-// }
-
