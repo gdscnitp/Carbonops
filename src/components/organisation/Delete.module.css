@@ -1,0 +1,139 @@
+.dash{
+    background-color: #00BD57;
+      border-radius: 9px 2px 9px 2px;
+      position: relative;
+     bottom: 52px;
+      right: 95px;
+      height: 30px;
+      color: white;
+  }
+  
+  .heading{
+      color: #54CCFA;
+      text-align: center;
+      background-color: #152023;
+      margin-bottom: 1.7%;
+
+  }
+  
+  .hr{
+      background-color: #525252;
+      height: 0.1px;
+      width: 100%;
+      position: relative;
+      left:-1.3%;
+      box-shadow: 0px 4px 50px 0px rgb(0 255 240 / 19%);
+
+      
+  }
+  
+  .servicescontainer{
+      background-color: #152023;
+      width: 60%;
+      height:40%;
+      box-shadow: 0px 4px 50px 0px rgb(0 255 240 / 19%);
+      border: 4px solid #fff;
+      border-radius: 10px;
+   }
+  
+   .services{
+       border: 2px solid rgb(34, 34, 34);
+      margin: 18px;
+      padding: 18px;
+      display: flex;
+      background-color: #173033;
+      height: 20%;
+      width: 80%;
+      position: relative;
+      left: 10%;
+      border-radius: 6px;
+      margin-top: 4%;
+      box-shadow: 0px 4px 50px 0px rgb(0 255 240 / 19%);
+      border: 2px solid #fff;
+
+
+      
+  }
+  .heart{
+      margin: 4px;
+      padding: 6px;
+  }
+  .container1{
+      color: white;
+      width: 21%;
+      left: 6%;
+      position: relative;
+      bottom: -8px;
+      margin-left:10%;
+
+  }
+  
+  .container2{
+      color: white;
+      width: 33%;
+      left: 9%;
+      bottom: -25px;
+      position: relative;
+      margin-left:10%;
+  }
+  .product{
+      color:limegreen;
+      display: inline;
+   
+      
+     
+  }
+  .dollar{
+      color: #FF7A00;
+      margin-top: 12%;
+      /* margin-left: 4%; */
+  }
+  .dollars{
+      color: #FF7A00;
+      margin-top: 9%;
+      margin-left: 45%;
+  }
+ 
+  .btn{
+      position: relative;
+      border-radius: 6px 4px 2px 2px;
+      right: 25%;
+      width: 140px;
+      cursor: pointer;
+  }
+  .description{
+      color:limegreen;
+      margin-top:-14%;
+      margin-left: 20%;
+  }
+  .spacing{
+      margin-top: 26%;
+      margin-left: 6%;
+  }
+  .spacin{
+      margin-top: 9%;
+  }
+  .delete{
+      margin-top: 10%;
+      margin-left: 24%;
+
+  }
+  .pd{
+      margin-top: -35%;
+  }
+  
+  
+/* .h4 { display: inline; }
+*/
+.mar{
+    margin-top:-10%;
+    width:1000%;
+    margin-left: 10%;
+ 
+}
+.left{
+    margin-left: 80%;
+}
+.fin{
+    margin-top: -3%;
+}
