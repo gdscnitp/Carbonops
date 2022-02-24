@@ -16,10 +16,10 @@ export default function EventCard({events,IndividualDetails}) {
 
      async function handleRSVP (){
    const indivResponse = await fetch(
-    `/api/rsvp-event/${rsvpData}`,
+    `/api/rsvp-event`,
     {
       method: "POST",
-      body: JSON.stringify(`/${rsvpData}`),
+      body: JSON.stringify(rsvpData),
       headers: {
         'Content-Type': 'application/json',
       }
