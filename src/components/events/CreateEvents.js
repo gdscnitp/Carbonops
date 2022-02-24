@@ -33,7 +33,7 @@ export default function CreateEvents(props) {
     });
   };
 
-  // console.log(values.isOffline , "isOffline change")
+  console.log(values.isOffline , "isOffline change")
 
   const handleBool = (e) => {
     setValues({
@@ -44,7 +44,7 @@ export default function CreateEvents(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(values.isOffline , "isOffline")
+    console.log(values.isOffline , "isOffline")
     console.log(values)
     props.onAddEvent(values);
   };

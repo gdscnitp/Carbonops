@@ -6,7 +6,6 @@
   grid-template-rows: 1fr;
   grid-template-areas: "formLeft formRight";
   background-color: #142424;
-
 }
 .formLeft {
   grid-area: formLeft;
