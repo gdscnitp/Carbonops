@@ -1,8 +1,11 @@
 import EventsPage from '../src/components/events/EventsPage';
 import Navbar from '../src/components/navbar/Navbar';
 import { navLinks } from '../src/components/utils/data';
+import { getSession, useSession } from "next-auth/react";
 
-export default function Events({ events }) {
+export default function Events(props) {
+// console.log(props.individualData,"props.individualData")
+
   return (
     <>
       <Navbar
@@ -15,14 +18,28 @@ export default function Events({ events }) {
         buttonText3=""
         buttonText4=""
       />
-      {/* <Navbar action1="" action2="Dashboard" buttonText1="Create Events" buttonText2=""/> */}
 
-      <EventsPage event={events} />
+      <EventsPage event={props.events} indivData={props.individualData} />
     </>
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+ 
+  // console.log(session, "sessionss");
+  var indivMail = session.user.email;
+
+  // console.log(indivMail,"indivData")
+  const indResponse = await fetch(`http://localhost:3000/api/indivdata/${indivMail}`,
+    {
+      method: "GET",
+    }
+  );
+  const indDataFetched = await indResponse.json();
+    //  console.log(indDataFetched,"indResponse")
+
+//  FETCHING EVENTS 
   const response = await fetch('http://localhost:3000/api/getevents', {
     method: 'GET',
   });
@@ -32,6 +49,9 @@ export async function getServerSideProps() {
   return {
     props: {
       events: data.data,
+      individualData : indDataFetched,
     },
   };
+
 }
+

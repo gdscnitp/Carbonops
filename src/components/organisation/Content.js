@@ -14,7 +14,7 @@ export default function Content(props) {
 
   const [updateDetails,setUpdateDetails] = useState({
     organisationName:"",
-    typeOfOrganisation:"",
+    type:"",
     description:"",
     website:"",
     linkedin:"",
@@ -179,9 +179,9 @@ export default function Content(props) {
 
             <select
               className={styles.orgType}
-              id="typeOfOrganisation"
-              name="typeOfOrganisation"
-              value={updateDetails.typeOfOrganisation}
+              id="type"
+              name="type"
+              value={updateDetails.type}
               onChange={handleUpdateChange}
               required
               autoComplete="off"
