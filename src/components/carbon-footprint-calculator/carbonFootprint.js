@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Multiselect from 'multiselect-react-dropdown';
+import 'react-multiple-select-dropdown-lite/dist/index.css';
 import Tippy from '@tippy.js/react';
 // import 'tippy.js/dist/tippy.css';
 import styles from './carbonFootprint.module.css';
@@ -21,13 +23,14 @@ export default function carbonFootprint() {
   const [show12, setShow12] = useState(false);
 
   const [submit, setSubmit] = useState(false);
-  // const options = [
-  //   { label: 'glass', value: 'Glass' },
-  //   { label: 'plastic', value: 'Plastic' },
-  //   { label: 'paper', value: 'Paper' },
-  //   { label: 'aluminium steel', value: 'Aluminium steel' },
-  //   { label: 'food waste', value: 'Food waste' },
-  // ];
+  const data = [
+    { id: 'glass', values: 'Glass' },
+    { id: 'plastic', values: 'Plastic' },
+    { id: 'paper', values: 'Paper' },
+    { id: 'aluminium steel', values: 'Aluminium steel' },
+    { id: 'food waste', values: 'Food waste' },
+  ];
+
   const [values, setValues] = useState({
     members: '',
     houseSize: '',
@@ -38,11 +41,16 @@ export default function carbonFootprint() {
     householdPurchases: '',
     garbageCans: '',
     itemsRecycled: false,
-    recycles: '',
+    recycles: data,
     personalTransport: '',
     publicTransport: '',
     flight: '',
   });
+
+  
+
+  const [options]=useState(data);
+  console.log(options);
   const [errors, setErrors] = useState({});
   const handleChange = (e) => {
     // console.log(e.target);
@@ -52,7 +60,6 @@ export default function carbonFootprint() {
       ...values,
       [name]: value,
     });
-    // console.log(setValues);
   };
 
   const handleBool = (e) => {
@@ -61,16 +68,25 @@ export default function carbonFootprint() {
       itemsRecycled: !values.itemsRecycled,
     });
   };
+  const handleOnchange = (val) => {
+    const { id, value } = e.target;
+    setValues({
+      ...options,
+      [id]:value, 
+    });
+    console.log(values.recycles);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // console.log(values);
     setErrors(validate(values));
     setSubmit(true);
   };
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && submit) {
-      console.log(values);
+      // console.log(values);
     }
   }, [errors]);
 
@@ -131,7 +147,7 @@ export default function carbonFootprint() {
           <h1>Carbon Footprint Calculator </h1>
         </div>
         <div className={styles.carbonFootprintBody}>
-          {/* <pre>{JSON.stringify(values, undefined,4)}</pre> */}
+          <pre>{JSON.stringify(values, undefined, 4)}</pre>
           <form onSubmit={handleSubmit} className={styles.BodyLeft}>
             <ul>
               <li>
@@ -584,16 +600,26 @@ export default function carbonFootprint() {
                     </Tippy>
                   </div>
                   {values.itemsRecycled ? (
-                    <textarea
-                      className={styles.textarea}
-                      rows="2"
-                      type="text"
-                      id="recycles"
+                    // <textarea
+                    //   className={styles.textarea}
+                    //   rows="2"
+                    //   type="text"
+                    //   id="recycles"
+                    //   name="recycles"
+                    //   value={values.recycles}
+                    //   onChange={handleChange}
+                    //   // required
+                    //   autoComplete="off"
+                    //   placeholder="Enter Recyclable item "
+                    // />
+                    <Multiselect
+                      // className={styles.textarea}
+                      id="id"
                       name="recycles"
-                      value={values.recycles}
-                      onChange={handleChange}
-                      // required
-                      autoComplete="off"
+                      options={options}
+                      displayValue="values"
+                     value ={values.recycles}
+                      // onChange={handleOnchange}
                       placeholder="Enter Recyclable item "
                     />
                   ) : (
