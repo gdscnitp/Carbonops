@@ -34,6 +34,6 @@ export const content = {
     'Input the miles you covered with Public Transport in a year. Add nothing if you do not use public transportation.',
   ],
   flight: [
-    'If you only travel short distances in 1 year, such as within your state, select within the state. If you travel further distances, such as to a nearby state or country, select Another Country. If you travel far, such as to another continent, select Another Continent.',
+    'If you only travel short distances in a year, such as within your state, select within the state. If you travel further distances, such as to a nearby state or country, select Another Country. If you travel far, such as to another continent, select Another Continent.',
   ],
 };

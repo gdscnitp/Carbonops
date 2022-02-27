@@ -41,8 +41,8 @@ export default function carbonFootprint() {
     washingMachine: '',
     householdPurchases: '',
     garbageCans: '',
-    itemsRecycled: false,
-    recycles:'',
+    recycles:false,
+    itemsRecycled:'',
     personalTransport: '',
     publicTransport: '',
     flight: '',
@@ -66,7 +66,7 @@ export default function carbonFootprint() {
   const handleBool = (e) => {
     setValues({
       ...values,
-      itemsRecycled: !values.itemsRecycled,
+      recycles: !values.recycles,
     });
   };
   const handleOnchange = (val) => {
@@ -75,7 +75,7 @@ export default function carbonFootprint() {
       ...options,
       [id]:value, 
     });
-    console.log(values.recycles);
+    console.log(values.itemsRecycled);
   };
 
   const handleSubmit = (e) => {
@@ -135,8 +135,8 @@ export default function carbonFootprint() {
         error.flight = 'Amount cannot be negative';
       }
     }
-    if (!value.recycles && value.itemsRecycled) {
-      error.recycles = 'This is required';
+    if (!value.itemsRecycled && value.recycles) {
+      error.itemsRecycled = 'This is required';
     }
     return error;
   };
@@ -591,9 +591,9 @@ export default function carbonFootprint() {
                     Do you recycle?{' '}
                     <input
                       type="checkbox"
-                      id="itemsRecycled"
-                      name="itemsRecycled"
-                      value={values.itemsRecycled}
+                      id="recycles"
+                      name="recycles"
+                      value={values.recycles}
                       onChange={handleBool}
                     />{' '}
                     <Tippy
@@ -607,34 +607,51 @@ export default function carbonFootprint() {
                       </span>
                     </Tippy>
                   </div>
-                  {values.itemsRecycled ? (
-                    <textarea
-                      className={styles.textarea}
-                      rows="2"
-                      type="text"
-                      id="recycles"
-                      name="recycles"
-                      value={values.recycles}
-                      onChange={handleChange}
-                      // required
-                      autoComplete="off"
-                      placeholder="Enter Recyclable item "
-                    />
-                    // <Multiselect
-                    //   // className={styles.textarea}
-                    //   id="id"
-                    //   name="recycles"
-                    //   options={options}
-                    //   displayValue="values"
-                    //  value ={values.recycles}
-                    //   // onChange={handleOnchange}
+                  {values.recycles ? (
+                    // <textarea
+                    //   className={styles.textarea}
+                    //   rows="2"
+                    //   type="text"
+                    //   id="itemsRecycled"
+                    //   name="itemsRecycled"
+                    //   value={values.itemsRecycled}
+                    //   onChange={handleChange}
+                    //   // required
+                    //   autoComplete="off"
                     //   placeholder="Enter Recyclable item "
                     // />
+                    <Multiselect
+                    className={styles.Multiselect}
+                      id="itemsRecycled"
+                      name="itemsRecycled"
+                      options={options}
+                      displayValue="values"
+                      value={values.itemsRecycled}
+                      // onChange={handleOnchange}
+
+                      placeholder="Enter Recyclable item "
+                      style={{
+                        chips: {
+                          background: 'green'
+                        },
+                        multiselectContainer: {
+                          color: 'red',
+                          background:'green',
+                          padding:'0',
+                          margin:'-20px'
+                        },
+                        searchBox: {
+                          border: 'none',
+                          'border-bottom': '1px solid blue',
+                          'border-radius': '0px'
+                        }
+                      }}
+                    />
                   ) : (
                     ''
                   )}
                   <p style={{ color: 'red', fontSize: '15px' }}>
-                    {errors.recycles}
+                    {errors.itemsRecycled}
                   </p>
                 </div>
               </li>
