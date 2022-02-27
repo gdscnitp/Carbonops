@@ -27,7 +27,8 @@ export default function carbonFootprint() {
     { id: 'glass', values: 'Glass' },
     { id: 'plastic', values: 'Plastic' },
     { id: 'paper', values: 'Paper' },
-    { id: 'aluminium steel', values: 'Aluminium steel' },
+    { id: 'aluminium ', values: 'Aluminium ' },
+    {id : 'steel',values:'Steel'},
     { id: 'food waste', values: 'Food waste' },
   ];
 
@@ -41,7 +42,7 @@ export default function carbonFootprint() {
     householdPurchases: '',
     garbageCans: '',
     itemsRecycled: false,
-    recycles: data,
+    recycles:'',
     personalTransport: '',
     publicTransport: '',
     flight: '',
@@ -118,11 +119,11 @@ export default function carbonFootprint() {
     }
     if (!value.personalTransport && !value.publicTransport && !value.flight) {
       error.personalTransport =
-        'Atleast fill one from personalTransport , publicTransport or flight';
+        'Atleast fill one from Personal Transport , Public Transport or Flight';
       error.publicTransport =
-        'Atleast fill one from personalTransport , publicTransport or flight';
+        'Atleast fill one from Personal Transport , Public Transport or Flight';
       error.flight =
-        'Atleast fill one from personalTransport , publicTransport or flight';
+        'Atleast fill one from Personal Transport , Public Transport or Flight';
     } else {
       if (value.personalTransport < 0) {
         error.personalTransport = 'Amount cannot be negative';
@@ -557,17 +558,24 @@ export default function carbonFootprint() {
                     </Tippy>
                   </div>
                   {show11 && (
-                    <input
+                   
+                    <select
                       className={styles.input}
-                      type="number"
                       id="flight"
                       name="flight"
-                      // required
                       autoComplete="off"
-                      placeholder="Flight"
                       value={values.flight}
                       onChange={handleChange}
-                    />
+                    >
+                      <option value="" disabled selected>
+                        Traveled from flights
+                      </option>
+                      <option value="within state">Within State</option>
+                      <option value="another country">Another Country</option>
+                      <option value="another continent">
+                      Another Continent
+                      </option>
+                    </select>
                   )}
                   <p style={{ color: 'red', fontSize: '15px' }}>
                     {errors.flight}
@@ -587,7 +595,7 @@ export default function carbonFootprint() {
                       name="itemsRecycled"
                       value={values.itemsRecycled}
                       onChange={handleBool}
-                    />
+                    />{' '}
                     <Tippy
                       className={styles.tippy}
                       placement="bottom"
@@ -600,28 +608,28 @@ export default function carbonFootprint() {
                     </Tippy>
                   </div>
                   {values.itemsRecycled ? (
-                    // <textarea
-                    //   className={styles.textarea}
-                    //   rows="2"
-                    //   type="text"
-                    //   id="recycles"
-                    //   name="recycles"
-                    //   value={values.recycles}
-                    //   onChange={handleChange}
-                    //   // required
-                    //   autoComplete="off"
-                    //   placeholder="Enter Recyclable item "
-                    // />
-                    <Multiselect
-                      // className={styles.textarea}
-                      id="id"
+                    <textarea
+                      className={styles.textarea}
+                      rows="2"
+                      type="text"
+                      id="recycles"
                       name="recycles"
-                      options={options}
-                      displayValue="values"
-                     value ={values.recycles}
-                      // onChange={handleOnchange}
+                      value={values.recycles}
+                      onChange={handleChange}
+                      // required
+                      autoComplete="off"
                       placeholder="Enter Recyclable item "
                     />
+                    // <Multiselect
+                    //   // className={styles.textarea}
+                    //   id="id"
+                    //   name="recycles"
+                    //   options={options}
+                    //   displayValue="values"
+                    //  value ={values.recycles}
+                    //   // onChange={handleOnchange}
+                    //   placeholder="Enter Recyclable item "
+                    // />
                   ) : (
                     ''
                   )}
