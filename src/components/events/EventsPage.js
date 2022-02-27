@@ -4,8 +4,10 @@ import EventCard from './EventCard'
 import styles from './EventsPage.module.css'
 import EventsList from './EventsList'
 
-export default function EventsPage({event}) {
- 
+export default function EventsPage({event,indivData}) {
+
+    // console.log(indivData,"individualData eventsPage")
+
     return (
         <>
             <div className={styles.eventBody}>
@@ -20,7 +22,7 @@ export default function EventsPage({event}) {
                     <div key ={events._id}>
                    {/* { console.log(events._id) } */}
 
-                    <EventCard events={events}/>
+                    <EventCard events={events} IndividualDetails={indivData}/>
                 </div>
                 )
             })}
