@@ -5,7 +5,6 @@ import styles from './EventsPage.module.css'
 import EventsList from './EventsList'
 
 export default function EventsPage({event,indivData}) {
-
     // console.log(indivData,"individualData eventsPage")
 
     return (

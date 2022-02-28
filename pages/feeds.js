@@ -15,10 +15,10 @@ export default function Feeds({ organ }) {
           <meta name="description" content="" />
         </Head>
         <Navbar  
-         action1={navLinks[0].name}
-         href1={navLinks[0].link}
-         action2={navLinks[1].name}
-         href2={navLinks[1].link}
+         action2={navLinks[0].name}
+         href2={navLinks[0].link}
+         action1={navLinks[1].name}
+         href1={navLinks[1].link}
          buttonText2={navLinks[2].name}
          href4={navLinks[2].link} 
          buttonText1="" 

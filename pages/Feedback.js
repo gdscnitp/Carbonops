@@ -7,9 +7,9 @@ const Feedback = () => {
   return (
     <>
       <Navbar
-        action1=""
-        action2={navLinks[5].name}
-        href2={navLinks[5].link}
+        action2=""
+        action1={navLinks[5].name}
+        href1={navLinks[5].link}
         buttonText1={navLinks[4].name}
         href3={navLinks[4].link}
         buttonText2=""
