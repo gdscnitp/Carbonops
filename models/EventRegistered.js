@@ -19,7 +19,6 @@ const regEventSchema = new mongoose.Schema({
     mailId:{
         type: String,
         required: true,
-        unique:true,
         trim:true,
         validate: [ isEmail, 'Please provide a valid email ID' ]
     },
