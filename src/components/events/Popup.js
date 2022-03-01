@@ -3,6 +3,33 @@ import styles from './Popup.module.css'
 
 
 export default function Popup(props) {
+//    console.log(props.individualMail, "individualMail")
+
+   
+   const rsvpData = {
+    eventId:props.events._id,
+    mailId:props.individualMail,
+  }
+
+   async function handleRSVP (){
+ const indivResponse = await fetch(
+  `/api/rsvp-event`,
+  {
+    method: "POST",
+    body: JSON.stringify(rsvpData),
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  }
+);
+  const data =await indivResponse.json();
+  console.log(indivResponse)
+  console.log(data)
+if (!indivResponse.ok) {
+  console.log("Error occured")
+}
+return data;
+}
    
     return ( props.trigger )?
         <>
@@ -28,7 +55,7 @@ export default function Popup(props) {
             </ol> 
         </div> <br />
         <div className={styles.button}>
-        <a>RSVP NOW</a>
+        <a onClick={handleRSVP}>RSVP NOW</a>
         </div>
         </div>
         </div>
