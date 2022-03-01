@@ -8,22 +8,16 @@ initDB();
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    console.log(req.body);
+    // console.log(req.body);
 
     const {
-      individualId,
       eventId,
-      name,
       mailId,
-      phoneNumber,
     } = req.body;
 
     if (
-      !individualId ||
       !eventId ||
-      !name ||
-      !mailId ||
-      !phoneNumber
+      !mailId 
     ) {
       return sendError(res, "All values not found", 2, 404);
     }
@@ -31,18 +25,24 @@ export default async function handler(req, res) {
     var indivMail = {
       mail: { $eq: req.body.mailId },
     };
+    // console.log( mailId , eventId )
+    const alreadyRegistered = await regEventSchema.find({
+     mailId:mailId,
+     eventId :eventId
+    });
+    // console.log(alreadyRegistered,"alreadyRegistered");
 
     //checking if individual already exists in database
     const mailExists = await Indiv.findOne({ email: indivMail.mail });
     // console.log(mailExists,"mailExists");
 
-    if(mailExists){
+    if(alreadyRegistered.length  <=0){
       const item = new regEventSchema({
-      individualId:individualId,
+      individualId:mailExists._id,
       eventId:eventId,
-      name:name,
+      name:mailExists.name,
       mailId:mailId,
-      phoneNumber:phoneNumber,
+      phoneNumber:mailExists.contact,
       });
 
       console.log(item);
@@ -53,7 +53,8 @@ export default async function handler(req, res) {
 
   } 
   else{
-    return sendError(res, "Mail ID not found", 2, 404);
+    // return sendError(res, "Mail ID not found", 2, 404);
+    return sendError(res, "already Registered for the event.", 0, 350);
   }
 }
   else {
