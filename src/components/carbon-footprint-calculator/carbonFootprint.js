@@ -28,7 +28,7 @@ export default function carbonFootprint() {
     { id: 'plastic', values: 'Plastic' },
     { id: 'paper', values: 'Paper' },
     { id: 'aluminium ', values: 'Aluminium ' },
-    {id : 'steel',values:'Steel'},
+    { id: 'steel', values: 'Steel' },
     { id: 'food waste', values: 'Food waste' },
   ];
 
@@ -41,17 +41,15 @@ export default function carbonFootprint() {
     washingMachine: '',
     householdPurchases: '',
     garbageCans: '',
-    recycles:false,
-    itemsRecycled:'',
+    recycles: false,
+    itemsRecycled: '',
     personalTransport: '',
     publicTransport: '',
     flight: '',
   });
 
-  
+  const [options] = useState(data);
 
-  const [options]=useState(data);
-  console.log(options);
   const [errors, setErrors] = useState({});
   const handleChange = (e) => {
     // console.log(e.target);
@@ -69,14 +67,15 @@ export default function carbonFootprint() {
       recycles: !values.recycles,
     });
   };
-  const handleOnchange = (val) => {
-    const { id, value } = e.target;
-    setValues({
-      ...options,
-      [id]:value, 
-    });
-    console.log(values.itemsRecycled);
-  };
+  // const handleOnchange = (val) => {
+  //   const { id, value } = e.target;
+  //   console.log(e.target);
+  //   setValues({
+  //     ...options,
+  //     [id]: value,
+  //   });
+  //   console.log(values.itemsRecycled);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -148,7 +147,7 @@ export default function carbonFootprint() {
           <h1>Carbon Footprint Calculator </h1>
         </div>
         <div className={styles.carbonFootprintBody}>
-          <pre>{JSON.stringify(values, undefined, 4)}</pre>
+          {/* <pre>{JSON.stringify(values, undefined, 4)}</pre> */}
           <form onSubmit={handleSubmit} className={styles.BodyLeft}>
             <ul>
               <li>
@@ -383,7 +382,8 @@ export default function carbonFootprint() {
                       onChange={handleChange}
                     >
                       <option value="" disabled selected>
-                        Choose how many times you run your Washing Machine weekly
+                        Choose how many times you run your Washing Machine
+                        weekly
                       </option>
                       <option value="1 to 3 times">1 to 3 times</option>
                       <option value="4 to 9 times">4 to 9 times</option>
@@ -558,7 +558,6 @@ export default function carbonFootprint() {
                     </Tippy>
                   </div>
                   {show11 && (
-                   
                     <select
                       className={styles.input}
                       id="flight"
@@ -573,7 +572,7 @@ export default function carbonFootprint() {
                       <option value="within state">Within State</option>
                       <option value="another country">Another Country</option>
                       <option value="another continent">
-                      Another Continent
+                        Another Continent
                       </option>
                     </select>
                   )}
@@ -608,20 +607,8 @@ export default function carbonFootprint() {
                     </Tippy>
                   </div>
                   {values.recycles ? (
-                    // <textarea
-                    //   className={styles.textarea}
-                    //   rows="2"
-                    //   type="text"
-                    //   id="itemsRecycled"
-                    //   name="itemsRecycled"
-                    //   value={values.itemsRecycled}
-                    //   onChange={handleChange}
-                    //   // required
-                    //   autoComplete="off"
-                    //   placeholder="Enter Recyclable item "
-                    // />
                     <Multiselect
-                    className={styles.Multiselect}
+                      className={styles.Multiselect}
                       id="itemsRecycled"
                       name="itemsRecycled"
                       options={options}
@@ -632,19 +619,26 @@ export default function carbonFootprint() {
                       placeholder="Enter Recyclable item "
                       style={{
                         chips: {
-                          background: 'green'
+                          background: '#00bd57',
                         },
                         multiselectContainer: {
-                          color: 'red',
-                          background:'green',
-                          padding:'0',
-                          margin:'-20px'
+                          color: 'white',
+                          margin: '-20px',
+                          width: '100%'
+                        },
+                        highlightOption :{
+                          background: '#142424',
+                        },
+                        optionContainer: {
+                          background: '#142424',
                         },
                         searchBox: {
                           border: 'none',
-                          'border-bottom': '1px solid blue',
-                          'border-radius': '0px'
-                        }
+                          'border-bottom': '2px solid #6d8299',
+                          'border-radius': '0px',
+                          'margin-top': '30px',
+                          'margin-left': '20px',
+                        },
                       }}
                     />
                   ) : (
