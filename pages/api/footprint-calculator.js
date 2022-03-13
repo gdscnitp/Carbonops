@@ -151,7 +151,7 @@ export default async function handler(req, res) {
             else {
                 score += 24;
                 var noOfRecycled = itemsRecycled.length;//items recycled is an array that can have recyclable items 
-                //such as glass, plastic, paper, aluminium steel, food waste
+                //such as glass, plastic, paper, aluminium ,steel, food waste
                 score -= 4 * noOfRecycled;
             }
 
