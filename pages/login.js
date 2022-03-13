@@ -11,9 +11,9 @@ export default function LoginPage() {
         <meta name="description" content="" />
       </Head>
       <Navbar  
-       action1=""
-       action2={navLinks[3].name}
-       href2={navLinks[3].link}
+       action2=""
+       action1={navLinks[3].name}
+       href1={navLinks[3].link}
        buttonText1={navLinks[4].name}
        href3={navLinks[4].link} 
        buttonText2="" 
