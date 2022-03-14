@@ -34,12 +34,14 @@ export default function CreateEvents(props) {
   };
 
   console.log(values.isOffline , "isOffline change")
-
+  // console.log(isOffline , "isOnline ..>>>") not defined
   const handleBool = (e) => {
     setValues({
       ...values,
       isOffline: !(values.isOffline),
     });
+    console.log(values.isOffline , "isOffline")
+    console.log(isOffline , "isOnline")
   }
 
   const handleSubmit = (event) => {

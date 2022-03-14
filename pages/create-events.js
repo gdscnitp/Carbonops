@@ -32,10 +32,10 @@ export default function Events() {
   return (
     <>
       <Navbar
-        action1={navLinks[0].name}
-        href1={navLinks[0].link}
-        action2={navLinks[1].name}
-        href2={navLinks[1].link}
+        action2={navLinks[0].name}
+        href2={navLinks[0].link}
+        action1={navLinks[1].name}
+        href1={navLinks[1].link}
         buttonText1=""
         buttonText2=""
         buttonText3=""

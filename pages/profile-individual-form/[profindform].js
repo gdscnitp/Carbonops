@@ -8,9 +8,9 @@ export default function IndProfile({idOfInd}) {
     return (
         <>
         <Navbar 
-        action1="" 
-        action2={navLinks[3].name}
-        href2={navLinks[3].link}
+        action2="" 
+        action1={navLinks[3].name}
+        href1={navLinks[3].link}
         buttonText2=""
         href4=""
         buttonText1=""

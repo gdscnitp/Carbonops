@@ -23,6 +23,7 @@ export default function Events(props) {
         buttonText1=""
         buttonText3=""
         buttonText4=""
+
       />
 
       <EventsPage event={props.events} indivData={props.individualMail} registeredEventDetails={registeredEventDetails}/>
@@ -32,6 +33,7 @@ export default function Events(props) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
+  
   // console.log(session, "sessionss");
  
   if (!session) {
@@ -45,6 +47,27 @@ export async function getServerSideProps(context) {
   }
   
   var indivMail = session.user.email;
+  var idResponse;
+  if(!session.user.isOrganisation)
+  {
+     idResponse = await fetch(`http://localhost:3000/api/indivdata/${indivMail}`,
+    {
+      method: "GET",
+    }
+   );
+  }
+  else
+  {
+     idResponse = await fetch(`http://localhost:3000/api/organisation-dashboard/${indivMail}`,
+    {
+      method: "GET",
+    }
+   );
+  }
+  // console.log(indivMail,"indivData")
+ 
+  const indDataFetched = await idResponse.json();
+    //  console.log(indDataFetched,"indResponse")
 
 //  FETCHING EVENTS 
   const response = await fetch('http://localhost:3000/api/getevents', {

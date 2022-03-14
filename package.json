@@ -12,6 +12,7 @@
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "mongoose": "^6.0.13",
+    "multiselect-react-dropdown": "^2.0.21",
     "next": "^12.1.0",
     "next-auth": "^4.0.6",
     "node-fetch": ">=2.6.7",

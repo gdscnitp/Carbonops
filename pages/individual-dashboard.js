@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 
 export default function dashboard(props) {
   const userObj = props.userData
+  
   const { data: session, status } = useSession()
   const router = useRouter();
   if (status === "loading") {
@@ -74,7 +75,6 @@ export async function getServerSideProps(context){
       
       return {
         props:{
-         
           userData:data
         }
       }

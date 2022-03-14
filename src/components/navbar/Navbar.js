@@ -3,15 +3,33 @@ import Signpop from './signpo';
 import Link from 'next/link';
 import styles from './Navbar.module.css';
 import { signOut } from "next-auth/react"
+import { useSession } from "next-auth/react";
+
+
 
 export default function Navbar(props) {
+  
   const [detailPopup, setDetailPopup] = useState(false);
+ var link="/";
+  const { data: session } = useSession()
+  if(session)
+  {
+    console.log(session.user.isOrganisation)
+    if(!session.user.isOrganisation)
+    {
+      link='/individual-dashboard';
+    }
+    else{
+     link='/organisation-dashboard';
+    }
+  }
+  console.log(link,"HELLO")
   const link1 = props.href1;
   const link2 = props.href2;
   const link3 = props.href3;
   const link4 = props.href4;
   const link5 = props.href5;
-
+  console.log(link5)
    return (
     <>
       <nav className={styles.navbar}>
@@ -25,7 +43,9 @@ export default function Navbar(props) {
             </Link>
           </li>
           <li>
-            <Link href={`${link2}`}>{props.action2}</Link>
+            <Link href={`${link}`}>
+              {props.action2}
+              </Link>
           </li>
           <Link href={`${link3}`}>
             {props.buttonText1.length > 0 ? (
@@ -41,7 +61,7 @@ export default function Navbar(props) {
             )}
           </Link>
           <Link href={`${link5}`}>
-            {props.buttonText3.length > 0 ? (
+            { props.buttonText3 && props.buttonText3.length > 0 ? (
               <a className={styles.button}> {props.buttonText3} </a>
             ) : (
               ''
@@ -78,3 +98,4 @@ export default function Navbar(props) {
     </>
   );
 }
+

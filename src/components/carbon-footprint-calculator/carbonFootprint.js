@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Multiselect from 'multiselect-react-dropdown';
+import 'react-multiple-select-dropdown-lite/dist/index.css';
 import Tippy from '@tippy.js/react';
 // import 'tippy.js/dist/tippy.css';
 import styles from './carbonFootprint.module.css';
@@ -21,13 +23,15 @@ export default function carbonFootprint() {
   const [show12, setShow12] = useState(false);
 
   const [submit, setSubmit] = useState(false);
-  // const options = [
-  //   { label: 'glass', value: 'Glass' },
-  //   { label: 'plastic', value: 'Plastic' },
-  //   { label: 'paper', value: 'Paper' },
-  //   { label: 'aluminium steel', value: 'Aluminium steel' },
-  //   { label: 'food waste', value: 'Food waste' },
-  // ];
+  const data = [
+    { id: 'glass', values: 'Glass' },
+    { id: 'plastic', values: 'Plastic' },
+    { id: 'paper', values: 'Paper' },
+    { id: 'aluminium ', values: 'Aluminium ' },
+    { id: 'steel', values: 'Steel' },
+    { id: 'food waste', values: 'Food waste' },
+  ];
+
   const [values, setValues] = useState({
     members: '',
     houseSize: '',
@@ -37,12 +41,15 @@ export default function carbonFootprint() {
     washingMachine: '',
     householdPurchases: '',
     garbageCans: '',
-    itemsRecycled: false,
-    recycles: '',
+    recycles: false,
+    itemsRecycled: '',
     personalTransport: '',
     publicTransport: '',
     flight: '',
   });
+
+  const [options] = useState(data);
+
   const [errors, setErrors] = useState({});
   const handleChange = (e) => {
     // console.log(e.target);
@@ -52,25 +59,34 @@ export default function carbonFootprint() {
       ...values,
       [name]: value,
     });
-    // console.log(setValues);
   };
 
   const handleBool = (e) => {
     setValues({
       ...values,
-      itemsRecycled: !values.itemsRecycled,
+      recycles: !values.recycles,
     });
   };
+  // const handleOnchange = (val) => {
+  //   const { id, value } = e.target;
+  //   console.log(e.target);
+  //   setValues({
+  //     ...options,
+  //     [id]: value,
+  //   });
+  //   console.log(values.itemsRecycled);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // console.log(values);
     setErrors(validate(values));
     setSubmit(true);
   };
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && submit) {
-      console.log(values);
+      // console.log(values);
     }
   }, [errors]);
 
@@ -102,11 +118,11 @@ export default function carbonFootprint() {
     }
     if (!value.personalTransport && !value.publicTransport && !value.flight) {
       error.personalTransport =
-        'Atleast fill one from personalTransport , publicTransport or flight';
+        'Atleast fill one from Personal Transport , Public Transport or Flight';
       error.publicTransport =
-        'Atleast fill one from personalTransport , publicTransport or flight';
+        'Atleast fill one from Personal Transport , Public Transport or Flight';
       error.flight =
-        'Atleast fill one from personalTransport , publicTransport or flight';
+        'Atleast fill one from Personal Transport , Public Transport or Flight';
     } else {
       if (value.personalTransport < 0) {
         error.personalTransport = 'Amount cannot be negative';
@@ -118,8 +134,8 @@ export default function carbonFootprint() {
         error.flight = 'Amount cannot be negative';
       }
     }
-    if (!value.recycles && value.itemsRecycled) {
-      error.recycles = 'This is required';
+    if (!value.itemsRecycled && value.recycles) {
+      error.itemsRecycled = 'This is required';
     }
     return error;
   };
@@ -131,7 +147,7 @@ export default function carbonFootprint() {
           <h1>Carbon Footprint Calculator </h1>
         </div>
         <div className={styles.carbonFootprintBody}>
-          {/* <pre>{JSON.stringify(values, undefined,4)}</pre> */}
+          {/* <pre>{JSON.stringify(values, undefined, 4)}</pre> */}
           <form onSubmit={handleSubmit} className={styles.BodyLeft}>
             <ul>
               <li>
@@ -366,7 +382,8 @@ export default function carbonFootprint() {
                       onChange={handleChange}
                     >
                       <option value="" disabled selected>
-                        Choose how many times you run your Washing Machine weekly
+                        Choose how many times you run your Washing Machine
+                        weekly
                       </option>
                       <option value="1 to 3 times">1 to 3 times</option>
                       <option value="4 to 9 times">4 to 9 times</option>
@@ -541,17 +558,23 @@ export default function carbonFootprint() {
                     </Tippy>
                   </div>
                   {show11 && (
-                    <input
+                    <select
                       className={styles.input}
-                      type="number"
                       id="flight"
                       name="flight"
-                      // required
                       autoComplete="off"
-                      placeholder="Flight"
                       value={values.flight}
                       onChange={handleChange}
-                    />
+                    >
+                      <option value="" disabled selected>
+                        Traveled from flights
+                      </option>
+                      <option value="within state">Within State</option>
+                      <option value="another country">Another Country</option>
+                      <option value="another continent">
+                        Another Continent
+                      </option>
+                    </select>
                   )}
                   <p style={{ color: 'red', fontSize: '15px' }}>
                     {errors.flight}
@@ -567,11 +590,11 @@ export default function carbonFootprint() {
                     Do you recycle?{' '}
                     <input
                       type="checkbox"
-                      id="itemsRecycled"
-                      name="itemsRecycled"
-                      value={values.itemsRecycled}
+                      id="recycles"
+                      name="recycles"
+                      value={values.recycles}
                       onChange={handleBool}
-                    />
+                    />{' '}
                     <Tippy
                       className={styles.tippy}
                       placement="bottom"
@@ -583,24 +606,46 @@ export default function carbonFootprint() {
                       </span>
                     </Tippy>
                   </div>
-                  {values.itemsRecycled ? (
-                    <textarea
-                      className={styles.textarea}
-                      rows="2"
-                      type="text"
-                      id="recycles"
-                      name="recycles"
-                      value={values.recycles}
-                      onChange={handleChange}
-                      // required
-                      autoComplete="off"
+                  {values.recycles ? (
+                    <Multiselect
+                      className={styles.Multiselect}
+                      id="itemsRecycled"
+                      name="itemsRecycled"
+                      options={options}
+                      displayValue="values"
+                      value={values.itemsRecycled}
+                      // onChange={handleOnchange}
+
                       placeholder="Enter Recyclable item "
+                      style={{
+                        chips: {
+                          background: '#00bd57',
+                        },
+                        multiselectContainer: {
+                          color: 'white',
+                          margin: '-20px',
+                          width: '100%'
+                        },
+                        highlightOption :{
+                          background: '#142424',
+                        },
+                        optionContainer: {
+                          background: '#142424',
+                        },
+                        searchBox: {
+                          border: 'none',
+                          'border-bottom': '2px solid #6d8299',
+                          'border-radius': '0px',
+                          'margin-top': '30px',
+                          'margin-left': '20px',
+                        },
+                      }}
                     />
                   ) : (
                     ''
                   )}
                   <p style={{ color: 'red', fontSize: '15px' }}>
-                    {errors.recycles}
+                    {errors.itemsRecycled}
                   </p>
                 </div>
               </li>

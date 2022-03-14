@@ -11,11 +11,11 @@ export default function organisationProfile({org,pro}){
         <>
            {/* <Navbar action1="" action2="Home" buttonText1="DashBoard" buttonText2="Create Events"/> */}
            <Navbar  
-            action1=""
-            action2={navLinks[3].name}
-            href2={navLinks[3].link}
-            buttonText3={navLinks[0].name}
-            href5={navLinks[0].link} 
+            action2={navLinks[0].name}
+            action1={navLinks[3].name}
+            href1={navLinks[3].link}
+            // buttonText3={navLinks[0].name}
+            // href5={navLinks[0].link} 
             buttonText2={navLinks[2].name}
             href4={navLinks[2].link} 
             buttonText1=""

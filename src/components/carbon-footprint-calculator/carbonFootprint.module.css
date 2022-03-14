@@ -180,6 +180,30 @@
   position: absolute;
   top: 15%;
 }
+.Multiselect ul li:before{
+  background-color: #142424;
+  box-shadow: 0 0 0 0px #142424, 0 0 0 0px #142424;
+  top: 0;
+  width: 0;
+  height: 0;
+  left: -200px;
+}
+.Multiselect ul li{
+  margin:0;
+  padding: 2px;
+  font-size: 12px;
+  position: relative;
+  left:5%;
+  border-color:#139487;
+}
+.Multiselect ul li:first-child{
+  background: #142424;
+  
+}
+.Multiselect ul li:hover{
+  background: #0096fb;
+  transition: all 0.2s ease;
+}
 @media only screen and (max-width: 1281px) {
   .BodyLeft:before {
     left: 100px;
@@ -219,7 +243,7 @@
   }
   .ellipse {
     margin-top: 40px;
-    top: 40%;
+    top: 25%;
   }
   @media only screen and (max-width: 600px) {
     .input,
@@ -271,7 +295,7 @@
     font-size: 20px;
   }
   .input,
-  .content .textarea {
+  .content .textarea{
     width: 150px;
   }
 }

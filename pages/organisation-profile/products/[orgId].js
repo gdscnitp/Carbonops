@@ -3,18 +3,19 @@ import Productpage from "../../../src/components/ProductPage/productpage";
 import {navLinks} from '../../../src/components/utils/data';
 import { useEffect } from "react";
 
-export default function product({product}){
+export default function product({product,OrgId}){
  
     //console.log(product) 
     return (
         <>
              {/*<Navbar action1="" action2="" buttonText1="DashBoard" buttonText2=""/>*/} 
              <Navbar  
-            action1=""
-            action2={navLinks[3].name}
-            href2={navLinks[3].link}
+            action2={navLinks[0].name}
+            
+            action1={navLinks[3].name}
+            href1={navLinks[3].link}
             buttonText3={navLinks[0].name}
-            href5={navLinks[0].link} 
+            href5={`/organisation-profile/${OrgId}`}
             buttonText2=""
             buttonText1=""
             buttonText4=""/>
@@ -36,6 +37,7 @@ export async function getServerSideProps(context) {
     return {
       props: {
         product: data.data,
+        OrgId:orgId,
       },
     };
   }
