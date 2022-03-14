@@ -13,7 +13,7 @@ export default async function handler(req,res){
           };
 
         const registeredUser= await regEventSchema.find({mailId :indivMail.mail});
-        // console.log(registeredUser,"registeredUser");
+        console.log(registeredUser,"registeredUser");
    
         for (const eveId in registeredUser){
             // console.log(registeredUser[eveId].eventId ,"[eveId].eventId ");
