@@ -24,11 +24,12 @@ export default async function handler(req, res) {
 
     var indivMail = {
       mail: { $eq: req.body.mailId },
+      eve: { $eq: req.body.eventId },
     };
     // console.log( mailId , eventId )
     const alreadyRegistered = await regEventSchema.find({
-     mailId:mailId,
-     eventId :eventId
+     mailId:indivMail.mail,
+     eventId :indivMail.eve,
     });
     // console.log(alreadyRegistered,"alreadyRegistered");
 
