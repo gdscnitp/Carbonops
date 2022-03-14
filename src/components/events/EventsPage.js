@@ -46,7 +46,6 @@ export default function EventsPage({event,indivData,registeredEventDetails}) {
                 [ 
                     [registeredEventDetails.nameOfTheEvent , `${registeredEventDetails.eventDate} , ${registeredEventDetails.eventTime}`], 
                     [registeredEventDetails.nameOfTheEvent , `${registeredEventDetails.eventDate} , ${registeredEventDetails.eventTime}`], 
-                    [registeredEventDetails.nameOfTheEvent , `${registeredEventDetails.eventDate} , ${registeredEventDetails.eventTime}`], 
 
                 ]}
                />

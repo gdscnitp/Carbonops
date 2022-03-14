@@ -8,9 +8,11 @@ export default async function handler(req,res){
 
     if(req.method==="GET"){
         initDB();
-        const mailId = req.query.registeredUserEvent;
+        var indivMail = {
+            mail: { $eq: req.query.registeredUserEvent },
+          };
 
-        const registeredUser= await regEventSchema.find({mailId :mailId});
+        const registeredUser= await regEventSchema.find({mailId :indivMail.mail});
         // console.log(registeredUser,"registeredUser");
    
         for (const eveId in registeredUser){
