@@ -24,6 +24,7 @@ export default function carbonFootprint() {
   const [show10, setShow10] = useState(false);
   const [show11, setShow11] = useState(false);
   const [show12, setShow12] = useState(false);
+  const [result,setResult]=useState("");
 
   const [submit, setSubmit] = useState(false);
   const data = [
@@ -81,7 +82,7 @@ export default function carbonFootprint() {
   // };
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
+     e.preventDefault();
     // console.log(values);
     setErrors(validate(values));
     setSubmit(true);
@@ -94,9 +95,10 @@ export default function carbonFootprint() {
         }    
       })
       const data = await response.json();
-      result = data.toString()
-    console.log(result , "response")
-    // return result;
+      console.log(data)
+      const res = data.data.toString()
+    setResult(res)
+   
   };
 
   useEffect(() => {

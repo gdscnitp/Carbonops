@@ -14,7 +14,7 @@ export default function Navbar(props) {
   const { data: session } = useSession()
   if(session)
   {
-    console.log(session.user.isOrganisation)
+    //console.log(session.user.isOrganisation)
     if(!session.user.isOrganisation)
     {
       link='/individual-dashboard';
@@ -23,13 +23,13 @@ export default function Navbar(props) {
      link='/organisation-dashboard';
     }
   }
-  console.log(link,"HELLO")
+  //console.log(link,"HELLO")
   const link1 = props.href1;
   const link2 = props.href2;
   const link3 = props.href3;
   const link4 = props.href4;
   const link5 = props.href5;
-  console.log(link5)
+  //console.log(link5)
    return (
     <>
       <nav className={styles.navbar}>
