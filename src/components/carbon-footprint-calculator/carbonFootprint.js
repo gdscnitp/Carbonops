@@ -94,10 +94,19 @@ export default function carbonFootprint() {
             'Content-Type' :'application/json'
         }    
       })
-      const data = await response.json();
-      console.log(data)
-      const res = data.data.toString()
-    setResult(res)
+      if(!response.ok)
+      {
+        console.log("Cannot calculate your score!!");
+        return;
+      }
+      else
+      {
+        const data = await response.json();
+        console.log(data)
+        const res = data.data.toString()
+       setResult(res)
+      }
+      
    
   };
 

@@ -6,14 +6,17 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
         const { members, houseSize, meat, packagedFood, dishWasher, washingMachine, householdPurchases, garbageCans, recycles, itemsRecycled, personalTransport, publicTransport, flight } = req.body;
         //validate the input
-        console.log(req.body)
-        console.log( members, houseSize, meat, packagedFood, dishWasher, washingMachine, householdPurchases, garbageCans, recycles, itemsRecycled, personalTransport, publicTransport, flight )
+        //console.log(req.body)
+       // console.log( members, houseSize, meat, packagedFood, dishWasher, washingMachine, householdPurchases, garbageCans, recycles, itemsRecycled, personalTransport, publicTransport, flight )
         try {
 
 
-            if (!members || !houseSize || !meat || !packagedFood || !householdPurchases
-                 || !garbageCans  || publicTransport === undefined) {
+            if (!members || !houseSize || !meat || !packagedFood || !householdPurchases|| !garbageCans) {
                 return sendError(res, "Please fill all necessary fields", 2, 404)
+            }
+            if(!publicTransport && !personalTransport && !flight)
+            {
+                return sendError(res, "Please fill atleast one of the transport methods you use",2,404);
             }
 
             var score = 0;

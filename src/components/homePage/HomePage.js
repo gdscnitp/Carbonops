@@ -6,6 +6,7 @@ import home from "/public/images/homePage/home.png";
 import services from "/public/images/homePage/services.png";
 import graph from "/public/images/homePage/graph.png";
 import topOrganisations from "/public/images/homePage/topOrganisations.png";
+//import s from "../../../pages/carbonCalculator"
 
 export default function Navbar() {
   return (
@@ -25,7 +26,7 @@ export default function Navbar() {
 
             <p className={styles.bottomText}>Carbon Footprints</p>
 
-            <Link href="/" passHref>
+            <Link href="/carbonCalculator" passHref>
               <span className={styles.button}>Calculate now &rarr;</span>
             </Link>
           </div>
