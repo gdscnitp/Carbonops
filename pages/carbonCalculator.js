@@ -3,6 +3,16 @@ import Navbar from '../src/components/navbar/Navbar';
 import { navLinks } from '../src/components/utils/data';
 
 export default function carbonCalculator() {
+  // async function calculateFootprint(values){
+  //   const response =await fetch('/api/footprint-calculator',{
+  //     method:'POST',
+  //     body:JSON.stringify(values),
+  //     headers:{
+  //         'Content-Type' :'application/json'
+  //     }    
+  //   })
+  // }
+
   return (
     <>
   <Navbar
@@ -15,8 +25,8 @@ export default function carbonCalculator() {
         buttonText4=""
       />
 
-      <CarbonCalculator/>
+      <CarbonCalculator />
+      {/* <CarbonCalculator onCalculation={calculateFootprint}/> */}
     </>
   )
 }
-

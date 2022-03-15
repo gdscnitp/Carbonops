@@ -7,11 +7,8 @@ export default function EventCard({events,IndividualDetails}) {
     // console.log(IndividualDetails.data._id,"IndividualDetails events Card")
 
     const rsvpData = {
-      individualId:IndividualDetails.data._id,
       eventId:events._id,
-      name:IndividualDetails.data.name,
-      mailId:IndividualDetails.data.email,
-      phoneNumber:IndividualDetails.data.contact,
+      mailId:IndividualDetails,
     }
 
      async function handleRSVP (){
@@ -73,7 +70,7 @@ export default function EventCard({events,IndividualDetails}) {
       </div>
      
     
-        <Popup events={events} trigger={detailPopup} setTrigger={setDetailPopup}/>
+        <Popup events={events} trigger={detailPopup} setTrigger={setDetailPopup} individualMail={IndividualDetails}/>
       
     </>
   );

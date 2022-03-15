@@ -7,6 +7,9 @@ import styles from './carbonFootprint.module.css';
 import { BsExclamationCircle } from 'react-icons/bs';
 import { content } from './content';
 import { set } from 'mongoose';
+import Result from './result';
+
+var result="";
 
 export default function carbonFootprint() {
   const [show1, setShow1] = useState(false);
@@ -21,6 +24,7 @@ export default function carbonFootprint() {
   const [show10, setShow10] = useState(false);
   const [show11, setShow11] = useState(false);
   const [show12, setShow12] = useState(false);
+  const [result,setResult]=useState("");
 
   const [submit, setSubmit] = useState(false);
   const data = [
@@ -77,11 +81,33 @@ export default function carbonFootprint() {
   //   console.log(values.itemsRecycled);
   // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+     e.preventDefault();
     // console.log(values);
     setErrors(validate(values));
     setSubmit(true);
+
+      const response =await fetch('/api/footprint-calculator',{
+        method:'POST',
+        body:JSON.stringify(values),
+        headers:{
+            'Content-Type' :'application/json'
+        }    
+      })
+      if(!response.ok)
+      {
+        console.log("Cannot calculate your score!!");
+        return;
+      }
+      else
+      {
+        const data = await response.json();
+        console.log(data)
+        const res = data.data.toString()
+       setResult(res)
+      }
+      
+   
   };
 
   useEffect(() => {
@@ -221,7 +247,7 @@ export default function carbonFootprint() {
                       </option>
                       <option value="large">large</option>
                       <option value="medium">medium</option>
-                      <option value="mall">small</option>
+                      <option value="small">small</option>
                       <option value="apartment">apartment</option>
                     </select>
                   )}
@@ -651,16 +677,19 @@ export default function carbonFootprint() {
               </li>
             </ul>
             <div></div>
-
             <div className={styles.boxbutn}>
               <button className={styles.button}>Calculate &rarr;</button>
             </div>
+     
           </form>
           <div className={styles.BodyRight}>
             <div className={styles.score}>
               <strong> Your Score</strong>
             </div>
-            <div className={styles.ellipse}></div>
+
+ 
+            <Result result={result}/>
+
           </div>
         </div>
       </div>

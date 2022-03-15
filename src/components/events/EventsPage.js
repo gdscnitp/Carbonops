@@ -4,7 +4,8 @@ import EventCard from './EventCard'
 import styles from './EventsPage.module.css'
 import EventsList from './EventsList'
 
-export default function EventsPage({event,indivData}) {
+export default function EventsPage({event,indivData,registeredEventDetails}) {
+    // console.log(registeredEventDetails,"registeredEventDetails")
     // console.log(indivData,"individualData eventsPage")
 
     return (
@@ -43,9 +44,8 @@ export default function EventsPage({event,indivData}) {
                eventHead="Events you are attending" 
                 eventDetail={
                 [ 
-                    ["First event name" , "2pm , 1st Jan"], 
-                    ["Second event name" , "2pm , 2nd Jan"], 
-                    ["Third event name" , "2pm , 3rd Jan"], 
+                    [registeredEventDetails.nameOfTheEvent , `${registeredEventDetails.eventDate} , ${registeredEventDetails.eventTime}`], 
+                    [registeredEventDetails.nameOfTheEvent , `${registeredEventDetails.eventDate} , ${registeredEventDetails.eventTime}`], 
 
                 ]}
                />
