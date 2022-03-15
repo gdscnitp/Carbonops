@@ -6,7 +6,7 @@ export default function Result(props) {
   return (
     <>
       <div className={styles.ellipse}>
-        <div className={styles.ellipse}>{props.result}</div>
+        <div className={styles.result}>{props.result}</div>
       </div>
     </>
   );

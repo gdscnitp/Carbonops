@@ -182,13 +182,13 @@
   top: 15%;
 }
 .result{
-  position: absolute;
+  position: relative;
   top: 35%;
-  right: 40%;
-  /* display: flex;
+  display: flex;
   justify-content: center;
-  align-items: center; */
-  font-size: 30px;
+  align-items: center;
+  font-size: 35px;
+  font-weight: bolder;
 }
 .Multiselect ul li:before{
   background-color: #142424;
