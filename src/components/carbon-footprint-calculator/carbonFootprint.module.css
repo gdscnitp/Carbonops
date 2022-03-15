@@ -1,5 +1,6 @@
 .FootprintBody {
   background-color: #142424;
+  height: 200vh;
 }
 .carbonFootprintBody {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
@@ -180,6 +181,15 @@
   position: absolute;
   top: 15%;
 }
+.result{
+  position: absolute;
+  top: 35%;
+  right: 40%;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  font-size: 30px;
+}
 .Multiselect ul li:before{
   background-color: #142424;
   box-shadow: 0 0 0 0px #142424, 0 0 0 0px #142424;
@@ -243,7 +253,7 @@
   }
   .ellipse {
     margin-top: 40px;
-    top: 25%;
+    /* top: 25%; */
   }
   @media only screen and (max-width: 600px) {
     .input,
