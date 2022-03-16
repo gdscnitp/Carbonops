@@ -4,13 +4,6 @@ import { navLinks } from '../src/components/utils/data';
 import { getSession, useSession } from "next-auth/react";
 
 export default function Events(props) {
-  console.log(props.regEventsData,".registeredEventDetails")
-  const registeredEventDetails = {
-    nameOfTheEvent:props.regEventsData.data.eventName,
-    eventDate:props.regEventsData.data.eventDetails[0].date,
-    eventTime:props.regEventsData.data.eventDetails[0].time,
-  }
-
 
   return (
     <>
@@ -26,16 +19,14 @@ export default function Events(props) {
 
       />
 
-      <EventsPage event={props.events} indivData={props.individualMail} registeredEventDetails={registeredEventDetails}/>
+      <EventsPage event={props.events} indivData={props.individualMail} registeredEventDetails={props.regEventsData}/>
     </>
   );
 }
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-  
-  // console.log(session, "sessionss");
- 
+   
   if (!session) {
     return {
       redirect: {
@@ -64,10 +55,8 @@ export async function getServerSideProps(context) {
     }
    );
   }
-  // console.log(indivMail,"indivData")
  
   const indDataFetched = await idResponse.json();
-    //  console.log(indDataFetched,"indResponse")
 
 //  FETCHING EVENTS 
   const response = await fetch('http://localhost:3000/api/getevents', {
@@ -80,7 +69,6 @@ export async function getServerSideProps(context) {
   {method:'GET'}
   );
   const regEventsData = await regEventsResponse.json();
-  // console.log(regEventsData.data.eventName,"regEventsData eventzs");
 
   return {
     props: {

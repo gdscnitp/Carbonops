@@ -136,6 +136,12 @@
   font-size: 20px;
 } 
 
+.eventList .eachEvent .eachEventTime{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} 
+
 
 
 /*___________ tab view_____________  */
