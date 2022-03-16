@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import { sendSuccess, sendError } from "../../utilities/response-helpers";
 import regEventSchema from "../../models/EventRegistered";
 import Indiv from "../../models/Individual"
+import EventSc from "../../models/Event";
+
 
 initDB();
 
@@ -31,11 +33,11 @@ export default async function handler(req, res) {
      mailId:indivMail.mail,
      eventId :indivMail.eve,
     });
-    // console.log(alreadyRegistered,"alreadyRegistered");
 
+    console.log(indivMail.eve)
     //checking if individual already exists in database
     const mailExists = await Indiv.findOne({ email: indivMail.mail });
-    // console.log(mailExists,"mailExists");
+    const eveExists = await EventSc.findById({_id: eventId });
 
     if(alreadyRegistered.length  <=0){
       const item = new regEventSchema({
@@ -44,6 +46,9 @@ export default async function handler(req, res) {
       name:mailExists.name,
       mailId:mailId,
       phoneNumber:mailExists.contact,
+      eventName:eveExists.eventName,
+      eventDate:eveExists.eventDetails[0].date,
+      eventTime:eveExists.eventDetails[0].time,
       });
 
       console.log(item);
