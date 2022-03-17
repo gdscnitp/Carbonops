@@ -198,7 +198,7 @@ export default function carbonFootprint() {
                   {show1 && (
                     <input
                       className={styles.input}
-                      type="text"
+                      type="number"
                       id="members"
                       name="members"
                       required
