@@ -50,6 +50,7 @@ export default function carbonFootprint() {
     personalTransport: '',
     publicTransport: '',
     flight: '',
+    recycledLen:0,
   });
 
   const [options] = useState(data);
@@ -80,13 +81,29 @@ export default function carbonFootprint() {
   //   });
   //   console.log(values.itemsRecycled);
   // };
-
+ function handleMultiSelect(selectedList, selectedItem)
+ {
+  //  console.log(selectedItem)
+  //  console.log(selectedList)
+   setValues({
+    ...values,
+    recycledLen: selectedList.length
+  });
+ }
+ function handleMultiRemove(selectedList,removedItem)
+ {
+  //console.log(selectedList)
+  setValues({
+    ...values,
+    recycledLen: selectedList.length
+  });
+ }
   const handleSubmit = async (e) => {
      e.preventDefault();
     // console.log(values);
     setErrors(validate(values));
     setSubmit(true);
-
+   console.log(values)
       const response =await fetch('/api/footprint-calculator',{
         method:'POST',
         body:JSON.stringify(values),
@@ -641,7 +658,8 @@ export default function carbonFootprint() {
                       displayValue="values"
                       value={values.itemsRecycled}
                       // onChange={handleOnchange}
-
+                      onSelect={handleMultiSelect}
+                      onRemove={handleMultiRemove}
                       placeholder="Enter Recyclable item "
                       style={{
                         chips: {
