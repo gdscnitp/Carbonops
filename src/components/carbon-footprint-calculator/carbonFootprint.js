@@ -72,15 +72,7 @@ export default function carbonFootprint() {
       recycles: !values.recycles,
     });
   };
-  // const handleOnchange = (val) => {
-  //   const { id, value } = e.target;
-  //   console.log(e.target);
-  //   setValues({
-  //     ...options,
-  //     [id]: value,
-  //   });
-  //   console.log(values.itemsRecycled);
-  // };
+  
  function handleMultiSelect(selectedList, selectedItem)
  {
   //  console.log(selectedItem)
@@ -177,7 +169,7 @@ export default function carbonFootprint() {
         error.flight = 'Amount cannot be negative';
       }
     }
-    if (!value.itemsRecycled && value.recycles) {
+    if (value.recycledLen==0 && value.recycles) {
       error.itemsRecycled = 'This is required';
     }
     return error;
@@ -190,7 +182,7 @@ export default function carbonFootprint() {
           <h1>Carbon Footprint Calculator </h1>
         </div>
         <div className={styles.carbonFootprintBody}>
-          {/* <pre>{JSON.stringify(values, undefined, 4)}</pre> */}
+          <pre>{JSON.stringify(values, undefined, 4)}</pre>
           <form onSubmit={handleSubmit} className={styles.BodyLeft}>
             <ul>
               <li>
@@ -657,7 +649,6 @@ export default function carbonFootprint() {
                       options={options}
                       displayValue="values"
                       value={values.itemsRecycled}
-                      // onChange={handleOnchange}
                       onSelect={handleMultiSelect}
                       onRemove={handleMultiRemove}
                       placeholder="Enter Recyclable item "
@@ -688,7 +679,7 @@ export default function carbonFootprint() {
                   ) : (
                     ''
                   )}
-                  <p style={{ color: 'red', fontSize: '15px' }}>
+                  <p style={{ color: 'red', fontSize: '15px' ,marginTop:'20px'}}>
                     {errors.itemsRecycled}
                   </p>
                 </div>
