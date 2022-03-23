@@ -1,5 +1,5 @@
 .navbar {
-  height: 80px;
+  height: 85px;
   background-color: #142424;
   display: flex;
   align-items: center;
@@ -7,9 +7,17 @@
 }
 
 .logo {
-  font-size: 30px;
+  /* font-size: 30px;
   color: white;
+  margin: 0 2rem; */
+  background-image: url('Carbonops.png');
+  height: 60px;
+  width: 280px;
+  object-fit: fill;
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0 2rem;
+  cursor: pointer;
 }
 
 .navbar ul {
@@ -48,12 +56,13 @@
   justify-content: center;
   align-items: center;
 }
-.button:hover,.button1:hover {
+.button:hover,
+.button1:hover {
   cursor: pointer;
   color: white;
   box-shadow: inset 5px 3px 11px 10px rgba(7, 255, 0, 0.42);
 }
-@media only screen and (max-width: 860px){
+@media only screen and (max-width: 860px) {
   .button1 {
     font-size: 15px;
     text-decoration: none;
@@ -72,7 +81,8 @@
     margin: 0 0.5rem;
   }
 
-  .button,.button1 {
+  .button,
+  .button1 {
     font-size: 15px;
     text-decoration: none;
     margin: 10px;
