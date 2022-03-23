@@ -182,7 +182,7 @@ export default function carbonFootprint() {
           <h1>Carbon Footprint Calculator </h1>
         </div>
         <div className={styles.carbonFootprintBody}>
-          <pre>{JSON.stringify(values, undefined, 4)}</pre>
+          {/* <pre>{JSON.stringify(values, undefined, 4)}</pre> */}
           <form onSubmit={handleSubmit} className={styles.BodyLeft}>
             <ul>
               <li>
