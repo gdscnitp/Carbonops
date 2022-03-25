@@ -36,10 +36,12 @@ export default async function handler(req, res) {
      eventId: {$eq: req.body.eventId }
     });
 
-    
+    var Eventid={
+      id: {$eq: req.body.eventId}
+    }
     //checking if individual already exists in database
     const mailExists = await Indiv.findOne({ email: {$eq: req.body.mailId} });
-    const eveExists = await EventSc.findById({_id:req.body.eventId });
+    const eveExists = await EventSc.findById(Eventid.id);
     //console.log(mailExists,eveExists)
     if(!mailExists)
     {
