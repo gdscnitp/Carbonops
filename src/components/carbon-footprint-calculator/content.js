@@ -28,7 +28,7 @@ export const content = {
     'If you do not recycle, then do not click on the checkbox. However, if you recycle, you can select multiple options from the following recycling categories Glass, Plastic, Paper, Aluminum Steel, Food waste.',
   ],
   personalTransport: [
-    'Input the miles you covered with that vehicle in a year. Add nothing if you do nott have a car.',
+    'Input the miles you covered with that vehicle in a year. Add nothing if you do not have a car.',
   ],
   publicTransport: [
     'Input the miles you covered with Public Transport in a year. Add nothing if you do not use public transportation.',

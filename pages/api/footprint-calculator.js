@@ -4,7 +4,7 @@ import { sendError, sendSuccess } from "../../utilities/response-helpers"
 //The lower the score the better. If your score is less than 60 points, then you are making a small impact on your planet. If it is higher than 60, then you might want to look for some ways that you can reduce your impact.
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        const { members, houseSize, meat, packagedFood, dishWasher, washingMachine, householdPurchases, garbageCans, recycles, itemsRecycled, personalTransport, publicTransport, flight } = req.body;
+        const { members, houseSize, meat, packagedFood, dishWasher, washingMachine, householdPurchases, garbageCans, recycles, recycledLen, personalTransport, publicTransport, flight } = req.body;
         //validate the input
         //console.log(req.body)
        // console.log( members, houseSize, meat, packagedFood, dishWasher, washingMachine, householdPurchases, garbageCans, recycles, itemsRecycled, personalTransport, publicTransport, flight )
@@ -154,9 +154,9 @@ export default async function handler(req, res) {
             }
             else {
                 score += 24;
-                var noOfRecycled = itemsRecycled.length;//items recycled is an array that can have recyclable items 
+               // var noOfRecycled = itemsRecycled.length;//items recycled is an array that can have recyclable items 
                 //such as glass, plastic, paper, aluminium ,steel, food waste
-                score -= 4 * noOfRecycled;
+                score -= 4 * recycledLen;
             }
 
             //********************** for transportation scores **********************/

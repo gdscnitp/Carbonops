@@ -2,25 +2,19 @@ import React, { useState } from 'react';
 import Signpop from './signpo';
 import Link from 'next/link';
 import styles from './Navbar.module.css';
-import { signOut } from "next-auth/react"
-import { useSession } from "next-auth/react";
-
-
+import { signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 
 export default function Navbar(props) {
-  
   const [detailPopup, setDetailPopup] = useState(false);
- var link="/";
-  const { data: session } = useSession()
-  if(session)
-  {
+  var link = '/';
+  const { data: session } = useSession();
+  if (session) {
     //console.log(session.user.isOrganisation)
-    if(!session.user.isOrganisation)
-    {
-      link='/individual-dashboard';
-    }
-    else{
-     link='/organisation-dashboard';
+    if (!session.user.isOrganisation) {
+      link = '/individual-dashboard';
+    } else {
+      link = '/organisation-dashboard';
     }
   }
   //console.log(link,"HELLO")
@@ -30,12 +24,13 @@ export default function Navbar(props) {
   const link4 = props.href4;
   const link5 = props.href5;
   //console.log(link5)
-   return (
+  return (
     <>
       <nav className={styles.navbar}>
-        <div className={styles.logo}>
-          <Link href="/"> LOGO HERE</Link>
-        </div>
+        <Link href="/">
+          <pic className={styles.logo}></pic>
+        </Link>
+
         <ul>
           <li>
             <Link href={`${link1}`}>
@@ -43,9 +38,7 @@ export default function Navbar(props) {
             </Link>
           </li>
           <li>
-            <Link href={`${link}`}>
-              {props.action2}
-              </Link>
+            <Link href={`${link}`}>{props.action2}</Link>
           </li>
           <Link href={`${link3}`}>
             {props.buttonText1.length > 0 ? (
@@ -61,41 +54,33 @@ export default function Navbar(props) {
             )}
           </Link>
           <Link href={`${link5}`}>
-            { props.buttonText3 && props.buttonText3.length > 0 ? (
+            {props.buttonText3 && props.buttonText3.length > 0 ? (
               <a className={styles.button}> {props.buttonText3} </a>
             ) : (
               ''
             )}
           </Link>
-         
 
-          <Link href={`${link4}`} >
+          <Link href={`${link4}`}>
             {props.buttonText2.length > 0 ? (
               <a className={styles.button}> {props.buttonText2} </a>
-              ) : (
-                ''
-                )}
+            ) : (
+              ''
+            )}
           </Link>
 
-          
           {/* <Link href=""> */}
           {props.buttonText4.length > 0 ? (
-          <button className={styles.button1}
-          onClick={()=>signOut()}
-          >{props.buttonText4}</button>
+            <button className={styles.button1} onClick={() => signOut()}>
+              {props.buttonText4}
+            </button>
           ) : (
             ''
           )}
           {/* </Link> */}
-          
-          
-          
-
         </ul>
-     
       </nav>
       <Signpop trigger={detailPopup} setTrigger={setDetailPopup} />
     </>
   );
 }
-
