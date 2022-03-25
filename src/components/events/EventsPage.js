@@ -6,7 +6,6 @@ import EventsList from './EventsList'
 
 export default function EventsPage({event,indivData,registeredEventDetails}) {
     // console.log(registeredEventDetails,"registeredEventDetails")
-    // console.log(indivData,"individualData eventsPage")
 
     return (
         <>
@@ -30,25 +29,20 @@ export default function EventsPage({event,indivData,registeredEventDetails}) {
             </div>   
                   
             <div className={`${styles.eventRight}`} >
-               <EventsList 
-               eventHead="Events you are hosting" 
-                eventDetail={
-                [ 
-                    ["First event name" , "2pm , 1st Jan"], 
-                    ["Second event name" , "2pm , 2nd Jan"], 
-                    ["Third event name" , "2pm , 3rd Jan"], 
-
-                ]}
-               />
-               <EventsList 
-               eventHead="Events you are attending" 
-                eventDetail={
-                [ 
-                    [registeredEventDetails.nameOfTheEvent , `${registeredEventDetails.eventDate} , ${registeredEventDetails.eventTime}`], 
-                    [registeredEventDetails.nameOfTheEvent , `${registeredEventDetails.eventDate} , ${registeredEventDetails.eventTime}`], 
-
-                ]}
-               />
+      
+      {/* THIS PART TO BE SHOWN FOR ORGANISATIONS ONLY WHO WILL BE HOSTING EVENTS */}
+                   <EventsList 
+                    eventHead="Events you are hosting" 
+                    eventDetail={registeredEventDetails}
+                    />
+                        
+      
+      {/* THIS PART TO BE SHOWN FOR ORGANISATIONS AS WELL AS INDIVIDUALS WHO WILL BE ATTENDING FOR THIER REGISTERED RSVP EVENTS */}
+                        <EventsList 
+                    eventHead="Events you are attending" 
+                    eventDetail={registeredEventDetails}
+                    />
+                        
             </div>
             </div>
             </div>
