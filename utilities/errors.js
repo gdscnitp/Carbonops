@@ -9,7 +9,7 @@ const errorCodes = {
    350: ["Already subscribe to this platform"],
    400: ["Default- correct Error Index", "Verify Password/Contact strength or Email ID","Bad Request (NOT POST)"],
    401: ["Unauthorized Access","Couldnt find in DB"],
-   403: ["Default- correct Error Index","Already registered","No events found"],
+   403: ["Default- correct Error Index","Already registered","No events found","Individual ID does not exist"],
    404: ["Default- correct Error Index","Event's Location Not Found","Missing Inputs or Wrong Inputs","Page Not Found"],
    409: ["Conflict"],
    429: ["Too many requests"],

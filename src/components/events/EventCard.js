@@ -5,14 +5,15 @@ import Popup from "./Popup";
 
 export default function EventCard({events,IndividualDetails}) {
     // console.log(IndividualDetails.data._id,"IndividualDetails events Card")
-
+   console.log(events,IndividualDetails)
     const rsvpData = {
       eventId:events._id,
       mailId:IndividualDetails,
     }
-
+  
      async function handleRSVP (){
-   const indivResponse = await fetch(
+      //console.log("rsvp data,", rsvpData)
+       const indivResponse = await fetch(
     `/api/rsvp-event`,
     {
       method: "POST",

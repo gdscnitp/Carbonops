@@ -10,34 +10,45 @@ initDB();
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    // console.log(req.body);
+   // console.log(req.body);
 
     const {
       eventId,
       mailId,
     } = req.body;
-
+   //console.log(eventId,mailId)
     if (
       !eventId ||
       !mailId 
     ) {
       return sendError(res, "All values not found", 2, 404);
     }
-
+   //console.log("req.body",req.body.mailId,req.body.eventId)
     var indivMail = {
       mail: { $eq: req.body.mailId },
-      eve: { $eq: req.body.eventId },
+      eve: { $eq: req.body.eventId }
     };
-    // console.log( mailId , eventId )
+    // console.log(indivMail)
+    // // console.log( mailId , eventId )
+    //console.log("indiv mail",indivMail.eve,indivMail.mail)
     const alreadyRegistered = await regEventSchema.find({
-     mailId:indivMail.mail,
-     eventId :indivMail.eve,
+     mailId:  {$eq: req.body.mailId},
+     eventId: {$eq: req.body.eventId }
     });
 
-    console.log(indivMail.eve)
+    
     //checking if individual already exists in database
-    const mailExists = await Indiv.findOne({ email: indivMail.mail });
-    const eveExists = await EventSc.findById({_id: eventId });
+    const mailExists = await Indiv.findOne({ email: {$eq: req.body.mailId} });
+    const eveExists = await EventSc.findById({_id:req.body.eventId });
+    //console.log(mailExists,eveExists)
+    if(!mailExists)
+    {
+      return sendError(res,"Individual does not exists",3,403);
+    }
+    if(!eveExists)
+    {
+      return sendError(res,"no such event exists",2,403);
+    }
 
     if(alreadyRegistered.length  <=0){
       const item = new regEventSchema({
