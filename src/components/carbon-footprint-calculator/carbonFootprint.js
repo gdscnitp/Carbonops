@@ -297,10 +297,10 @@ export default function carbonFootprint() {
                       <option value="" disabled selected>
                         Choose your preferred diet
                       </option>
-                      <option value="Meat daily">Meat daily</option>
-                      <option value="Meat Weekly">Meat Weekly</option>
-                      <option value="Vegetarian">Vegetarian</option>
-                      <option value="Vegan">Vegan</option>
+                      <option value="daily">Meat daily</option>
+                      <option value="weekly">Meat Weekly</option>
+                      <option value="vegetarian">Vegetarian</option>
+                      <option value="vegan">Vegan</option>
                     </select>
                   )}
                   <p style={{ color: 'red', fontSize: '15px' }}>
@@ -339,9 +339,9 @@ export default function carbonFootprint() {
                       <option value="" disabled selected>
                         Choose how often you take packaged food
                       </option>
-                      <option value="Frequently">Frequently</option>
-                      <option value="Balanced">Balanced</option>
-                      <option value="No">No</option>
+                      <option value="frequently">Frequently</option>
+                      <option value="balanced">Balanced</option>
+                      <option value="no">No</option>
                     </select>
                   )}
                   <p style={{ color: 'red', fontSize: '15px' }}>
