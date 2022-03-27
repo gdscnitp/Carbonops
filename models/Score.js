@@ -5,6 +5,16 @@ const scoreSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Individual'
     },
+    result:{
+        type: Number,
+        required: true,
+    },
+    email:{
+        type: String,
+        required: true,
+        unique:true,
+        trim:true,
+    },
 },{
     timestamps:true
 })
