@@ -22,7 +22,7 @@ export default function Footer() {
           <Link href="./aboutus"> ABOUT US </Link>
         </div>
         <div className={`${styles.footerContact}`}>
-          <Link href="/"> CONTACT US</Link>
+          <Link href="/Feedback"> CONTACT US</Link>
         </div>
         <div className={`${styles.TandC}`}>Terms & Conditions</div>
         <div className={`${styles.copyRights}`}>Copyrights &copy; Env_App</div>

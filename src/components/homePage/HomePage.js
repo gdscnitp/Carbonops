@@ -4,8 +4,10 @@ import React from "react";
 import styles from "./HomePage.module.css";
 import home from "/public/images/homePage/home.png";
 import services from "/public/images/homePage/services.png";
+import ind from "/public/images/homePage/ind.png";
 import graph from "/public/images/homePage/graph.png";
-import topOrganisations from "/public/images/homePage/topOrganisations.png";
+import org1 from "/public/images/homePage/org1.png";
+import org2 from "/public/images/homePage/org2.png";
 //import s from "../../../pages/carbonCalculator"
 
 export default function Navbar() {
@@ -52,7 +54,7 @@ export default function Navbar() {
           <div className={styles.container}>
             <div className={styles.gridItemLeft}>
               <Image
-                src={services}
+                src={ind}
                 placeholder="blur"
                 alt="Home Image"
                 width={200}
@@ -125,7 +127,7 @@ export default function Navbar() {
           <div className={styles.container}>
             <div className={styles.gridItemLeft}>
               <Image
-                src={topOrganisations}
+                src={org1}
                 placeholder="blur"
                 alt="Home Image"
                 width={200}
@@ -141,7 +143,7 @@ export default function Navbar() {
 
             <div className={styles.gridItemRight}>
               <Image
-                src={topOrganisations}
+                src={org2}
                 placeholder="blur"
                 alt="Home Image"
                 width={200}

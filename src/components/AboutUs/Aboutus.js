@@ -77,7 +77,9 @@ Will introduce a sense of support and appreciation to those working to reduce th
 To see the current scenario of our eco-system we collectively thought to build a user friendly app which can help people to contribute in protecting our environment.
 All of our team members are following our academics also making awesome real life problem solving projects.
 </p>
-                        <button className={styles.buttn} type="submit">Contact Us</button>
+                       <Link href="/Feedback">                         
+                       <button className={styles.buttn} type="submit" >Contact Us</button>
+                       </Link>
                      </div>
                 </div>
             </div>
