@@ -10,8 +10,11 @@ initDB();
 export default async function handler(req, res) {
  if(req.method === 'GET'){
   const email = req.query.getScore;
-      
-      const scrs= await scoresc.find({ email : email});
+
+  const indivMail = {
+    mail: {$eq : email}
+  };
+      const scrs= await scoresc.find({ email : indivMail.mail});
       if(scrs.length>0)
         return sendSuccess(res, scrs);
         else
