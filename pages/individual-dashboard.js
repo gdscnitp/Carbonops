@@ -20,7 +20,6 @@ export default function dashboard(props) {
   }
 
   else if(session && status === "authenticated") {
-
     
     return (
       <>
@@ -32,8 +31,8 @@ export default function dashboard(props) {
        buttonText2=""
        buttonText4="SignOut"
         />
-    {/* <Navbar action1="" action2="" buttonText1="" buttonText2="LOGOUT" /> */}
-      <Dashboard {...userObj} />
+
+      <Dashboard {...userObj} scoreResult={props.scoreResult} />
     </>
   );
 }
@@ -60,7 +59,7 @@ export async function getServerSideProps(context){
       props: {},
     };
   }
-  console.log(session)
+  // console.log(session)
   var userMail = session.user.email
   const response = await  fetch(`http://localhost:3000/api/indivdata/${userMail}`,{
     method: 'GET'
@@ -68,14 +67,17 @@ export async function getServerSideProps(context){
   // console.log(response);
   const data = await  response.json();
   // console.log(data);
-  // if(!response.ok)
-  // return{
-      //   notFound: true,
-      // }
+  const scoreResponse = await fetch(`http://localhost:3000/api/getScore/${userMail}`,{
+    method: 'GET'
+  })
+  const scoreResult = await scoreResponse.json();
+//  console.log(scoreResult,"scoreResult")
       
       return {
         props:{
-          userData:data
+          userData:data,
+          scoreResult:scoreResult.data[0].result,
         }
       }
-    }
+}
+
