@@ -206,7 +206,7 @@ export default function VerifyIn(props) {
             <input
               className={`${styles.input} `}
               type="url"
-              placeholder="Your Linkedin Profile"
+              placeholder="Your Linkedin Profile*"
               id="linkedin"
               name="linkedin"
               value={inProfValues.linkedin}
