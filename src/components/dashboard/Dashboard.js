@@ -49,7 +49,7 @@ export default function Dashboard(props) {
 
             <div className={styles.profile_stat}>
               <p>Your Score</p>
-              <p>{props.score}</p>
+              <p>{props.scoreResult}</p>
             </div>
             <div className={styles.profile_stat}>
               <p>Phone Number</p>
@@ -68,7 +68,7 @@ export default function Dashboard(props) {
             Your <strong> CARBON FOOTPRINT </strong> <br />
           </div>
           <div>
-            <Link href="/" passHref>
+            <Link href="/carbonCalculator" passHref>
               <span className={styles.button}>Calculate now &rarr;</span>
             </Link>
           </div>
