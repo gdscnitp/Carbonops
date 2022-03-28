@@ -11,7 +11,9 @@ import Result from './result';
 
 var result="";
 
-export default function carbonFootprint() {
+export default function carbonFootprint(props) {
+  // console.log(props.indivMail,"indivMail carbonFootprintPage")
+  
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
@@ -114,10 +116,19 @@ export default function carbonFootprint() {
         console.log(data)
         const res = data.data.toString()
        setResult(res)
+
+         const scoreResponse =await fetch('/api/score',{
+           method:'POST',
+           body:JSON.stringify({
+             result : result , 
+             individualMail : props.indivMail
+            }),
+           headers:{
+               'Content-Type' :'application/json'
+           }    
+         })
       }
-      
-   
-  };
+};
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && submit) {
