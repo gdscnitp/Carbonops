@@ -24,11 +24,7 @@ const orgprofile = ({ org ,pro}) => {
           <strong>Green Family</strong>{' '}
         </span>
         <p className={styles.cont2}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo,
-          reprehenderit tempora impedit itaque pariatur repellat Lorem, ipsum
-          dolor sit amet consectetur adipisicing elit. Mollitia temporibus, rem
-          natus minima, placeat sapiente incidunt error magnam atque minus
-          consequatur cupiditate! consequatur nostrum nisi officiis rem!
+        Our organization uses a peaceful, creative approach in paving the way for a greener and more peaceful planet, by tackling the systems that threaten the existence of our environment
         </p>
       </div>
 
@@ -55,12 +51,7 @@ const orgprofile = ({ org ,pro}) => {
           </h3>
           <br />
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste
-            maiores alias quas esse assumenda odit velit facilis laboriosam,
-            similique ipsa rem labore iure blanditiis illum ullam aliquam ipsam
-            dolore temporibus quaerat exercitationem suscipit, veritatis quis
-            tempore delectus! Autem, amet in. Doloribus modi odit maxime ab sit
-            debitis, neque iste numquam!
+          The organization uses a peaceful, creative approach in paving the way for a greener and more peaceful planet, by tackling the systems that threaten the existence of our environment
           </p>
           <br />
           <hr className={styles.hr} />
