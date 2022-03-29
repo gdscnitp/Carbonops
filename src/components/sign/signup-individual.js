@@ -86,7 +86,7 @@ export default function Sign(props) {
     if (values.password == '') {
       errors.password = 'Password is required!';
     } else if (!re2.test(values.password)) {
-      errors.password = 'PASSWORD WEAK!';
+      errors.password = 'PASSWORD WEAK! Password must contain Uppercase letter,Lowercase letter,Number and Special characters';
     }
     if (values.password != values.confirmpassword) {
       errors.confirmpassword = "Password doesn't match";
