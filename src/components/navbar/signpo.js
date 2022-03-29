@@ -1,8 +1,8 @@
-import styles from "./Signpop.module.css";
-import { useRouter } from "next/router";
-import React, { useState } from "react";
-import Link from "next/link";
-import { FaAngleLeft } from "react-icons/fa";
+import styles from './Signpop.module.css';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { FaAngleLeft } from 'react-icons/fa';
 
 export default function Signpop(props) {
   const router = useRouter();
@@ -15,7 +15,7 @@ export default function Signpop(props) {
               props.setTrigger(false);
             }}
           >
-            <FaAngleLeft style={{ color: "#00bd57", fontSize: "35px" }} />
+            <FaAngleLeft style={{ color: '#00bd57', fontSize: '35px' }} />
           </a>
         </div>
         <div className={styles.header}>SIGNUP AS</div>
@@ -26,14 +26,14 @@ export default function Signpop(props) {
                 <div className={styles.img}>
                   <pic className={styles.pics1}></pic>
                   <div className={styles.txt}>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry
-                    standard dummy text ever since the
+                    Individuals in our app are the users who want to calculate
+                    their carbon score and who want to sell or donate waste to
+                    eco friendly startups and organisations.
                   </div>
                 </div>
                 <div className={styles.inputBx}>
                   <Link href="./signupin">
-                  <input type="submit" value="Individual" name="" />
+                    <input type="submit" value="Individual" name="" />
                   </Link>
                 </div>
               </div>
@@ -43,14 +43,13 @@ export default function Signpop(props) {
                 <div className={styles.img}>
                   <pic className={styles.pics2}></pic>
                   <div className={styles.txt}>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry
-                    standard dummy text ever since the
+                    Organisations are startups that are contributing to the
+                    environment through their eco friendly products.
                   </div>
                 </div>
                 <div className={styles.inputBx}>
-                <Link href="./signupor">
-                  <input type="submit" value="Organisation" name="" />
+                  <Link href="./signupor">
+                    <input type="submit" value="Organisation" name="" />
                   </Link>
                 </div>
               </div>
@@ -60,6 +59,6 @@ export default function Signpop(props) {
       </div>
     </div>
   ) : (
-    ""
+    ''
   );
 }
