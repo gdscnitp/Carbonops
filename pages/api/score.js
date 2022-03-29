@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     }
 
     const individual = await Indiv.find({ email :  scoreData.mail });
-    const prevScore = await scoresc.findOneAndUpdate({email:scoreData.mail },{ result :result });
+    const prevScore = await scoresc.findOneAndUpdate({email:scoreData.mail },{ result  });
     console.log(prevScore,"prevScore")
     // const doc = await scoresc.findOneAndUpdate({result : result })
 
