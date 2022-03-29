@@ -12,8 +12,8 @@ export default function organisationProfile({org,pro}){
            {/* <Navbar action1="" action2="Home" buttonText1="DashBoard" buttonText2="Create Events"/> */}
            <Navbar  
             action2={navLinks[0].name}
-            action1={navLinks[3].name}
-            href1={navLinks[3].link}
+            action1=""
+            href1=""
             // buttonText3={navLinks[0].name}
             // href5={navLinks[0].link} 
             buttonText2={navLinks[2].name}

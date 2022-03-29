@@ -46,8 +46,8 @@ const organisationDash = (props) => {
     return (
         <>
         <Navbar 
-        action2={navLinks[0].name} 
-        href2="/"
+        action2="" 
+        href2=""
         action1={navLinks[1].name}
         href1="/events"
         buttonText3={navLinks[2].name}
