@@ -38,7 +38,7 @@ export default async function handler(req, res) {
                     score += 2;
                 }
             }
-
+            // console.log(score)
             if (houseSize) {
                 if (houseSize === "large") {
                     score += 10
@@ -50,7 +50,7 @@ export default async function handler(req, res) {
                     score += 2;
                 }
             }
-
+            // console.log(score)
             //************************** for food ****************
             if (meat) {
                 if (meat === "daily") {
@@ -67,7 +67,7 @@ export default async function handler(req, res) {
                 }
             }
 
-
+            // console.log(score)
             //*********************************** for packaged food**************************
             if (packagedFood) {
                 if (packagedFood === "frequently") {
@@ -80,7 +80,7 @@ export default async function handler(req, res) {
                     score += 2;
                 }
             }
-
+            // console.log(score)
 
             //***********************//for water Consumption***********************
             if (dishWasher) {
@@ -95,7 +95,7 @@ export default async function handler(req, res) {
                 }
                 //also add a no dishwasher and no washing machine option
             }
-
+            // console.log(score)
             //***********************  //for washing machine*************************
             if (washingMachine) {
                 if (washingMachine === "1 to 3 times") {
@@ -108,7 +108,7 @@ export default async function handler(req, res) {
                     score += 3;
                 }
             }
-
+            // console.log(score)
 
             //******************************//for household purchases.************************
             if (householdPurchases) {
@@ -129,7 +129,7 @@ export default async function handler(req, res) {
                     score +=2;
                 }
             }
-
+            // console.log(score)
             //  ******************************for garbage cans filled ************************
             if (garbageCans) {
                 if (garbageCans >= 4) {
@@ -144,10 +144,11 @@ export default async function handler(req, res) {
                 else if (garbageCans === 1) {
                     score += 20;
                 }
-                else if (garbageCans < 1) {
+                else if (garbageCans ===0) {
                     score += 5;
                 }
             }
+            // console.log(score)
             /****************///for recycling items ***************
             if (recycles === false) {
                 score += 24;
@@ -158,7 +159,7 @@ export default async function handler(req, res) {
                 //such as glass, plastic, paper, aluminium ,steel, food waste
                 score -= 4 * recycledLen;
             }
-
+            // console.log(score)
             //********************** for transportation scores **********************/
             if (personalTransport) {
                 if (personalTransport > 15000) {
@@ -175,7 +176,7 @@ export default async function handler(req, res) {
                 }
                 //if you dont have a personal vehicle, add nothing
             }
-
+            // console.log(score)
             if (publicTransport) {
                 if (publicTransport > 20000) {
                     score += 12;
@@ -193,7 +194,7 @@ export default async function handler(req, res) {
                     score += 2;
                 }
             }
-
+            // console.log(score)
             if (flight) {
                 if (flight === "within state") {
                     score += 2;
