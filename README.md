@@ -58,7 +58,10 @@ All
 ## Setting up the project:
 
 After cloning the project:
+
 Set up the .env file with the help of .env.example file.
+
+Allow access to less secure apps on the Mail ID you add in the .env file from here: [Nodemailer](https://nodemailer.com/usage/using-gmail/)
 Install the packages:
 ```bash
   npm install
