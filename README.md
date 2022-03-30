@@ -58,7 +58,7 @@ All
 ## Setting up the project:
 
 After cloning the project:
-
+Set up the .env file with the help of .env.example file.
 Install the packages:
 ```bash
   npm install
