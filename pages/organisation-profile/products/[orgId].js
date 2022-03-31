@@ -12,8 +12,8 @@ export default function product({product,OrgId}){
              <Navbar  
             action2={navLinks[0].name}
             
-            action1={navLinks[3].name}
-            href1={navLinks[3].link}
+            action1=""
+            href1=""
             buttonText3={navLinks[0].name}
             href5={`/organisation-profile/${OrgId}`}
             buttonText2=""

@@ -3,6 +3,7 @@ import Navbar from '../src/components/navbar/Navbar';
 import { navLinks } from '../src/components/utils/data';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Router from 'next/router';
 
   const customId = "custom-id-yes";
 
@@ -24,9 +25,14 @@ export default function Events() {
         'Content-Type': 'application/json',
       },
     });
+    
     const data = await response.json();
     console.log(data);
     notify(data.message, 'error');
+    if(response.ok)
+    {
+         Router.push(`/events`);
+    }
   }
 
   return (

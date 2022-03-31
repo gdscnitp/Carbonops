@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./CreateEvents.module.css";
 import { useRouter } from "next/dist/client/router";
+import Router from 'next/router'
 
 export default function CreateEvents(props) {
   const router = useRouter();
