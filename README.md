@@ -1,7 +1,7 @@
 
 # Environmental Awareness Project
 
-A 💻 web application for creating🌲environmental awareness among 🤝‍🧑 people.
+ <font size=1> A 💻 web application for creating🌲environmental awareness among 🤝‍🧑 people. </font>
 
 
 ## Problems Addressed:
@@ -61,10 +61,7 @@ All
 5. `Allow access to less secure apps on the Mail ID`
    - You need to add in the .env file from here: [Nodemailer](https://nodemailer.com/usage/using-gmail/)
 
-6. Start the server:
-```bash
-  npm run dev
-```
+6. Start the server: `npm run dev`
 
 7. Open http://localhost:3000 with your browser to see the app up and running 🎉🥳🎊.
 
