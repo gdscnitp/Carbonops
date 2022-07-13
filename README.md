@@ -1,8 +1,7 @@
 
 # Environmental Awareness Project
 
-A web application for creating environmental awareness among people.
-
+A 💻 web application for creating🌲environmental awareness among 🤝‍🧑 people.
 
 
 ## Problems Addressed:
@@ -49,21 +48,25 @@ All
 
 ## Setting up the project:
 
-1.`git clone https://github.com/gdscnitp/Environmental-Awareness-App.git` 
-2.`cd ./Environmental-Awareness-App`
+1. `git clone https://github.com/gdscnitp/Environmental-Awareness-App.git` 
+
+2. `cd ./Environmental-Awareness-App`
+
 3. Install node dependencies 
    - `npm install`
+   
 4. Set up a `.env` file 
    - Add relevant credentials in the .env file with the help of .env.example file.
 
 5. `Allow access to less secure apps on the Mail ID`
    - You need to add in the .env file from here: [Nodemailer](https://nodemailer.com/usage/using-gmail/)
 
-Start the server:
+6. Start the server:
 ```bash
   npm run dev
 ```
-Open http://localhost:3000 with your browser to see the app running.
+
+7. Open http://localhost:3000 with your browser to see the app up and running 🎉🥳🎊.
 
 
 ## Documentation:
