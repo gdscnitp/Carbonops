@@ -2,6 +2,17 @@
 # Environmental Awareness Project
 
  <font size=1> A 💻 web application for creating🌲environmental awareness among 🤝‍🧑 people. </font>
+ 
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gdscnitp/Environmental-Awareness-App?logo=github&style=for-the-badge)](https://github.com/SrijanShovit/) 
+[![GitHub last commit](https://img.shields.io/github/last-commit/gdscnitp/Environmental-Awareness-App?style=for-the-badge&logo=git)](https://github.com/SrijanShovit/) 
+[![GitHub stars](https://img.shields.io/github/stars/gdscnitp/Environmental-Awareness-App?style=for-the-badge)](https://github.com/gdscnitp/Environmental-Awareness-App/stargazers) 
+[![My stars](https://img.shields.io/github/stars/SrijanShovit?affiliations=OWNER%2CCOLLABORATOR&style=for-the-badge&label=My%20stars)](https://github.com/gdscnitp/Environmental-Awareness-App/stargazers) 
+[![GitHub forks](https://img.shields.io/github/forks/gdscnitp/Environmental-Awareness-App?style=for-the-badge&logo=git)](https://github.com/gdscnitp/Environmental-Awareness-App/network)
+[![Code size](https://img.shields.io/github/languages/code-size/gdscnitp/Environmental-Awareness-App?style=for-the-badge)](https://github.com/gdscnitp/Environmental-Awareness-App)
+[![Languages](https://img.shields.io/github/languages/count/gdscnitp/Environmental-Awareness-App?style=for-the-badge)](https://github.com/gdscnitp/Environmental-Awareness-App)
+[![Top](https://img.shields.io/github/languages/top/gdscnitp/Environmental-Awareness-App?style=for-the-badge&label=Top%20Languages)](https://github.com/gdscnitp/Environmental-Awareness-App)
+[![Issues](https://img.shields.io/github/issues/gdscnitp/Environmental-Awareness-App?style=for-the-badge&label=Issues)](https://github.com/gdscnitp/Environmental-Awareness-App)
+[![Watchers](	https://img.shields.io/github/watchers/gdscnitp/Environmental-Awareness-App?label=Watch&style=for-the-badge)](https://github.com/gdscnitp/Environmental-Awareness-App/) 
 
 
 ## Problems Addressed:
