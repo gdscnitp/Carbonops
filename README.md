@@ -1,8 +1,17 @@
 
 # Environmental Awareness Project
 
-A web application for creating environmental awareness among people.
-
+ <font size=1> A 💻 web application for creating🌲environmental awareness among 🤝‍🧑 people. </font>
+ 
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gdscnitp/Environmental-Awareness-App?logo=github&style=for-the-badge)](https://github.com/SrijanShovit/) 
+[![GitHub last commit](https://img.shields.io/github/last-commit/gdscnitp/Environmental-Awareness-App?style=for-the-badge&logo=git)](https://github.com/SrijanShovit/) 
+[![GitHub stars](https://img.shields.io/github/stars/gdscnitp/Environmental-Awareness-App?style=for-the-badge)](https://github.com/gdscnitp/Environmental-Awareness-App/stargazers) 
+[![My stars](https://img.shields.io/github/stars/SrijanShovit?affiliations=OWNER%2CCOLLABORATOR&style=for-the-badge&label=My%20stars)](https://github.com/gdscnitp/Environmental-Awareness-App/stargazers) 
+[![GitHub forks](https://img.shields.io/github/forks/gdscnitp/Environmental-Awareness-App?style=for-the-badge&logo=git)](https://github.com/gdscnitp/Environmental-Awareness-App/network)
+[![Languages](https://img.shields.io/github/languages/count/gdscnitp/Environmental-Awareness-App?style=for-the-badge)](https://github.com/gdscnitp/Environmental-Awareness-App)
+[![Top](https://img.shields.io/github/languages/top/gdscnitp/Environmental-Awareness-App?style=for-the-badge&label=Top%20Languages)](https://github.com/gdscnitp/Environmental-Awareness-App)
+[![Issues](https://img.shields.io/github/issues/gdscnitp/Environmental-Awareness-App?style=for-the-badge&label=Issues)](https://github.com/gdscnitp/Environmental-Awareness-App)
+[![Watchers](	https://img.shields.io/github/watchers/gdscnitp/Environmental-Awareness-App?label=Watch&style=for-the-badge)](https://github.com/gdscnitp/Environmental-Awareness-App/) 
 
 
 ## Problems Addressed:
@@ -42,35 +51,29 @@ All
 - Requires the will and efforts of the users.
 
 
-
-
-
-## Tech Stack:
-
-**Client && Server**: Next.JS
-
-**Database**: MongoDB
-
-**Future needs**: Cloud to deploy the website.
+## Languages and Tools:
+<p align="left"> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://nextjs.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> </p>
 
 
 
 ## Setting up the project:
 
-After cloning the project:
+1. `git clone https://github.com/gdscnitp/Environmental-Awareness-App.git` 
 
-Set up the .env file with the help of .env.example file.
+2. `cd ./Environmental-Awareness-App`
 
-Allow access to less secure apps on the Mail ID you add in the .env file from here: [Nodemailer](https://nodemailer.com/usage/using-gmail/)
-Install the packages:
-```bash
-  npm install
-```
-Start the server:
-```bash
-  npm run dev
-```
-Open http://localhost:3000 with your browser to see the app running.
+3. Install node dependencies 
+   - `npm install`
+   
+4. Set up a `.env` file 
+   - Add relevant credentials in the .env file with the help of .env.example file.
+
+5. `Allow access to less secure apps on the Mail ID`
+   - You need to add in the .env file from here: [Nodemailer](https://nodemailer.com/usage/using-gmail/)
+
+6. Start the server: `npm run dev`
+
+7. Open http://localhost:3000 with your browser to see the app up and running 🎉🥳🎊.
 
 
 ## Documentation:
