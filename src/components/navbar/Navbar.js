@@ -7,6 +7,16 @@ import { useSession } from 'next-auth/react';
 
 export default function Navbar(props) {
   const [detailPopup, setDetailPopup] = useState(false);
+  if (process.browser) {
+    //above check added bcoz doc is of client but error occured on server side
+    console.log(document.body.style.overflow);
+    if (detailPopup) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
+  }
+
   var link = '/';
   const { data: session } = useSession();
   if (session) {
