@@ -43,6 +43,13 @@ The site will have two portals:
 - People will get to know about various incentives that are being taken up by those companies and this will advertise environmentally sustainable products and will bring off the objective of the app.
 - Will introduce a sense of support and appreciation to those working to reduce the impact of human usage on the environment.
 
+
+Wanna know how the flow of all records is being planned in the app?🤔
+Do have a look below
+## Database ER diagram:
+<img src="https://github.com/gdscnitp/Environmental-Awareness-App/blob/main/Env-awareness.drawio.png" alt="ER" width="1100" height="700"/>
+
+
 ## Target audiance: 
 All
 
