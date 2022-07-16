@@ -14,7 +14,7 @@ export default function Footer() {
        src={Carbonops}
                   alt="Social icons"
                   height={60}
-                  width={210}
+                  width={280}
       />
        </Link>
         </div>
