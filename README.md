@@ -83,6 +83,9 @@ All
 7. Open http://localhost:3000 with your browser to see the app up and running 🎉🥳🎊.
 
 
+Having issues in understanding the codebase?
+ 
+Then head over to documentation, give yourself some time and please comeback to contribute.
 ## Documentation:
 
 [Next.js](https://nextjs.org/docs)
@@ -90,5 +93,10 @@ All
 [NextAuth.js](https://next-auth.js.org/getting-started/introduction)
 
 [Next.js Github repository](https://github.com/vercel/next.js/)
+ 
+
+<h4>If you 💓 this, do smash the ⭐ button!!</h4>
+
+Thanks for visiting!!
 
 
