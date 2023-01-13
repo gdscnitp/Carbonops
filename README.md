@@ -1,5 +1,5 @@
 
-# Environmental Awareness Project
+# Carbonops : Environmental Awareness Project
 
  <font size=1> A 💻 web application for creating🌲environmental awareness among 🤝‍🧑 people. </font>
  
