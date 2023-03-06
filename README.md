@@ -1,5 +1,5 @@
 
-# Environmental Awareness Project
+# Carbonops : Environmental Awareness Project
 
  <font size=1> A 💻 web application for creating🌲environmental awareness among 🤝‍🧑 people. </font>
  
@@ -93,6 +93,14 @@ Then head over to documentation, give yourself some time and please comeback to 
 [NextAuth.js](https://next-auth.js.org/getting-started/introduction)
 
 [Next.js Github repository](https://github.com/vercel/next.js/)
+
+## Our budding contributors:
+
+<a href="https://github.com/gdscnitp/Environmental-Awareness-App/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=gdscnitp/Environmental-Awareness-App" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
  
 
 <h4>If you 💓 this, do smash the ⭐ button!!</h4>
