@@ -14,7 +14,7 @@
     "mongoose": "^6.4.6",
     "multiselect-react-dropdown": "^2.0.21",
     "next": "^12.1.0",
-    "next-auth": "^4.10.3",
+    "next-auth": "^4.20.1",
     "node-fetch": ">=2.6.7",
     "nodemailer": "^6.7.2",
     "react": "17.0.2",
