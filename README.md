@@ -3,8 +3,8 @@
 
  <font size=1> A 💻 web application for creating🌲environmental awareness among 🤝‍🧑 people. </font>
  
-[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gdscnitp/Environmental-Awareness-App?logo=github&style=for-the-badge)](https://github.com/SrijanShovit/) 
-[![GitHub last commit](https://img.shields.io/github/last-commit/gdscnitp/Environmental-Awareness-App?style=for-the-badge&logo=git)](https://github.com/SrijanShovit/) 
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gdscnitp/Environmental-Awareness-App?logo=github&style=for-the-badge)](https://github.com/gdscnitp/) 
+[![GitHub last commit](https://img.shields.io/github/last-commit/gdscnitp/Environmental-Awareness-App?style=for-the-badge&logo=git)](https://github.com/gdscnitp/) 
 [![GitHub stars](https://img.shields.io/github/stars/gdscnitp/Environmental-Awareness-App?style=for-the-badge)](https://github.com/gdscnitp/Environmental-Awareness-App/stargazers) 
 [![My stars](https://img.shields.io/github/stars/SrijanShovit?affiliations=OWNER%2CCOLLABORATOR&style=for-the-badge&label=My%20stars)](https://github.com/gdscnitp/Environmental-Awareness-App/stargazers) 
 [![GitHub forks](https://img.shields.io/github/forks/gdscnitp/Environmental-Awareness-App?style=for-the-badge&logo=git)](https://github.com/gdscnitp/Environmental-Awareness-App/network)
